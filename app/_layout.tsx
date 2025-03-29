@@ -2,7 +2,7 @@ import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
-import 'react-native-reanimated';
+// import 'react-native-reanimated';
 import { router, useRootNavigationState } from 'expo-router';
 import {
   OpenSans_300Light,
@@ -13,6 +13,8 @@ import {
 } from '@expo-google-fonts/open-sans';
 import GeneralStack from './stack';
 import ThemeProvider from '@/shared/providers/ThemeProvider';
+import Grid from '@/shared/ui/grid/Grid';
+import Typography from '@/shared/ui/typography/Typography';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 void SplashScreen.preventAutoHideAsync();
@@ -55,7 +57,7 @@ export default function RootLayout() {
   return (
     <ThemeProvider>
       <GeneralStack />
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
     </ThemeProvider>
   );
 }

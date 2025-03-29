@@ -18,7 +18,6 @@ type TypographyVariants =
   | 'caption-2';
 
 export type TypographyWeight = 'regular' | 'bold' | 'medium';
-
 export type TColor = 'primary' | 'secondary' | 'disabled' | 'white' | 'error' | 'success';
 export type TTextAlign = 'auto' | 'left' | 'right' | 'center' | 'justify';
 export interface TypographyProps extends TextProps {

@@ -1,14 +1,13 @@
 import Button from '@/shared/ui/buttons/Button';
 import Grid from '@/shared/ui/grid/Grid';
-import * as Google from 'expo-auth-session/providers/google';
 import { Image } from 'expo-image';
 
 export default function GoogleOauth() {
-  const [request, response, promptAsync] = Google.useAuthRequest({
-    clientId: 'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com',
-    iosClientId: 'YOUR_IOS_CLIENT_ID.apps.googleusercontent.com',
-    androidClientId: 'YOUR_ANDROID_CLIENT_ID.apps.googleusercontent.com',
-  });
+  // const [request, response, promptAsync] = Google.useAuthRequest({
+  //   clientId: 'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com',
+  //   iosClientId: 'YOUR_IOS_CLIENT_ID.apps.googleusercontent.com',
+  //   androidClientId: 'YOUR_ANDROID_CLIENT_ID.apps.googleusercontent.com',
+  // });
 
   return (
     <Button
@@ -22,7 +21,7 @@ export default function GoogleOauth() {
           />
         </Grid>
       }
-      onPress={() => void promptAsync()}
+      // onPress={() => void promptAsync()}
     >
       Войти через гугл
     </Button>

@@ -1,4 +1,4 @@
-import { WelcomeScreen, ChoiceStyleScreen, RegistrationScreen } from '@/module/OnboardingScreens';
+import { ChoiceStyleScreen, WelcomeScreen } from '@/module/OnboardingScreens';
 import PageWrapper from '@/shared/ui/layout/PageWrapper';
 import { useRouter } from 'expo-router';
 import { useRef, useState } from 'react';
@@ -30,7 +30,7 @@ export default function OnboardingPage() {
       >
         <WelcomeScreen key="1" onPressButton={goNextPage} />
         <ChoiceStyleScreen key="2" onPressButton={redirectToTabs} />
-        <RegistrationScreen key="3" />
+        {/* <RegistrationScreen key="3" /> */}
       </PagerView>
     </PageWrapper>
   );
