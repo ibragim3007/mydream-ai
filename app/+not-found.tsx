@@ -1,20 +1,20 @@
+import Grid from '@/shared/ui/grid/Grid';
+import PageWrapper from '@/shared/ui/layout/PageWrapper';
+import Typography from '@/shared/ui/typography/Typography';
 import { Link, Stack } from 'expo-router';
 import { StyleSheet } from 'react-native';
 
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-
 export default function NotFoundScreen() {
   return (
-    <>
+    <PageWrapper flex={1}>
       <Stack.Screen options={{ title: 'Oops!' }} />
-      <ThemedView style={styles.container}>
-        <ThemedText type="title">This screen doesn't exist.</ThemedText>
-        <Link href="/" style={styles.link}>
-          <ThemedText type="link">Go to home screen!</ThemedText>
+      <Grid style={styles.container}>
+        <Typography variant="title-3">This screen doesn&apos;t exist.</Typography>
+        <Link href="/(tabs)" style={styles.link}>
+          <Typography color="secondary">Go to home screen!</Typography>
         </Link>
-      </ThemedView>
-    </>
+      </Grid>
+    </PageWrapper>
   );
 }
 
