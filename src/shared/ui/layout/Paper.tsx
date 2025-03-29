@@ -1,3 +1,4 @@
+import { withPressable } from '@/shared/hoc/withPressable';
 import { useTheme } from '../../hooks/useTheme';
 import Grid, { GridProps } from '../grid/Grid';
 
@@ -12,10 +13,12 @@ export default function Paper({ ...props }: PaperProps) {
         {
           padding: 16,
           borderRadius: 15,
-          backgroundColor: colors.background.secondary,
+          backgroundColor: colors.background.neutral,
         },
         props.style,
       ]}
     />
   );
 }
+
+export const PaperPressable = withPressable(Paper);

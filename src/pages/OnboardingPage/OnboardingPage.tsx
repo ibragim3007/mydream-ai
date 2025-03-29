@@ -1,4 +1,5 @@
-import { ChoiceStyleScreen, WelcomeScreen } from '@/module/OnboardingScreens';
+import { EnterNameScreen, WelcomeScreen } from '@/module/OnboardingScreens';
+import ZodiacSignScreen from '@/module/OnboardingScreens/ZodiacSign/ZodiacSignScreen';
 import PageWrapper from '@/shared/ui/layout/PageWrapper';
 import { useRouter } from 'expo-router';
 import { useRef, useState } from 'react';
@@ -29,7 +30,8 @@ export default function OnboardingPage() {
         initialPage={0}
       >
         <WelcomeScreen key="1" onPressButton={goNextPage} />
-        <ChoiceStyleScreen key="2" onPressButton={redirectToTabs} />
+        <EnterNameScreen key="2" onPressButton={goNextPage} />
+        <ZodiacSignScreen key="3" />
         {/* <RegistrationScreen key="3" /> */}
       </PagerView>
     </PageWrapper>

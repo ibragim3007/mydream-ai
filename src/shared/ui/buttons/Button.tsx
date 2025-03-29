@@ -112,7 +112,7 @@ const Button: React.FC<ButtonProps> = ({
   };
 
   const styleText: TextProps['style'] = {
-    color: colors.text.white,
+    color: props.disabled ? colors.text.white : colors.text.primary,
     fontFamily: fontWeight.bold,
     textAlign: 'center',
     fontSize: normalizedSize(size === 'large' ? 16 : 13),
