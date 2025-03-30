@@ -1303,6 +1303,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@expo-google-fonts/nunito@npm:^0.2.3":
+  version: 0.2.3
+  resolution: "@expo-google-fonts/nunito@npm:0.2.3"
+  checksum: aef3370bf2191a0f74be287655c0bb4d88e6ae56313dec1ee32f0ceacb1262e471ad58abadc2f701feefdaa8995ff719b9815bdd8d73aa95f9626fc1ab7304d1
+  languageName: node
+  linkType: hard
+
 "@expo-google-fonts/open-sans@npm:^0.2.3":
   version: 0.2.3
   resolution: "@expo-google-fonts/open-sans@npm:0.2.3"
@@ -4698,6 +4705,7 @@ __metadata:
     "@eslint/compat": ^1.2.7
     "@eslint/eslintrc": ^3.3.1
     "@eslint/js": ^9.23.0
+    "@expo-google-fonts/nunito": ^0.2.3
     "@expo-google-fonts/open-sans": ^0.2.3
     "@expo/vector-icons": ^14.0.2
     "@react-navigation/bottom-tabs": ^7.2.0

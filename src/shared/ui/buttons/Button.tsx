@@ -76,9 +76,9 @@ const Button: React.FC<ButtonProps> = ({
   const textVariants = useMemo(
     () => ({
       default: {
-        primary: { color: colors.text.white },
-        neutral: { color: colors.text.white },
-        error: { color: colors.text.white },
+        primary: { color: colors.text.primary },
+        neutral: { color: colors.text.primary },
+        error: { color: colors.text.primary },
       },
       outline: {
         primary: { color: colors.accent.primary },
@@ -102,9 +102,9 @@ const Button: React.FC<ButtonProps> = ({
   const currentVariant = variantStyles[variant][color];
 
   const styleButton: PressableProps['style'] = {
-    paddingVertical: size === 'large' ? normalizedSize(13) : normalizedSize(8),
+    paddingVertical: size === 'large' ? normalizedSize(20) : normalizedSize(8),
     paddingHorizontal: size === 'large' ? normalizedSize(13) : normalizedSize(12),
-    borderRadius: colors.styles.borderRadius,
+    borderRadius: 50,
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
@@ -115,7 +115,7 @@ const Button: React.FC<ButtonProps> = ({
     color: props.disabled ? colors.text.white : colors.text.primary,
     fontFamily: fontWeight.bold,
     textAlign: 'center',
-    fontSize: normalizedSize(size === 'large' ? 16 : 13),
+    fontSize: normalizedSize(size === 'large' ? 18 : 13),
   };
 
   const onTouchStart = () => {
@@ -131,7 +131,7 @@ const Button: React.FC<ButtonProps> = ({
     currentVariant,
     props.style,
   ]);
-  const textS = StyleSheet.flatten([styleText, textVariant, textStyle]);
+  const textS = StyleSheet.flatten([textVariant, styleText, textStyle]);
 
   return (
     <Pressable {...props} style={buttonS} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
@@ -139,7 +139,7 @@ const Button: React.FC<ButtonProps> = ({
       {loading ? (
         <ActivityIndicator size={'small'} color={styleText.color} />
       ) : (
-        <Text {...styleText} style={textS} numberOfLines={1}>
+        <Text style={textS} numberOfLines={1}>
           {props.children}
         </Text>
       )}

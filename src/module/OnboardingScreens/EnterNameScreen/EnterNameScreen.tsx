@@ -28,7 +28,7 @@ export default function EnterNameScreen({ onPressButton }: EnterNameScreenProps)
   return (
     <SafeWrapper style={{ flex: 1 }}>
       <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-        <Grid height="100%" justfity="space-between">
+        <Grid height="100%" justfity="space-between" paddingVertical={20}>
           <Grid space="lg">
             <Grid space="md">
               <Typography variant="title-0" weight="bold">

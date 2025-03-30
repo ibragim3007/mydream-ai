@@ -17,7 +17,7 @@ type TypographyVariants =
   | 'caption-1'
   | 'caption-2';
 
-export type TypographyWeight = 'regular' | 'bold' | 'medium';
+export type TypographyWeight = 'extra-light' | 'light' | 'regular' | 'bold' | 'medium' | 'extra-bold';
 export type TColor = 'primary' | 'secondary' | 'disabled' | 'white' | 'error' | 'success';
 export type TTextAlign = 'auto' | 'left' | 'right' | 'center' | 'justify';
 export interface TypographyProps extends TextProps {
@@ -75,9 +75,12 @@ export const getColorsStyles = (colors: ITheme): Record<TColor, TextProps['style
 });
 
 export const fontWeight = {
-  regular: 'OpenSans_400Regular',
-  medium: 'OpenSans_500Medium',
-  bold: 'OpenSans_700Bold',
+  ['extra-light']: 'Nunito_200ExtraLight',
+  light: 'Nunito_300Light',
+  regular: 'Nunito_400Regular',
+  medium: 'Nunito_500Medium',
+  bold: 'Nunito_700Bold',
+  ['extra-bold']: 'Nunito_800ExtraBold',
 };
 
 export const fontsWeights: Record<TypographyWeight, TextProps['style']> = {
@@ -89,5 +92,14 @@ export const fontsWeights: Record<TypographyWeight, TextProps['style']> = {
   },
   medium: {
     fontFamily: fontWeight.medium,
+  },
+  'extra-light': {
+    fontFamily: fontWeight['extra-light'],
+  },
+  light: {
+    fontFamily: fontWeight.light,
+  },
+  'extra-bold': {
+    fontFamily: fontWeight['extra-bold'],
   },
 };

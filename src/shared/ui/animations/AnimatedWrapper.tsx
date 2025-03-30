@@ -1,4 +1,3 @@
-import { ANIMATION_SPEED } from '@/shared/config/constants/constants';
 import React from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
 import Animated, { AnimatedStyle, LinearTransition } from 'react-native-reanimated';
@@ -11,7 +10,7 @@ export interface AnimatedWrapperProps {
 
 const AnimatedWrapper: React.FC<AnimatedWrapperProps> = ({ children, duration, style }) => {
   return (
-    <Animated.View style={[{}, style]} layout={LinearTransition.duration(ANIMATION_SPEED)}>
+    <Animated.View style={[{}, style]} layout={LinearTransition.springify().mass(0.5).stiffness(80)}>
       {children}
     </Animated.View>
   );

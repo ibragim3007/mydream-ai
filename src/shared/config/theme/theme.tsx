@@ -63,7 +63,7 @@ export const themes: ITheme[] = [
       red: '#FF1744',
     },
     styles: {
-      borderRadius: 12,
+      borderRadius: 24,
     },
   },
   {
@@ -82,21 +82,21 @@ export const themes: ITheme[] = [
       success: '#4CAF5033',
       alert: '#FFC10733',
       negative: '#FF3D5733',
-      disabled: '#4C566A33',
+      disabled: '#33394633',
       active: '#2E3440',
     },
     accent: {
-      primary: '#8892E6',
+      primary: '#5A67C6',
       primary_dark: '#5A67C6',
       primary_pale_transparent: '#8892E61A',
       primary_pale: '#4C566A',
-      disabled: '#78879B',
+      disabled: '#3f4751',
       alert: '#FFA726',
       negative: '#E57373',
       red: '#FF1744',
     },
     styles: {
-      borderRadius: 12,
+      borderRadius: 24,
     },
   },
 ];
