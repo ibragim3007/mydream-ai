@@ -53,8 +53,8 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider>
-      <GeneralStack />
       <StatusBar style="light" />
+      <GeneralStack />
     </ThemeProvider>
   );
 }

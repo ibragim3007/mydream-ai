@@ -18,7 +18,7 @@ const SafeWrapper: React.FC<SafeWrapperProps> = ({ children, style }) => {
     <View
       style={[
         {
-          backgroundColor: colors.background.primary,
+          // backgroundColor: colors.background.primary,
           paddingTop: normalizedSize(insets.top || 20),
           paddingBottom: normalizedSize(insets.bottom || 20),
           paddingHorizontal: normalizedSize(HORIZONTAL_PADDINGS),

@@ -27,25 +27,27 @@ export default function EnterNameScreen({ onPressButton }: EnterNameScreenProps)
 
   return (
     <SafeWrapper style={{ flex: 1 }}>
-      <Grid flex={1} height="100%">
-        <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-          <AnimatedWrapper>
-            <Grid marginBottom={170} space="lg">
-              <Grid space="md">
-                <Typography variant="title-0" weight="bold">
-                  Your name
-                </Typography>
-                <Input placeholder="Your name" onChangeText={onChangeName} />
-              </Grid>
-              <Grid width="100%">
-                <Button disabled={isDisabled} onPress={onPressButtonFunc}>
-                  Continue
-                </Button>
-              </Grid>
+      <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+        <Grid height="100%" justfity="space-between">
+          <Grid space="lg">
+            <Grid space="md">
+              <Typography variant="title-0" weight="bold">
+                What&apos;s your name?
+              </Typography>
+              <Typography color="disabled">Enter your name to personalize your experience</Typography>
             </Grid>
+          </Grid>
+          <AnimatedWrapper>
+            <Input placeholder="Your name" onChangeText={onChangeName} />
           </AnimatedWrapper>
-        </KeyboardAvoidingView>
-      </Grid>
+
+          <AnimatedWrapper style={{ marginBottom: 16 }}>
+            <Button disabled={isDisabled} onPress={onPressButtonFunc}>
+              Continue
+            </Button>
+          </AnimatedWrapper>
+        </Grid>
+      </KeyboardAvoidingView>
     </SafeWrapper>
   );
 }
