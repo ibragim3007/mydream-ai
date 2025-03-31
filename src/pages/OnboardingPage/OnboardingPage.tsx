@@ -1,3 +1,6 @@
+import { IZodiacItem } from '@/entities /userTags/types/types';
+import { useUserTags } from '@/entities /userTags/userTags.repository';
+import ZodiacSignPicker from '@/module/Fields/ZodiacSignPicker/ZodiacSignPicker';
 import { EnterNameScreen, WelcomeScreen } from '@/module/OnboardingScreens';
 import ZodiacSignScreen from '@/module/OnboardingScreens/ZodiacSign/ZodiacSignScreen';
 import { useVibration } from '@/shared/hooks/useVibration';
@@ -22,6 +25,12 @@ export default function OnboardingPage() {
     router.push('/(tabs)');
   };
 
+  const { updateZodiacSign, zodiacSign } = useUserTags();
+
+  const onChooseZodiacSign = (sign: IZodiacItem) => {
+    updateZodiacSign(sign);
+  };
+
   return (
     <PageWrapper>
       <PagerView
@@ -34,8 +43,10 @@ export default function OnboardingPage() {
       >
         <WelcomeScreen key="1" onPressButton={goNextPage} />
         <EnterNameScreen key="2" onPressButton={goNextPage} />
-        <ZodiacSignScreen key="3" />
-        {/* <RegistrationScreen key="3" /> */}
+        <ZodiacSignScreen
+          key="3"
+          zodiacSignComponent={<ZodiacSignPicker onChange={onChooseZodiacSign} value={zodiacSign} />}
+        />
       </PagerView>
     </PageWrapper>
   );

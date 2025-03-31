@@ -1,8 +1,8 @@
+import { zodiacSignsMock } from '@/entities /userTags/mock/zodiacSignsMock';
 import Grid from '@/shared/ui/grid/Grid';
-import { FlatList } from 'react-native';
 import { IZodiacItem } from '../../../entities /userTags/types/types';
 import ZodiacItem from './ZodiacItem';
-import { zodiacSignsMock } from '@/entities /userTags/mock/zodiacSignsMock';
+import { useVibration } from '@/shared/hooks/useVibration';
 
 interface ZodiacSignPickerProps {
   value?: IZodiacItem;
@@ -10,20 +10,17 @@ interface ZodiacSignPickerProps {
 }
 
 export default function ZodiacSignPicker({ onChange, value }: ZodiacSignPickerProps) {
+  const { vibrateSelection } = useVibration();
   const onChahgeZodiacSign = (sign: IZodiacItem) => {
     onChange(sign);
+    vibrateSelection();
   };
 
   return (
-    <Grid>
-      <FlatList
-        data={zodiacSignsMock}
-        numColumns={2}
-        ItemSeparatorComponent={() => <Grid height={8} />}
-        renderItem={({ item }) => (
-          <ZodiacItem onChange={onChahgeZodiacSign} isPicked={item.id === value?.id} zodiacItem={item} />
-        )}
-      />
+    <Grid space="sm" row wrap align="center" justfity="center">
+      {zodiacSignsMock.map(item => (
+        <ZodiacItem key={item.id} onChange={onChahgeZodiacSign} isPicked={item.id === value?.id} zodiacItem={item} />
+      ))}
     </Grid>
   );
 }

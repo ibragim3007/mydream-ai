@@ -1,20 +1,31 @@
-import { IZodiacItem } from '@/entities /userTags/types/types';
 import { useUserTags } from '@/entities /userTags/userTags.repository';
-import ZodiacSignPicker from '@/module/Fields/ZodiacSignPicker/ZodiacSignPicker';
+import Button from '@/shared/ui/buttons/Button';
+import Grid from '@/shared/ui/grid/Grid';
 import SafeWrapper from '@/shared/ui/layout/SafeWrapper';
 import Typography from '@/shared/ui/typography/Typography';
 
-export default function ZodiacSignScreen() {
-  const { updateZodiacSign, zodiacSign } = useUserTags();
+interface ZodiacSignScreenProps {
+  zodiacSignComponent: React.ReactNode;
+}
 
-  const onChooseZodiacSign = (sign: IZodiacItem) => {
-    updateZodiacSign(sign);
-  };
-
+export default function ZodiacSignScreen({ zodiacSignComponent }: ZodiacSignScreenProps) {
+  const { zodiacSign } = useUserTags();
+  const isDisabled = !zodiacSign;
   return (
     <SafeWrapper>
-      <Typography>ZOdiac sign</Typography>
-      <ZodiacSignPicker onChange={onChooseZodiacSign} value={zodiacSign} />
+      <Grid paddingVertical={20} height="100%" justfity="space-between">
+        <Grid>
+          <Grid marginRight={50}>
+            <Typography variant="largeTitle" weight="extra-bold">
+              Choose your zodiac sign
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid>{zodiacSignComponent}</Grid>
+        <Grid marginBottom={16}>
+          <Button disabled={isDisabled}>Continue</Button>
+        </Grid>
+      </Grid>
     </SafeWrapper>
   );
 }
