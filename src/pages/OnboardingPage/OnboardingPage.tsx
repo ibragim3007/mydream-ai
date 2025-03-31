@@ -1,7 +1,7 @@
-import { IZodiacItem } from '@/entities /userTags/types/types';
 import { useUserTags } from '@/entities /userTags/userTags.repository';
+import AgePicker from '@/module/Fields/AgePicker/AgePicker';
 import ZodiacSignPicker from '@/module/Fields/ZodiacSignPicker/ZodiacSignPicker';
-import { EnterNameScreen, WelcomeScreen } from '@/module/OnboardingScreens';
+import { AgeScreen, EnterNameScreen, WelcomeScreen } from '@/module/OnboardingScreens';
 import ZodiacSignScreen from '@/module/OnboardingScreens/ZodiacSign/ZodiacSignScreen';
 import { useVibration } from '@/shared/hooks/useVibration';
 import PageWrapper from '@/shared/ui/layout/PageWrapper';
@@ -25,11 +25,7 @@ export default function OnboardingPage() {
     router.push('/(tabs)');
   };
 
-  const { updateZodiacSign, zodiacSign } = useUserTags();
-
-  const onChooseZodiacSign = (sign: IZodiacItem) => {
-    updateZodiacSign(sign);
-  };
+  const { zodiacSign, age, updateZodiacSign, updateAge } = useUserTags();
 
   return (
     <PageWrapper>
@@ -45,8 +41,10 @@ export default function OnboardingPage() {
         <EnterNameScreen key="2" onPressButton={goNextPage} />
         <ZodiacSignScreen
           key="3"
-          zodiacSignComponent={<ZodiacSignPicker onChange={onChooseZodiacSign} value={zodiacSign} />}
+          zodiacSignComponent={<ZodiacSignPicker onChange={updateZodiacSign} value={zodiacSign} />}
+          onPressButton={goNextPage}
         />
+        <AgeScreen key="4" agePickerComponent={<AgePicker onChange={updateAge} value={age} />} />
       </PagerView>
     </PageWrapper>
   );

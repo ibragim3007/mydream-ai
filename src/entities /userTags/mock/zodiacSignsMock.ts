@@ -1,4 +1,4 @@
-import { IZodiacItem } from '../../../../entities /userTags/types/types';
+import { IZodiacItem } from '../types/types';
 
 export const zodiacSignsMock: IZodiacItem[] = [
   {

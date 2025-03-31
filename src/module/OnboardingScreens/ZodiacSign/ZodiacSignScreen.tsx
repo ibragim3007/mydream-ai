@@ -6,9 +6,10 @@ import Typography from '@/shared/ui/typography/Typography';
 
 interface ZodiacSignScreenProps {
   zodiacSignComponent: React.ReactNode;
+  onPressButton: () => void;
 }
 
-export default function ZodiacSignScreen({ zodiacSignComponent }: ZodiacSignScreenProps) {
+export default function ZodiacSignScreen({ zodiacSignComponent, onPressButton }: ZodiacSignScreenProps) {
   const { zodiacSign } = useUserTags();
   const isDisabled = !zodiacSign;
   return (
@@ -23,7 +24,9 @@ export default function ZodiacSignScreen({ zodiacSignComponent }: ZodiacSignScre
         </Grid>
         <Grid>{zodiacSignComponent}</Grid>
         <Grid marginBottom={16}>
-          <Button disabled={isDisabled}>Continue</Button>
+          <Button onPress={onPressButton} disabled={isDisabled}>
+            Continue
+          </Button>
         </Grid>
       </Grid>
     </SafeWrapper>
