@@ -1,4 +1,4 @@
-import { ageMock } from '@/entities /userTags/mock/ageMock';
+import { ageMock } from '@/entities/userTags/mock/ageMock';
 import { AGE } from '@/shared/types/globalTypes';
 import SurfacePicker from '@/shared/ui/elements/SurfacePicker';
 import Grid from '@/shared/ui/grid/Grid';

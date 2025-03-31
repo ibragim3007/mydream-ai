@@ -1,10 +1,10 @@
-import { AGE, GENDER } from '@/shared/types/globalTypes';
+import { AGE } from '@/shared/types/globalTypes';
 import { create } from 'zustand';
-import { IGoalItem, IZodiacItem } from './types/types';
+import { IGenderItem, IGoalItem, IZodiacItem } from './types/types';
 
 interface State {
   name?: string;
-  gender?: GENDER;
+  gender?: IGenderItem;
   zodiacSign?: IZodiacItem;
   age?: AGE;
   goals: IGoalItem[];
@@ -12,9 +12,9 @@ interface State {
 
 interface Actions {
   updateName: (name: string) => void;
-  updateGender: (gender: GENDER) => void;
+  updateGender: (gender?: IGenderItem) => void;
   updateZodiacSign: (zodiacSign: IZodiacItem) => void;
-  updateAge: (age: AGE) => void;
+  updateAge: (age?: AGE) => void;
   updateGoals: (goal: IGoalItem[]) => void;
   reset: () => void;
 }
@@ -45,7 +45,7 @@ export const useUserTags = create<State & Actions>(set => {
       }));
     },
 
-    updateGender: (gender: GENDER) => {
+    updateGender: (gender?: IGenderItem) => {
       set(state => ({
         ...state,
         gender,

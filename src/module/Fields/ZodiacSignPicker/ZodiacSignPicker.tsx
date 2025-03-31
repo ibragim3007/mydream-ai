@@ -1,8 +1,8 @@
-import { zodiacSignsMock } from '@/entities /userTags/mock/zodiacSignsMock';
+import { zodiacSignsMock } from '@/entities/userTags/mock/zodiacSignsMock';
+import { IZodiacItem } from '@/entities/userTags/types/types';
 import { useVibration } from '@/shared/hooks/useVibration';
 import SurfacePicker from '@/shared/ui/elements/SurfacePicker';
 import Grid from '@/shared/ui/grid/Grid';
-import { IZodiacItem } from '../../../entities /userTags/types/types';
 
 interface ZodiacSignPickerProps {
   value?: IZodiacItem;
@@ -19,13 +19,16 @@ export default function ZodiacSignPicker({ onChange, value }: ZodiacSignPickerPr
   return (
     <Grid space="sm" row wrap align="center" justfity="center">
       {zodiacSignsMock.map(item => (
-        <SurfacePicker
-          isPicked={value?.id == item.id}
-          label={item.name}
-          key={item.id}
-          item={item}
-          onChange={item => onChahgeZodiacSign(item)}
-        />
+        <Grid key={item.id} width="31%">
+          <SurfacePicker
+            height={80}
+            justfity="center"
+            isPicked={value?.id == item.id}
+            label={item.name}
+            item={item}
+            onChange={item => onChahgeZodiacSign(item)}
+          />
+        </Grid>
       ))}
     </Grid>
   );

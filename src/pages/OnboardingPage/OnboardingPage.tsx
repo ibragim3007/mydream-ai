@@ -1,10 +1,13 @@
-import { useUserTags } from '@/entities /userTags/userTags.repository';
+import { IGenderItem } from '@/entities/userTags/types/types';
+import { useUserTags } from '@/entities/userTags/userTags.repository';
 import AgePicker from '@/module/Fields/AgePicker/AgePicker';
+import GenderPicker from '@/module/Fields/GenderPicker/GenderPicker';
 import GoalsPicker from '@/module/Fields/GoalsPicker/GoalsPicker';
 import ZodiacSignPicker from '@/module/Fields/ZodiacSignPicker/ZodiacSignPicker';
-import { AgeScreen, EnterNameScreen, GoalsScreen, WelcomeScreen } from '@/module/OnboardingScreens';
+import { AgeScreen, EnterNameScreen, GenderChooseScreen, GoalsScreen, WelcomeScreen } from '@/module/OnboardingScreens';
 import ZodiacSignScreen from '@/module/OnboardingScreens/ZodiacSign/ZodiacSignScreen';
 import { useVibration } from '@/shared/hooks/useVibration';
+import { AGE } from '@/shared/types/globalTypes';
 import PageWrapper from '@/shared/ui/layout/PageWrapper';
 import { useRouter } from 'expo-router';
 import { useRef, useState } from 'react';
@@ -21,12 +24,33 @@ export default function OnboardingPage() {
     vibrate();
   };
 
+  const goPrevPage = () => {
+    pagerViewRef.current?.setPage(currentPage - 1);
+    setCurrentPage(currentPage - 1);
+  };
+
   const router = useRouter();
   const redirectToTabs = () => {
     router.push('/screens/homeScreen');
   };
 
-  const { zodiacSign, age, updateZodiacSign, updateAge, updateGoals, goals } = useUserTags();
+  const { zodiacSign, age, gender, updateGender, updateZodiacSign, updateAge, updateGoals, goals } = useUserTags();
+  const onPressUpdateGender = (gender: IGenderItem) => {
+    updateGender(gender);
+    goNextPage();
+  };
+  const preferNotToSayGender = () => {
+    updateGender(undefined);
+    goNextPage();
+  };
+  const onPressUpdateAge = (age: AGE) => {
+    updateAge(age);
+    goNextPage();
+  };
+  const preferNotToSayAge = () => {
+    updateAge(undefined);
+    goNextPage();
+  };
 
   return (
     <PageWrapper>
@@ -39,21 +63,29 @@ export default function OnboardingPage() {
         initialPage={0}
       >
         <WelcomeScreen key="1" onPressButton={goNextPage} />
-        <EnterNameScreen key="2" onPressButton={goNextPage} />
-        <ZodiacSignScreen
-          key="3"
-          zodiacSignComponent={<ZodiacSignPicker onChange={updateZodiacSign} value={zodiacSign} />}
-          onPressButton={goNextPage}
+        <GenderChooseScreen
+          key="2"
+          genderPickerComponent={<GenderPicker value={gender} onChange={onPressUpdateGender} />}
+          onPressButton={preferNotToSayGender}
         />
+        <EnterNameScreen key="3" onPressButton={goNextPage} goPrevPage={goPrevPage} />
         <AgeScreen
           key="4"
-          agePickerComponent={<AgePicker onChange={updateAge} value={age} />}
+          agePickerComponent={<AgePicker onChange={onPressUpdateAge} value={age} />}
+          onPressButton={preferNotToSayAge}
+          goPrevPage={goPrevPage}
+        />
+        <ZodiacSignScreen
+          key="5"
+          zodiacSignComponent={<ZodiacSignPicker onChange={updateZodiacSign} value={zodiacSign} />}
           onPressButton={goNextPage}
+          goPrevPage={goPrevPage}
         />
         <GoalsScreen
-          key="5"
+          key="6"
           goalsPickerComponent={<GoalsPicker onChange={updateGoals} value={goals} />}
           onPressButton={redirectToTabs}
+          goPrevPage={goPrevPage}
         />
       </PagerView>
     </PageWrapper>

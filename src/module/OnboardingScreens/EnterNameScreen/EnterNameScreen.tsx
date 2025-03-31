@@ -1,6 +1,7 @@
-import { useUserTags } from '@/entities /userTags/userTags.repository';
+import { useUserTags } from '@/entities/userTags/userTags.repository';
 import AnimatedWrapper from '@/shared/ui/animations/AnimatedWrapper';
 import Button from '@/shared/ui/buttons/Button';
+import GoBackButton from '@/shared/ui/buttons/GoBackButton';
 import Input from '@/shared/ui/controller/Input';
 import Grid from '@/shared/ui/grid/Grid';
 import SafeWrapper from '@/shared/ui/layout/SafeWrapper';
@@ -10,9 +11,10 @@ import { KeyboardAvoidingView, Platform } from 'react-native';
 
 interface EnterNameScreenProps {
   onPressButton: () => void;
+  goPrevPage: () => void;
 }
 
-export default function EnterNameScreen({ onPressButton }: EnterNameScreenProps) {
+export default function EnterNameScreen({ onPressButton, goPrevPage }: EnterNameScreenProps) {
   const [nameText, setNameText] = useState('');
   const { updateName } = useUserTags();
   const isDisabled = nameText.length === 0;
@@ -30,6 +32,9 @@ export default function EnterNameScreen({ onPressButton }: EnterNameScreenProps)
       <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
         <Grid height="100%" justfity="space-between" paddingVertical={20}>
           <Grid space="md">
+            <Grid align="flex-start">
+              <GoBackButton onPress={goPrevPage} />
+            </Grid>
             <Typography variant="largeTitle" weight="extra-bold">
               What&apos;s your name?
             </Typography>

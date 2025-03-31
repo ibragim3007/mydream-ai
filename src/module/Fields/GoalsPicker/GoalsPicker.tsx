@@ -1,5 +1,5 @@
-import { goalsMock } from '@/entities /userTags/mock/goalsMock';
-import { IGoalItem } from '@/entities /userTags/types/types';
+import { goalsMock } from '@/entities/userTags/mock/goalsMock';
+import { IGoalItem } from '@/entities/userTags/types/types';
 import SurfacePicker from '@/shared/ui/elements/SurfacePicker';
 import Grid from '@/shared/ui/grid/Grid';
 import Typography from '@/shared/ui/typography/Typography';

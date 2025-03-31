@@ -1,5 +1,6 @@
-import { useUserTags } from '@/entities /userTags/userTags.repository';
+import { useUserTags } from '@/entities/userTags/userTags.repository';
 import Button from '@/shared/ui/buttons/Button';
+import GoBackButton from '@/shared/ui/buttons/GoBackButton';
 import Grid from '@/shared/ui/grid/Grid';
 import SafeWrapper from '@/shared/ui/layout/SafeWrapper';
 import Typography from '@/shared/ui/typography/Typography';
@@ -7,14 +8,18 @@ import Typography from '@/shared/ui/typography/Typography';
 interface AgeScreenProps {
   agePickerComponent: React.ReactNode;
   onPressButton: () => void;
+  goPrevPage: () => void;
 }
 
-export default function AgeScreen({ agePickerComponent, onPressButton }: AgeScreenProps) {
+export default function AgeScreen({ agePickerComponent, onPressButton, goPrevPage }: AgeScreenProps) {
   const { age } = useUserTags();
-  const isDisabled = !age;
+
   return (
     <SafeWrapper>
-      <Grid height="100%" justfity="space-between" paddingVertical={20}>
+      <Grid height="100%" space="md" paddingVertical={20}>
+        <Grid align="flex-start">
+          <GoBackButton onPress={goPrevPage} />
+        </Grid>
         <Grid>
           <Typography variant="largeTitle" weight="bold">
             How old are you?
@@ -24,11 +29,6 @@ export default function AgeScreen({ agePickerComponent, onPressButton }: AgeScre
         <Button onPress={onPressButton} variant="text">
           Don&apos;t share
         </Button>
-        <Grid marginBottom={16}>
-          <Button onPress={onPressButton} disabled={isDisabled}>
-            Continue
-          </Button>
-        </Grid>
       </Grid>
     </SafeWrapper>
   );
