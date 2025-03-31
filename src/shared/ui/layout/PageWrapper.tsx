@@ -1,10 +1,8 @@
+import backgroundImage from '@/assets/background/black_background.png';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useTheme } from '../../hooks/useTheme';
 import Grid, { GridProps } from '../grid/Grid';
-import backgroundImage from '@/assets/background/black_background.png';
 
-import Typography from '../typography/Typography';
-import { Image } from 'react-native';
 import { ImageBackground } from 'expo-image';
 
 type PageWrapper = GridProps;

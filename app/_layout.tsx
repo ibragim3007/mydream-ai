@@ -1,16 +1,3 @@
-import { useFonts } from 'expo-font';
-import * as SplashScreen from 'expo-splash-screen';
-import { StatusBar } from 'expo-status-bar';
-import { useEffect, useState } from 'react';
-import { router, useRootNavigationState } from 'expo-router';
-import {
-  OpenSans_300Light,
-  OpenSans_400Regular,
-  OpenSans_500Medium,
-  OpenSans_700Bold,
-  OpenSans_800ExtraBold,
-} from '@expo-google-fonts/open-sans';
-import GeneralStack from './stack';
 import ThemeProvider from '@/shared/providers/ThemeProvider';
 import {
   Nunito_200ExtraLight,
@@ -30,6 +17,12 @@ import {
   Nunito_900Black,
   Nunito_900Black_Italic,
 } from '@expo-google-fonts/nunito';
+import { useFonts } from 'expo-font';
+import { router, useRootNavigationState } from 'expo-router';
+import * as SplashScreen from 'expo-splash-screen';
+import { StatusBar } from 'expo-status-bar';
+import { useEffect, useState } from 'react';
+import GeneralStack from './stack';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 void SplashScreen.preventAutoHideAsync();
