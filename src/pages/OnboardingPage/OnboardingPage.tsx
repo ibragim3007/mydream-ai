@@ -23,7 +23,7 @@ export default function OnboardingPage() {
 
   const router = useRouter();
   const redirectToTabs = () => {
-    router.push('/(tabs)');
+    router.push('/screens/homeScreen');
   };
 
   const { zodiacSign, age, updateZodiacSign, updateAge, updateGoals, goals } = useUserTags();
@@ -50,7 +50,11 @@ export default function OnboardingPage() {
           agePickerComponent={<AgePicker onChange={updateAge} value={age} />}
           onPressButton={goNextPage}
         />
-        <GoalsScreen key="5" goalsPickerComponent={<GoalsPicker onChange={updateGoals} value={goals} />} />
+        <GoalsScreen
+          key="5"
+          goalsPickerComponent={<GoalsPicker onChange={updateGoals} value={goals} />}
+          onPressButton={redirectToTabs}
+        />
       </PagerView>
     </PageWrapper>
   );

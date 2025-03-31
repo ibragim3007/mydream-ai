@@ -60,7 +60,7 @@ export default function RootLayout() {
       const isUserOnboarded = false;
 
       if (isUserOnboarded) {
-        router.replace('/(tabs)');
+        router.replace('/screens/homeScreen');
       } else {
         router.replace('/screens/onboarding');
       }

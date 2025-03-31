@@ -7,9 +7,10 @@ import Typography from '@/shared/ui/typography/Typography';
 
 interface GoalsScreenProps {
   goalsPickerComponent: React.ReactNode;
+  onPressButton: () => void;
 }
 
-export default function GoalsScreen({ goalsPickerComponent }: GoalsScreenProps) {
+export default function GoalsScreen({ goalsPickerComponent, onPressButton }: GoalsScreenProps) {
   const { goals } = useUserTags();
   const isDisabled = goals.length === 0;
   return (
@@ -22,7 +23,9 @@ export default function GoalsScreen({ goalsPickerComponent }: GoalsScreenProps) 
         </Grid>
         <AnimatedWrapper>{goalsPickerComponent}</AnimatedWrapper>
         <Grid marginBottom={15} space="lg">
-          <Button disabled={isDisabled}>Continue</Button>
+          <Button onPress={onPressButton} disabled={isDisabled}>
+            Continue
+          </Button>
         </Grid>
       </Grid>
     </SafeWrapper>
