@@ -6,23 +6,28 @@ import Typography from '@/shared/ui/typography/Typography';
 
 interface AgeScreenProps {
   agePickerComponent: React.ReactNode;
+  onPressButton: () => void;
 }
 
-export default function AgeScreen({ agePickerComponent }: AgeScreenProps) {
+export default function AgeScreen({ agePickerComponent, onPressButton }: AgeScreenProps) {
   const { age } = useUserTags();
   const isDisabled = !age;
   return (
     <SafeWrapper>
       <Grid height="100%" justfity="space-between" paddingVertical={20}>
-        <Grid paddingVertical={20}>
+        <Grid>
           <Typography variant="largeTitle" weight="bold">
             How old are you?
           </Typography>
         </Grid>
         {agePickerComponent}
-        <Button variant="text">Don&apos;t share</Button>
+        <Button onPress={onPressButton} variant="text">
+          Don&apos;t share
+        </Button>
         <Grid marginBottom={16}>
-          <Button disabled={isDisabled}>Continue</Button>
+          <Button onPress={onPressButton} disabled={isDisabled}>
+            Continue
+          </Button>
         </Grid>
       </Grid>
     </SafeWrapper>
