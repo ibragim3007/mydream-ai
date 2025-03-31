@@ -56,7 +56,7 @@ export default function OnboardingPage() {
     <PageWrapper>
       <PagerView
         ref={pagerViewRef}
-        // scrollEnabled={false}
+        scrollEnabled={false}
         style={{
           flex: 1,
         }}

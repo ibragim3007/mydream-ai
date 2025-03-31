@@ -18,13 +18,15 @@ export default function GoalsScreen({ goalsPickerComponent, onPressButton, goPre
   return (
     <SafeWrapper>
       <Grid paddingVertical={20} justfity="space-between" height="100%">
-        <Grid align="flex-start">
-          <GoBackButton onPress={goPrevPage} />
-        </Grid>
-        <Grid space="sm">
-          <Typography variant="largeTitle" weight="extra-bold">
-            What are your goals?
-          </Typography>
+        <Grid space="md">
+          <Grid align="flex-start">
+            <GoBackButton onPress={goPrevPage} />
+          </Grid>
+          <Grid space="sm">
+            <Typography variant="largeTitle" weight="extra-bold">
+              What are your goals?
+            </Typography>
+          </Grid>
         </Grid>
         <AnimatedWrapper>{goalsPickerComponent}</AnimatedWrapper>
         <Grid marginBottom={15} space="lg">
