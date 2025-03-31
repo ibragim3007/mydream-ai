@@ -16,10 +16,11 @@ export default function SurfacePicker<T>({ isPicked, onChange, item, label, ...p
     <AnimTouchWrapper>
       <PaperPressable
         {...props}
-        style={{
-          backgroundColor: isPicked ? colors.background.active : colors.background.neutral,
-        }}
         onPress={() => onChange(item)}
+        style={{
+          backgroundColor: isPicked ? colors.accent.primary : colors.background.neutral,
+          borderColor: isPicked ? colors.accent.primary : colors.background.neutral,
+        }}
       >
         <Typography textAlign="center" weight="bold">
           {label}

@@ -22,11 +22,6 @@ export default function GoalsScreen({ goalsPickerComponent }: GoalsScreenProps) 
         </Grid>
         <AnimatedWrapper>{goalsPickerComponent}</AnimatedWrapper>
         <Grid marginBottom={15} space="lg">
-          {/* {!isDisabled && (
-            <Typography weight="medium" textAlign="center" variant="headline">
-              {goals.length}/{goalsMock.length}
-            </Typography>
-          )} */}
           <Button disabled={isDisabled}>Continue</Button>
         </Grid>
       </Grid>

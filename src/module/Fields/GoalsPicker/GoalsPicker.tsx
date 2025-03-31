@@ -4,7 +4,7 @@ import SurfacePicker from '@/shared/ui/elements/SurfacePicker';
 import Grid from '@/shared/ui/grid/Grid';
 import Typography from '@/shared/ui/typography/Typography';
 import { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 interface GoalsPickerProps {
   value: IGoalItem[];
@@ -42,7 +42,6 @@ export default function GoalsPicker({ value, onChange }: GoalsPickerProps) {
           </View>
         ))}
       </Grid>
-
       <Typography weight="extra-bold" textAlign="center" variant="headline">
         {value.length}/{goalsMock.length}
       </Typography>
