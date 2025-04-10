@@ -1,1 +1,3 @@
-export const StorageKeys = {};
+export const StorageKeys = {
+  appToken: '@store-appToken',
+};
