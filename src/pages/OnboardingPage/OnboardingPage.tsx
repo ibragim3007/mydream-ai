@@ -30,7 +30,8 @@ export default function OnboardingPage() {
   };
 
   const router = useRouter();
-  const redirectToTabs = () => {
+
+  const redirectToHomeScreen = () => {
     router.push('/screens/homeScreen');
   };
 
@@ -84,7 +85,7 @@ export default function OnboardingPage() {
         <GoalsScreen
           key="6"
           goalsPickerComponent={<GoalsPicker onChange={updateGoals} value={goals} />}
-          onPressButton={redirectToTabs}
+          onPressButton={redirectToHomeScreen}
           goPrevPage={goPrevPage}
         />
       </PagerView>

@@ -22,8 +22,9 @@ import { router, useRootNavigationState } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
-import GeneralStack from './stack';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import GeneralStack from './stack';
+import { getAppToken, isAppToken } from '@/shared/service/appId.service';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 void SplashScreen.preventAutoHideAsync();
@@ -47,27 +48,37 @@ export default function RootLayout() {
     Nunito_800ExtraBold_Italic,
     Nunito_900Black_Italic,
   });
-
   const navigationState = useRootNavigationState();
   const [redirected, setRedirected] = useState(false);
+  // const { token, isHydrated } = useAuth();
 
   useEffect(() => {
-    if (loaded) {
-      void SplashScreen.hideAsync();
-    }
-
-    // Проверяем, что навигация инициализирована и редирект ещё не выполнен
-    if (navigationState?.key && !redirected) {
-      const isUserOnboarded = false;
-
-      if (isUserOnboarded) {
-        router.replace('/screens/homeScreen');
-      } else {
-        router.replace('/screens/onboarding');
+    const initializeApp = async () => {
+      if (loaded) {
+        void SplashScreen.hideAsync();
       }
 
-      setRedirected(true); // Чтобы избежать повторного редиректа
-    }
+      // Проверяем, что навигация инициализирована и редирект ещё не выполнен
+      if (navigationState?.key && !redirected) {
+        try {
+          const appToken = await isAppToken();
+          console.log(appToken);
+          const isUserOnboarded = appToken;
+
+          if (isUserOnboarded) {
+            router.replace('/screens/homeScreen');
+          } else {
+            router.replace('/screens/onboarding');
+          }
+
+          setRedirected(true); // Чтобы избежать повторного редиректа
+        } catch (error) {
+          console.error('Error fetching app token:', error);
+        }
+      }
+    };
+
+    void initializeApp();
   }, [loaded, navigationState?.key, redirected]);
 
   if (!loaded) {

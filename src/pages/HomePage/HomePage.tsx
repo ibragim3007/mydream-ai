@@ -1,4 +1,5 @@
 import { useUserTags } from '@/entities/userTags/userTags.repository';
+import ClearCacheButton from '@/module/ClearCacheButton/ClearCacheButton';
 import PageWrapper from '@/shared/ui/layout/PageWrapper';
 import SafeWrapper from '@/shared/ui/layout/SafeWrapper';
 import Typography from '@/shared/ui/typography/Typography';
@@ -9,6 +10,7 @@ export default function HomePage() {
     <PageWrapper>
       <SafeWrapper>
         <Typography>Hi, {name}</Typography>
+        <ClearCacheButton />
       </SafeWrapper>
     </PageWrapper>
   );

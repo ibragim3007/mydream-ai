@@ -1,5 +1,8 @@
-import { apiService, authService } from '@/shared/api/api';
+import { getAppToken } from '@/shared/service/appId.service';
 import { create } from 'zustand';
+import { InitUserType } from './auth.types';
+import { getDeviceLanguage } from '@/shared/helpers/getDeviceLanguage';
+import { init } from '@/shared/api/entities/auth/api.auth';
 
 interface State {
   token: string | null;
@@ -10,6 +13,8 @@ interface Actions {
   setToken: (token: string | null) => void;
   hydrate: () => Promise<void>;
   logout: () => Promise<void>;
+
+  initUser: (body: InitUserType) => Promise<void>;
 }
 
 export const useAuth = create<State & Actions>(set => {
@@ -17,29 +22,15 @@ export const useAuth = create<State & Actions>(set => {
     token: null,
     isHydrated: false,
 
-    setToken: async (token: string | null) => {
-      if (token) {
-        await authService.setToken(token);
-        apiService.setAuthorizationHeader(token);
-      } else {
-        await authService.removeToken();
-        apiService.deleteAuthorizationHeader();
-      }
+    initUser: async (body: InitUserType) => {
+      const appToken = await getAppToken();
+      const local = getDeviceLanguage();
 
-      set({ token: token });
-    },
-
-    hydrate: async () => {
-      const storedToken = await authService.getToken();
-      if (storedToken) {
-        set({ token: storedToken, isHydrated: true });
-      }
-    },
-
-    logout: async () => {
-      apiService.deleteAuthorizationHeader();
-      await authService.removeToken();
-      set({ token: null, isHydrated: false });
+      await init({
+        appToken: appToken,
+        displayName: body.displayName,
+        local: local,
+      });
     },
   };
 });

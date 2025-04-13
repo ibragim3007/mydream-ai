@@ -1,5 +1,5 @@
-import { IAuthService } from '../api/api';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { IAuthService } from '../api/api';
 import { StorageKeys } from '../config/constants/storageKeys';
 
 export class AuthServiceAsync implements IAuthService {
