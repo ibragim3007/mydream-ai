@@ -1,3 +1,4 @@
+import { useAuth } from '@/entities/auth/auth.repository';
 import { IGenderItem } from '@/entities/userTags/types/types';
 import { useUserTags } from '@/entities/userTags/userTags.repository';
 import AgePicker from '@/module/Fields/AgePicker/AgePicker';
@@ -17,6 +18,7 @@ export default function OnboardingPage() {
   const [currentPage, setCurrentPage] = useState(0);
   const pagerViewRef = useRef<PagerView>(null);
   const { vibrate } = useVibration();
+  const { initUser } = useAuth();
 
   const goNextPage = () => {
     pagerViewRef.current?.setPage(currentPage + 1);
@@ -31,11 +33,17 @@ export default function OnboardingPage() {
 
   const router = useRouter();
 
-  const redirectToHomeScreen = () => {
+  const { name, zodiacSign, age, gender, updateGender, updateZodiacSign, updateAge, updateGoals, goals } =
+    useUserTags();
+
+  const redirectToHomeScreen = async () => {
+    await initUser({
+      displayName: name,
+    });
+    // Alert.alert('Успех', 'Вы успешно прошли регистрацию');
     router.push('/screens/homeScreen');
   };
 
-  const { zodiacSign, age, gender, updateGender, updateZodiacSign, updateAge, updateGoals, goals } = useUserTags();
   const onPressUpdateGender = (gender: IGenderItem) => {
     updateGender(gender);
     goNextPage();

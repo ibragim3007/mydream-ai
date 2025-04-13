@@ -3,7 +3,7 @@ import { create } from 'zustand';
 import { IGenderItem, IGoalItem, IZodiacItem } from './types/types';
 
 interface State {
-  name?: string;
+  name: string;
   gender?: IGenderItem;
   zodiacSign?: IZodiacItem;
   age?: AGE;
@@ -21,7 +21,7 @@ interface Actions {
 
 export const useUserTags = create<State & Actions>(set => {
   const defaultState: State = {
-    name: undefined,
+    name: '',
     zodiacSign: undefined,
     gender: undefined,
     age: undefined,

@@ -1,36 +1,55 @@
+import { apiService } from '@/shared/api/api';
+import { init } from '@/shared/api/entities/auth/auth.api';
+import { getDeviceLanguage } from '@/shared/helpers/getDeviceLanguage';
 import { getAppToken } from '@/shared/service/appId.service';
+import * as SecureStore from 'expo-secure-store';
 import { create } from 'zustand';
 import { InitUserType } from './auth.types';
-import { getDeviceLanguage } from '@/shared/helpers/getDeviceLanguage';
-import { init } from '@/shared/api/entities/auth/api.auth';
+import { Inform } from '@/shared/service/logger.service/logger.service';
 
 interface State {
-  token: string | null;
-  isHydrated: boolean;
+  appToken: string | null;
 }
 
 interface Actions {
-  setToken: (token: string | null) => void;
-  hydrate: () => Promise<void>;
   logout: () => Promise<void>;
-
   initUser: (body: InitUserType) => Promise<void>;
 }
 
 export const useAuth = create<State & Actions>(set => {
   return {
-    token: null,
-    isHydrated: false,
+    appToken: null,
 
+    //  Только один раз при первом запуске приложения
+    //  инициализируем пользователя
+    //  и сохраняем токен (приложения) в SecureStore
+    //  А также устанавливаем заголовок авторизации
     initUser: async (body: InitUserType) => {
-      const appToken = await getAppToken();
-      const local = getDeviceLanguage();
+      try {
+        const appToken = await getAppToken();
+        const local = getDeviceLanguage();
 
-      await init({
-        appToken: appToken,
-        displayName: body.displayName,
-        local: local,
-      });
+        const res = await init({
+          appToken: appToken,
+          displayName: body.displayName,
+          local: local,
+        });
+        apiService.setAuthorizationHeader(res.accessToken);
+
+        set({
+          appToken: res.user.appToken,
+        });
+      } catch (error) {
+        Inform.error(error);
+      }
+    },
+
+    // Вызывает очистку токена приложения
+    // и удаляет заголовок авторизации
+    logout: async () => {
+      await SecureStore.deleteItemAsync('token');
+      apiService.setAuthorizationHeader('');
+      set({ appToken: null });
     },
   };
 });

@@ -1,9 +1,9 @@
 import { api } from '../../api';
 import { apiConfig } from '../../apiConfig';
-import { InitDtoRequest, InitDtoResponse } from '../../types/auth.types';
+import { InitDtoRequest, InitDtoResponse } from './auth.types';
 
 export const init = async (payload: InitDtoRequest) => {
-  return await api.post<InitDtoRequest, InitDtoResponse>(apiConfig.auth.init, payload);
+  return (await api.post<Promise<InitDtoResponse>>(apiConfig.auth.init, payload)).data;
 };
 
 export const me = async () => {
