@@ -20,7 +20,7 @@ export default function DreamItem({ id, title, date, description, onPress }: Dre
     <PaperPressable onPress={onPressHandler}>
       <Grid space="md">
         <Grid row justfity="space-between" flex={1}>
-          <Typography weight="bold" variant="headline" style={{ flex: 0.8 }}>
+          <Typography weight="bold" variant="headline" style={{ flex: 0.95 }}>
             {title}
           </Typography>
           <Typography weight="extra-light" variant="caption-1">
