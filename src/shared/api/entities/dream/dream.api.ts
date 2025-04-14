@@ -2,7 +2,7 @@ import { api } from '@/shared/api/api';
 import { apiConfig } from '@/shared/api/apiConfig';
 import { CreateDreamDto, DreamsQueryDto, GetDreamDto } from './dream.types';
 
-export const getDreams = async (params: DreamsQueryDto) => {
+export const getDreams = async (params?: DreamsQueryDto) => {
   return (await api.get<Promise<GetDreamDto[]>>(apiConfig.dream.get, { params })).data;
 };
 
