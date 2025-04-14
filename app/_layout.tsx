@@ -62,7 +62,7 @@ export default function RootLayout() {
       if (navigationState?.key && !redirected) {
         try {
           const appToken = await isAppToken();
-          console.log(appToken);
+
           const isUserOnboarded = appToken;
 
           if (isUserOnboarded) {
