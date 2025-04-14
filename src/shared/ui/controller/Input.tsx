@@ -12,22 +12,25 @@ export default function Input({ ...props }: InputProps) {
 
   return (
     <TextInput
+      {...props}
       placeholderTextColor={colors.text.disabled}
       selectionColor={colors.accent.primary}
-      style={{
-        borderColor: isFocused ? colors.accent.primary : colors.accent.primary_pale_transparent,
-        borderWidth: 2,
-        color: colors.text.primary,
-        paddingHorizontal: normalizedSize(20),
-        paddingVertical: normalizedSize(15),
-        fontSize: normalizedSize(18),
-        borderRadius: colors.styles.borderRadius,
-        backgroundColor: isFocused ? colors.background.primary : colors.background.neutral,
-        fontFamily: fontWeight.medium,
-      }}
+      style={[
+        {
+          borderColor: isFocused ? colors.accent.primary : colors.accent.primary_pale_transparent,
+          borderWidth: 2,
+          color: colors.text.primary,
+          paddingHorizontal: normalizedSize(20),
+          paddingVertical: normalizedSize(15),
+          fontSize: normalizedSize(18),
+          borderRadius: colors.styles.borderRadius,
+          backgroundColor: isFocused ? colors.background.primary : colors.background.neutral,
+          fontFamily: fontWeight.medium,
+        },
+        props.style,
+      ]}
       onFocus={() => setIsFocused(true)}
       onBlur={() => setIsFocused(false)}
-      {...props}
     />
   );
 }

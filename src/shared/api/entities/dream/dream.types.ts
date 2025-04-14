@@ -19,8 +19,8 @@ export type GetDreamDto = {
   coverImage?: string;
   isPublic: boolean;
   pickerDate: string;
-  createdAt: string;
-  updatedAt: string;
+  createdAt: Date;
+  updatedAt: Date;
   userId: any;
 };
 

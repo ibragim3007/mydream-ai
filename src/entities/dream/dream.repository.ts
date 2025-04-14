@@ -1,7 +1,7 @@
 import { createDream, deleteDream, getDream, getDreams } from '@/shared/api/entities/dream/dream.api';
 import { CreateDreamDto, DreamsQueryDto } from '@/shared/api/entities/dream/dream.types';
 import { handleMutation } from '@/shared/utils/handleMutation';
-import { useMutation, useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 const getDreamKeys = ['dream'];
 export const useGetDreamById = (id: string) => {
@@ -24,8 +24,16 @@ export const useGetDreams = (params?: DreamsQueryDto) => {
 };
 
 export const useCreateDream = () => {
+  const queryClient = useQueryClient();
+
   const { mutateAsync, isPending, isError } = useMutation({
+    mutationKey: getDreamsKeys,
     mutationFn: (payload: CreateDreamDto) => createDream(payload),
+    onSettled: () => {
+      void queryClient.invalidateQueries({
+        queryKey: getDreamsKeys,
+      });
+    },
   });
 
   const createDreamFunction = async (payload: CreateDreamDto) => {
