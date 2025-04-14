@@ -1,4 +1,4 @@
-import moonImage from '@/assets/icons/moonImage.png';
+import moonImage from '@/assets/icons/moonImage2.png';
 import { animationEngine } from '@/shared/service/animation.service';
 import Button from '@/shared/ui/buttons/Button';
 import Grid from '@/shared/ui/grid/Grid';
@@ -14,34 +14,36 @@ interface WelcomeScreenProps {
 export default function WelcomeScreen({ onPressButton }: WelcomeScreenProps) {
   return (
     <SafeWrapper>
-      <Grid paddingVertical={20} height="100%" justfity="space-between" align="center">
-        <Grid space="md" flex={1} width={'100%'} align="center">
+      <Grid paddingVertical={20} space="lg" justfity="center" height="100%">
+        <Grid space="md" width={'100%'}>
           {/* <EnterFadeText text="Welcome to Dreamlens AI!" /> */}
-          <Animated.View entering={animationEngine.zoomInDown(1)}>
-            <Typography variant="largeTitle" weight="extra-bold" textAlign="center">
-              Welcome to Dreamlens AI!
-            </Typography>
-          </Animated.View>
 
-          <Animated.View entering={animationEngine.zoomInDown(2)} style={{ marginTop: 100 }}>
+          <Animated.View entering={animationEngine.zoomInDown(2)}>
             <Grid
               align="center"
               justfity="center"
               style={{
                 shadowColor: '#B9D3EA',
-                shadowOpacity: 0.8,
-                shadowRadius: 26,
+                shadowOpacity: 0.4,
+                shadowRadius: 35,
               }}
             >
-              <Image source={moonImage} style={{ height: 150, width: 150 }} />
+              <Image source={moonImage} style={{ height: 250, width: 250, transform: [{ rotate: '9deg' }] }} />
             </Grid>
           </Animated.View>
-        </Grid>
-        <Grid width="100%" marginBottom={16}>
-          <Animated.View entering={animationEngine.zoomInDown(3)}>
-            <Button onPress={onPressButton}>Continue</Button>
+          <Animated.View entering={animationEngine.zoomInDown(1)}>
+            <Typography variant="title-0" weight="extra-bold" textAlign="center">
+              Uncover the deep meaning of your dreams.
+            </Typography>
           </Animated.View>
         </Grid>
+        <Animated.View entering={animationEngine.zoomInDown(3)}>
+          <Grid align="center" marginBottom={16}>
+            <Button style={{ width: '75%' }} onPress={onPressButton}>
+              Continue
+            </Button>
+          </Grid>
+        </Animated.View>
       </Grid>
     </SafeWrapper>
   );

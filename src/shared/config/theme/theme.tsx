@@ -77,8 +77,8 @@ export const themes: ITheme[] = [
     },
     background: {
       primary: '#14151e',
-      secondary: '#141622',
-      neutral: '#4C566A33',
+      secondary: '#9595954a',
+      neutral: '#d9d9d937',
       success: '#4CAF5033',
       alert: '#FFC10733',
       negative: '#FF3D5733',

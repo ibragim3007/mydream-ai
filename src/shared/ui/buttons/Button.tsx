@@ -1,8 +1,8 @@
+import { normalizedSize } from '@/shared/utils/size';
 import React, { useMemo, useState } from 'react';
 import { ActivityIndicator, Pressable, PressableProps, StyleSheet, Text, TextProps } from 'react-native';
-import { fontWeight } from '../../styles/typography/typography';
-import { normalizedSize } from '@/shared/utils/size';
 import { useTheme } from '../../hooks/useTheme';
+import { fontWeight } from '../../styles/typography/typography';
 
 type TColorsButton = 'primary' | 'neutral' | 'error';
 type TSizeButton = 'large' | 'small';
@@ -37,10 +37,12 @@ const Button: React.FC<ButtonProps> = ({
       default: {
         primary: {
           backgroundColor: props.disabled
-            ? colors.accent.disabled
+            ? colors.background.disabled
             : isPressed
-              ? colors.accent.primary_dark
-              : colors.accent.primary,
+              ? colors.background.secondary
+              : colors.background.neutral,
+          borderColor: colors.background.secondary,
+          borderWidth: 1,
         },
         neutral: {
           backgroundColor: props.disabled ? colors.accent.disabled : isPressed ? '#4D4D53' : colors.text.primary,
@@ -112,10 +114,10 @@ const Button: React.FC<ButtonProps> = ({
   };
 
   const styleText: TextProps['style'] = {
-    color: props.disabled ? colors.text.white : colors.text.primary,
+    color: props.disabled ? colors.background.neutral : colors.text.primary,
     fontFamily: fontWeight.bold,
     textAlign: 'center',
-    fontSize: normalizedSize(size === 'large' ? 18 : 13),
+    fontSize: normalizedSize(size === 'large' ? 20 : 13),
   };
 
   const onTouchStart = () => {
