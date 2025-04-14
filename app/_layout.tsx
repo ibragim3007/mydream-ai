@@ -1,4 +1,5 @@
 import ThemeProvider from '@/shared/providers/ThemeProvider';
+import { isAppToken } from '@/shared/service/appId.service';
 import {
   Nunito_200ExtraLight,
   Nunito_200ExtraLight_Italic,
@@ -24,7 +25,6 @@ import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import GeneralStack from './stack';
-import { getAppToken, isAppToken } from '@/shared/service/appId.service';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 void SplashScreen.preventAutoHideAsync();
@@ -63,7 +63,7 @@ export default function RootLayout() {
         try {
           const appToken = await isAppToken();
 
-          const isUserOnboarded = false;
+          const isUserOnboarded = appToken;
 
           if (isUserOnboarded) {
             router.replace('/screens/homeScreen');
