@@ -5,12 +5,12 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 const getDreamKeys = ['dream'];
 export const useGetDreamById = (id: string) => {
-  const { data, isError, isLoading } = useQuery({
+  const { data, isError, isLoading, isFetching } = useQuery({
     queryKey: getDreamKeys,
     queryFn: () => getDream(id),
   });
 
-  return { data, isLoading, isError };
+  return { data, isLoading, isFetching, isError };
 };
 
 const getDreamsKeys = ['dreams'];

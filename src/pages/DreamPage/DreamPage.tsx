@@ -1,5 +1,6 @@
 import { useGetDreamById } from '@/entities/dream/dream.repository';
 import { getDreamAnalysisResponse } from '@/entities/dream/helpers/getDreamResponse';
+import { SleepDataResponse } from '@/shared/types/globalTypes';
 import GoBackButton from '@/shared/ui/buttons/GoBackButton';
 import Grid from '@/shared/ui/grid/Grid';
 import PageWrapper from '@/shared/ui/layout/PageWrapper';
@@ -7,18 +8,25 @@ import Paper from '@/shared/ui/layout/Paper';
 import SafeWrapper from '@/shared/ui/layout/SafeWrapper';
 import Typography from '@/shared/ui/typography/Typography';
 import { router, useLocalSearchParams } from 'expo-router';
+import { useEffect, useState } from 'react';
 import { ActivityIndicator, ScrollView } from 'react-native';
 
 export default function DreamPage() {
   const params = useLocalSearchParams<{ id: string }>();
-  const { data, isLoading, isError } = useGetDreamById(params.id);
+  const [analysis, setAnalysis] = useState<SleepDataResponse | undefined>(undefined);
+  const { data, isLoading, isError, isFetching } = useGetDreamById(params.id);
   const goBack = () => {
     router.back();
   };
 
-  const analysis = getDreamAnalysisResponse(data?.analyzeText || '');
+  useEffect(() => {
+    if (data) {
+      const analysis = getDreamAnalysisResponse(data.analyzeText);
+      setAnalysis(analysis);
+    }
+  }, [isLoading, isFetching, data]);
 
-  if (isLoading) {
+  if (isLoading || isFetching) {
     return (
       <PageWrapper>
         <SafeWrapper>
@@ -44,6 +52,16 @@ export default function DreamPage() {
       <PageWrapper>
         <SafeWrapper>
           <Typography weight="bold">No dream information available</Typography>
+        </SafeWrapper>
+      </PageWrapper>
+    );
+  }
+
+  if (!analysis) {
+    return (
+      <PageWrapper>
+        <SafeWrapper>
+          <Typography weight="bold">No analysis available</Typography>
         </SafeWrapper>
       </PageWrapper>
     );
