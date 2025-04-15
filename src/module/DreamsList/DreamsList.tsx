@@ -3,6 +3,7 @@ import { HORIZONTAL_PADDINGS } from '@/shared/config/constants/constants';
 import DreamItem from '@/shared/ui/elements/DreamItem';
 import Grid from '@/shared/ui/grid/Grid';
 import Typography from '@/shared/ui/typography/Typography';
+import { router } from 'expo-router';
 import { ActivityIndicator, FlatList } from 'react-native';
 
 interface DreamsListProps {
@@ -13,7 +14,7 @@ export default function DreamsList({ headerComponent }: DreamsListProps) {
   const { data, isLoading, isError } = useGetDreams();
 
   const onPressDreamCard = (id: string) => {
-    console.log(id);
+    router.push(`/screens/dream/${id}`);
   };
 
   if (isLoading) {

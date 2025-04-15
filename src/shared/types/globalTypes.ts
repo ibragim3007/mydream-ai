@@ -23,3 +23,19 @@ export type GOALS =
   | 'Find the patterns';
 
 export type AGE = 'Below 18' | '18-24' | '25-34' | '35-44' | '45-54' | '55-64' | '65+';
+
+export interface SleepDataResponse {
+  summary: string;
+  tone: string;
+  characters: {
+    name: string;
+    role: string;
+  }[];
+  recurring_elements: string[];
+  interpretations: {
+    esoteric: string;
+    scientific: string;
+    self_development: string;
+  };
+  tags: string[];
+}

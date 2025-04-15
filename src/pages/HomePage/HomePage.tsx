@@ -29,11 +29,11 @@ export default function HomePage() {
                 <Typography weight="extra-bold" variant="title-2">
                   Recently added
                 </Typography>
+                {/* <ClearCacheButton /> */}
               </Grid>
             );
           }}
         />
-        {/* <ClearCacheButton /> */}
       </Grid>
     </PageWrapper>
   );
