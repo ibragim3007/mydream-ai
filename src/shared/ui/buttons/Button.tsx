@@ -1,8 +1,9 @@
 import { normalizedSize } from '@/shared/utils/size';
 import React, { useMemo, useState } from 'react';
-import { ActivityIndicator, Pressable, PressableProps, StyleSheet, Text, TextProps } from 'react-native';
+import { Pressable, PressableProps, StyleSheet, Text, TextProps } from 'react-native';
 import { useTheme } from '../../hooks/useTheme';
 import { fontWeight } from '../../styles/typography/typography';
+import Grid from '../grid/Grid';
 
 type TColorsButton = 'primary' | 'neutral' | 'error';
 type TSizeButton = 'large' | 'small';
@@ -110,10 +111,10 @@ const Button: React.FC<ButtonProps> = ({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
-    gap: normalizedSize(12),
     shadowColor: '#fff',
     shadowOpacity: props.disabled ? 0 : 0.6,
     shadowRadius: 10,
+    gap: 15,
     shadowOffset: {
       height: 0,
       width: 0,
@@ -125,6 +126,7 @@ const Button: React.FC<ButtonProps> = ({
     fontFamily: fontWeight.bold,
     textAlign: 'center',
     fontSize: normalizedSize(size === 'large' ? 20 : 13),
+    // flex: 1, // Ensures the text takes up available space for centering
   };
 
   const onTouchStart = () => {
@@ -144,14 +146,11 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <Pressable {...props} style={buttonS} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
-      {leftIcon && leftIcon}
-      {loading ? (
-        <ActivityIndicator size={'small'} color={styleText.color} />
-      ) : (
-        <Text style={textS} numberOfLines={1}>
-          {props.children}
-        </Text>
-      )}
+      {leftIcon && <>{leftIcon}</>}
+      <Text style={textS} numberOfLines={1}>
+        {props.children}
+      </Text>
+      <Grid style={{ opacity: 0 }}>{leftIcon && <>{leftIcon}</>}</Grid>
     </Pressable>
   );
 };

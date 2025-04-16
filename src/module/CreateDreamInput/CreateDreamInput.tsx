@@ -6,9 +6,10 @@ import Grid from '@/shared/ui/grid/Grid';
 import Paper from '@/shared/ui/layout/Paper';
 import Typography from '@/shared/ui/typography/Typography';
 import ModalContainer from '@/shared/ui/wrapper/ModalContainer';
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import { useState } from 'react';
 import { ActivityIndicator, Alert, Modal, StyleSheet } from 'react-native';
-import Animated, { useSharedValue, useAnimatedStyle, withTiming, withSpring } from 'react-native-reanimated';
+import { useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
 
 export default function CreateDreamInput() {
   const colors = useTheme();
@@ -57,7 +58,17 @@ export default function CreateDreamInput() {
           style={{ height: 120, zIndex: 100 }}
         />
 
-        <Button disabled={isButtonDisabled} onPress={onPressCreateDream}>
+        <Button
+          leftIcon={
+            <FontAwesome6
+              name="wand-magic-sparkles"
+              size={20}
+              color={isButtonDisabled ? colors.background.neutral : colors.text.white}
+            />
+          }
+          disabled={isButtonDisabled}
+          onPress={onPressCreateDream}
+        >
           Save & Analyze
         </Button>
       </Grid>
