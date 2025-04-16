@@ -7,9 +7,13 @@ import PageWrapper from '@/shared/ui/layout/PageWrapper';
 import Paper from '@/shared/ui/layout/Paper';
 import SafeWrapper from '@/shared/ui/layout/SafeWrapper';
 import Typography from '@/shared/ui/typography/Typography';
+import { Image } from 'expo-image';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, ScrollView } from 'react-native';
+import MoonImage from '@/assets/icons/moonImage2.png';
+import CardPaper from '@/shared/ui/elements/CardPaper';
+import UserAvatar from '@/entities/auth/ui/UserAvatar';
 
 export default function DreamPage() {
   const params = useLocalSearchParams<{ id: string }>();
@@ -28,7 +32,7 @@ export default function DreamPage() {
 
   if (isLoading || isFetching) {
     return (
-      <PageWrapper>
+      <PageWrapper background="dark">
         <SafeWrapper>
           <Typography weight="bold">Getting your dream information...</Typography>
           <ActivityIndicator />
@@ -71,18 +75,27 @@ export default function DreamPage() {
     <PageWrapper>
       <ScrollView>
         <SafeWrapper>
-          <Grid space="sm">
-            <Grid row align="flex-start" space="sm">
-              <GoBackButton onPress={goBack} />
-            </Grid>
-            <Grid space="sm">
-              <Typography weight="bold" variant="title-1">
-                {data.title}
-              </Typography>
-              <Typography variant="headline" weight="bold">
-                Summary
-              </Typography>
-              <Typography variant="callout">{analysis.summary}</Typography>
+          <Grid space="lg">
+            <Grid>
+              <Grid row align="center" justfity="space-between" space="lg">
+                <GoBackButton onPress={goBack} />
+                <Typography textAlign="center" variant="title-3" weight="extra-bold">
+                  Dream
+                </Typography>
+                <Grid style={{ opacity: 0 }}>
+                  <GoBackButton onPress={() => {}} />
+                </Grid>
+              </Grid>
+              <Grid align="center" space="lg">
+                <Image source={MoonImage} style={{ height: 140, width: 140 }} />
+                <Grid space="sm" align="center">
+                  <Typography weight="bold" variant="title-1">
+                    {data.title}
+                  </Typography>
+                  <UserAvatar />
+                </Grid>
+                <CardPaper title={'Detail'} date={new Date(data.createdAt).toDateString()} text={data.inputText} />
+              </Grid>
             </Grid>
             <Grid space="md">
               <Paper space="sm">
