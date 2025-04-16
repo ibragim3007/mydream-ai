@@ -1,5 +1,10 @@
+import MoonImage from '@/assets/icons/moonImage2.png';
+import UserAvatar from '@/entities/auth/ui/UserAvatar';
 import { useGetDreamById } from '@/entities/dream/dream.repository';
 import { getDreamAnalysisResponse } from '@/entities/dream/helpers/getDreamResponse';
+import { DreamSummary } from '@/module/DreamSummary';
+import { HORIZONTAL_PADDINGS } from '@/shared/config/constants/constants';
+import { animationEngine } from '@/shared/service/animation.service';
 import { SleepDataResponse } from '@/shared/types/globalTypes';
 import GoBackButton from '@/shared/ui/buttons/GoBackButton';
 import Grid from '@/shared/ui/grid/Grid';
@@ -7,13 +12,12 @@ import PageWrapper from '@/shared/ui/layout/PageWrapper';
 import Paper from '@/shared/ui/layout/Paper';
 import SafeWrapper from '@/shared/ui/layout/SafeWrapper';
 import Typography from '@/shared/ui/typography/Typography';
+import { normalizedSize } from '@/shared/utils/size';
 import { Image } from 'expo-image';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, ScrollView } from 'react-native';
-import MoonImage from '@/assets/icons/moonImage2.png';
-import CardPaper from '@/shared/ui/elements/CardPaper';
-import UserAvatar from '@/entities/auth/ui/UserAvatar';
+import Animated from 'react-native-reanimated';
 
 export default function DreamPage() {
   const params = useLocalSearchParams<{ id: string }>();
@@ -32,7 +36,7 @@ export default function DreamPage() {
 
   if (isLoading || isFetching) {
     return (
-      <PageWrapper background="dark">
+      <PageWrapper>
         <SafeWrapper>
           <Typography weight="bold">Getting your dream information...</Typography>
           <ActivityIndicator />
@@ -73,50 +77,68 @@ export default function DreamPage() {
 
   return (
     <PageWrapper>
-      <ScrollView>
-        <SafeWrapper>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <SafeWrapper style={{ paddingHorizontal: 0 }}>
           <Grid space="lg">
             <Grid>
-              <Grid row align="center" justfity="space-between" space="lg">
+              <Grid
+                paddingHorizontal={normalizedSize(HORIZONTAL_PADDINGS)}
+                row
+                align="center"
+                justfity="space-between"
+                space="lg"
+              >
                 <GoBackButton onPress={goBack} />
-                <Typography textAlign="center" variant="title-3" weight="extra-bold">
-                  Dream
-                </Typography>
+                <Animated.View entering={animationEngine.zoomInDown(0)}>
+                  <Typography textAlign="center" variant="title-3" weight="extra-bold">
+                    Dream
+                  </Typography>
+                </Animated.View>
                 <Grid style={{ opacity: 0 }}>
                   <GoBackButton onPress={() => {}} />
                 </Grid>
               </Grid>
               <Grid align="center" space="lg">
-                <Image source={MoonImage} style={{ height: 140, width: 140 }} />
-                <Grid space="sm" align="center">
-                  <Typography weight="bold" variant="title-1">
-                    {data.title}
-                  </Typography>
-                  <UserAvatar />
+                <Grid align="center" paddingHorizontal={normalizedSize(HORIZONTAL_PADDINGS)}>
+                  <Animated.View entering={animationEngine.zoomInDown(1)}>
+                    <Image source={MoonImage} style={{ height: 140, width: 140 }} />
+                  </Animated.View>
+                  <Animated.View entering={animationEngine.zoomInDown(2)}>
+                    <Grid space="sm" align="center">
+                      <Typography textAlign="center" weight="bold" variant="title-1">
+                        {data.title}
+                      </Typography>
+                      <UserAvatar />
+                    </Grid>
+                  </Animated.View>
                 </Grid>
-                <CardPaper title={'Detail'} date={new Date(data.createdAt).toDateString()} text={data.inputText} />
+                <Animated.View style={{ flexDirection: 'row' }} entering={animationEngine.zoomInDown(3)}>
+                  <DreamSummary dream={data} analysis={analysis} />
+                </Animated.View>
               </Grid>
             </Grid>
-            <Grid space="md">
-              <Paper space="sm">
-                <Typography variant="headline" weight="bold">
-                  Esoteric
-                </Typography>
-                <Typography>{analysis.interpretations.esoteric}</Typography>
-              </Paper>
-              <Paper space="sm">
-                <Typography variant="headline" weight="bold">
-                  Scientific
-                </Typography>
-                <Typography>{analysis.interpretations.scientific}</Typography>
-              </Paper>
-              <Paper space="sm">
-                <Typography variant="headline" weight="bold">
-                  Self_development
-                </Typography>
-                <Typography>{analysis.interpretations.self_development}</Typography>
-              </Paper>
-            </Grid>
+            <Animated.View entering={animationEngine.zoomInDown(4)}>
+              <Grid paddingHorizontal={normalizedSize(HORIZONTAL_PADDINGS)} space="md">
+                <Paper space="sm">
+                  <Typography variant="headline" weight="bold">
+                    Esoteric
+                  </Typography>
+                  <Typography>{analysis.interpretations.esoteric}</Typography>
+                </Paper>
+                <Paper space="sm">
+                  <Typography variant="headline" weight="bold">
+                    Scientific
+                  </Typography>
+                  <Typography>{analysis.interpretations.scientific}</Typography>
+                </Paper>
+                <Paper space="sm">
+                  <Typography variant="headline" weight="bold">
+                    Self_development
+                  </Typography>
+                  <Typography>{analysis.interpretations.self_development}</Typography>
+                </Paper>
+              </Grid>
+            </Animated.View>
           </Grid>
         </SafeWrapper>
       </ScrollView>

@@ -10,7 +10,7 @@ export default function Paper({ ...props }: PaperProps) {
   return (
     <Grid
       style={{
-        shadowColor: '#000000',
+        shadowColor: 'rgb(0, 0, 0)',
         shadowOpacity: 0.1,
         shadowRadius: 5,
         shadowOffset: {

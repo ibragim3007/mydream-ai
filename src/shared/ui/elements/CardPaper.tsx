@@ -1,35 +1,40 @@
 import { useTheme } from '@/shared/hooks/useTheme';
-import Grid from '../grid/Grid';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import Grid, { GridProps } from '../grid/Grid';
 import Paper from '../layout/Paper';
 import Typography from '../typography/Typography';
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
-interface CardPaperProps {
+interface CardPaperProps extends GridProps {
   title: string;
-  date: string;
+  date?: string;
   text: string;
 }
 
-export default function CardPaper({ title, date, text }: CardPaperProps) {
+export default function CardPaper({ title, date, text, ...props }: CardPaperProps) {
   const colors = useTheme();
+
   return (
-    <Grid width="100%">
-      <Paper color="#ffffff" paddingVertical={10}>
-        <Grid space="md">
-          <Grid row justfity="space-between" align="center">
-            <Typography color="white" weight="extra-bold">
-              {title}
-            </Typography>
-            <Grid row space="sm" align="center">
-              <MaterialIcons name="access-time-filled" size={18} color={colors.text.disabled} />
-              <Typography variant="caption-1" color="disabled">
-                {date}
-              </Typography>
-            </Grid>
+    <Paper color="#ffffff" paddingVertical={10} {...props}>
+      <Grid space="md">
+        <Grid row justfity="space-between" align="center">
+          <Typography color="white" weight="extra-bold">
+            {title}
+          </Typography>
+          <Grid row space="sm" align="center">
+            {date && (
+              <>
+                <MaterialIcons name="access-time-filled" size={18} color={colors.text.disabled} />
+                <Typography variant="caption-1" color="disabled">
+                  {date}
+                </Typography>
+              </>
+            )}
           </Grid>
-          <Typography color="white">{text}</Typography>
         </Grid>
-      </Paper>
-    </Grid>
+        <Typography adjustsFontSizeToFit numberOfLines={10} color="white">
+          {text}
+        </Typography>
+      </Grid>
+    </Paper>
   );
 }

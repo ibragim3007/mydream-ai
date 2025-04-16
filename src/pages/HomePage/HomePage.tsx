@@ -16,7 +16,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <PageWrapper background="dark">
+    <PageWrapper background="stars">
       <Grid space="lg">
         <DreamsList
           headerComponent={() => {
