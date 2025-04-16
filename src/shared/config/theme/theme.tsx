@@ -96,7 +96,7 @@ export const themes: ITheme[] = [
       red: '#FF1744',
     },
     styles: {
-      borderRadius: 24,
+      borderRadius: 25,
     },
   },
 ];

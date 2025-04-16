@@ -1,6 +1,7 @@
 import { withPressable } from '@/shared/hoc/withPressable';
-import { useTheme } from '../../hooks/useTheme';
+import { BlurView } from 'expo-blur';
 import Grid, { GridProps } from '../grid/Grid';
+import { useTheme } from '@/shared/hooks/useTheme';
 
 type PaperProps = GridProps;
 
@@ -8,18 +9,28 @@ export default function Paper({ ...props }: PaperProps) {
   const colors = useTheme();
   return (
     <Grid
-      {...props}
-      style={[
-        {
-          padding: 16,
-          borderRadius: 15,
-          backgroundColor: colors.background.neutral,
-          borderWidth: 1,
-          borderColor: colors.background.active,
+      style={{
+        shadowColor: '#000000',
+        shadowOpacity: 0.1,
+        shadowRadius: 5,
+        shadowOffset: {
+          height: 1,
+          width: 0,
         },
-        props.style,
-      ]}
-    />
+      }}
+    >
+      <Grid
+        style={{
+          overflow: 'hidden',
+          borderRadius: colors.styles.borderRadius,
+          backgroundColor: '#ffffff18',
+        }}
+      >
+        <BlurView tint="light" style={{ padding: 20, paddingHorizontal: 25 }} intensity={60}>
+          <Grid {...props} style={[{}, props.style]} />
+        </BlurView>
+      </Grid>
+    </Grid>
   );
 }
 

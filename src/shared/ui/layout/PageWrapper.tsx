@@ -15,7 +15,7 @@ export default function PageWrapper({ background = 'stars', ...props }: PageWrap
 
   return (
     <ImageBackground
-      style={{ flex: 1 }}
+      style={{ flex: 1, height: '100%', backgroundColor: '#000' }}
       source={background == 'dark' ? backgroundImage : backgroundImageStars}
       contentFit="cover"
     >

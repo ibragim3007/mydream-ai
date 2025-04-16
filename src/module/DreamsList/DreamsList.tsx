@@ -1,4 +1,5 @@
 import { useGetDreams } from '@/entities/dream/dream.repository';
+import { getDreamAnalysisResponse } from '@/entities/dream/helpers/getDreamResponse';
 import { HORIZONTAL_PADDINGS } from '@/shared/config/constants/constants';
 import DreamItem from '@/shared/ui/elements/DreamItem';
 import Grid from '@/shared/ui/grid/Grid';
@@ -27,19 +28,24 @@ export default function DreamsList({ headerComponent }: DreamsListProps) {
 
   return (
     <FlatList
+      keyboardDismissMode="on-drag"
+      showsVerticalScrollIndicator={false}
       style={{ height: '100%' }}
       ListHeaderComponent={headerComponent}
       data={data}
-      ItemSeparatorComponent={() => <Grid height={20} />}
-      renderItem={({ item }) => (
-        <DreamItem
-          id={item.id}
-          date={new Date(item.createdAt).toDateString()}
-          title={item.title}
-          description={item.inputText}
-          onPress={onPressDreamCard}
-        />
-      )}
+      ItemSeparatorComponent={() => <Grid height={15} />}
+      renderItem={({ item }) => {
+        const analysis = getDreamAnalysisResponse(item.analyzeText);
+        return (
+          <DreamItem
+            id={item.id}
+            date={new Date(item.createdAt).toDateString()}
+            title={item.title}
+            description={analysis?.summary || item.inputText}
+            onPress={onPressDreamCard}
+          />
+        );
+      }}
       contentContainerStyle={{
         paddingVertical: 80,
         paddingHorizontal: HORIZONTAL_PADDINGS,

@@ -40,7 +40,7 @@ const Button: React.FC<ButtonProps> = ({
             ? colors.background.disabled
             : isPressed
               ? colors.background.secondary
-              : colors.background.neutral,
+              : colors.text.primary,
           borderColor: colors.background.secondary,
           borderWidth: 1,
         },
@@ -104,17 +104,24 @@ const Button: React.FC<ButtonProps> = ({
   const currentVariant = variantStyles[variant][color];
 
   const styleButton: PressableProps['style'] = {
-    paddingVertical: size === 'large' ? normalizedSize(20) : normalizedSize(8),
-    paddingHorizontal: size === 'large' ? normalizedSize(13) : normalizedSize(12),
+    paddingVertical: size === 'large' ? normalizedSize(13) : normalizedSize(8),
+    paddingHorizontal: size === 'large' ? normalizedSize(10) : normalizedSize(12),
     borderRadius: 50,
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
     gap: normalizedSize(12),
+    shadowColor: '#fff',
+    shadowOpacity: props.disabled ? 0 : 0.6,
+    shadowRadius: 10,
+    shadowOffset: {
+      height: 0,
+      width: 0,
+    },
   };
 
   const styleText: TextProps['style'] = {
-    color: props.disabled ? colors.background.neutral : colors.text.primary,
+    color: props.disabled ? colors.background.neutral : colors.text.white,
     fontFamily: fontWeight.bold,
     textAlign: 'center',
     fontSize: normalizedSize(size === 'large' ? 20 : 13),

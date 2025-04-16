@@ -8,25 +8,34 @@ import Typography from '@/shared/ui/typography/Typography';
 import ModalContainer from '@/shared/ui/wrapper/ModalContainer';
 import { useState } from 'react';
 import { ActivityIndicator, Modal, StyleSheet } from 'react-native';
+import Animated, { useSharedValue, useAnimatedStyle, withTiming, withSpring } from 'react-native-reanimated';
 
 export default function CreateDreamInput() {
   const colors = useTheme();
   const { createDreamFunction, isPending } = useCreateDream();
 
+  const [dreamText, setDreamText] = useState('');
+  const buttonVisibility = useSharedValue(0);
+
+  const onChangeText = (text: string) => {
+    setDreamText(text);
+    buttonVisibility.value = text.trim().length > 0 ? 1 : 0;
+  };
+
+  const animatedButtonStyle = useAnimatedStyle(() => ({
+    transform: [{ translateY: withSpring(buttonVisibility.value === 1 ? 0 : -50) }],
+    opacity: withTiming(buttonVisibility.value),
+  }));
+
   const onPressCreateDream = async () => {
     setDreamText('');
+    buttonVisibility.value = 0;
     await createDreamFunction({
       inputText: dreamText,
     });
   };
 
-  const [dreamText, setDreamText] = useState('');
-  const onChangeText = (text: string) => {
-    setDreamText(text);
-  };
-
   const isButtonDisabled = dreamText.trim().length === 0 || isPending;
-  const isInputDisabled = isPending;
 
   return (
     <>
@@ -34,14 +43,17 @@ export default function CreateDreamInput() {
         <Input
           value={dreamText}
           onChangeText={onChangeText}
-          placeholder="Enter your dream"
+          placeholder={'You can use microphone button'}
           multiline
           numberOfLines={3}
-          style={{ height: 120 }}
+          style={{ height: 120, zIndex: 100 }}
         />
-        <Button onPress={onPressCreateDream} disabled={isButtonDisabled}>
-          Create
-        </Button>
+
+        <Animated.View style={[styles.animatedButtonContainer, animatedButtonStyle]}>
+          <Button onPress={onPressCreateDream} disabled={isButtonDisabled}>
+            Save & Analyze
+          </Button>
+        </Animated.View>
       </Grid>
 
       {/* Модальная карточка с индикатором загрузки */}
@@ -62,6 +74,11 @@ export default function CreateDreamInput() {
 }
 
 const styles = StyleSheet.create({
+  animatedButtonContainer: {
+    // position: 'absolute',
+    // right: 0,
+    // top: 0,
+  },
   spinnerCard: {
     width: 100,
     height: 100,
