@@ -41,8 +41,8 @@ const Button: React.FC<ButtonProps> = ({
             : isPressed
               ? colors.background.secondary
               : colors.text.primary,
-          borderColor: colors.background.secondary,
-          borderWidth: 1,
+          // borderColor: colors.background.secondary,
+          borderWidth: 0,
         },
         neutral: {
           backgroundColor: props.disabled ? colors.accent.disabled : isPressed ? '#4D4D53' : colors.text.primary,

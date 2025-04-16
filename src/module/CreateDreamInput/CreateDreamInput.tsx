@@ -7,7 +7,7 @@ import Paper from '@/shared/ui/layout/Paper';
 import Typography from '@/shared/ui/typography/Typography';
 import ModalContainer from '@/shared/ui/wrapper/ModalContainer';
 import { useState } from 'react';
-import { ActivityIndicator, Modal, StyleSheet } from 'react-native';
+import { ActivityIndicator, Alert, Modal, StyleSheet } from 'react-native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming, withSpring } from 'react-native-reanimated';
 
 export default function CreateDreamInput() {
@@ -28,7 +28,12 @@ export default function CreateDreamInput() {
   }));
 
   const onPressCreateDream = async () => {
+    if (dreamText.trim().length === 0) {
+      Alert.alert('Please enter a dream description');
+      return;
+    }
     setDreamText('');
+
     buttonVisibility.value = 0;
     await createDreamFunction({
       inputText: dreamText,
@@ -46,20 +51,21 @@ export default function CreateDreamInput() {
           placeholder={'You can use microphone button'}
           multiline
           numberOfLines={3}
+          enterKeyHint="done"
+          keyboardAppearance="dark"
+          returnKeyLabel=""
           style={{ height: 120, zIndex: 100 }}
         />
 
-        <Animated.View style={[styles.animatedButtonContainer, animatedButtonStyle]}>
-          <Button onPress={onPressCreateDream} disabled={isButtonDisabled}>
-            Save & Analyze
-          </Button>
-        </Animated.View>
+        <Button disabled={isButtonDisabled} onPress={onPressCreateDream}>
+          Save & Analyze
+        </Button>
       </Grid>
 
       {/* Модальная карточка с индикатором загрузки */}
       <Modal transparent visible={isPending} animationType="fade">
         <ModalContainer>
-          <Paper style={{ backgroundColor: colors.background.primary }}>
+          <Paper>
             <Grid space="md">
               <Typography weight="bold" variant="title-3">
                 Analyzing your dream...

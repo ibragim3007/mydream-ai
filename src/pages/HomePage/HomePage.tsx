@@ -29,7 +29,7 @@ export default function HomePage() {
                       <Typography variant="largeTitle" weight="bold">
                         Hi, {user?.displayName}
                       </Typography>
-                      <Typography>
+                      <Typography weight="light">
                         The better you describe your dream, the better the interpretation will be.
                       </Typography>
                     </Grid>
