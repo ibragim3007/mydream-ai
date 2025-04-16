@@ -24,8 +24,8 @@ export default function SurfacePicker<T>({ isPicked, onChange, item, label, ...p
       <PaperPressable
         {...props}
         onPress={onChangeWrapper}
+        color={isPicked ? colors.accent.primary : 'transparent'}
         style={{
-          backgroundColor: isPicked ? colors.accent.primary : colors.background.neutral,
           borderColor: isPicked ? colors.accent.primary : colors.background.neutral,
         }}
       >

@@ -21,7 +21,7 @@ export default function ZodiacSignPicker({ onChange, value }: ZodiacSignPickerPr
       {zodiacSignsMock.map(item => (
         <Grid key={item.id} width="31%">
           <SurfacePicker
-            height={80}
+            height={50}
             justfity="center"
             isPicked={value?.id == item.id}
             label={item.name}

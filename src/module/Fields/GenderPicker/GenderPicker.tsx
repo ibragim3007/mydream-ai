@@ -15,7 +15,7 @@ export default function GenderPicker({ onChange, value }: GenderPickerProps) {
         <Grid key={item.id} width="30%">
           <SurfacePicker
             paddingHorizontal={0}
-            height={100}
+            height={70}
             justfity="center"
             isPicked={value?.id === item.id}
             item={item}

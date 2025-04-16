@@ -26,8 +26,12 @@ export default function Paper({ ...props }: PaperProps) {
           backgroundColor: '#ffffff18',
         }}
       >
-        <BlurView tint="light" style={{ padding: 20, paddingHorizontal: 25 }} intensity={60}>
-          <Grid {...props} style={[{}, props.style]} />
+        <BlurView
+          tint="light"
+          style={{ padding: 20, paddingHorizontal: 25, backgroundColor: props.color }}
+          intensity={60}
+        >
+          <Grid {...props} style={[{ backgroundColor: 'transparent' }, props.style]} />
         </BlurView>
       </Grid>
     </Grid>
