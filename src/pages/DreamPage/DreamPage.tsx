@@ -3,7 +3,6 @@ import { getDreamAnalysisResponse } from '@/entities/dream/helpers/getDreamRespo
 
 import { HORIZONTAL_PADDINGS } from '@/shared/config/constants/constants';
 import { useTheme } from '@/shared/hooks/useTheme';
-import { animationEngine } from '@/shared/service/animation.service';
 import { SleepDataResponse } from '@/shared/types/globalTypes';
 import CardPaper from '@/shared/ui/elements/CardPaper';
 import Grid from '@/shared/ui/grid/Grid';
@@ -13,9 +12,9 @@ import Typography from '@/shared/ui/typography/Typography';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, ScrollView } from 'react-native';
-import Animated from 'react-native-reanimated';
 import HeaderDream from './ui/HeaderDream';
 import Interpretations from './ui/Interpretations';
+import Participants from './ui/Participants';
 
 export default function DreamPage() {
   const params = useLocalSearchParams<{ id: string }>();
@@ -81,24 +80,23 @@ export default function DreamPage() {
           <Grid space="lg">
             <Grid space="md">
               <HeaderDream dream={data} />
-              <Animated.View entering={animationEngine.zoomInDown(3)}>
-                <Grid width="100%" space="sm" paddingHorizontal={HORIZONTAL_PADDINGS / 2}>
-                  <CardPaper
-                    width="100%"
-                    title={'Summary'}
-                    date={new Date(data.createdAt).toDateString()}
-                    text={analysis.summary}
-                    extendedText={data.inputText}
-                  />
-                  {/* <Button leftIcon={<AntDesign name="arrowdown" size={24} color={colors.text.white} />}>
+              <Participants analysis={analysis} />
+
+              <Grid width="100%" space="sm" paddingHorizontal={HORIZONTAL_PADDINGS / 2}>
+                <CardPaper
+                  width="100%"
+                  title={'Summary'}
+                  date={new Date(data.createdAt).toDateString()}
+                  text={analysis.summary}
+                  extendedText={data.inputText}
+                />
+                {/* <Button leftIcon={<AntDesign name="arrowdown" size={24} color={colors.text.white} />}>
                     Finish the dream
                   </Button> */}
-                </Grid>
-              </Animated.View>
+              </Grid>
             </Grid>
-            <Animated.View entering={animationEngine.zoomInDown(4)}>
-              <Interpretations analysis={analysis} />
-            </Animated.View>
+
+            <Interpretations analysis={analysis} />
           </Grid>
         </SafeWrapper>
       </ScrollView>
