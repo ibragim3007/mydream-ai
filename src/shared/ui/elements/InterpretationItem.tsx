@@ -17,11 +17,12 @@ interface InterpretationItemProps {
   text: string;
   image: string;
   isBlocked: boolean;
+  description?: string;
 }
 
-const ITEM_HEIGHT = normalizedSize(125);
+const ITEM_HEIGHT = normalizedSize(120);
 
-export default function InterpretationItem({ title, text, image, isBlocked }: InterpretationItemProps) {
+export default function InterpretationItem({ title, text, image, description, isBlocked }: InterpretationItemProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const arrowRotation = useSharedValue(0);
   const imageContainerScale = useSharedValue(1);
@@ -45,14 +46,14 @@ export default function InterpretationItem({ title, text, image, isBlocked }: In
       <AnimTouchWrapper>
         <Pressable onPress={toggleExpand}>
           <Animated.View style={[imageContainerStyle]}>
-            <Grid height={ITEM_HEIGHT} style={{ backgroundColor: 'red', borderRadius: 20 }}>
+            <Grid height={ITEM_HEIGHT} style={{ borderRadius: 20 }}>
               <Image
                 contentFit="cover"
                 source={image}
                 style={{ height: ITEM_HEIGHT + 10, width: '100%', position: 'absolute', borderRadius: 20 }}
               />
               <LinearGradient
-                colors={['transparent', '#00000023', '#000000c2']}
+                colors={['transparent', 'rgba(0, 0, 0, 0.423)', '#000000b3']}
                 style={{ width: '100%', height: ITEM_HEIGHT + 10, position: 'absolute', borderRadius: 20 }}
               />
               <Grid
@@ -62,15 +63,17 @@ export default function InterpretationItem({ title, text, image, isBlocked }: In
                 justfity="space-between"
                 height="100%"
                 wrap
-                paddingVertical={20}
+                paddingVertical={10}
                 paddingHorizontal={20}
               >
                 <Typography weight="bold" variant="headline">
                   {title}
                 </Typography>
+
                 <Animated.View style={arrowStyle}>
                   <Entypo name="chevron-down" size={26} color={'#fff'} />
                 </Animated.View>
+                {description && <Typography variant="caption-1">{description}</Typography>}
               </Grid>
             </Grid>
           </Animated.View>

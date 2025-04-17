@@ -18,6 +18,7 @@ import HeaderDream from './ui/HeaderDream';
 import Interpretations from './ui/Interpretations';
 import LoadingSkeleton from './ui/LoadingSkeleton';
 import Participants from './ui/Participants';
+import { GeneralFeedback } from '@/entities/feedback';
 
 export default function DreamPage() {
   const params = useLocalSearchParams<{ id: string }>();
@@ -74,7 +75,7 @@ export default function DreamPage() {
       <ScrollView showsVerticalScrollIndicator={false}>
         <SafeWrapper style={{ paddingHorizontal: 0 }}>
           <Animated.View entering={animationEngine.fadeInUp(0)}>
-            <Grid space="lg">
+            <Grid space="md">
               <Grid space="md">
                 <HeaderDream dream={data} />
 
@@ -97,6 +98,9 @@ export default function DreamPage() {
               </Grid>
 
               <Interpretations analysis={analysis} />
+              <Grid marginVertical={60}>
+                <GeneralFeedback title="Did you like the interpretations?" />
+              </Grid>
             </Grid>
           </Animated.View>
         </SafeWrapper>

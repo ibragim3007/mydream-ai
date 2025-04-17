@@ -1,8 +1,9 @@
 import { StyleSheet, Text, TextProps } from 'react-native';
 import { useTheme } from '../../hooks/useTheme';
 import { fontsWeights, getColorsStyles, TypographyProps, TypographyStyles } from '../../styles/typography/typography';
+import { forwardRef } from 'react';
 
-const Typography = (props: TypographyProps) => {
+const Typography = forwardRef<Text, TypographyProps>((props, ref) => {
   const colors = useTheme();
 
   const fontStyles = fontsWeights[props.weight || 'regular'];
@@ -18,10 +19,10 @@ const Typography = (props: TypographyProps) => {
   ]);
 
   return (
-    <Text {...props} style={stylesText}>
+    <Text {...props} ref={ref} style={stylesText}>
       {props.children}
     </Text>
   );
-};
+});
 
 export default Typography;

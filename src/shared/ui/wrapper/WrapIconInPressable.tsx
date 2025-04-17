@@ -11,11 +11,11 @@ export default function WrapIconInPressable({ primaryColor, backgroundColor, ...
     <Pressable
       {...props}
       style={{
-        padding: normalizedSize(7),
+        padding: normalizedSize(8),
         backgroundColor: backgroundColor || 'transparent',
         borderRadius: 50,
         borderWidth: 1,
-        borderColor: primaryColor || '#ffffff17',
+        borderColor: primaryColor || '#ffffff6c',
         alignItems: 'center',
         justifyContent: 'center',
       }}

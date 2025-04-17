@@ -23,18 +23,22 @@ export default function Interpretations({ analysis }: InterpretationsProps) {
           title="Esoteric interpretation"
           text={analysis.interpretations.esoteric}
           image={EsotericImage}
+          description={'Hidden signs and soul messages.\nSymbols guide inner awareness.'}
         />
         <InterpretationItem
           isBlocked={false}
           title="Scientific interpretation"
           text={analysis.interpretations.scientific}
           image={ScientificImage}
+          description="Dreams reflect brain activity.
+They reveal stress and emotion."
         />
         <InterpretationItem
           isBlocked={false}
           title="Self development interpretation"
           text={analysis.interpretations.self_development}
           image={SelfDevelopmentImage}
+          description="Dreams mirror growth and change. They help unlock potential."
         />
       </Grid>
     </Grid>

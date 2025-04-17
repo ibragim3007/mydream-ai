@@ -1,7 +1,7 @@
 import { useTheme } from '@/shared/hooks/useTheme';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import { useState } from 'react';
-import { Modal, Pressable, ScrollView } from 'react-native';
+import { useState, useEffect, useRef } from 'react';
+import { Modal, Pressable, ScrollView, Text } from 'react-native';
 import Button from '../buttons/Button';
 import Grid, { GridProps } from '../grid/Grid';
 import Paper from '../layout/Paper';
@@ -19,9 +19,27 @@ interface CardPaperProps extends GridProps {
 export default function CardPaper({ title, date, text, extendedText, ...props }: CardPaperProps) {
   const colors = useTheme();
   const [isOpen, setIsOpen] = useState(false);
+  const [isOverflowing, setIsOverflowing] = useState(false);
+  const [isOpenFullText, setIsOpenFullText] = useState(false);
+  const textRef = useRef<Text>(null);
+
+  const onToggleOpenFullText = () => {
+    setIsOpenFullText(!isOpenFullText);
+  };
+
   const onToggleModal = () => {
     setIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    if (textRef.current) {
+      textRef.current.measure((x: number, y: number, width: number, height: number) => {
+        const lineHeight = 18; // Adjust based on Typography's line height
+        const maxHeight = lineHeight * 10;
+        setIsOverflowing(height > maxHeight);
+      });
+    }
+  }, []);
 
   return (
     <Paper color="#ffffff" paddingHorizontal={8} paddingVertical={10} {...props}>
@@ -41,12 +59,14 @@ export default function CardPaper({ title, date, text, extendedText, ...props }:
             )}
           </Grid>
         </Grid>
-        <Typography numberOfLines={10} color="white">
+        <Typography ref={textRef} numberOfLines={!isOpenFullText && isOverflowing ? 10 : undefined} color="white">
           {text}
         </Typography>
-        {/* <Button onPress={onToggleModal} variant="text">
-          Read original
-        </Button> */}
+        {isOverflowing && (
+          <Button onPress={onToggleOpenFullText} variant="text">
+            {isOpenFullText ? 'Less' : 'Read more'}
+          </Button>
+        )}
       </Grid>
       <Grid flex={1}>
         <Modal onRequestClose={onToggleModal} visible={isOpen} animationType="slide" transparent>
@@ -58,13 +78,13 @@ export default function CardPaper({ title, date, text, extendedText, ...props }:
                     Original input
                   </Typography>
                   <Grid style={{ position: 'absolute', right: 10 }}>
-                    <AntDesign name="close" size={24} color={colors.text.white} />
+                    <AntDesign name="close" size={24} color={colors.text.white} onPress={onToggleModal} />
                   </Grid>
                 </Grid>
                 <ScrollView contentContainerStyle={{ paddingBottom: 50 }}>
                   <Pressable>
                     <Grid space="md">
-                      <Typography color="white">{extendedText}</Typography>
+                      <Typography color="white">{extendedText || text}</Typography>
                     </Grid>
                   </Pressable>
                 </ScrollView>
