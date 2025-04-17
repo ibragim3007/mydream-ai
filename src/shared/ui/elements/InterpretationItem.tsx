@@ -10,6 +10,7 @@ import AnimTouchWrapper from '../animations/AnimTouchWrapper';
 import Grid from '../grid/Grid';
 import Paper from '../layout/Paper';
 import Typography from '../typography/Typography';
+import { normalizedSize } from '@/shared/utils/size';
 
 interface InterpretationItemProps {
   title: string;
@@ -18,7 +19,7 @@ interface InterpretationItemProps {
   isBlocked: boolean;
 }
 
-const ITEM_HEIGHT = 125;
+const ITEM_HEIGHT = normalizedSize(125);
 
 export default function InterpretationItem({ title, text, image, isBlocked }: InterpretationItemProps) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -44,26 +45,24 @@ export default function InterpretationItem({ title, text, image, isBlocked }: In
       <AnimTouchWrapper>
         <Pressable onPress={toggleExpand}>
           <Animated.View style={[imageContainerStyle]}>
-            <Grid wrap height={ITEM_HEIGHT} style={{ overflow: 'hidden', borderRadius: 20 }}>
+            <Grid height={ITEM_HEIGHT} style={{ backgroundColor: 'red', borderRadius: 20 }}>
               <Image
                 contentFit="cover"
                 source={image}
-                style={{ height: ITEM_HEIGHT, width: '100%', position: 'absolute', borderRadius: 20 }}
+                style={{ height: ITEM_HEIGHT + 10, width: '100%', position: 'absolute', borderRadius: 20 }}
               />
               <LinearGradient
                 colors={['transparent', '#00000023', '#000000c2']}
-                style={{ width: '100%', height: ITEM_HEIGHT, position: 'absolute', borderRadius: 20 }}
+                style={{ width: '100%', height: ITEM_HEIGHT + 10, position: 'absolute', borderRadius: 20 }}
               />
-
               <Grid
                 row
-                space="sm"
                 align="center"
                 style={{ alignContent: 'flex-end' }}
                 justfity="space-between"
-                height="95%"
+                height="100%"
                 wrap
-                paddingVertical={15}
+                paddingVertical={20}
                 paddingHorizontal={20}
               >
                 <Typography weight="bold" variant="headline">
@@ -78,8 +77,12 @@ export default function InterpretationItem({ title, text, image, isBlocked }: In
         </Pressable>
       </AnimTouchWrapper>
       {isExpanded && (
-        <Animated.View entering={animationEngine.fadeInUp(0)}>
-          <Paper paddingHorizontal={15}>
+        <Animated.View
+          style={{ zIndex: -1, marginHorizontal: 15 }}
+          exiting={animationEngine.fadeOutUp(0)}
+          entering={animationEngine.fadeInUp(0)}
+        >
+          <Paper paddingHorizontal={15} style={{ borderTopLeftRadius: 0, borderTopRightRadius: 0 }}>
             <Typography>{text}</Typography>
           </Paper>
         </Animated.View>

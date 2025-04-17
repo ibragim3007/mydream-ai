@@ -20,11 +20,14 @@ export default function Paper({ ...props }: PaperProps) {
       }}
     >
       <Grid
-        style={{
-          overflow: 'hidden',
-          borderRadius: colors.styles.borderRadius,
-          backgroundColor: '#ffffff18',
-        }}
+        style={[
+          {
+            overflow: 'hidden',
+            borderRadius: colors.styles.borderRadius,
+            backgroundColor: '#ffffff18',
+          },
+          props.style,
+        ]}
       >
         <BlurView
           tint="light"
