@@ -85,9 +85,10 @@ export default function DreamPage() {
                 <Grid width="100%" space="sm" paddingHorizontal={HORIZONTAL_PADDINGS / 2}>
                   <CardPaper
                     width="100%"
-                    title={'Input'}
+                    title={'Summary'}
                     date={new Date(data.createdAt).toDateString()}
-                    text={data.inputText}
+                    text={analysis.summary}
+                    extendedText={data.inputText}
                   />
                   {/* <Button leftIcon={<AntDesign name="arrowdown" size={24} color={colors.text.white} />}>
                     Finish the dream
