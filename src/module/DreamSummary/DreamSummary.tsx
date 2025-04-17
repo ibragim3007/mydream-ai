@@ -8,7 +8,7 @@ import Grid from '@/shared/ui/grid/Grid';
 import { normalizedSize } from '@/shared/utils/size';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { useRef, useState } from 'react';
-import { LayoutChangeEvent, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
 import Animated, { Layout } from 'react-native-reanimated';
 
 interface DreamSummaryProps {
