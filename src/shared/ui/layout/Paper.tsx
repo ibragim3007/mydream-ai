@@ -36,7 +36,7 @@ export default function Paper({ ...props }: PaperProps) {
             },
             props.style,
           ]}
-          intensity={60}
+          intensity={200}
         >
           <Grid {...props} style={[{ backgroundColor: 'transparent' }, props.style]} />
         </BlurView>

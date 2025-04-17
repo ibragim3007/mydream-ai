@@ -6,7 +6,7 @@ import {
   SlideOutLeft,
   SlideOutRight,
   ZoomInDown,
-} from "react-native-reanimated";
+} from 'react-native-reanimated';
 
 // Место контроля анимаций в приложении
 
@@ -23,9 +23,9 @@ const OptionsAnimationService: OptionAnimationServiceType = {
 };
 
 class AnimationEngine {
-  private ANIMATION_SPEED: number;
-  private MASS: number;
-  private stiffness: number;
+  public ANIMATION_SPEED: number;
+  public MASS: number;
+  public stiffness: number;
 
   constructor(options: OptionAnimationServiceType) {
     const { ANIMATION_SPEED, MASS, stiffness } = options;
@@ -34,10 +34,7 @@ class AnimationEngine {
     this.stiffness = stiffness;
   }
 
-  private createAnimation<T extends ComplexAnimationBuilder>(
-    animationType: T,
-    n: number
-  ) {
+  private createAnimation<T extends ComplexAnimationBuilder>(animationType: T, n: number) {
     return animationType
       .delay(n * this.ANIMATION_SPEED)
       .springify()

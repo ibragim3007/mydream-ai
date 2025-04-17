@@ -1,10 +1,10 @@
+import ScientificImage from '@/assets/Interpretations/dna.png';
+import EsotericImage from '@/assets/Interpretations/flowers.png';
+import SelfDevelopmentImage from '@/assets/Interpretations/lamp2.png';
 import { HORIZONTAL_PADDINGS } from '@/shared/config/constants/constants';
 import { SleepDataResponse } from '@/shared/types/globalTypes';
 import InterpretationItem from '@/shared/ui/elements/InterpretationItem';
 import Grid from '@/shared/ui/grid/Grid';
-import Paper from '@/shared/ui/layout/Paper';
-import Typography from '@/shared/ui/typography/Typography';
-import EsotericImage from '@/assets/Interpretations/flowers.png';
 
 interface InterpretationsProps {
   analysis: SleepDataResponse;
@@ -19,24 +19,18 @@ export default function Interpretations({ analysis }: InterpretationsProps) {
         text={analysis.interpretations.esoteric}
         image={EsotericImage}
       />
-      <Paper space="sm">
-        <Typography variant="headline" weight="bold">
-          Esoteric
-        </Typography>
-        <Typography>{analysis.interpretations.esoteric}</Typography>
-      </Paper>
-      <Paper space="sm">
-        <Typography variant="headline" weight="bold">
-          Scientific
-        </Typography>
-        <Typography>{analysis.interpretations.scientific}</Typography>
-      </Paper>
-      <Paper space="sm">
-        <Typography variant="headline" weight="bold">
-          Self_development
-        </Typography>
-        <Typography>{analysis.interpretations.self_development}</Typography>
-      </Paper>
+      <InterpretationItem
+        isBlocked={false}
+        title="Scientific interpretation"
+        text={analysis.interpretations.scientific}
+        image={ScientificImage}
+      />
+      <InterpretationItem
+        isBlocked={false}
+        title="Self development interpretation"
+        text={analysis.interpretations.self_development}
+        image={SelfDevelopmentImage}
+      />
     </Grid>
   );
 }
