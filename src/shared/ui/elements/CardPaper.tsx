@@ -14,7 +14,7 @@ export default function CardPaper({ title, date, text, ...props }: CardPaperProp
   const colors = useTheme();
 
   return (
-    <Paper color="#ffffff" paddingVertical={10} {...props}>
+    <Paper color="#ffffff" paddingHorizontal={8} paddingVertical={10} {...props}>
       <Grid space="md">
         <Grid row justfity="space-between" align="center">
           <Typography color="white" weight="extra-bold">
@@ -31,9 +31,7 @@ export default function CardPaper({ title, date, text, ...props }: CardPaperProp
             )}
           </Grid>
         </Grid>
-        <Typography adjustsFontSizeToFit numberOfLines={10} color="white">
-          {text}
-        </Typography>
+        <Typography color="white">{text}</Typography>
       </Grid>
     </Paper>
   );

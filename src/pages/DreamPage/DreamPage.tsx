@@ -5,13 +5,11 @@ import { HORIZONTAL_PADDINGS } from '@/shared/config/constants/constants';
 import { useTheme } from '@/shared/hooks/useTheme';
 import { animationEngine } from '@/shared/service/animation.service';
 import { SleepDataResponse } from '@/shared/types/globalTypes';
-import Button from '@/shared/ui/buttons/Button';
 import CardPaper from '@/shared/ui/elements/CardPaper';
 import Grid from '@/shared/ui/grid/Grid';
 import PageWrapper from '@/shared/ui/layout/PageWrapper';
 import SafeWrapper from '@/shared/ui/layout/SafeWrapper';
 import Typography from '@/shared/ui/typography/Typography';
-import AntDesign from '@expo/vector-icons/AntDesign';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, ScrollView } from 'react-native';
@@ -84,7 +82,7 @@ export default function DreamPage() {
             <Grid space="md">
               <HeaderDream dream={data} />
               <Animated.View entering={animationEngine.zoomInDown(3)}>
-                <Grid width="100%" space="sm" paddingHorizontal={HORIZONTAL_PADDINGS}>
+                <Grid width="100%" space="sm" paddingHorizontal={HORIZONTAL_PADDINGS / 2}>
                   <CardPaper
                     width="100%"
                     title={'Input'}
