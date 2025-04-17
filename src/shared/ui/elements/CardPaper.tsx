@@ -1,13 +1,13 @@
 import { useTheme } from '@/shared/hooks/useTheme';
+import AntDesign from '@expo/vector-icons/AntDesign';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Modal, Pressable, ScrollView, Text } from 'react-native';
 import Button from '../buttons/Button';
 import Grid, { GridProps } from '../grid/Grid';
 import Paper from '../layout/Paper';
 import Typography from '../typography/Typography';
 import ModalContainer from '../wrapper/ModalContainer';
-import AntDesign from '@expo/vector-icons/AntDesign';
 
 interface CardPaperProps extends GridProps {
   title: string;

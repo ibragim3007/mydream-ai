@@ -11,7 +11,7 @@ export default function WrapIconInPressable({ primaryColor, backgroundColor, ...
     <Pressable
       {...props}
       style={{
-        padding: normalizedSize(8),
+        padding: normalizedSize(6),
         backgroundColor: backgroundColor || 'transparent',
         borderRadius: 50,
         borderWidth: 1,

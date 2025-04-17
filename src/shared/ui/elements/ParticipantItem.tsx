@@ -14,18 +14,15 @@ export default function ParticipantItem({ name, role }: ParticipantItemProps) {
   return (
     <Grid
       color="#fff"
-      // height={90}
-      style={{ maxWidth: normalizedSize(220), borderRadius: colors.styles.borderRadius }}
+      style={{ maxWidth: normalizedSize(220), borderRadius: colors.styles.borderRadius - 5 }}
       paddingVertical={15}
-      paddingHorizontal={15}
-      // justfity="center"
+      paddingHorizontal={20}
+      gap={2}
     >
-      <Grid align="center" space="sm" row>
-        <Typography weight="bold" color="white" variant="callout">
-          {name}
-        </Typography>
-        {/* <Ionicons name="person-outline" size={16} color={colors.text.white} /> */}
-      </Grid>
+      <Typography weight="bold" color="white" variant="callout">
+        {name}
+      </Typography>
+
       <Typography variant="footnote" color="white">
         {role}
       </Typography>

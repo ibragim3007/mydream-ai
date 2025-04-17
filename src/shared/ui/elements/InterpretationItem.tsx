@@ -11,6 +11,10 @@ import Grid from '../grid/Grid';
 import Paper from '../layout/Paper';
 import Typography from '../typography/Typography';
 import { normalizedSize } from '@/shared/utils/size';
+import WrapIconInCircle from '../wrapper/WrapIconInCircle';
+import WrapIconInPressable from '../wrapper/WrapIconInPressable';
+import { useTheme } from '@/shared/hooks/useTheme';
+import { BlurView } from 'expo-blur';
 
 interface InterpretationItemProps {
   title: string;
@@ -20,9 +24,10 @@ interface InterpretationItemProps {
   description?: string;
 }
 
-const ITEM_HEIGHT = normalizedSize(120);
+const ITEM_HEIGHT = normalizedSize(130);
 
 export default function InterpretationItem({ title, text, image, description, isBlocked }: InterpretationItemProps) {
+  const colors = useTheme();
   const [isExpanded, setIsExpanded] = useState(false);
   const arrowRotation = useSharedValue(0);
   const imageContainerScale = useSharedValue(1);
@@ -56,24 +61,38 @@ export default function InterpretationItem({ title, text, image, description, is
                 colors={['transparent', 'rgba(0, 0, 0, 0.423)', '#000000b3']}
                 style={{ width: '100%', height: ITEM_HEIGHT + 10, position: 'absolute', borderRadius: 20 }}
               />
+
               <Grid
                 row
                 align="center"
-                style={{ alignContent: 'flex-end' }}
+                style={{ alignContent: 'flex-end', overflow: 'hidden', borderRadius: 20 }}
                 justfity="space-between"
                 height="100%"
                 wrap
-                paddingVertical={10}
-                paddingHorizontal={20}
               >
-                <Typography weight="bold" variant="headline">
-                  {title}
-                </Typography>
+                <BlurView intensity={30}>
+                  <Grid
+                    row
+                    align="center"
+                    style={{ alignContent: 'flex-end' }}
+                    justfity="space-between"
+                    wrap
+                    width="100%"
+                    paddingVertical={6}
+                    paddingHorizontal={20}
+                  >
+                    <Typography weight="bold" variant="headline">
+                      {title}
+                    </Typography>
 
-                <Animated.View style={arrowStyle}>
-                  <Entypo name="chevron-down" size={26} color={'#fff'} />
-                </Animated.View>
-                {description && <Typography variant="caption-1">{description}</Typography>}
+                    <WrapIconInPressable backgroundColor={colors.background.disabled}>
+                      <Animated.View style={arrowStyle}>
+                        <Entypo name="chevron-down" size={26} color={'#fff'} />
+                      </Animated.View>
+                    </WrapIconInPressable>
+                    {/* {description && <Typography variant="caption-1">{description}</Typography>} */}
+                  </Grid>
+                </BlurView>
               </Grid>
             </Grid>
           </Animated.View>

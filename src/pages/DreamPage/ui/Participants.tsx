@@ -15,8 +15,8 @@ export default function Participants({ analysis }: ParticipantsProps) {
   }
 
   return (
-    <Grid space="sm">
-      <Typography variant="headline" weight="extra-bold" marginLeft={HORIZONTAL_PADDINGS}>
+    <Grid space="md">
+      <Typography variant="title-2" weight="extra-bold" marginLeft={HORIZONTAL_PADDINGS}>
         Characters
       </Typography>
       <ScrollView

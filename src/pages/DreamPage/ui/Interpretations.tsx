@@ -13,8 +13,8 @@ interface InterpretationsProps {
 
 export default function Interpretations({ analysis }: InterpretationsProps) {
   return (
-    <Grid paddingHorizontal={HORIZONTAL_PADDINGS} space="sm">
-      <Typography weight="extra-bold" variant="headline">
+    <Grid paddingHorizontal={HORIZONTAL_PADDINGS} space="md">
+      <Typography weight="extra-bold" variant="title-2">
         Interpretations
       </Typography>
       <Grid space="md">
@@ -38,7 +38,7 @@ They reveal stress and emotion."
           title="Self development interpretation"
           text={analysis.interpretations.self_development}
           image={SelfDevelopmentImage}
-          description="Dreams mirror growth and change. They help unlock potential."
+          description={'Dreams mirror growth and change.\nThey help unlock potential.'}
         />
       </Grid>
     </Grid>

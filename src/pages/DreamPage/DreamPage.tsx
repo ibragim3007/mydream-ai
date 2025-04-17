@@ -75,26 +75,24 @@ export default function DreamPage() {
       <ScrollView showsVerticalScrollIndicator={false}>
         <SafeWrapper style={{ paddingHorizontal: 0 }}>
           <Animated.View entering={animationEngine.fadeInUp(0)}>
-            <Grid space="md">
-              <Grid space="md">
-                <HeaderDream dream={data} />
+            <Grid space="lg">
+              <HeaderDream dream={data} />
 
-                <Participants analysis={analysis} />
+              <Participants analysis={analysis} />
 
-                <Grid width="100%" space="sm" paddingHorizontal={HORIZONTAL_PADDINGS}>
-                  <Typography weight="extra-bold" variant="headline">
-                    General info
-                  </Typography>
-                  <CardPaper
-                    width="100%"
-                    title={'Input'}
-                    date={new Date(data.createdAt).toDateString()}
-                    text={data.inputText}
-                  />
-                  {/* <Button leftIcon={<AntDesign name="arrowdown" size={24} color={colors.text.white} />}>
+              <Grid width="100%" space="md" paddingHorizontal={HORIZONTAL_PADDINGS}>
+                <Typography weight="extra-bold" variant="title-2">
+                  General info
+                </Typography>
+                <CardPaper
+                  width="100%"
+                  title={'Input'}
+                  date={new Date(data.createdAt).toDateString()}
+                  text={data.inputText}
+                />
+                {/* <Button leftIcon={<AntDesign name="arrowdown" size={24} color={colors.text.white} />}>
                     Finish the dream
                   </Button> */}
-                </Grid>
               </Grid>
 
               <Interpretations analysis={analysis} />
