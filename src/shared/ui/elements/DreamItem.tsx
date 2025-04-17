@@ -24,16 +24,14 @@ export default function DreamItem({ id, title, date, description, onPress }: Dre
       <Grid space="md">
         <Grid justfity="space-between" flex={1} row>
           <Grid flex={1} gap={1}>
-            <Typography numberOfLines={2} ellipsizeMode="tail" weight="bold" variant="headline">
+            <Typography numberOfLines={2} ellipsizeMode="tail" weight="bold" variant="title-3">
               {title}
             </Typography>
-            <Typography weight="light" variant="caption-1">
-              {date}
-            </Typography>
+            <Typography variant="footnote">{date}</Typography>
           </Grid>
           <Feather name="chevron-right" size={28} color={colors.text.primary} />
         </Grid>
-        <Typography weight="light" numberOfLines={5} lineBreakMode="clip">
+        <Typography numberOfLines={5} lineBreakMode="clip">
           {description}
         </Typography>
       </Grid>

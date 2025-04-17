@@ -40,7 +40,7 @@ const Button: React.FC<ButtonProps> = ({
           backgroundColor: props.disabled
             ? colors.background.disabled
             : isPressed
-              ? colors.background.secondary
+              ? colors.background.active
               : colors.text.primary,
           // borderColor: colors.background.secondary,
           borderWidth: 0,

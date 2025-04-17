@@ -83,7 +83,7 @@ export const themes: ITheme[] = [
       alert: '#FFC10733',
       negative: '#FF3D5733',
       disabled: '#33394633',
-      active: '#555e71',
+      active: '#cccccc',
     },
     accent: {
       primary: '#5A67C6',
