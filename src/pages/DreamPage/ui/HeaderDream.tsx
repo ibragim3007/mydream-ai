@@ -1,12 +1,11 @@
-import MoonImage from '@/assets/icons/moonImage2.png';
 import UserAvatar from '@/entities/auth/ui/UserAvatar';
 import { GetDreamDto } from '@/shared/api/entities/dream/dream.types';
 import { HORIZONTAL_PADDINGS } from '@/shared/config/constants/constants';
 import GoBackButton from '@/shared/ui/buttons/GoBackButton';
 import Grid from '@/shared/ui/grid/Grid';
 import Typography from '@/shared/ui/typography/Typography';
-import { Image } from 'expo-image';
 import { router } from 'expo-router';
+import HeaderImage from './HeaderImage';
 
 interface HeaderDreamProps {
   dream: GetDreamDto;
@@ -29,8 +28,7 @@ export default function HeaderDream({ dream }: HeaderDreamProps) {
       </Grid>
       <Grid align="center" space="lg">
         <Grid align="center" paddingHorizontal={HORIZONTAL_PADDINGS}>
-          <Image source={MoonImage} style={{ height: 140, width: 140 }} />
-
+          <HeaderImage />
           <Grid space="sm" align="center">
             <Typography textAlign="center" weight="bold" variant="title-1">
               {dream.title}

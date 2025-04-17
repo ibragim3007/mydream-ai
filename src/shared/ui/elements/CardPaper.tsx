@@ -44,9 +44,9 @@ export default function CardPaper({ title, date, text, extendedText, ...props }:
         <Typography numberOfLines={10} color="white">
           {text}
         </Typography>
-        <Button onPress={onToggleModal} variant="text">
+        {/* <Button onPress={onToggleModal} variant="text">
           Read original
-        </Button>
+        </Button> */}
       </Grid>
       <Grid flex={1}>
         <Modal onRequestClose={onToggleModal} visible={isOpen} animationType="slide" transparent>

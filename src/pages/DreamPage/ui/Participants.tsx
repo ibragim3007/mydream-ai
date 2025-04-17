@@ -10,15 +10,19 @@ interface ParticipantsProps {
 }
 
 export default function Participants({ analysis }: ParticipantsProps) {
+  if (analysis.characters.length === 0) {
+    return null;
+  }
+
   return (
     <Grid space="sm">
-      <Typography weight="extra-bold" marginLeft={HORIZONTAL_PADDINGS}>
-        Characters — {analysis.characters.length}
+      <Typography variant="headline" weight="extra-bold" marginLeft={HORIZONTAL_PADDINGS}>
+        Characters
       </Typography>
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
-        contentContainerStyle={{ paddingHorizontal: HORIZONTAL_PADDINGS / 2 }}
+        contentContainerStyle={{ paddingHorizontal: HORIZONTAL_PADDINGS }}
       >
         <Grid row space="md">
           {analysis.characters.map((character, index) => (

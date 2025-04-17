@@ -1,5 +1,5 @@
-import backgroundImageStars from '@/assets/background/starts_cloud_background.jpg';
 import backgroundImage from '@/assets/background/black_background.png';
+import backgroundImageStars from '@/assets/background/starts_cloud_background.jpg';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useTheme } from '../../hooks/useTheme';
 import Grid, { GridProps } from '../grid/Grid';
@@ -12,6 +12,12 @@ interface PageWrapper extends GridProps {
 
 export default function PageWrapper({ background = 'stars', ...props }: PageWrapper) {
   const colors = useTheme();
+
+  return (
+    <Grid color="#577898" style={{ flex: 1, height: '100%' }}>
+      <Grid flex={1} {...props} />
+    </Grid>
+  );
 
   return (
     <ImageBackground

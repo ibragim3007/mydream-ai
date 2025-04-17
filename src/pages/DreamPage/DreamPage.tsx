@@ -3,6 +3,7 @@ import { getDreamAnalysisResponse } from '@/entities/dream/helpers/getDreamRespo
 
 import { HORIZONTAL_PADDINGS } from '@/shared/config/constants/constants';
 import { useTheme } from '@/shared/hooks/useTheme';
+import { animationEngine } from '@/shared/service/animation.service';
 import { SleepDataResponse } from '@/shared/types/globalTypes';
 import CardPaper from '@/shared/ui/elements/CardPaper';
 import Grid from '@/shared/ui/grid/Grid';
@@ -11,9 +12,11 @@ import SafeWrapper from '@/shared/ui/layout/SafeWrapper';
 import Typography from '@/shared/ui/typography/Typography';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
+import Animated from 'react-native-reanimated';
 import HeaderDream from './ui/HeaderDream';
 import Interpretations from './ui/Interpretations';
+import LoadingSkeleton from './ui/LoadingSkeleton';
 import Participants from './ui/Participants';
 
 export default function DreamPage() {
@@ -33,14 +36,7 @@ export default function DreamPage() {
   }, [isLoading, isFetching, data]);
 
   if (isLoading || isFetching) {
-    return (
-      <PageWrapper>
-        <SafeWrapper>
-          <Typography weight="bold">Getting your dream information...</Typography>
-          <ActivityIndicator />
-        </SafeWrapper>
-      </PageWrapper>
-    );
+    return <LoadingSkeleton />;
   }
 
   if (isError) {
@@ -77,27 +73,32 @@ export default function DreamPage() {
     <PageWrapper>
       <ScrollView showsVerticalScrollIndicator={false}>
         <SafeWrapper style={{ paddingHorizontal: 0 }}>
-          <Grid space="lg">
-            <Grid space="md">
-              <HeaderDream dream={data} />
-              <Participants analysis={analysis} />
+          <Animated.View entering={animationEngine.fadeInUp(0)}>
+            <Grid space="lg">
+              <Grid space="md">
+                <HeaderDream dream={data} />
 
-              <Grid width="100%" space="sm" paddingHorizontal={HORIZONTAL_PADDINGS / 2}>
-                <CardPaper
-                  width="100%"
-                  title={'Summary'}
-                  date={new Date(data.createdAt).toDateString()}
-                  text={analysis.summary}
-                  extendedText={data.inputText}
-                />
-                {/* <Button leftIcon={<AntDesign name="arrowdown" size={24} color={colors.text.white} />}>
+                <Participants analysis={analysis} />
+
+                <Grid width="100%" space="sm" paddingHorizontal={HORIZONTAL_PADDINGS}>
+                  <Typography weight="extra-bold" variant="headline">
+                    General info
+                  </Typography>
+                  <CardPaper
+                    width="100%"
+                    title={'Input'}
+                    date={new Date(data.createdAt).toDateString()}
+                    text={data.inputText}
+                  />
+                  {/* <Button leftIcon={<AntDesign name="arrowdown" size={24} color={colors.text.white} />}>
                     Finish the dream
                   </Button> */}
+                </Grid>
               </Grid>
-            </Grid>
 
-            <Interpretations analysis={analysis} />
-          </Grid>
+              <Interpretations analysis={analysis} />
+            </Grid>
+          </Animated.View>
         </SafeWrapper>
       </ScrollView>
     </PageWrapper>
