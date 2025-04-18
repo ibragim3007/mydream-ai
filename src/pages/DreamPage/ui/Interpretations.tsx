@@ -30,8 +30,7 @@ export default function Interpretations({ analysis }: InterpretationsProps) {
           title="Scientific interpretation"
           text={analysis.interpretations.scientific}
           image={ScientificImage}
-          description="Dreams reflect brain activity.
-They reveal stress and emotion."
+          description={'Dreams reflect brain activity.\nThey reveal stress and emotion.'}
         />
         <InterpretationItem
           isBlocked={false}

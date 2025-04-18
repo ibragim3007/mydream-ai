@@ -1,5 +1,8 @@
+import { useTheme } from '@/shared/hooks/useTheme';
 import { animationEngine, animationService } from '@/shared/service/animation.service';
+import { normalizedSize } from '@/shared/utils/size';
 import Entypo from '@expo/vector-icons/Entypo';
+import { BlurView } from 'expo-blur';
 import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useState } from 'react';
@@ -10,11 +13,7 @@ import AnimTouchWrapper from '../animations/AnimTouchWrapper';
 import Grid from '../grid/Grid';
 import Paper from '../layout/Paper';
 import Typography from '../typography/Typography';
-import { normalizedSize } from '@/shared/utils/size';
-import WrapIconInCircle from '../wrapper/WrapIconInCircle';
 import WrapIconInPressable from '../wrapper/WrapIconInPressable';
-import { useTheme } from '@/shared/hooks/useTheme';
-import { BlurView } from 'expo-blur';
 
 interface InterpretationItemProps {
   title: string;
@@ -24,7 +23,7 @@ interface InterpretationItemProps {
   description?: string;
 }
 
-const ITEM_HEIGHT = normalizedSize(130);
+const ITEM_HEIGHT = 130;
 
 export default function InterpretationItem({ title, text, image, description, isBlocked }: InterpretationItemProps) {
   const colors = useTheme();
@@ -55,11 +54,21 @@ export default function InterpretationItem({ title, text, image, description, is
               <Image
                 contentFit="cover"
                 source={image}
-                style={{ height: ITEM_HEIGHT + 10, width: '100%', position: 'absolute', borderRadius: 20 }}
+                style={{
+                  height: '100%',
+                  width: '100%',
+                  position: 'absolute',
+                  borderRadius: 20,
+                }}
               />
               <LinearGradient
-                colors={['transparent', 'rgba(0, 0, 0, 0.423)', '#000000b3']}
-                style={{ width: '100%', height: ITEM_HEIGHT + 10, position: 'absolute', borderRadius: 20 }}
+                colors={['transparent', 'rgba(0, 0, 0, 0.096)', '#000000bd']}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  position: 'absolute',
+                  borderRadius: 20,
+                }}
               />
 
               <Grid
@@ -67,10 +76,10 @@ export default function InterpretationItem({ title, text, image, description, is
                 align="center"
                 style={{ alignContent: 'flex-end', overflow: 'hidden', borderRadius: 20 }}
                 justfity="space-between"
-                height="100%"
+                flex={1}
                 wrap
               >
-                <BlurView intensity={30}>
+                <BlurView intensity={30} tint="dark">
                   <Grid
                     row
                     align="center"
@@ -100,7 +109,7 @@ export default function InterpretationItem({ title, text, image, description, is
       </AnimTouchWrapper>
       {isExpanded && (
         <Animated.View
-          style={{ zIndex: -1, marginHorizontal: 15 }}
+          style={{ zIndex: -1, marginHorizontal: normalizedSize(15) }}
           exiting={animationEngine.fadeOutUp(0)}
           entering={animationEngine.fadeInUp(0)}
         >

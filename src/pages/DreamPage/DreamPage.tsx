@@ -20,6 +20,8 @@ import LoadingSkeleton from './ui/LoadingSkeleton';
 import Participants from './ui/Participants';
 import { GeneralFeedback } from '@/entities/feedback';
 import HeaderPlaceholder from '@/shared/ui/elements/HeaderPlaceholder';
+import Button from '@/shared/ui/buttons/Button';
+import AntDesign from '@expo/vector-icons/AntDesign';
 
 export default function DreamPage() {
   const params = useLocalSearchParams<{ id: string }>();
@@ -93,8 +95,8 @@ export default function DreamPage() {
                   text={data.inputText}
                 />
                 {/* <Button leftIcon={<AntDesign name="arrowdown" size={24} color={colors.text.white} />}>
-                    Finish the dream
-                  </Button> */}
+                  Finish the dream
+                </Button> */}
               </Grid>
 
               <Interpretations analysis={analysis} />
