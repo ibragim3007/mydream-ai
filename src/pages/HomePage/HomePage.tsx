@@ -7,6 +7,7 @@ import HeaderPlaceholder from '@/shared/ui/elements/HeaderPlaceholder';
 import Grid from '@/shared/ui/grid/Grid';
 import PageWrapper from '@/shared/ui/layout/PageWrapper';
 import Typography from '@/shared/ui/typography/Typography';
+import Superwall from '@superwall/react-native-superwall';
 import { Image } from 'expo-image';
 import { useEffect } from 'react';
 
@@ -15,6 +16,10 @@ export default function HomePage() {
 
   useEffect(() => {
     void initUser();
+
+    Superwall.shared.register({
+      placement: 'campaign_trigger',
+    });
   }, []);
 
   return (

@@ -1,4 +1,5 @@
 import { queryClient } from '@/shared/api/api';
+import { Environment } from '@/shared/config/config';
 import ThemeProvider from '@/shared/providers/ThemeProvider';
 import { isAppToken } from '@/shared/service/appId.service';
 import {
@@ -19,17 +20,16 @@ import {
   Nunito_900Black,
   Nunito_900Black_Italic,
 } from '@expo-google-fonts/nunito';
+import Superwall, { LogLevel, LogScope, SuperwallOptions } from '@superwall/react-native-superwall';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { useFonts } from 'expo-font';
 import { router, useRootNavigationState } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
+import { Platform } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import GeneralStack from './stack';
-import Superwall from '@superwall/react-native-superwall';
-import { Platform } from 'react-native';
-import { Environment } from '@/shared/config/config';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 void SplashScreen.preventAutoHideAsync();
@@ -61,9 +61,18 @@ export default function RootLayout() {
     try {
       const apiKey = Platform.OS === 'ios' ? (Environment.superwall_api_key as string) : 'MY_ANDROID_API_KEY';
 
-      Superwall.configure({
-        apiKey: apiKey,
-      });
+      try {
+        const options = new SuperwallOptions();
+        options.logging.level = LogLevel.Warn;
+        options.logging.scopes = [LogScope.PaywallPresentation, LogScope.PaywallTransactions];
+
+        Superwall.configure({
+          apiKey: apiKey,
+          options: options,
+        });
+      } catch (error) {
+        console.log(error);
+      }
     } catch (error) {
       console.error('Error configuring Superwall:', error);
     }
