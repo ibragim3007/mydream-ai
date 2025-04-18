@@ -1,5 +1,5 @@
 import { createDream, deleteDream, getDream, getDreams } from '@/shared/api/entities/dream/dream.api';
-import { CreateDreamDto, DreamsQueryDto } from '@/shared/api/entities/dream/dream.types';
+import { CreateDreamDto } from '@/shared/api/entities/dream/dream.types';
 import { handleMutation } from '@/shared/utils/handleMutation';
 import { useInfiniteQuery, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
@@ -26,6 +26,9 @@ export const useGetDreamById = (id: string) => {
 const getDreamsKeys = ['dreams'];
 export const useGetDreams = (limit = 10) => {
   return useInfiniteQuery({
+    refetchInterval: 100000,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: true,
     queryKey: getDreamsKeys,
     queryFn: ({ pageParam }: { pageParam: string | undefined }) =>
       getDreams({ lastDreamId: pageParam, limit: String(limit) }),

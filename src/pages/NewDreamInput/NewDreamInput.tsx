@@ -18,6 +18,7 @@ export default function NewDreamInput() {
     setDreamText(text);
   };
 
+  // Пока не используется
   useEffect(() => {
     const showSubscription = Keyboard.addListener('keyboardDidShow', () => {
       setKeyboardVisible(true);
@@ -42,7 +43,7 @@ export default function NewDreamInput() {
     <PageWrapper>
       <SafeWrapper style={{ paddingTop: 15 + headerHeight, flex: 1 }}>
         <KeyboardAvoidingView
-          style={styles.container}
+          style={{ flex: 1 }}
           behavior={Platform.OS === 'ios' ? 'padding' : undefined}
           keyboardVerticalOffset={Platform.OS === 'ios' ? 100 : 0}
         >
@@ -88,18 +89,3 @@ export default function NewDreamInput() {
     </PageWrapper>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  scrollContainer: {
-    flexGrow: 1,
-  },
-  input: {
-    flex: 1,
-    padding: 16,
-    fontSize: 16,
-    textAlignVertical: 'top', // важно для Android
-  },
-});
