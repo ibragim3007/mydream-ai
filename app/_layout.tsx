@@ -27,6 +27,9 @@ import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import GeneralStack from './stack';
+import Superwall from '@superwall/react-native-superwall';
+import { Platform } from 'react-native';
+import { Environment } from '@/shared/config/config';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 void SplashScreen.preventAutoHideAsync();
@@ -53,6 +56,18 @@ export default function RootLayout() {
   const navigationState = useRootNavigationState();
   const [redirected, setRedirected] = useState(false);
   // const { token, isHydrated } = useAuth();
+
+  useEffect(() => {
+    try {
+      const apiKey = Platform.OS === 'ios' ? (Environment.superwall_api_key as string) : 'MY_ANDROID_API_KEY';
+
+      Superwall.configure({
+        apiKey: apiKey,
+      });
+    } catch (error) {
+      console.error('Error configuring Superwall:', error);
+    }
+  }, []);
 
   useEffect(() => {
     const initializeApp = async () => {
