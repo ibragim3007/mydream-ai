@@ -3,6 +3,7 @@ import { useAuth } from '@/entities/auth/auth.repository';
 import { AddDreamButton } from '@/module/AddDreamButton';
 import { DreamsList } from '@/module/DreamsList';
 import { Settings } from '@/module/Settings';
+import HeaderPlaceholder from '@/shared/ui/elements/HeaderPlaceholder';
 import Grid from '@/shared/ui/grid/Grid';
 import PageWrapper from '@/shared/ui/layout/PageWrapper';
 import Typography from '@/shared/ui/typography/Typography';
@@ -18,6 +19,8 @@ export default function HomePage() {
 
   return (
     <PageWrapper background="stars">
+      <HeaderPlaceholder />
+
       <Grid space="lg">
         <DreamsList
           headerComponent={() => {

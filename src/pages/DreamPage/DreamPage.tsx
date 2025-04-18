@@ -19,6 +19,7 @@ import Interpretations from './ui/Interpretations';
 import LoadingSkeleton from './ui/LoadingSkeleton';
 import Participants from './ui/Participants';
 import { GeneralFeedback } from '@/entities/feedback';
+import HeaderPlaceholder from '@/shared/ui/elements/HeaderPlaceholder';
 
 export default function DreamPage() {
   const params = useLocalSearchParams<{ id: string }>();
@@ -72,6 +73,7 @@ export default function DreamPage() {
 
   return (
     <PageWrapper>
+      <HeaderPlaceholder />
       <ScrollView showsVerticalScrollIndicator={false}>
         <SafeWrapper style={{ paddingHorizontal: 0 }}>
           <Animated.View entering={animationEngine.fadeInUp(0)}>

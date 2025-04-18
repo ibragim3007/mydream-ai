@@ -1,7 +1,7 @@
 import { useTheme } from '@/shared/hooks/useTheme';
 import { fontWeight } from '@/shared/styles/typography/typography';
-import { router, Stack } from 'expo-router';
 import Entypo from '@expo/vector-icons/Entypo';
+import { router, Stack } from 'expo-router';
 import { Pressable } from 'react-native';
 
 export default function GeneralStack() {
@@ -24,12 +24,11 @@ export default function GeneralStack() {
             fontFamily: fontWeight['extra-bold'],
             color: color.text.primary,
           },
-          headerLeft: props => {
+          headerLeft: () => {
             return (
               <Pressable
                 onPress={() => router.dismiss()}
                 style={{
-                  // backgroundColor: 'red',
                   height: 40,
                   width: 40,
                   alignItems: 'center',

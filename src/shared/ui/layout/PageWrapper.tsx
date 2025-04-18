@@ -14,7 +14,7 @@ export default function PageWrapper({ background = 'stars', ...props }: PageWrap
   const colors = useTheme();
 
   return (
-    <Grid color="#4c5e91" style={{ flex: 1, height: '100%' }}>
+    <Grid color={colors.background.primary} style={{ flex: 1, height: '100%' }}>
       <Grid flex={1} {...props} />
     </Grid>
   );
