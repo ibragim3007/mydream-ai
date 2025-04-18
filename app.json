@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Dream Lens",
+    "name": "MyDream AI",
     "slug": "Dream-lens",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -10,13 +10,14 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.ibragimlol.Dreamlens"
+      "bundleIdentifier": "com.ibragim.mydreamjornal"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.ibragim.mydreamjornal"
     },
     "web": {
       "bundler": "metro",
@@ -25,6 +26,14 @@
     },
     "plugins": [
       "expo-router",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "minSdkVersion": 26
+          }
+        }
+      ],
       [
         "expo-splash-screen",
         {
@@ -41,7 +50,8 @@
           "faceIDPermission": "Allow $(PRODUCT_NAME) to access your Face ID biometric data."
         }
       ],
-      "expo-localization"
+      "expo-localization",
+      "expo-build-properties"
     ],
     "experiments": {
       "typedRoutes": true
@@ -59,6 +69,7 @@
     },
     "updates": {
       "url": "https://u.expo.dev/54058143-abbd-4d5b-9312-df6cd116c6db"
-    }
+    },
+    "owner": "ibragimlol"
   }
 }

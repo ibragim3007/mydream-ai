@@ -37,3 +37,7 @@ yarn-error.*
 
 app-example
 /.yarn
+/ios
+/android
+
+*.app
