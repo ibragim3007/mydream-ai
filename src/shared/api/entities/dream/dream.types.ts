@@ -25,6 +25,6 @@ export type GetDreamDto = {
 };
 
 export type DreamsQueryDto = {
-  page: string;
-  limit: string;
+  lastDreamId?: string;
+  limit?: string;
 };

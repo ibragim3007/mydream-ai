@@ -14,7 +14,12 @@ interface DreamsListProps {
 }
 
 export default function DreamsList({ headerComponent }: DreamsListProps) {
-  const { data, isLoading, isError } = useGetDreams();
+  // const { data, isLoading, isError } = useGetDreams();
+
+  const { data, isError, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage, refetch } = useGetDreams();
+
+  const flatData = data?.pages.flat() || [];
+
   const insets = useSafeAreaInsets();
   const onPressDreamCard = (id: string) => {
     router.push(`/screens/dream/${id}`);
@@ -31,11 +36,11 @@ export default function DreamsList({ headerComponent }: DreamsListProps) {
         showsVerticalScrollIndicator={false}
         style={{ height: '100%' }}
         ListHeaderComponent={headerComponent}
-        data={data}
+        data={flatData}
         refreshing={isLoading}
         ItemSeparatorComponent={() => <Grid height={15} />}
         ListFooterComponent={() => {
-          if (isLoading)
+          if (isLoading || isFetchingNextPage)
             return (
               <Grid marginVertical={10}>
                 <LoaderIndicator />
@@ -53,6 +58,11 @@ export default function DreamsList({ headerComponent }: DreamsListProps) {
               onPress={onPressDreamCard}
             />
           );
+        }}
+        onEndReached={() => {
+          if (hasNextPage && !isFetchingNextPage) {
+            void fetchNextPage();
+          }
         }}
         contentContainerStyle={{
           paddingBottom: 80,

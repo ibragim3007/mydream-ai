@@ -1,7 +1,7 @@
 import { createDream, deleteDream, getDream, getDreams } from '@/shared/api/entities/dream/dream.api';
 import { CreateDreamDto, DreamsQueryDto } from '@/shared/api/entities/dream/dream.types';
 import { handleMutation } from '@/shared/utils/handleMutation';
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useInfiniteQuery, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 const getDreamKeys = ['dream'];
 export const useGetDreamById = (id: string) => {
@@ -13,14 +13,28 @@ export const useGetDreamById = (id: string) => {
   return { data, isLoading, isFetching, isError };
 };
 
-const getDreamsKeys = ['dreams'];
-export const useGetDreams = (params?: DreamsQueryDto) => {
-  const { data, isError, isLoading } = useQuery({
-    queryKey: getDreamsKeys,
-    queryFn: () => getDreams(params),
-  });
+// const getDreamsKeys = ['dreams'];
+// export const useGetDreams = (params?: DreamsQueryDto) => {
+//   const { data, isError, isLoading } = useQuery({
+//     queryKey: getDreamsKeys,
+//     queryFn: () => getDreams(params),
+//   });
 
-  return { data, isLoading, isError };
+//   return { data, isLoading, isError };
+// };
+
+const getDreamsKeys = ['dreams'];
+export const useGetDreams = (limit = 10) => {
+  return useInfiniteQuery({
+    queryKey: getDreamsKeys,
+    queryFn: ({ pageParam }: { pageParam: string | undefined }) =>
+      getDreams({ lastDreamId: pageParam, limit: String(limit) }),
+    initialPageParam: undefined,
+    getNextPageParam: lastPage => {
+      if (!lastPage?.length) return undefined;
+      return lastPage[lastPage.length - 1].id; // предполагаем, что lastPage — массив снэпов
+    },
+  });
 };
 
 export const useCreateDream = () => {
