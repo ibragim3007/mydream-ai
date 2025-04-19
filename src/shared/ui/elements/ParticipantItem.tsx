@@ -13,7 +13,7 @@ export default function ParticipantItem({ name, role }: ParticipantItemProps) {
 
   return (
     <Grid
-      color="#fff"
+      color={colors.text.primary}
       style={{ maxWidth: normalizedSize(220), borderRadius: colors.styles.borderRadius - 5 }}
       paddingVertical={15}
       paddingHorizontal={20}

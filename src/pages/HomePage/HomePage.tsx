@@ -30,7 +30,7 @@ export default function HomePage() {
         <DreamsList
           headerComponent={() => {
             return (
-              <Grid space="lg" marginBottom={10}>
+              <Grid gap={50} marginBottom={20}>
                 <Grid>
                   <Settings />
                   <Grid space="lg">

@@ -42,7 +42,7 @@ export default function CardPaper({ title, date, text, extendedText, ...props }:
   }, []);
 
   return (
-    <Paper color="#ffffff" paddingHorizontal={8} paddingVertical={10} {...props}>
+    <Paper color={colors.text.primary} paddingHorizontal={8} paddingVertical={10} {...props}>
       <Grid space="md">
         <Grid row justfity="space-between" align="center">
           <Typography color="white" weight="bold">
