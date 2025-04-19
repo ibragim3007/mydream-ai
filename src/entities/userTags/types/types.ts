@@ -8,6 +8,7 @@ export interface IZodiacItem {
 export interface IGoalItem {
   id: number;
   name: GOALS;
+  image?: string;
 }
 
 export interface IGenderItem {

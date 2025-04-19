@@ -1,8 +1,9 @@
 import { QueryClient } from '@tanstack/react-query';
 import axios, { AxiosInstance } from 'axios';
 import { AuthServiceAsync } from '../service/auth.service';
+import { Environment } from '../config/config';
 
-const API_URL = 'https://dream-lens.up.railway.app';
+const API_URL = Environment.api_url || '';
 
 const apiInstance = axios.create({
   baseURL: API_URL,

@@ -7,7 +7,7 @@ export default function HeaderPlaceholder() {
   const insets = useSafeAreaInsets();
   const colors = useTheme();
 
-  const headerHeight = normalizedSize(insets.top) - normalizedSize(insets.top) * 0.3;
+  const headerHeight = normalizedSize(insets.top) - normalizedSize(insets.top) * 0.1;
   return (
     <Grid
       height={headerHeight}
@@ -15,10 +15,11 @@ export default function HeaderPlaceholder() {
       style={{
         position: 'absolute',
         top: 0,
+        width: '100%',
         zIndex: 1000,
         shadowOpacity: 1,
         shadowColor: colors.background.primary,
-        shadowOffset: { width: 0, height: 20 },
+        // shadowOffset: { width: 0, height: 20 },
         shadowRadius: 5,
       }}
       width="100%"

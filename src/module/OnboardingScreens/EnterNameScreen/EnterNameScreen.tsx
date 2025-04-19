@@ -42,7 +42,7 @@ export default function EnterNameScreen({ onPressButton, goPrevPage }: EnterName
           </Grid>
 
           <AnimatedWrapper>
-            <Input placeholder="Your name" onChangeText={onChangeName} />
+            <Input autoFocus={true} placeholder="Your name" onChangeText={onChangeName} />
           </AnimatedWrapper>
 
           <AnimatedWrapper style={{ marginBottom: 16 }}>

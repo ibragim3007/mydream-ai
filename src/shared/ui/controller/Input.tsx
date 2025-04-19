@@ -8,23 +8,25 @@ interface InputProps extends TextInputProps {}
 
 export default function Input({ ...props }: InputProps) {
   const colors = useTheme();
-  const [isFocused, setIsFocused] = useState(false);
+  const [isFocused, setIsFocused] = useState(props.autoFocus || false);
 
   return (
     <TextInput
       {...props}
-      placeholderTextColor={colors.text.disabled}
+      placeholderTextColor={colors.text.secondary}
       selectionColor={colors.accent.primary}
       style={[
         {
-          borderColor: isFocused ? colors.accent.primary : colors.accent.primary_pale_transparent,
-          borderWidth: 2,
+          // borderColor: isFocused ? colors.accent.primary : colors.accent.primary_pale_transparent,
+          // borderWidth: 2,
+          borderBottomWidth: 2,
+          borderBottomColor: isFocused ? colors.text.primary : colors.text.disabled,
           color: colors.text.primary,
-          paddingHorizontal: normalizedSize(13),
-          paddingVertical: normalizedSize(13),
-          fontSize: normalizedSize(18),
-          borderRadius: colors.styles.borderRadius,
-          backgroundColor: isFocused ? colors.background.neutral : colors.background.neutral,
+          paddingHorizontal: normalizedSize(15),
+          paddingVertical: normalizedSize(10),
+          fontSize: normalizedSize(20),
+          // borderRadius: colors.styles.borderRadius,
+          // backgroundColor: isFocused ? colors.backround.neutral : colors.background.neutral,
           fontFamily: fontWeight.medium,
         },
         props.style,

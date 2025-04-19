@@ -79,7 +79,7 @@ const Button: React.FC<ButtonProps> = ({
   const textVariants = useMemo(
     () => ({
       default: {
-        primary: { color: colors.text.primary },
+        primary: { color: props.disabled ? colors.text.disabled : colors.text.white },
         neutral: { color: colors.text.primary },
         error: { color: colors.text.primary },
       },
@@ -94,12 +94,12 @@ const Button: React.FC<ButtonProps> = ({
         error: { color: colors.text.primary },
       },
       text: {
-        primary: { color: colors.accent.primary },
+        primary: { color: colors.text.primary },
         neutral: { color: colors.text.primary },
         error: { color: colors.text.primary },
       },
     }),
-    [colors],
+    [colors, props.disabled],
   );
   const textVariant = textVariants[variant][color];
   const currentVariant = variantStyles[variant][color];
@@ -122,7 +122,7 @@ const Button: React.FC<ButtonProps> = ({
   };
 
   const styleText: TextProps['style'] = {
-    color: props.disabled ? colors.background.neutral : colors.text.white,
+    // color: props.disabled ? colors.background.neutral : colors.text.white,
     fontFamily: fontWeight.bold,
     textAlign: 'center',
     fontSize: normalizedSize(size === 'large' ? 20 : 13),
@@ -142,7 +142,7 @@ const Button: React.FC<ButtonProps> = ({
     currentVariant,
     props.style,
   ]);
-  const textS = StyleSheet.flatten([textVariant, styleText, textStyle]);
+  const textS = StyleSheet.flatten([styleText, textVariant, textStyle]);
 
   return (
     <Pressable {...props} style={buttonS} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>

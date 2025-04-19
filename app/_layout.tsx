@@ -89,7 +89,7 @@ export default function RootLayout() {
         try {
           const appToken = await isAppToken();
 
-          const isUserOnboarded = appToken;
+          const isUserOnboarded = false;
 
           if (isUserOnboarded) {
             router.replace('/screens/homeScreen');
