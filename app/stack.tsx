@@ -1,16 +1,33 @@
 import { useTheme } from '@/shared/hooks/useTheme';
 import { fontWeight } from '@/shared/styles/typography/typography';
-import Entypo from '@expo/vector-icons/Entypo';
-import { router, Stack } from 'expo-router';
-import { Pressable } from 'react-native';
+import DismissModalButton from '@/shared/ui/elements/DismissModalButton';
+import { Stack } from 'expo-router';
 
 export default function GeneralStack() {
   const color = useTheme();
+
+  const headerTitleStyle = {
+    fontFamily: fontWeight['extra-bold'],
+    color: color.text.primary,
+  };
+
   return (
     <Stack initialRouteName="screens/onboarding">
       <Stack.Screen name="screens/homeScreen" options={{ headerShown: false }} />
       <Stack.Screen name="screens/dream/[id]" options={{ headerShown: false }} />
       <Stack.Screen name="screens/onboarding" options={{ headerShown: false }} />
+      <Stack.Screen
+        name="screens/settingsScreen"
+        options={{
+          headerShown: true,
+          presentation: 'modal',
+          headerBlurEffect: 'regular',
+          headerTransparent: true,
+          headerTitle: 'Settings',
+          headerTitleStyle: headerTitleStyle,
+          headerLeft: () => <DismissModalButton />,
+        }}
+      />
       <Stack.Screen
         name="screens/newDreamScreen"
         options={{
@@ -20,25 +37,8 @@ export default function GeneralStack() {
           headerBlurEffect: 'regular',
           headerTransparent: true,
           gestureEnabled: false,
-          headerTitleStyle: {
-            fontFamily: fontWeight['extra-bold'],
-            color: color.text.primary,
-          },
-          headerLeft: () => {
-            return (
-              <Pressable
-                onPress={() => router.dismiss()}
-                style={{
-                  height: 40,
-                  width: 40,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <Entypo name="chevron-down" size={24} color={color.text.primary} />
-              </Pressable>
-            );
-          },
+          headerTitleStyle: headerTitleStyle,
+          headerLeft: () => <DismissModalButton />,
         }}
       />
 

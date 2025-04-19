@@ -77,13 +77,13 @@ export const themes: ITheme[] = [
     },
     background: {
       primary: '#2f4170',
-      secondary: '#9595954a',
-      neutral: '#d9d9d937',
+      secondary: '#141d35',
+      neutral: '#5f75af',
       success: '#4CAF5033',
       alert: '#FFC10733',
       negative: '#FF3D5733',
       disabled: '#33394633',
-      active: '#cccccc',
+      active: '#ababab',
     },
     accent: {
       primary: '#5A67C6',

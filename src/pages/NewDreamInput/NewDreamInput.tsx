@@ -6,7 +6,7 @@ import PageWrapper from '@/shared/ui/layout/PageWrapper';
 import SafeWrapper from '@/shared/ui/layout/SafeWrapper';
 import { useHeaderHeight } from '@react-navigation/elements';
 import { useEffect, useState } from 'react';
-import { Keyboard, KeyboardAvoidingView, Platform, StyleSheet, TextInput } from 'react-native';
+import { Keyboard, KeyboardAvoidingView, Platform, TextInput } from 'react-native';
 
 export default function NewDreamInput() {
   const colors = useTheme();
