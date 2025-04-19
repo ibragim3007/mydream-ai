@@ -1,5 +1,6 @@
 import { LANGUAGE } from '@/shared/types/globalTypes';
 
+export const APP_NAME = 'MyDream AI';
 export const HORIZONTAL_PADDINGS = 13;
 export const MAX_WIDTH_APP = 750;
 export const MAX_HEIGHT_APP = 750;

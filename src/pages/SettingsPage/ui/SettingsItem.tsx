@@ -7,9 +7,10 @@ interface SettingItemProps {
   title: string;
   prefix?: string;
   leftIcon?: React.ReactNode;
-  rightIcon: React.ReactNode;
+  rightIcon?: React.ReactNode;
   onPress?: () => void;
   removeSeparator?: boolean;
+  danger?: boolean;
 }
 
 export default function SettingItem({
@@ -18,6 +19,7 @@ export default function SettingItem({
   leftIcon,
   rightIcon,
   removeSeparator,
+  danger,
   onPress,
 }: SettingItemProps) {
   const colors = useTheme();
@@ -26,7 +28,7 @@ export default function SettingItem({
       <Grid
         style={{ borderRadius: 16 }}
         // height={50}
-        color={colors.background.secondary}
+        color={danger ? colors.background.negative : colors.background.secondary}
         row
         padding={8}
         align="center"
@@ -35,13 +37,17 @@ export default function SettingItem({
       >
         <Grid row align="center" space="md">
           {leftIcon && (
-            <Grid padding={8} color={colors.background.neutral} style={{ borderRadius: 8 }}>
+            <Grid
+              padding={8}
+              color={danger ? colors.background.negative : colors.background.neutral}
+              style={{ borderRadius: 8 }}
+            >
               {leftIcon}
             </Grid>
           )}
           <Typography weight="medium">{title}</Typography>
         </Grid>
-        <Grid>{rightIcon}</Grid>
+        {rightIcon && <Grid>{rightIcon}</Grid>}
       </Grid>
       {/* {removeSeparator || <Separator marginVertical={4} />} */}
     </Pressable>

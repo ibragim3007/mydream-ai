@@ -10,7 +10,7 @@ export default function GroupCard({ title, children }: GroupCardProps) {
   const colors = useTheme();
   return (
     <Grid>
-      <Grid>{children}</Grid>
+      <Grid space="sm">{children}</Grid>
     </Grid>
   );
 }

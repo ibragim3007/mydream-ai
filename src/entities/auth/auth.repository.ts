@@ -6,6 +6,9 @@ import * as SecureStore from 'expo-secure-store';
 import { create } from 'zustand';
 import { InitUserType, UserType } from './auth.types';
 import { Inform } from '@/shared/service/logger.service/logger.service';
+import { Alert } from 'react-native';
+import { StorageKeys } from '@/shared/config/constants/storageKeys';
+import { router } from 'expo-router';
 
 interface State {
   user?: UserType;
@@ -46,8 +49,22 @@ export const useAuth = create<State & Actions>(set => {
     // Вызывает очистку токена приложения
     // и удаляет заголовок авторизации
     logout: async () => {
-      await SecureStore.deleteItemAsync('token');
-      apiService.setAuthorizationHeader('');
+      Alert.alert('Logout', "Are you sure you want to log out? And lose all your's data", [
+        {
+          text: 'Yes',
+          style: 'destructive',
+          onPress: async () => {
+            await SecureStore.deleteItemAsync(StorageKeys.appToken);
+            apiService.setAuthorizationHeader('');
+            router.push('/screens/onboarding');
+          },
+        },
+        {
+          text: 'No',
+          onPress: () => {},
+          style: 'cancel',
+        },
+      ]);
     },
   };
 });
