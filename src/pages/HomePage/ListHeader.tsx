@@ -7,7 +7,7 @@ import { Image } from 'expo-image';
 
 export default function ListHeader() {
   return (
-    <Grid gap={50} marginBottom={20}>
+    <Grid gap={50}>
       <Grid>
         <Settings />
         <Grid space="lg">
@@ -24,8 +24,8 @@ export default function ListHeader() {
           {/* <CreateDreamInput /> */}
         </Grid>
       </Grid>
-      <Typography weight="extra-bold" variant="title-2">
-        Recently added
+      <Typography weight="extra-bold" variant="title-1">
+        Your dreams!
       </Typography>
       {/* <ClearCacheButton /> */}
     </Grid>

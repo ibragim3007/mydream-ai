@@ -6,11 +6,12 @@ import DreamItem from '@/shared/ui/elements/DreamItem';
 import LoaderIndicator from '@/shared/ui/elements/LoaderIndicator';
 import Grid from '@/shared/ui/grid/Grid';
 import Typography from '@/shared/ui/typography/Typography';
+import { normalizedSize } from '@/shared/utils/size';
 import { router } from 'expo-router';
-import { FlatList, SectionList } from 'react-native';
+import { SectionList } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import SectionHeader from './ui/SectionHeader';
-import { normalizedSize } from '@/shared/utils/size';
+import { useApp } from '@/entities/appStore/useApp';
 
 interface DreamsListProps {
   headerComponent: React.ComponentType<any>;
@@ -28,7 +29,9 @@ export default function DreamsList({ headerComponent }: DreamsListProps) {
     router.push(`/screens/dream/${id}`);
   };
 
-  const groupedDreams = groupDreamsByDate(flatData);
+  const { local } = useApp();
+
+  const groupedDreams = groupDreamsByDate(flatData, local);
 
   if (isError) {
     return <Typography>Error loading dreams</Typography>;
@@ -74,7 +77,7 @@ export default function DreamsList({ headerComponent }: DreamsListProps) {
               </Grid>
             );
         }}
-        ItemSeparatorComponent={() => <Grid height={15} />}
+        ItemSeparatorComponent={() => <Grid height={18} />}
       />
     </Grid>
   );

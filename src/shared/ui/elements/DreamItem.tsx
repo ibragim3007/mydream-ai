@@ -22,12 +22,13 @@ export default function DreamItem({ id, title, date, description, onPress }: Dre
   return (
     <PaperPressable onPress={onPressHandler}>
       <Grid space="md">
-        <Grid justfity="space-between" flex={1} row>
-          <Grid flex={1} gap={1}>
-            <Typography numberOfLines={2} ellipsizeMode="tail" weight="bold" variant="title-3">
+        <Grid align="center" justfity="space-between" flex={1} row>
+          <Grid flex={0.95} gap={1}>
+            <Typography numberOfLines={2} ellipsizeMode="tail" weight="bold" variant="title-2">
               {title}
             </Typography>
-            <Typography variant="footnote">{date}</Typography>
+
+            {/* <Typography variant="footnote">{date}</Typography> */}
           </Grid>
           <Feather name="chevron-right" size={28} color={colors.text.primary} />
         </Grid>
