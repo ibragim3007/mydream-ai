@@ -1,15 +1,12 @@
-import { useTheme } from '@/shared/hooks/useTheme';
 import GroupCard from '@/shared/ui/elements/GroupCard';
 import Feather from '@expo/vector-icons/Feather';
-import SettingItem from './SettingsItem';
-import { useAuth } from '@/entities/auth/auth.repository';
+import SettingItem from '../SettingsItem';
+import { useTheme } from '@/shared/hooks/useTheme';
 
-export default function LogOutBlock() {
+export default function FeedbackBlock() {
   const colors = useTheme();
-  const { logout } = useAuth();
-
   return (
-    <GroupCard title="Account info">
+    <GroupCard title="Feedback">
       <SettingItem
         leftIcon={<Feather name="message-circle" size={24} color={colors.text.primary} />}
         title="Contact us"
@@ -27,13 +24,6 @@ export default function LogOutBlock() {
         title="Feedback"
         rightIcon={<Feather name="arrow-right" size={24} color={colors.text.secondary} />}
         // onPress={onContactUs}
-      />
-
-      <SettingItem
-        danger
-        leftIcon={<Feather name="log-out" size={24} color={colors.text.primary} />}
-        title="Log Out"
-        onPress={logout}
       />
     </GroupCard>
   );
