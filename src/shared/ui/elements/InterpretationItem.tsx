@@ -50,7 +50,7 @@ export default function InterpretationItem({ title, text, image, description, is
       <AnimTouchWrapper>
         <Pressable onPress={toggleExpand}>
           <Animated.View style={[imageContainerStyle]}>
-            <Grid height={ITEM_HEIGHT} style={{ borderRadius: 20 }}>
+            <Grid height={ITEM_HEIGHT} style={{ borderRadius: colors.styles.borderRadius }}>
               <Image
                 contentFit="cover"
                 source={image}
@@ -58,7 +58,7 @@ export default function InterpretationItem({ title, text, image, description, is
                   height: '100%',
                   width: '100%',
                   position: 'absolute',
-                  borderRadius: 20,
+                  borderRadius: colors.styles.borderRadius,
                 }}
               />
               <LinearGradient
@@ -67,7 +67,7 @@ export default function InterpretationItem({ title, text, image, description, is
                   width: '100%',
                   height: '100%',
                   position: 'absolute',
-                  borderRadius: 20,
+                  borderRadius: colors.styles.borderRadius,
                 }}
               />
 

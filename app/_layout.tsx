@@ -31,6 +31,11 @@ import { Platform } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import GeneralStack from './stack';
 import Purchases, { LOG_LEVEL } from 'react-native-purchases';
+import { vexo } from 'vexo-analytics';
+
+if (!__DEV__) {
+  vexo(Environment.vexo_api_key || '');
+}
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 void SplashScreen.preventAutoHideAsync();
