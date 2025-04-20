@@ -11,10 +11,21 @@ export default function LogOutBlock() {
   return (
     <GroupCard title="Account info">
       <SettingItem
+        leftIcon={<Feather name="package" size={24} color={colors.text.primary} />}
+        title="Restore purchases"
+        onPress={logout}
+      />
+      <SettingItem
+        leftIcon={<Feather name="user" size={24} color={colors.text.primary} />}
+        title="Account settings"
+        onPress={logout}
+      />
+      <SettingItem
         danger
         leftIcon={<Feather name="log-out" size={24} color={colors.text.primary} />}
         title="Log Out"
         onPress={logout}
+        rightIcon={<></>}
       />
     </GroupCard>
   );

@@ -11,7 +11,7 @@ export default function GroupCard({ title, children }: GroupCardProps) {
   const colors = useTheme();
   return (
     <Grid space="sm">
-      <Typography weight="extra-bold" variant="title-2">
+      <Typography variant="caption-2" weight="extra-light" style={{ letterSpacing: 1.5, textTransform: 'uppercase' }}>
         {title}
       </Typography>
       <Grid space="sm">{children}</Grid>

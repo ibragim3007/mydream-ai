@@ -4,6 +4,7 @@ import { useHeaderHeight } from '@react-navigation/elements';
 import LogOutBlock from './ui/blocks/LogOutBlock';
 import FeedbackBlock from './ui/blocks/FeedbackBlock';
 import Grid from '@/shared/ui/grid/Grid';
+import LegalBlock from './ui/blocks/LegalBlock';
 
 export default function SettingsPage() {
   const headerHeight = useHeaderHeight();
@@ -11,6 +12,7 @@ export default function SettingsPage() {
     <PageWrapper>
       <SafeWrapper style={{ paddingTop: 15 + headerHeight, flex: 1 }}>
         <Grid space="lg">
+          <LegalBlock />
           <FeedbackBlock />
           <LogOutBlock />
         </Grid>

@@ -6,24 +6,16 @@ import { useTheme } from '@/shared/hooks/useTheme';
 export default function FeedbackBlock() {
   const colors = useTheme();
   return (
-    <GroupCard title="Feedback">
+    <GroupCard title="Reach us">
       <SettingItem
-        leftIcon={<Feather name="message-circle" size={24} color={colors.text.primary} />}
-        title="Contact us"
-        rightIcon={<Feather name="arrow-right" size={24} color={colors.text.secondary} />}
-        // onPress={onContactUs}
+        leftIcon={<Feather name="mail" size={24} color={colors.text.primary} />}
+        title="Send us an email"
+        prefix="someemail@mail.com"
       />
+      <SettingItem leftIcon={<Feather name="repeat" size={24} color={colors.text.primary} />} title="Report a bug" />
       <SettingItem
-        leftIcon={<Feather name="phone-forwarded" size={24} color={colors.text.primary} />}
-        title="Feedback"
-        rightIcon={<Feather name="arrow-right" size={24} color={colors.text.secondary} />}
-        // onPress={onContactUs}
-      />
-      <SettingItem
-        leftIcon={<Feather name="phone-forwarded" size={24} color={colors.text.primary} />}
-        title="Feedback"
-        rightIcon={<Feather name="arrow-right" size={24} color={colors.text.secondary} />}
-        // onPress={onContactUs}
+        leftIcon={<Feather name="feather" size={24} color={colors.text.primary} />}
+        title="Request a feature"
       />
     </GroupCard>
   );
