@@ -1,13 +1,16 @@
 import { useGetDreams } from '@/entities/dream/dream.repository';
 import { getDreamAnalysisResponse } from '@/entities/dream/helpers/getDreamResponse';
+import { groupDreamsByDate } from '@/entities/dream/helpers/groupDreamsByDate';
 import { HORIZONTAL_PADDINGS } from '@/shared/config/constants/constants';
 import DreamItem from '@/shared/ui/elements/DreamItem';
 import LoaderIndicator from '@/shared/ui/elements/LoaderIndicator';
 import Grid from '@/shared/ui/grid/Grid';
 import Typography from '@/shared/ui/typography/Typography';
 import { router } from 'expo-router';
-import { FlatList } from 'react-native';
+import { FlatList, SectionList } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SectionHeader from './ui/SectionHeader';
+import { normalizedSize } from '@/shared/utils/size';
 
 interface DreamsListProps {
   headerComponent: React.ComponentType<any>;
@@ -25,27 +28,30 @@ export default function DreamsList({ headerComponent }: DreamsListProps) {
     router.push(`/screens/dream/${id}`);
   };
 
+  const groupedDreams = groupDreamsByDate(flatData);
+
   if (isError) {
     return <Typography>Error loading dreams</Typography>;
   }
 
   return (
     <Grid>
-      <FlatList
-        keyboardDismissMode="on-drag"
+      <SectionList
+        sections={groupedDreams}
+        keyExtractor={item => item.id}
         showsVerticalScrollIndicator={false}
-        style={{ height: '100%' }}
-        ListHeaderComponent={headerComponent}
-        data={flatData}
+        keyboardDismissMode="on-drag"
         refreshing={isLoading}
-        ItemSeparatorComponent={() => <Grid height={15} />}
-        ListFooterComponent={() => {
-          if (isLoading || isFetchingNextPage)
-            return (
-              <Grid marginVertical={10}>
-                <LoaderIndicator />
-              </Grid>
-            );
+        ListHeaderComponent={headerComponent}
+        onEndReached={() => {
+          if (hasNextPage && !isFetchingNextPage) {
+            void fetchNextPage();
+          }
+        }}
+        contentContainerStyle={{
+          paddingBottom: normalizedSize(80),
+          paddingHorizontal: HORIZONTAL_PADDINGS,
+          paddingTop: insets.top,
         }}
         renderItem={({ item }) => {
           const analysis = getDreamAnalysisResponse(item.analyzeText);
@@ -59,16 +65,16 @@ export default function DreamsList({ headerComponent }: DreamsListProps) {
             />
           );
         }}
-        onEndReached={() => {
-          if (hasNextPage && !isFetchingNextPage) {
-            void fetchNextPage();
-          }
+        renderSectionHeader={({ section: { title } }) => <SectionHeader title={title} />}
+        ListFooterComponent={() => {
+          if (isLoading || isFetchingNextPage)
+            return (
+              <Grid marginVertical={10}>
+                <LoaderIndicator />
+              </Grid>
+            );
         }}
-        contentContainerStyle={{
-          paddingBottom: 80,
-          paddingHorizontal: HORIZONTAL_PADDINGS,
-          paddingTop: insets.top,
-        }}
+        ItemSeparatorComponent={() => <Grid height={15} />}
       />
     </Grid>
   );

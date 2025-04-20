@@ -1,28 +1,18 @@
-import MoonImage from '@/assets/icons/moonImage2.png';
 import { useAuth } from '@/entities/auth/auth.repository';
-import { AddDreamButton } from '@/module/AddDreamButton';
 import { DreamsList } from '@/module/DreamsList';
-import { Settings } from '@/module/Settings';
 import HeaderPlaceholder from '@/shared/ui/elements/HeaderPlaceholder';
 import Grid from '@/shared/ui/grid/Grid';
 import PageWrapper from '@/shared/ui/layout/PageWrapper';
-import Typography from '@/shared/ui/typography/Typography';
-import { Image } from 'expo-image';
-import RevenueCatUI from 'react-native-purchases-ui';
 
-import { useEffect } from 'react';
-import { fontWeight } from '@/shared/styles/typography/typography';
 import Superwall from '@superwall/react-native-superwall';
+import { useEffect } from 'react';
+import ListHeader from './ListHeader';
 
 export default function HomePage() {
   const { user, initUser } = useAuth();
 
   useEffect(() => {
     void initUser();
-
-    // RevenueCatUI.presentPaywallIfNeeded({
-    //   requiredEntitlementIdentifier: 'Default',
-    // });
     Superwall.shared.register({
       placement: 'campaign_trigger',
     });
@@ -33,36 +23,7 @@ export default function HomePage() {
       <HeaderPlaceholder />
 
       <Grid space="lg">
-        <DreamsList
-          headerComponent={() => {
-            return (
-              <Grid gap={50} marginBottom={20}>
-                <Grid>
-                  <Settings />
-                  <Grid space="lg">
-                    <Grid space="sm">
-                      <Grid space="md" row align="center">
-                        <Typography variant="largeTitle" weight="bold">
-                          Hi, Dreamer!
-                        </Typography>
-                        <Image source={MoonImage} style={{ height: 50, width: 50 }} />
-                      </Grid>
-                      <Typography>
-                        The better you describe your dream, the better the interpretation will be.
-                      </Typography>
-                    </Grid>
-                    <AddDreamButton />
-                    {/* <CreateDreamInput /> */}
-                  </Grid>
-                </Grid>
-                <Typography weight="extra-bold" variant="title-2">
-                  Recently added
-                </Typography>
-                {/* <ClearCacheButton /> */}
-              </Grid>
-            );
-          }}
-        />
+        <DreamsList headerComponent={ListHeader} />
       </Grid>
     </PageWrapper>
   );

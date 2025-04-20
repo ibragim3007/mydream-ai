@@ -7,7 +7,7 @@ export default function HeaderPlaceholder() {
   const insets = useSafeAreaInsets();
   const colors = useTheme();
 
-  const headerHeight = normalizedSize(insets.top) - normalizedSize(insets.top) * 0.1;
+  const headerHeight = normalizedSize(insets.top) - normalizedSize(insets.top) * 0.2;
   return (
     <Grid
       height={headerHeight}
