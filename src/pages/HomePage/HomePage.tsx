@@ -7,9 +7,12 @@ import HeaderPlaceholder from '@/shared/ui/elements/HeaderPlaceholder';
 import Grid from '@/shared/ui/grid/Grid';
 import PageWrapper from '@/shared/ui/layout/PageWrapper';
 import Typography from '@/shared/ui/typography/Typography';
-import Superwall from '@superwall/react-native-superwall';
 import { Image } from 'expo-image';
+import RevenueCatUI from 'react-native-purchases-ui';
+
 import { useEffect } from 'react';
+import { fontWeight } from '@/shared/styles/typography/typography';
+import Superwall from '@superwall/react-native-superwall';
 
 export default function HomePage() {
   const { user, initUser } = useAuth();
@@ -17,6 +20,9 @@ export default function HomePage() {
   useEffect(() => {
     void initUser();
 
+    // RevenueCatUI.presentPaywallIfNeeded({
+    //   requiredEntitlementIdentifier: 'Default',
+    // });
     Superwall.shared.register({
       placement: 'campaign_trigger',
     });

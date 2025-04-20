@@ -30,6 +30,7 @@ import { useEffect, useState } from 'react';
 import { Platform } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import GeneralStack from './stack';
+import Purchases, { LOG_LEVEL } from 'react-native-purchases';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 void SplashScreen.preventAutoHideAsync();
@@ -59,15 +60,26 @@ export default function RootLayout() {
 
   useEffect(() => {
     try {
-      const apiKey = Platform.OS === 'ios' ? (Environment.superwall_api_key as string) : 'MY_ANDROID_API_KEY';
+      const apiKeyRevenue =
+        Platform.OS === 'ios'
+          ? (Environment.revenue_api_key_IOS as string)
+          : (Environment.revenue_api_key_ANDROID as string);
+
+      const apiKeySuperwall = Platform.OS === 'ios' ? (Environment.superwall_api_key as string) : 'API_KEY_ANDROID';
 
       try {
+        Purchases.setLogLevel(LOG_LEVEL.VERBOSE);
+        if (Platform.OS === 'ios') {
+          Purchases.configure({ apiKey: apiKeyRevenue });
+        } else if (Platform.OS === 'android') {
+          Purchases.configure({ apiKey: apiKeyRevenue });
+        }
+
         const options = new SuperwallOptions();
         options.logging.level = LogLevel.Warn;
         options.logging.scopes = [LogScope.PaywallPresentation, LogScope.PaywallTransactions];
-
         Superwall.configure({
-          apiKey: apiKey,
+          apiKey: apiKeySuperwall,
           options: options,
         });
       } catch (error) {
