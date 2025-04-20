@@ -32,6 +32,19 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import GeneralStack from './stack';
 import Purchases, { LOG_LEVEL } from 'react-native-purchases';
 import { vexo } from 'vexo-analytics';
+import * as Sentry from '@sentry/react-native';
+
+Sentry.init({
+  dsn: 'https://75639b83524ceb4e5cd2f365c943e3a3@o4509188089708544.ingest.us.sentry.io/4509188098949120',
+
+  // Configure Session Replay
+  replaysSessionSampleRate: 0.1,
+  replaysOnErrorSampleRate: 1,
+  integrations: [Sentry.mobileReplayIntegration()],
+
+  // uncomment the line below to enable Spotlight (https://spotlightjs.com)
+  // spotlight: __DEV__,
+});
 
 if (!__DEV__) {
   vexo(Environment.vexo_api_key || '');
@@ -40,7 +53,7 @@ if (!__DEV__) {
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 void SplashScreen.preventAutoHideAsync();
 
-export default function RootLayout() {
+export default Sentry.wrap(function RootLayout() {
   const [loaded] = useFonts({
     Nunito_200ExtraLight,
     Nunito_300Light,
@@ -138,4 +151,4 @@ export default function RootLayout() {
       </GestureHandlerRootView>
     </QueryClientProvider>
   );
-}
+});

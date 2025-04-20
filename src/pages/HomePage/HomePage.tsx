@@ -3,10 +3,11 @@ import { DreamsList } from '@/module/DreamsList';
 import HeaderPlaceholder from '@/shared/ui/elements/HeaderPlaceholder';
 import Grid from '@/shared/ui/grid/Grid';
 import PageWrapper from '@/shared/ui/layout/PageWrapper';
-
+import * as Sentry from '@sentry/react-native';
 import Superwall from '@superwall/react-native-superwall';
 import { useEffect } from 'react';
 import ListHeader from './ListHeader';
+import { Button } from 'react-native';
 
 export default function HomePage() {
   const { user, initUser } = useAuth();

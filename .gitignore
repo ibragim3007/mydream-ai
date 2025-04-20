@@ -43,3 +43,5 @@ app-example
 *.app
 .env
 *.gz
+
+.env.local
