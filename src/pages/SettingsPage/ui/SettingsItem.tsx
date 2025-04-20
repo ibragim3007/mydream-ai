@@ -12,6 +12,7 @@ interface SettingItemProps {
   onPress?: () => void;
   removeSeparator?: boolean;
   danger?: boolean;
+  rightPrefix?: string;
 }
 
 export default function SettingItem({
@@ -20,6 +21,7 @@ export default function SettingItem({
   leftIcon,
   rightIcon,
   removeSeparator,
+  rightPrefix,
   danger,
   onPress,
 }: SettingItemProps) {
@@ -56,7 +58,14 @@ export default function SettingItem({
           </Grid>
         </Grid>
 
-        {rightIcon ? rightIcon : <Entypo name="chevron-right" size={24} color={colors.text.secondary} />}
+        <Grid row align="center" space="sm">
+          {rightPrefix && (
+            <Typography weight="light" variant="caption-1">
+              {rightPrefix}
+            </Typography>
+          )}
+          {rightIcon ? rightIcon : <Entypo name="chevron-right" size={24} color={colors.text.secondary} />}
+        </Grid>
       </Grid>
       {/* {removeSeparator || <Separator marginVertical={4} />} */}
     </Pressable>

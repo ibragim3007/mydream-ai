@@ -13,13 +13,8 @@ export default function LogOutBlock() {
       <SettingItem
         leftIcon={<Feather name="package" size={24} color={colors.text.primary} />}
         title="Restore purchases"
-        onPress={logout}
       />
-      <SettingItem
-        leftIcon={<Feather name="user" size={24} color={colors.text.primary} />}
-        title="Account settings"
-        onPress={logout}
-      />
+      <SettingItem leftIcon={<Feather name="user" size={24} color={colors.text.primary} />} title="Account settings" />
       <SettingItem
         danger
         leftIcon={<Feather name="log-out" size={24} color={colors.text.primary} />}
