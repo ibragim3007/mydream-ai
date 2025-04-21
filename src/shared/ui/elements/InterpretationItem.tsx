@@ -14,6 +14,7 @@ import Grid from '../grid/Grid';
 import Paper from '../layout/Paper';
 import Typography from '../typography/Typography';
 import WrapIconInPressable from '../wrapper/WrapIconInPressable';
+import { useVibration } from '@/shared/hooks/useVibration';
 
 interface InterpretationItemProps {
   title: string;
@@ -30,6 +31,7 @@ export default function InterpretationItem({ title, text, image, description, is
   const [isExpanded, setIsExpanded] = useState(false);
   const arrowRotation = useSharedValue(0);
   const imageContainerScale = useSharedValue(1);
+  const { vibrateSelection } = useVibration();
 
   const imageContainerStyle = useAnimatedStyle(() => ({
     transform: [{ scale: imageContainerScale.value }],
@@ -40,6 +42,7 @@ export default function InterpretationItem({ title, text, image, description, is
   }));
 
   const toggleExpand = () => {
+    vibrateSelection();
     setIsExpanded(prev => !prev);
     arrowRotation.value = withSpring(isExpanded ? 0 : -180, { mass: animationService.animationEngine.MASS });
     imageContainerScale.value = withTiming(isExpanded ? 1 : 1.05);

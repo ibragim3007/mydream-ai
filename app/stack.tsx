@@ -1,3 +1,4 @@
+import { AudioRecorderButton } from '@/module/AudioRecorderButton';
 import { useTheme } from '@/shared/hooks/useTheme';
 import { fontWeight } from '@/shared/styles/typography/typography';
 import DismissModalButton from '@/shared/ui/elements/DismissModalButton';
@@ -39,6 +40,7 @@ export default function GeneralStack() {
           gestureEnabled: false,
           headerTitleStyle: headerTitleStyle,
           headerLeft: () => <DismissModalButton />,
+          headerRight: () => <AudioRecorderButton />,
         }}
       />
 
