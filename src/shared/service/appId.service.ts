@@ -22,6 +22,9 @@ export const getAppToken = async () => {
 };
 
 export const isAppToken = async () => {
+  if (__DEV__) {
+    return '7a0f9f48-03b0-4c8d-9c54-411fb5df6f04';
+  }
   try {
     const id = await SecureStore.getItemAsync(StorageKeys.appToken);
     return !!id;

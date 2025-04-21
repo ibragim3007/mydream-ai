@@ -21,7 +21,7 @@ export default function ListHeader() {
             </Grid>
             <Typography>The better you describe your dream, the better the interpretation will be.</Typography>
           </Grid>
-          <Grid flex={1} align="stretch" row space="sm">
+          <Grid align="stretch" row space="sm">
             <AddDreamButton />
             <AudioRecorderButton />
           </Grid>

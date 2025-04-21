@@ -1,14 +1,40 @@
 import SaveAndAnaluzeButton from '@/module/SaveAndAnalyzeButton/SaveAndAnaluzeButton';
+import { transcibe } from '@/shared/api/entities/openai/openai.api';
 import { useTheme } from '@/shared/hooks/useTheme';
+import { errorLogger } from '@/shared/service/logger.service/sentry.service';
 import { fontWeight } from '@/shared/styles/typography/typography';
 import Grid from '@/shared/ui/grid/Grid';
 import PageWrapper from '@/shared/ui/layout/PageWrapper';
 import SafeWrapper from '@/shared/ui/layout/SafeWrapper';
 import { useHeaderHeight } from '@react-navigation/elements';
+import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { Keyboard, KeyboardAvoidingView, Platform, TextInput } from 'react-native';
 
 export default function NewDreamInput() {
+  const { uri } = useLocalSearchParams<{ uri?: string }>();
+
+  useEffect(() => {
+    if (uri) {
+      handleTranscribe();
+    }
+  }, [uri]);
+
+  const handleTranscribe = async () => {
+    try {
+      const formData = new FormData();
+      const audioData = { uri, name: 'audio.m4a', type: 'audio/m4a' };
+      formData.append('audio', audioData as unknown as Blob);
+
+      const response = await transcibe(formData);
+      console.log(response);
+      setDreamText(response);
+    } catch (e) {
+      errorLogger.logError('Error in handleTranscribe');
+      console.log(e);
+    }
+  };
+
   const colors = useTheme();
   const headerHeight = useHeaderHeight();
   const [dreamText, setDreamText] = useState('');

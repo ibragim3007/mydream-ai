@@ -17,4 +17,7 @@ export const apiConfig = {
     delete: (id: string) => `/user/${id}`,
     update: (id: string) => `/user/${id}`,
   },
+  openai: {
+    transcribe: '/openai/transcribe',
+  },
 };

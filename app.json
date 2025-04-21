@@ -55,12 +55,19 @@
       ],
       "expo-localization",
       "expo-build-properties",
+      "expo-notifications",
       [
         "@sentry/react-native/expo",
         {
           "url": "https://sentry.io/",
           "project": "mydream-ai",
           "organization": "mydream-6o"
+        }
+      ],
+      [
+        "expo-av",
+        {
+          "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone."
         }
       ]
     ],

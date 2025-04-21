@@ -3,6 +3,7 @@ import { calculateSpacing, TSpaceGrid } from '../../helpers/styleHelpers/calcula
 import { normalizeLayoutDimenstionValue } from '../../helpers/styleHelpers/normalizeLayoutDimenstionValue';
 import { normalizedSize } from '../../utils/size';
 import { withPressable } from '@/shared/hoc/withPressable';
+import Animated, { LinearTransition } from 'react-native-reanimated';
 
 export interface GridProps extends ViewProps {
   flex?: number;
@@ -100,7 +101,7 @@ const Grid = ({
     props.style,
   ]);
 
-  return <View {...props} style={gridStyles} />;
+  return <Animated.View layout={LinearTransition} {...props} style={gridStyles} />;
 };
 
 export default Grid;
