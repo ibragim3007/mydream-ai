@@ -9,6 +9,7 @@ import { Inform } from '@/shared/service/logger.service/logger.service';
 import { Alert } from 'react-native';
 import { StorageKeys } from '@/shared/config/constants/storageKeys';
 import { router } from 'expo-router';
+import { errorLogger } from '@/shared/service/logger.service/sentry.service';
 
 interface State {
   user?: UserType;
@@ -42,6 +43,7 @@ export const useAuth = create<State & Actions>(set => {
           user: res.user,
         });
       } catch (error) {
+        errorLogger.logError('Error to init user');
         Inform.error(error);
       }
     },
@@ -54,9 +56,14 @@ export const useAuth = create<State & Actions>(set => {
           text: 'Yes',
           style: 'destructive',
           onPress: async () => {
-            await SecureStore.deleteItemAsync(StorageKeys.appToken);
-            apiService.setAuthorizationHeader('');
-            router.push('/screens/onboarding');
+            try {
+              await SecureStore.deleteItemAsync(StorageKeys.appToken);
+              apiService.setAuthorizationHeader('');
+              router.push('/screens/onboarding');
+            } catch (error) {
+              errorLogger.logError('Error to logout user');
+              Inform.error(error);
+            }
           },
         },
         {

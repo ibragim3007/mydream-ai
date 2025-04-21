@@ -33,6 +33,7 @@ import GeneralStack from './stack';
 import Purchases, { LOG_LEVEL } from 'react-native-purchases';
 import { vexo } from 'vexo-analytics';
 import * as Sentry from '@sentry/react-native';
+import { errorLogger } from '@/shared/service/logger.service/sentry.service';
 
 Sentry.init({
   dsn: 'https://75639b83524ceb4e5cd2f365c943e3a3@o4509188089708544.ingest.us.sentry.io/4509188098949120',
@@ -85,25 +86,22 @@ export default Sentry.wrap(function RootLayout() {
 
       const apiKeySuperwall = Platform.OS === 'ios' ? (Environment.superwall_api_key as string) : 'API_KEY_ANDROID';
 
-      try {
-        Purchases.setLogLevel(LOG_LEVEL.VERBOSE);
-        if (Platform.OS === 'ios') {
-          Purchases.configure({ apiKey: apiKeyRevenue });
-        } else if (Platform.OS === 'android') {
-          Purchases.configure({ apiKey: apiKeyRevenue });
-        }
-
-        const options = new SuperwallOptions();
-        options.logging.level = LogLevel.Warn;
-        options.logging.scopes = [LogScope.PaywallPresentation, LogScope.PaywallTransactions];
-        Superwall.configure({
-          apiKey: apiKeySuperwall,
-          options: options,
-        });
-      } catch (error) {
-        console.log(error);
+      Purchases.setLogLevel(LOG_LEVEL.VERBOSE);
+      if (Platform.OS === 'ios') {
+        Purchases.configure({ apiKey: apiKeyRevenue });
+      } else if (Platform.OS === 'android') {
+        Purchases.configure({ apiKey: apiKeyRevenue });
       }
+
+      const options = new SuperwallOptions();
+      options.logging.level = LogLevel.Warn;
+      options.logging.scopes = [LogScope.PaywallPresentation, LogScope.PaywallTransactions];
+      Superwall.configure({
+        apiKey: apiKeySuperwall,
+        options: options,
+      });
     } catch (error) {
+      errorLogger.logError('Error configuring Superwall');
       console.error('Error configuring Superwall:', error);
     }
   }, []);
@@ -129,6 +127,7 @@ export default Sentry.wrap(function RootLayout() {
 
           setRedirected(true); // Чтобы избежать повторного редиректа
         } catch (error) {
+          errorLogger.logError('Error fetching app token');
           console.error('Error fetching app token:', error);
         }
       }

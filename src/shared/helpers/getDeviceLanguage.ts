@@ -2,10 +2,16 @@
 
 import { getLocales } from 'expo-localization';
 import { DEFAUTL_LANGUAGE } from '../config/constants/constants';
+import { errorLogger } from '../service/logger.service/sentry.service';
 
 export const getDeviceLanguage = () => {
-  const devLang = getLocales();
-  const devLangCode = devLang[0].languageCode || DEFAUTL_LANGUAGE;
+  try {
+    const devLang = getLocales();
+    const devLangCode = devLang[0].languageCode || DEFAUTL_LANGUAGE;
 
-  return devLangCode;
+    return devLangCode;
+  } catch {
+    errorLogger.logError('Error to get device language');
+    return DEFAUTL_LANGUAGE;
+  }
 };

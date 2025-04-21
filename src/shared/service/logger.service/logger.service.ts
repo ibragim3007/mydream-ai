@@ -1,4 +1,5 @@
 import { Logger, LoggerStrategy } from 'logger-service-ts';
+import * as Sentry from '@sentry/react-native';
 
 class ConsoleLogger<TOptions> implements LoggerStrategy<TOptions> {
   log<TMessage>(message: TMessage, options?: TOptions) {

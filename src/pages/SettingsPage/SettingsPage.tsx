@@ -1,3 +1,4 @@
+import { errorLogger } from '@/shared/service/logger.service/sentry.service';
 import Grid from '@/shared/ui/grid/Grid';
 import PageWrapper from '@/shared/ui/layout/PageWrapper';
 import SafeWrapper from '@/shared/ui/layout/SafeWrapper';
@@ -6,7 +7,6 @@ import { Button, ScrollView } from 'react-native';
 import AppSettingsBlock from './ui/blocks/AppSettingsBlock';
 import LegalBlock from './ui/blocks/LegalBlock';
 import LogOutBlock from './ui/blocks/LogOutBlock';
-import * as Sentry from '@sentry/react-native';
 
 export default function SettingsPage() {
   const headerHeight = useHeaderHeight();
@@ -15,6 +15,12 @@ export default function SettingsPage() {
       <ScrollView showsVerticalScrollIndicator={false}>
         <SafeWrapper style={{ paddingTop: 15 + headerHeight, flex: 1 }}>
           <Grid space="lg">
+            <Button
+              title="Try!"
+              onPress={() => {
+                errorLogger.logError(new Error('First error 22'));
+              }}
+            />
             <AppSettingsBlock />
             <LegalBlock />
             {/* <FeedbackBlock /> */}
