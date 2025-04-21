@@ -103,6 +103,15 @@ export default function AudioRecorderButton({}: AudioRecorderButtonProps) {
 
       setRecording(undefined);
 
+      const durationMs = Date.now() - (startTime ?? 0);
+      setStartTime(null);
+      setRecording(undefined);
+
+      if (durationMs < 3000) {
+        Alert.alert('Слишком короткая запись', 'Попробуй записать хотя бы несколько секунд.');
+        return;
+      }
+
       if (uri) {
         router.push(`/screens/newDreamScreen?uri=${uri}`);
       }
