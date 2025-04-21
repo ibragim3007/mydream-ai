@@ -29,6 +29,11 @@ export const useAuth = create<State & Actions>(set => {
     initUser: async (body?: InitUserType) => {
       try {
         const appToken = await getAppToken();
+
+        if (!appToken) {
+          throw new Error('App token is not defined');
+        }
+
         const local = getDeviceLanguage();
 
         const res = await init({

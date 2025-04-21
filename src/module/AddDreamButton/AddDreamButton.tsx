@@ -9,7 +9,7 @@ export default function AddDreamButton() {
   return (
     <Button
       onPress={handlePress}
-      style={{ borderRadius: 15 }}
+      style={{ borderRadius: 15, flex: 1 }}
       leftIcon={<MaterialCommunityIcons name="pencil-plus" size={24} color="black" />}
     >
       Note a new dream

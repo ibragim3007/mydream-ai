@@ -1,5 +1,6 @@
 import MoonImage from '@/assets/icons/moonImage2.png';
 import { AddDreamButton } from '@/module/AddDreamButton';
+import { AudioRecorderButton } from '@/module/AudioRecorderButton';
 import { Settings } from '@/module/Settings';
 import Grid from '@/shared/ui/grid/Grid';
 import Typography from '@/shared/ui/typography/Typography';
@@ -20,7 +21,10 @@ export default function ListHeader() {
             </Grid>
             <Typography>The better you describe your dream, the better the interpretation will be.</Typography>
           </Grid>
-          <AddDreamButton />
+          <Grid flex={1} align="stretch" row space="sm">
+            <AddDreamButton />
+            <AudioRecorderButton />
+          </Grid>
           {/* <CreateDreamInput /> */}
         </Grid>
       </Grid>
