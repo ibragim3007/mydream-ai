@@ -14,12 +14,10 @@ import { Alert, Modal, Animated, Easing } from 'react-native';
 interface AudioRecorderButtonProps {}
 
 export default function AudioRecorderButton({}: AudioRecorderButtonProps) {
-  const [startTime, setStartTime] = useState<number | null>(null);
-  const [elapsedTime, setElapsedTime] = useState<number>(0);
-
   const colors = useTheme();
   const { vibrate } = useVibration();
-
+  const [startTime, setStartTime] = useState<number | null>(null);
+  const [elapsedTime, setElapsedTime] = useState<number>(0);
   const [recording, setRecording] = useState<Audio.Recording>();
 
   const rotation = new Animated.Value(-1);
@@ -187,7 +185,7 @@ export default function AudioRecorderButton({}: AudioRecorderButtonProps) {
                 // paddingHorizontal={25}
                 color={colors.text.primary}
                 align="center"
-                style={{ borderRadius: 40, borderTopRightRadius: 5, borderTopLeftRadius: 5, width: 60, height: 35 }}
+                style={{ borderRadius: 20, borderTopRightRadius: 5, borderTopLeftRadius: 5, width: 60, height: 40 }}
               >
                 <FontAwesome name="stop" size={20} color={colors.text.white} />
               </GridPressable>
