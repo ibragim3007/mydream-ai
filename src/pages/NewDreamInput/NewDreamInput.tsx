@@ -1,3 +1,4 @@
+import { useDreamStore } from '@/entities/dream/dream.store';
 import SaveAndAnaluzeButton from '@/module/SaveAndAnalyzeButton/SaveAndAnaluzeButton';
 import { transcibe } from '@/shared/api/entities/openai/openai.api';
 import { useTheme } from '@/shared/hooks/useTheme';
@@ -17,6 +18,7 @@ import { ActivityIndicator, Keyboard, KeyboardAvoidingView, Modal, Platform, Tex
 export default function NewDreamInput() {
   const { uri } = useLocalSearchParams<{ uri?: string }>();
   const [isLoadingTranscribing, setIsLoadingTranscribing] = useState(false);
+  const { dreamText, setDreamText } = useDreamStore();
 
   useEffect(() => {
     if (uri) {
@@ -32,7 +34,7 @@ export default function NewDreamInput() {
       formData.append('audio', audioData as unknown as Blob);
 
       const response = await transcibe(formData);
-      setDreamText(prev => prev + response);
+      setDreamText(dreamText + ' ' + response);
     } catch (e) {
       errorLogger.logError('Error in handleTranscribe');
       console.log(e);
@@ -42,7 +44,7 @@ export default function NewDreamInput() {
 
   const colors = useTheme();
   const headerHeight = useHeaderHeight();
-  const [dreamText, setDreamText] = useState('');
+
   const [keyboardVisible, setKeyboardVisible] = useState(false);
 
   const onChangeText = (text: string) => {

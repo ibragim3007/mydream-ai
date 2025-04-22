@@ -2,6 +2,7 @@ import { queryClient } from '@/shared/api/api';
 import { Environment } from '@/shared/config/config';
 import ThemeProvider from '@/shared/providers/ThemeProvider';
 import { isAppToken } from '@/shared/service/appId.service';
+import { errorLogger } from '@/shared/service/logger.service/sentry.service';
 import {
   Nunito_200ExtraLight,
   Nunito_200ExtraLight_Italic,
@@ -20,6 +21,7 @@ import {
   Nunito_900Black,
   Nunito_900Black_Italic,
 } from '@expo-google-fonts/nunito';
+import * as Sentry from '@sentry/react-native';
 import Superwall, { LogLevel, LogScope, SuperwallOptions } from '@superwall/react-native-superwall';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { useFonts } from 'expo-font';
@@ -29,11 +31,8 @@ import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
 import { Platform } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import GeneralStack from './stack';
-import Purchases, { LOG_LEVEL } from 'react-native-purchases';
 import { vexo } from 'vexo-analytics';
-import * as Sentry from '@sentry/react-native';
-import { errorLogger } from '@/shared/service/logger.service/sentry.service';
+import GeneralStack from './stack';
 
 Sentry.init({
   dsn: 'https://75639b83524ceb4e5cd2f365c943e3a3@o4509188089708544.ingest.us.sentry.io/4509188098949120',
@@ -76,23 +75,16 @@ export default Sentry.wrap(function RootLayout() {
   });
   const navigationState = useRootNavigationState();
   const [redirected, setRedirected] = useState(false);
-  // const { token, isHydrated } = useAuth();
 
   useEffect(() => {
+    // Инициализируем Purchases и Superwall
     try {
-      const apiKeyRevenue =
-        Platform.OS === 'ios'
-          ? (Environment.revenue_api_key_IOS as string)
-          : (Environment.revenue_api_key_ANDROID as string);
+      // const apiKeyRevenue =
+      //   Platform.OS === 'ios'
+      //     ? (Environment.revenue_api_key_IOS as string)
+      //     : (Environment.revenue_api_key_ANDROID as string);
 
       const apiKeySuperwall = Platform.OS === 'ios' ? (Environment.superwall_api_key as string) : 'API_KEY_ANDROID';
-
-      Purchases.setLogLevel(LOG_LEVEL.VERBOSE);
-      if (Platform.OS === 'ios') {
-        Purchases.configure({ apiKey: apiKeyRevenue });
-      } else if (Platform.OS === 'android') {
-        Purchases.configure({ apiKey: apiKeyRevenue });
-      }
 
       const options = new SuperwallOptions();
       options.logging.level = LogLevel.Warn;

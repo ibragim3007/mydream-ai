@@ -37,7 +37,7 @@ export default function GeneralStack() {
           headerTitle: 'New dream',
           headerBlurEffect: 'regular',
           headerTransparent: true,
-          gestureEnabled: false,
+          gestureEnabled: true,
           headerTitleStyle: headerTitleStyle,
           headerLeft: () => <DismissModalButton />,
           headerRight: () => <AudioRecorderButton />,

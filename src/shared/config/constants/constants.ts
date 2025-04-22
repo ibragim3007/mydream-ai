@@ -7,3 +7,4 @@ export const MAX_HEIGHT_APP = 750;
 export const ANIMATION_SPEED = 150;
 
 export const DEFAUTL_LANGUAGE: LANGUAGE = 'en';
+export const MAX_LENGTH_DREAM_TEXT = 3000;
