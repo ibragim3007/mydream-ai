@@ -17,10 +17,6 @@ export default function GeneralStack() {
       <Stack.Screen name="screens/homeScreen" options={{ headerShown: false }} />
       <Stack.Screen name="screens/dream/[id]" options={{ headerShown: false }} />
       <Stack.Screen name="screens/onboarding" options={{ headerShown: false }} />
-
-      <Stack.Screen name="screens/legal/policyScreen" options={{ headerShown: true }} />
-      <Stack.Screen name="screens/legal/termsScreen" options={{ headerShown: true }} />
-
       <Stack.Screen
         name="screens/settingsScreen"
         options={{
