@@ -6,14 +6,15 @@ import PageWrapper from '@/shared/ui/layout/PageWrapper';
 import Superwall from '@superwall/react-native-superwall';
 import { useEffect } from 'react';
 import ListHeader from './ListHeader';
+import { PLACEMENTS } from '@/shared/config/constants/constants';
 
 export default function HomePage() {
-  const { user, initUser } = useAuth();
+  const { initUser } = useAuth();
 
   useEffect(() => {
     void initUser();
     Superwall.shared.register({
-      placement: 'campaign_trigger',
+      placement: PLACEMENTS.campaign_trigger,
     });
   }, []);
 

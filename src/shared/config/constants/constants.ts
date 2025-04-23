@@ -8,3 +8,4 @@ export const ANIMATION_SPEED = 150;
 
 export const DEFAUTL_LANGUAGE: LANGUAGE = 'en';
 export const MAX_LENGTH_DREAM_TEXT = 3000;
+export const PLACEMENTS = { campaign_trigger: 'campaign_trigger' };

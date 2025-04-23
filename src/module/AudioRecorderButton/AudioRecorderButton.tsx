@@ -1,4 +1,6 @@
+import { PLACEMENTS } from '@/shared/config/constants/constants';
 import formatTime from '@/shared/helpers/formatTime';
+import { useSubscription } from '@/shared/hooks/useSubscription';
 import { useTheme } from '@/shared/hooks/useTheme';
 import { useVibration } from '@/shared/hooks/useVibration';
 import { errorLogger } from '@/shared/service/logger.service/sentry.service';
@@ -6,6 +8,7 @@ import Grid, { GridPressable } from '@/shared/ui/grid/Grid';
 import Typography from '@/shared/ui/typography/Typography';
 import ModalContainer from '@/shared/ui/wrapper/ModalContainer';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import Superwall from '@superwall/react-native-superwall';
 import { Audio } from 'expo-av';
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
@@ -14,8 +17,10 @@ import { Alert, Modal, Animated, Easing } from 'react-native';
 interface AudioRecorderButtonProps {}
 
 export default function AudioRecorderButton({}: AudioRecorderButtonProps) {
-  const colors = useTheme();
+  const { subscriptionStatus, isActive } = useSubscription();
+
   const { vibrate } = useVibration();
+  const colors = useTheme();
   const [startTime, setStartTime] = useState<number | null>(null);
   const [elapsedTime, setElapsedTime] = useState<number>(0);
   const [recording, setRecording] = useState<Audio.Recording>();
@@ -62,6 +67,14 @@ export default function AudioRecorderButton({}: AudioRecorderButtonProps) {
   }
 
   const startRecording = async () => {
+    if (!isActive) {
+      Superwall.shared.register({
+        placement: PLACEMENTS.campaign_trigger,
+      });
+
+      return;
+    }
+
     setStartTime(Date.now());
     try {
       vibrate();
@@ -132,6 +145,29 @@ export default function AudioRecorderButton({}: AudioRecorderButtonProps) {
 
     return () => clearInterval(interval);
   }, [recording, startTime]);
+
+  if (!isActive) {
+    return (
+      <GridPressable
+        onPress={() => {
+          Superwall.shared.register({
+            placement: PLACEMENTS.campaign_trigger,
+          });
+        }}
+        justfity="center"
+        flex={1}
+        paddingHorizontal={25}
+        color={colors.text.primary}
+        align="center"
+        style={{ borderRadius: 15, width: 90 }}
+      >
+        <FontAwesome name="microphone" size={28} color={colors.text.white} />
+        <Grid style={{ position: 'absolute', right: 15, bottom: 5 }}>
+          <FontAwesome name="lock" size={18} color={colors.accent.primary} />
+        </Grid>
+      </GridPressable>
+    );
+  }
 
   return (
     <>
