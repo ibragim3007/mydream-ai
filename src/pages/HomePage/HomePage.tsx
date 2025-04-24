@@ -13,9 +13,11 @@ export default function HomePage() {
 
   useEffect(() => {
     void initUser();
-    Superwall.shared.register({
-      placement: PLACEMENTS.campaign_trigger,
-    });
+    if (!__DEV__) {
+      Superwall.shared.register({
+        placement: PLACEMENTS.campaign_trigger,
+      });
+    }
   }, []);
 
   return (

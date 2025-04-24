@@ -33,6 +33,7 @@ import { Platform } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { vexo } from 'vexo-analytics';
 import GeneralStack from './stack';
+import { UserInactivityProvider } from '@/shared/providers/UserInactivity';
 
 Sentry.init({
   dsn: 'https://75639b83524ceb4e5cd2f365c943e3a3@o4509188089708544.ingest.us.sentry.io/4509188098949120',
@@ -114,7 +115,7 @@ export default Sentry.wrap(function RootLayout() {
           const isUserOnboarded = appToken;
 
           if (isUserOnboarded) {
-            router.replace('/screens/homeScreen');
+            router.replace('/utilsScreens/lockScreen');
           } else {
             router.replace('/screens/onboarding');
           }
@@ -135,13 +136,15 @@ export default Sentry.wrap(function RootLayout() {
   }
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <GestureHandlerRootView style={{ flex: 1 }}>
-        <ThemeProvider>
-          <StatusBar style="light" />
-          <GeneralStack />
-        </ThemeProvider>
-      </GestureHandlerRootView>
-    </QueryClientProvider>
+    <ThemeProvider>
+      <UserInactivityProvider>
+        <QueryClientProvider client={queryClient}>
+          <GestureHandlerRootView style={{ flex: 1 }}>
+            <StatusBar style="light" />
+            <GeneralStack />
+          </GestureHandlerRootView>
+        </QueryClientProvider>
+      </UserInactivityProvider>
+    </ThemeProvider>
   );
 });

@@ -47,7 +47,8 @@ export default function GeneralStack() {
           headerRight: () => <AudioRecorderButton />,
         }}
       />
-
+      <Stack.Screen name="utilsScreens/blockScreen" options={{ headerShown: false, animation: 'fade' }} />
+      <Stack.Screen name="utilsScreens/lockScreen" options={{ headerShown: false, animation: 'fade' }} />
       <Stack.Screen name="+not-found" />
     </Stack>
   );
