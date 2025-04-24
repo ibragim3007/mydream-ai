@@ -93,6 +93,7 @@ export default Sentry.wrap(function RootLayout() {
         apiKey: apiKeySuperwall,
         options: options,
       });
+      Superwall.shared.preloadAllPaywalls();
     } catch (error) {
       errorLogger.logError('Error configuring Superwall');
       console.error('Error configuring Superwall:', error);
