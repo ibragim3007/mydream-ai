@@ -6148,6 +6148,7 @@ __metadata:
     expo-image: ^2.0.7
     expo-linear-gradient: ~14.0.2
     expo-linking: ^7.0.5
+    expo-local-authentication: ~15.0.2
     expo-localization: ~16.0.1
     expo-network: ^7.0.5
     expo-notifications: ~0.29.14
@@ -6172,6 +6173,7 @@ __metadata:
     react-native-gesture-handler: ~2.20.2
     react-native-get-random-values: ^1.11.0
     react-native-keychain: ^10.0.0
+    react-native-mmkv: ^3.2.0
     react-native-pager-view: 6.5.1
     react-native-purchases: ^8.9.5
     react-native-purchases-ui: ^8.9.5
@@ -7233,6 +7235,17 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: 014418cf6a8eabb8e659590d36c1cccc3e4d28833298c7bde99350e63352f8fdc813d56abdc7c5cf6d447e18cb7f0a129e39e143a1cd59f11f63acbf3899e541
+  languageName: node
+  linkType: hard
+
+"expo-local-authentication@npm:~15.0.2":
+  version: 15.0.2
+  resolution: "expo-local-authentication@npm:15.0.2"
+  dependencies:
+    invariant: ^2.2.4
+  peerDependencies:
+    expo: "*"
+  checksum: 447bf18fca429cd829439be1d7f33727cf86673c1f0bcc562a42219a2a05eec48eedf678ef5a5d022bfa14dd2df49d7d9742e8687f16c1e5aff8aa5488b5b233
   languageName: node
   linkType: hard
 
@@ -11930,6 +11943,16 @@ __metadata:
   version: 10.0.0
   resolution: "react-native-keychain@npm:10.0.0"
   checksum: 1055cc192df58cb110bd49df1264a401007a354ad28b93adefd740aeac0f746cdab86d7428887694a1b0949ef8d0dc85db8984e77db684d7b967180167b64d42
+  languageName: node
+  linkType: hard
+
+"react-native-mmkv@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "react-native-mmkv@npm:3.2.0"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 766944a7cbf265e27b57576e51bff8604cd8f58c88eaec78bd93d4ce10ff9127d5f75f4c3bb03d6c7ce5dafa07c65e233d5363c0504db802cc88eaf1ccbffaa1
   languageName: node
   linkType: hard
 
