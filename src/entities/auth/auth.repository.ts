@@ -18,6 +18,8 @@ interface State {
 interface Actions {
   logout: () => Promise<void>;
   initUser: (body?: InitUserType) => Promise<void>;
+
+  setUser: (user?: UserType) => void;
 }
 
 export const useAuth = create<State & Actions>(set => {
@@ -77,6 +79,12 @@ export const useAuth = create<State & Actions>(set => {
           style: 'cancel',
         },
       ]);
+    },
+
+    setUser: (user?: UserType) => {
+      set({
+        user: user,
+      });
     },
   };
 });

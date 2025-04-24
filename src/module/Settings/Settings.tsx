@@ -7,7 +7,7 @@ import { router } from 'expo-router';
 export default function Settings() {
   const colors = useTheme();
   const handleSub = async () => {
-    router.push('/screens/settingsScreen');
+    router.push('/screens/settings');
   };
 
   return (

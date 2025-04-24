@@ -3,7 +3,7 @@ import WrapIconInPressable from '../wrapper/WrapIconInPressable';
 import { useTheme } from '@/shared/hooks/useTheme';
 
 interface GoBackButtonProps {
-  onPress: () => void;
+  onPress?: () => void;
   disabled?: boolean;
 }
 
