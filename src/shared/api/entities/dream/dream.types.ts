@@ -16,6 +16,7 @@ export type GetDreamDto = {
   title: string;
   inputText: string;
   analyzeText: string;
+  continuation?: string;
   coverImage?: string;
   isPublic: boolean;
   pickerDate: string;

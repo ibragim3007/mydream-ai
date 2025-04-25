@@ -17,3 +17,7 @@ export const createDream = async (payload: CreateDreamDto) => {
 export const deleteDream = async (id: string) => {
   return (await api.delete<Promise<GetDreamDto>>(apiConfig.dream.delete(id))).data;
 };
+
+export const continueDream = async (id: string) => {
+  return (await api.post<Promise<GetDreamDto>>(apiConfig.dream.continueDream(id))).data;
+};

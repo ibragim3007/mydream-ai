@@ -1,4 +1,4 @@
-import { createDream, deleteDream, getDream, getDreams } from '@/shared/api/entities/dream/dream.api';
+import { continueDream, createDream, deleteDream, getDream, getDreams } from '@/shared/api/entities/dream/dream.api';
 import { CreateDreamDto } from '@/shared/api/entities/dream/dream.types';
 import { handleMutation } from '@/shared/utils/handleMutation';
 import { useInfiniteQuery, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
@@ -82,6 +82,29 @@ export const useDeleteDream = () => {
 
   return {
     deleteDreamFunction,
+    isPending,
+    isError,
+  };
+};
+
+export const useContinueDream = () => {
+  const queryClient = useQueryClient();
+
+  const { mutateAsync, isPending, isError } = useMutation({
+    mutationFn: (id: string) => continueDream(id),
+    onSettled: () => {
+      void queryClient.invalidateQueries({
+        queryKey: getDreamKeys,
+      });
+    },
+  });
+
+  const continueDreamFunction = async (id: string) => {
+    return await handleMutation(() => mutateAsync(id));
+  };
+
+  return {
+    continueDreamFunction,
     isPending,
     isError,
   };

@@ -63,7 +63,7 @@ export default function CardPaper({ title, date, text, extendedText, ...props }:
           {text}
         </Typography>
         {isOverflowing && (
-          <Button onPress={onToggleOpenFullText} variant="text">
+          <Button textStyle={{ color: colors.text.white }} onPress={onToggleOpenFullText} variant="text">
             {isOpenFullText ? 'Less' : 'Read more'}
           </Button>
         )}

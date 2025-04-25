@@ -9,6 +9,7 @@ export const apiConfig = {
     getById: (id: string) => `/dream/${id}`,
     delete: (id: string) => `/dream/${id}`,
     update: (id: string) => `/dream/${id}`,
+    continueDream: (id: string) => `/dream/continueDream/${id}`,
   },
   user: {
     post: '/user',

@@ -3,7 +3,6 @@ import { useVibration } from '@/shared/hooks/useVibration';
 import { animationEngine, animationService } from '@/shared/service/animation.service';
 import { normalizedSize } from '@/shared/utils/size';
 import Entypo from '@expo/vector-icons/Entypo';
-import { BlurView } from 'expo-blur';
 import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useState } from 'react';
@@ -50,22 +49,23 @@ export default function InterpretationItem({ title, text, image, description, is
 
   return (
     <AnimatedWrapper>
-      <AnimTouchWrapper>
+      <AnimTouchWrapper style={{ zIndex: 100 }}>
         <Pressable onPress={toggleExpand}>
           <Animated.View style={[imageContainerStyle]}>
             <Grid height={ITEM_HEIGHT} style={{ borderRadius: colors.styles.borderRadius }}>
               <Image
-                contentFit="cover"
+                // contentFit="cover"
                 source={image}
                 style={{
                   height: '100%',
                   width: '100%',
+
                   position: 'absolute',
                   borderRadius: colors.styles.borderRadius,
                 }}
               />
               <LinearGradient
-                colors={['transparent', 'rgba(0, 0, 0, 0.096)', '#000000bd']}
+                colors={['transparent', 'rgba(0, 0, 0, 0.316)', '#000000be']}
                 style={{
                   width: '100%',
                   height: '100%',
@@ -80,31 +80,34 @@ export default function InterpretationItem({ title, text, image, description, is
                 style={{ alignContent: 'flex-end', overflow: 'hidden', borderRadius: 20 }}
                 justfity="space-between"
                 flex={1}
+                paddingVertical={10}
                 wrap
               >
-                <BlurView intensity={30} tint="dark">
-                  <Grid
-                    row
-                    align="center"
-                    style={{ alignContent: 'flex-end' }}
-                    justfity="space-between"
-                    wrap
-                    width="100%"
-                    paddingVertical={6}
-                    paddingHorizontal={20}
-                  >
-                    <Typography weight="bold" variant="headline">
-                      {title}
-                    </Typography>
+                <Grid
+                  row
+                  align="center"
+                  style={{ alignContent: 'flex-end' }}
+                  justfity="space-between"
+                  wrap
+                  width="100%"
+                  paddingVertical={6}
+                  paddingHorizontal={20}
+                >
+                  <Typography weight="bold" variant="headline">
+                    {title}
+                  </Typography>
 
-                    <WrapIconInPressable backgroundColor={colors.background.disabled}>
-                      <Animated.View style={arrowStyle}>
-                        <Entypo name="chevron-down" size={26} color={'#fff'} />
-                      </Animated.View>
-                    </WrapIconInPressable>
-                    {/* {description && <Typography variant="caption-1">{description}</Typography>} */}
-                  </Grid>
-                </BlurView>
+                  <WrapIconInPressable backgroundColor={colors.background.disabled}>
+                    <Animated.View style={arrowStyle}>
+                      <Entypo name="chevron-down" size={26} color={'#fff'} />
+                    </Animated.View>
+                  </WrapIconInPressable>
+                  {description && (
+                    <Typography variant="caption-1" weight="medium">
+                      {description}
+                    </Typography>
+                  )}
+                </Grid>
               </Grid>
             </Grid>
           </Animated.View>
@@ -112,7 +115,7 @@ export default function InterpretationItem({ title, text, image, description, is
       </AnimTouchWrapper>
       {isExpanded && (
         <Animated.View
-          style={{ zIndex: -1, marginHorizontal: normalizedSize(15) }}
+          style={{ zIndex: 1, marginHorizontal: normalizedSize(15) }}
           exiting={animationEngine.fadeOutUp(0)}
           entering={animationEngine.fadeInUp(0)}
         >

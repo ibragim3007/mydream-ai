@@ -1,17 +1,21 @@
-import { useGetDreamById } from '@/entities/dream/dream.repository';
+import { useContinueDream, useGetDreamById } from '@/entities/dream/dream.repository';
 import { getDreamAnalysisResponse } from '@/entities/dream/helpers/getDreamResponse';
 
 import { GeneralFeedback } from '@/entities/feedback';
-import { HORIZONTAL_PADDINGS } from '@/shared/config/constants/constants';
+import { HORIZONTAL_PADDINGS, PLACEMENTS } from '@/shared/config/constants/constants';
+import { useSubscription } from '@/shared/hooks/useSubscription';
 import { useTheme } from '@/shared/hooks/useTheme';
 import { animationEngine } from '@/shared/service/animation.service';
 import { SleepDataResponse } from '@/shared/types/globalTypes';
+import Button from '@/shared/ui/buttons/Button';
 import CardPaper from '@/shared/ui/elements/CardPaper';
 import HeaderPlaceholder from '@/shared/ui/elements/HeaderPlaceholder';
 import Grid from '@/shared/ui/grid/Grid';
 import PageWrapper from '@/shared/ui/layout/PageWrapper';
 import SafeWrapper from '@/shared/ui/layout/SafeWrapper';
 import Typography from '@/shared/ui/typography/Typography';
+import AntDesign from '@expo/vector-icons/AntDesign';
+import Superwall from '@superwall/react-native-superwall';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ScrollView } from 'react-native';
@@ -20,12 +24,29 @@ import HeaderDream from './ui/HeaderDream';
 import Interpretations from './ui/Interpretations';
 import LoadingSkeleton from './ui/LoadingSkeleton';
 import Participants from './ui/Participants';
+import ContinueButtonBlocked from './ui/FunctionalButtons/ContinueButtonBlocked';
 
 export default function DreamPage() {
   const params = useLocalSearchParams<{ id: string }>();
   const colors = useTheme();
+  const { isActive } = useSubscription();
   const [analysis, setAnalysis] = useState<SleepDataResponse | undefined>(undefined);
   const { data, isLoading, isError, isFetching } = useGetDreamById(params.id);
+  const { continueDreamFunction, isPending } = useContinueDream();
+
+  const handleContinueDream = async () => {
+    if (!isActive) {
+      Superwall.shared.register({
+        placement: PLACEMENTS.campaign_trigger,
+      });
+
+      return;
+    }
+    if (data) {
+      await continueDreamFunction(data.id);
+    }
+  };
+
   const goBack = () => {
     router.back();
   };
@@ -92,9 +113,20 @@ export default function DreamPage() {
                   date={new Date(data.createdAt).toDateString()}
                   text={data.inputText}
                 />
-                {/* <Button leftIcon={<AntDesign name="arrowdown" size={24} color={colors.text.white} />}>
-                  Finish the dream
-                </Button> */}
+
+                {data.continuation ? (
+                  <CardPaper title="Continuation" text={data.continuation} />
+                ) : isActive ? (
+                  <Button
+                    onPress={handleContinueDream}
+                    disabled={isPending}
+                    leftIcon={<AntDesign name="arrowdown" size={24} color={colors.text.white} />}
+                  >
+                    {isPending ? 'Loading...' : 'Finish the dream'}
+                  </Button>
+                ) : (
+                  <ContinueButtonBlocked onPress={handleContinueDream} />
+                )}
               </Grid>
 
               <Interpretations analysis={analysis} />
