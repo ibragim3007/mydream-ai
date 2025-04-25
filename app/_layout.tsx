@@ -34,6 +34,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { vexo } from 'vexo-analytics';
 import GeneralStack from './stack';
 import { UserInactivityProvider } from '@/shared/providers/UserInactivity';
+import { useProtection } from '@/entities/useProtection/useProtection';
 
 Sentry.init({
   dsn: 'https://75639b83524ceb4e5cd2f365c943e3a3@o4509188089708544.ingest.us.sentry.io/4509188098949120',
@@ -101,29 +102,27 @@ export default Sentry.wrap(function RootLayout() {
     }
   }, []);
 
+  const codeProtection = useProtection(state => state.codeProtection);
+
   useEffect(() => {
     const initializeApp = async () => {
-      if (loaded) {
-        void SplashScreen.hideAsync();
-      }
+      if (loaded) void SplashScreen.hideAsync();
 
       // Проверяем, что навигация инициализирована и редирект ещё не выполнен
       if (navigationState?.key && !redirected) {
         try {
-          const appToken = await isAppToken();
-
-          const isUserOnboarded = appToken;
-
-          if (isUserOnboarded) {
+          if (codeProtection) {
             router.replace('/utilsScreens/lockScreen');
           } else {
-            router.replace('/screens/onboarding');
-          }
+            const appToken = await isAppToken();
 
-          setRedirected(true); // Чтобы избежать повторного редиректа
+            if (appToken) router.replace('/screens/homeScreen');
+            else router.replace('/screens/onboarding');
+
+            setRedirected(true); // Чтобы избежать повторного редиректа
+          }
         } catch (error) {
           errorLogger.logError('Error fetching app token');
-          console.error('Error fetching app token:', error);
         }
       }
     };
@@ -137,7 +136,7 @@ export default Sentry.wrap(function RootLayout() {
 
   return (
     <ThemeProvider>
-      <UserInactivityProvider>
+      <UserInactivityProvider isProtected={codeProtection ? true : false}>
         <QueryClientProvider client={queryClient}>
           <GestureHandlerRootView style={{ flex: 1 }}>
             <StatusBar style="light" />

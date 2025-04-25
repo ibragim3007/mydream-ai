@@ -3,13 +3,17 @@ import { PropsWithChildren, useEffect, useRef } from 'react';
 import { AppState, AppStateStatus } from 'react-native';
 import { MMKV } from 'react-native-mmkv';
 
-export const storage = new MMKV({
+export const storageUserInactivity = new MMKV({
   id: 'UserInactivity',
 });
 
-const LOCK_TIME = 10;
+const LOCK_TIME = 3000;
 
-export const UserInactivityProvider = ({ children }: PropsWithChildren) => {
+interface UserInactivityProviderProps extends PropsWithChildren {
+  isProtected: boolean;
+}
+
+export const UserInactivityProvider = ({ isProtected, children }: UserInactivityProviderProps) => {
   const appState = useRef(AppState.currentState);
   const router = useRouter();
 
@@ -22,8 +26,15 @@ export const UserInactivityProvider = ({ children }: PropsWithChildren) => {
   }, []);
 
   const handleAppStateChanged = (nextAppState: AppStateStatus) => {
-    console.log('appState: ', appState.current, nextAppState);
+    if (!isProtected) {
+      return;
+    }
 
+    console.log('appState: ', appState.current, nextAppState);
+    if (storageUserInactivity.getString('isAppLocked') === 'true') {
+      router.push('/utilsScreens/lockScreen');
+      return;
+    }
     if (nextAppState === 'inactive') {
       router.push('/utilsScreens/blockScreen');
     } else {
@@ -32,6 +43,8 @@ export const UserInactivityProvider = ({ children }: PropsWithChildren) => {
       }
     }
 
+    console.log(storageUserInactivity.getString('isAppLocked'));
+
     // Проверячем находится ли приложение в фоне
     // Если да, то записываем время
     // Если приложение переходит в активное состояние и время больше 3 секунд
@@ -39,10 +52,11 @@ export const UserInactivityProvider = ({ children }: PropsWithChildren) => {
     if (nextAppState === 'background') {
       recordStartTime();
     } else if (nextAppState === 'active' && appState.current.match(/background/)) {
-      const elapsed = Date.now() - (storage.getNumber('startTime') || 0);
-      console.log(elapsed);
+      const elapsed = Date.now() - (storageUserInactivity.getNumber('startTime') || 0);
+
       if (elapsed >= LOCK_TIME) {
         router.push('/utilsScreens/lockScreen');
+        storageUserInactivity.set('isAppLocked', 'true');
       }
     }
 
@@ -50,7 +64,8 @@ export const UserInactivityProvider = ({ children }: PropsWithChildren) => {
   };
 
   const recordStartTime = () => {
-    storage.set('startTime', Date.now());
+    storageUserInactivity.set('startTime', Date.now());
+    storageUserInactivity.set('isAppLocked', true);
   };
 
   return children;

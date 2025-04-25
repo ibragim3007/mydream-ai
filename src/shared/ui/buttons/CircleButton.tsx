@@ -16,7 +16,7 @@ export default function CircleButton({ text, children, ...props }: CircleButtonP
         alignItems: 'center',
         justifyContent: 'center',
         flex: 1,
-        height: 90,
+        height: 80,
       }}
       {...props}
     >

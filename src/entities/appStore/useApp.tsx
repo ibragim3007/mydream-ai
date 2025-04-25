@@ -15,6 +15,8 @@ export const useApp = create<State & Actions>()(
     const deviceLocal = getDeviceLanguage();
     return {
       local: deviceLocal,
+      isAppLocked: false,
+
       setLocal: local =>
         set(state => {
           state.local = local;

@@ -23,6 +23,12 @@ export default function SettingsLayout() {
     >
       <Stack.Screen name="index" options={{ headerTitle: 'Settings' }} />
       <Stack.Screen name="nameUpdateScreen" options={{ headerTitle: 'Change name' }} />
+      <Stack.Screen name="newPinScreen" options={{ headerTitle: '' }} />
+
+      <Stack.Screen
+        name="codeProtection"
+        options={{ headerTitle: 'Code protection', presentation: 'containedModal' }}
+      />
       {/* добавляйте здесь другие экраны настроек */}
     </Stack>
   );

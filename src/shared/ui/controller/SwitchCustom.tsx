@@ -8,11 +8,11 @@ export default function SwitchCustom({ ...props }: SwitchCustomProps) {
   return (
     <Switch
       {...props}
-      thumbColor={colors.accent.primary}
+      thumbColor={colors.text.primary}
       ios_backgroundColor={colors.background.secondary}
       trackColor={{
         false: colors.background.secondary,
-        true: colors.background.disabled,
+        true: colors.accent.primary,
       }}
     />
   );
