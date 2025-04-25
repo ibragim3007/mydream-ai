@@ -10,6 +10,8 @@ export const DEFAUTL_LANGUAGE: LANGUAGE = 'en';
 export const MAX_LENGTH_DREAM_TEXT = 3000;
 export const PLACEMENTS = { campaign_trigger: 'campaign_trigger' };
 
+export const EMAIL_FEEDBACK = 'mydream.diary.ai@gmail.com';
+
 export const LINKS = {
   privacyPolicy: 'https://mydream-ai.vercel.app/privacy',
   termsOfService: 'https://mydream-ai.vercel.app/terms',

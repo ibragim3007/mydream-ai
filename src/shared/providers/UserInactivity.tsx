@@ -13,7 +13,7 @@ interface UserInactivityProviderProps extends PropsWithChildren {
 }
 
 export const UserInactivityProvider = ({ isProtected, blockTime, children }: UserInactivityProviderProps) => {
-  const LOCK_TIME = 1000 * blockTime * 60; // minutes
+  const LOCK_TIME = 1000 * (blockTime || 1) * 60; // minutes
 
   const appState = useRef(AppState.currentState);
   const router = useRouter();
@@ -61,7 +61,7 @@ export const UserInactivityProvider = ({ isProtected, blockTime, children }: Use
       recordStartTime();
     } else if (nextAppState === 'active' && appState.current.match(/background/)) {
       const elapsed = Date.now() - (storageUserInactivity.getNumber('startTime') || 0);
-
+      console.log(LOCK_TIME, elapsed);
       if (elapsed >= LOCK_TIME) {
         router.push('/utilsScreens/lockScreen');
         storageUserInactivity.set('isAppLocked', 'true');
