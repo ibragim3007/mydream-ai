@@ -7,13 +7,13 @@ export const storageUserInactivity = new MMKV({
   id: 'UserInactivity',
 });
 
-const LOCK_TIME = 3000;
-
 interface UserInactivityProviderProps extends PropsWithChildren {
   isProtected: boolean;
+  blockTime: number;
 }
 
-export const UserInactivityProvider = ({ isProtected, children }: UserInactivityProviderProps) => {
+export const UserInactivityProvider = ({ isProtected, blockTime, children }: UserInactivityProviderProps) => {
+  const LOCK_TIME = 1000 * blockTime; // minutes
   const appState = useRef(AppState.currentState);
   const router = useRouter();
   const wasBlockedRef = useRef(false);

@@ -17,6 +17,7 @@ export default function ListHeader() {
               <Typography variant="largeTitle" weight="bold">
                 Hi, Dreamer!
               </Typography>
+
               <Image source={MoonImage} style={{ height: 50, width: 50 }} />
             </Grid>
             <Typography>The better you describe your dream, the better the interpretation will be.</Typography>

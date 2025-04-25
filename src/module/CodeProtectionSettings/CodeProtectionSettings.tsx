@@ -1,3 +1,4 @@
+import { generateMockTimings, TimingsBeforeBlock } from '@/entities/useProtection/protection.mock';
 import { useProtection } from '@/entities/useProtection/useProtection';
 import SettingItem from '@/pages/SettingsPage/ui/SettingsItem';
 import { useTheme } from '@/shared/hooks/useTheme';
@@ -5,16 +6,16 @@ import LabelSwitch from '@/shared/ui/elements/LabelSwitch';
 import Grid from '@/shared/ui/grid/Grid';
 import PageWrapper from '@/shared/ui/layout/PageWrapper';
 import SafeWrapper from '@/shared/ui/layout/SafeWrapper';
+import Typography from '@/shared/ui/typography/Typography';
+import { normalizedSize } from '@/shared/utils/size';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { useHeaderHeight } from '@react-navigation/elements';
 import * as LocalAuthentication from 'expo-local-authentication';
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
-import RNPickerSelect from 'react-native-picker-select';
+import RNPickerSelect, { PickerStyle } from 'react-native-picker-select';
 import { Toast } from 'toastify-react-native';
-
-import { Picker } from '@react-native-picker/picker';
 
 export default function CodeProtectionSettings() {
   const colors = useTheme();
@@ -50,7 +51,50 @@ export default function CodeProtectionSettings() {
     }
   };
 
+  const pickerStyle: PickerStyle = {
+    inputIOS: {
+      paddingVertical: normalizedSize(14),
+      paddingHorizontal: normalizedSize(16),
+      borderWidth: 1,
+      borderColor: '#2F3A59',
+      borderRadius: 15,
+      color: '#FFFFFF',
+      backgroundColor: colors.background.secondary,
+      fontSize: normalizedSize(16),
+      fontWeight: '500',
+    },
+    inputIOSContainer: {
+      zIndex: 1000,
+    },
+    inputAndroid: {
+      paddingVertical: 10,
+      paddingHorizontal: 16,
+      borderWidth: 1,
+      borderColor: '#2F3A59',
+      borderRadius: 12,
+      color: '#FFFFFF',
+      backgroundColor: '#1C1F2E',
+      fontSize: 16,
+      fontWeight: '500',
+    },
+    inputAndroidContainer: {
+      zIndex: 1000,
+    },
+    placeholder: {
+      color: '#ffffff', // серый текст
+      zIndex: -1,
+    },
+    iconContainer: {
+      top: 16,
+      right: 12,
+    },
+  };
+
   const [selectedLanguage, setSelectedLanguage] = useState();
+  const mocks = generateMockTimings(TimingsBeforeBlock, 'minutes');
+  const { blockTime, setBlockTime } = useProtection();
+
+  console.log(blockTime);
 
   return (
     <PageWrapper>
@@ -84,36 +128,26 @@ export default function CodeProtectionSettings() {
               <LabelSwitch label="Enable Face ID" value={biometric} onChange={handleBiometricChange} />
             </Grid>
           )}
-          <RNPickerSelect
-            onValueChange={value => console.log(value)}
-            items={[
-              { label: 'Football', value: 'football' },
-              { label: 'Baseball', value: 'baseball' },
-              { label: 'Hockey', value: 'hockey' },
-            ]}
-          />
 
-          <Picker
-            selectedValue={selectedLanguage}
-            onValueChange={(itemValue, itemIndex) => setSelectedLanguage(itemValue)}
-          >
-            <Picker.Item label="Java" value="java" />
-            <Picker.Item label="JavaScript" value="js" />
-          </Picker>
           {codeProtection !== null && (
             <>
+              <Grid space="sm">
+                <Typography weight="bold">Block app after (minutes)</Typography>
+                <RNPickerSelect
+                  darkTheme
+                  fixAndroidTouchableBug={true}
+                  useNativeAndroidPickerStyle={false}
+                  value={selectedLanguage}
+                  onValueChange={value => setBlockTime(value)}
+                  placeholder={{ label: 'Default (1 minute)', value: null }}
+                  style={pickerStyle}
+                  items={mocks}
+                />
+              </Grid>
               <SettingItem
                 onPress={onPressChangeCodeProtection}
                 leftIcon={<MaterialIcons name="refresh" size={23} color={colors.text.primary} />}
                 title="Change code protection"
-              />
-              <RNPickerSelect
-                onValueChange={value => console.log(value)}
-                items={[
-                  { label: 'Football', value: 'football' },
-                  { label: 'Baseball', value: 'baseball' },
-                  { label: 'Hockey', value: 'hockey' },
-                ]}
               />
             </>
           )}

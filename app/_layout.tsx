@@ -36,6 +36,7 @@ import GeneralStack from './stack';
 import { UserInactivityProvider } from '@/shared/providers/UserInactivity';
 import { useProtection } from '@/entities/useProtection/useProtection';
 import ToastManager from 'toastify-react-native';
+import { Appearance } from 'react-native';
 
 Sentry.init({
   dsn: 'https://75639b83524ceb4e5cd2f365c943e3a3@o4509188089708544.ingest.us.sentry.io/4509188098949120',
@@ -80,6 +81,7 @@ export default Sentry.wrap(function RootLayout() {
   const [redirected, setRedirected] = useState(false);
 
   useEffect(() => {
+    Appearance.setColorScheme('dark');
     // Инициализируем Purchases и Superwall
     try {
       // const apiKeyRevenue =
@@ -103,7 +105,7 @@ export default Sentry.wrap(function RootLayout() {
     }
   }, []);
 
-  const { codeProtection, biometric } = useProtection(state => state);
+  const { codeProtection, biometric, blockTime } = useProtection(state => state);
 
   useEffect(() => {
     const initializeApp = async () => {
@@ -137,7 +139,7 @@ export default Sentry.wrap(function RootLayout() {
 
   return (
     <ThemeProvider>
-      <UserInactivityProvider isProtected={codeProtection || biometric ? true : false}>
+      <UserInactivityProvider blockTime={blockTime} isProtected={codeProtection || biometric ? true : false}>
         <QueryClientProvider client={queryClient}>
           <GestureHandlerRootView style={{ flex: 1 }}>
             <StatusBar style="light" />
