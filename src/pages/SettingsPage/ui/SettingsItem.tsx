@@ -49,7 +49,7 @@ export default function SettingItem({
             </Grid>
           )}
           <Grid>
-            <Typography weight="medium">{title}</Typography>
+            <Typography weight="bold">{title}</Typography>
             {prefix && (
               <Typography weight="light" variant="caption-1">
                 {prefix}

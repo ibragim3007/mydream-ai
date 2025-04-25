@@ -7,7 +7,6 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import * as Haptic from 'expo-haptics';
 import * as LocalAuthentication from 'expo-local-authentication';
-import { useRouter } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
@@ -16,10 +15,11 @@ interface PinCodeProps {
   onResult: (code: string, isBiometricRight: boolean) => void;
 
   title: string;
+  isPasscodeOn?: null | number;
   isBiometricOn: boolean;
 }
 
-export default function PinCode({ title, isBiometricOn, onResult }: PinCodeProps) {
+export default function PinCode({ title, isPasscodeOn, isBiometricOn, onResult }: PinCodeProps) {
   const colors = useTheme();
   const [code, setCode] = useState<number[]>([]);
   const codeLength = Array(4).fill(0);
@@ -64,6 +64,24 @@ export default function PinCode({ title, isBiometricOn, onResult }: PinCodeProps
     [4, 5, 6],
     [7, 8, 9],
   ];
+
+  useEffect(() => {
+    if (!isPasscodeOn && isBiometricOn) {
+      const auth = LocalAuthentication.authenticateAsync({
+        promptMessage: 'Welcome back',
+        fallbackLabel: 'Enter your passcode',
+      });
+
+      auth.then(result => {
+        if (result.success) {
+          onResult(code.join(''), true);
+          setCode([]);
+        } else {
+          Haptic.notificationAsync(Haptic.NotificationFeedbackType.Error);
+        }
+      });
+    }
+  }, []);
 
   return (
     <PageWrapper>

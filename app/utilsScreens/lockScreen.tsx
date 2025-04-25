@@ -19,5 +19,5 @@ export default function lockScreen() {
     }
   };
 
-  return <PinCode title="Welcome back" onResult={onResult} isBiometricOn={biometric} />;
+  return <PinCode title="Welcome back" onResult={onResult} isPasscodeOn={codeProtection} isBiometricOn={biometric} />;
 }

@@ -19,7 +19,7 @@ export default function LabelSwitch({ onChange, value, label }: LabelSwitchProps
       }}
     >
       <Grid>
-        <Typography>{label}</Typography>
+        <Typography weight="bold">{label}</Typography>
       </Grid>
       <SwitchCustom value={value} onValueChange={onChange} />
     </GridPressable>

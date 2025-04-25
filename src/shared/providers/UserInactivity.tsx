@@ -16,6 +16,7 @@ interface UserInactivityProviderProps extends PropsWithChildren {
 export const UserInactivityProvider = ({ isProtected, children }: UserInactivityProviderProps) => {
   const appState = useRef(AppState.currentState);
   const router = useRouter();
+  const wasBlockedRef = useRef(false);
 
   useEffect(() => {
     const subsciption = AppState.addEventListener('change', handleAppStateChanged);
@@ -35,13 +36,19 @@ export const UserInactivityProvider = ({ isProtected, children }: UserInactivity
       router.push('/utilsScreens/lockScreen');
       return;
     }
-    if (nextAppState === 'inactive') {
-      router.push('/utilsScreens/blockScreen');
-    } else {
-      if (router.canGoBack()) {
-        router.back();
-      }
-    }
+    // if (nextAppState === 'inactive') {
+    //   router.push('/utilsScreens/blockScreen');
+    //   wasBlockedRef.current = true; // Устанавливаем флаг, что был блок
+    // } else {
+    //   // Возвращаемся назад только если был блок
+    //   if (
+    //     wasBlockedRef.current &&
+    //     ((router.canGoBack() && appState.current === 'background') || appState.current === 'inactive')
+    //   ) {
+    //     router.back();
+    //     wasBlockedRef.current = false; // Сбрасываем флаг после возврата
+    //   }
+    // }
 
     console.log(storageUserInactivity.getString('isAppLocked'));
 

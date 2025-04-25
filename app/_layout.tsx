@@ -35,6 +35,7 @@ import { vexo } from 'vexo-analytics';
 import GeneralStack from './stack';
 import { UserInactivityProvider } from '@/shared/providers/UserInactivity';
 import { useProtection } from '@/entities/useProtection/useProtection';
+import ToastManager from 'toastify-react-native';
 
 Sentry.init({
   dsn: 'https://75639b83524ceb4e5cd2f365c943e3a3@o4509188089708544.ingest.us.sentry.io/4509188098949120',
@@ -102,7 +103,7 @@ export default Sentry.wrap(function RootLayout() {
     }
   }, []);
 
-  const codeProtection = useProtection(state => state.codeProtection);
+  const { codeProtection, biometric } = useProtection(state => state);
 
   useEffect(() => {
     const initializeApp = async () => {
@@ -111,7 +112,7 @@ export default Sentry.wrap(function RootLayout() {
       // Проверяем, что навигация инициализирована и редирект ещё не выполнен
       if (navigationState?.key && !redirected) {
         try {
-          if (codeProtection) {
+          if (codeProtection || biometric) {
             router.replace('/utilsScreens/lockScreen');
           } else {
             const appToken = await isAppToken();
@@ -136,11 +137,12 @@ export default Sentry.wrap(function RootLayout() {
 
   return (
     <ThemeProvider>
-      <UserInactivityProvider isProtected={codeProtection ? true : false}>
+      <UserInactivityProvider isProtected={codeProtection || biometric ? true : false}>
         <QueryClientProvider client={queryClient}>
           <GestureHandlerRootView style={{ flex: 1 }}>
             <StatusBar style="light" />
             <GeneralStack />
+            <ToastManager />
           </GestureHandlerRootView>
         </QueryClientProvider>
       </UserInactivityProvider>
