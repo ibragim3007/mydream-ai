@@ -33,6 +33,11 @@ export default function CreateDreamInput() {
       Alert.alert('Please enter a dream description');
       return;
     }
+
+    if (dreamText.split(' ').length < 3) {
+      Alert.alert('Please enter at least 3 words');
+      return;
+    }
     setDreamText('');
 
     buttonVisibility.value = 0;

@@ -8,6 +8,7 @@ import LegalBlock from './ui/blocks/LegalBlock';
 import LogOutBlock from './ui/blocks/LogOutBlock';
 import FeedbackBlock from './ui/blocks/FeedbackBlock';
 import RateBlock from './ui/blocks/RateBlock';
+import { SubBlock } from '@/module/SubBlock';
 
 export default function SettingsPage() {
   const headerHeight = useHeaderHeight();
@@ -16,6 +17,7 @@ export default function SettingsPage() {
       <ScrollView showsVerticalScrollIndicator={false}>
         <SafeWrapper style={{ paddingTop: 15 + headerHeight, flex: 1 }}>
           <Grid space="lg">
+            <SubBlock />
             <AppSettingsBlock />
             <RateBlock />
             <FeedbackBlock />

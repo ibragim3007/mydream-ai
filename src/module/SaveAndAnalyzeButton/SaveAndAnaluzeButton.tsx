@@ -25,6 +25,12 @@ export default function SaveAndAnaluzeButton({ dreamText, disabled, onChangeText
       Alert.alert('Please enter a dream description');
       return;
     }
+
+    if (dreamText.split(' ').length < 3) {
+      Alert.alert('Please enter at least 3 words');
+      return;
+    }
+
     onChangeText('');
 
     try {

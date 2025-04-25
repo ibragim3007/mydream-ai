@@ -3,6 +3,7 @@ import { useGetDreams } from '@/entities/dream/dream.repository';
 import { AddDreamButton } from '@/module/AddDreamButton';
 import { AudioRecorderButton } from '@/module/AudioRecorderButton';
 import { Settings } from '@/module/Settings';
+import { SubBlock } from '@/module/SubBlock';
 import Grid from '@/shared/ui/grid/Grid';
 import Typography from '@/shared/ui/typography/Typography';
 import { Image } from 'expo-image';
@@ -25,6 +26,7 @@ export default function ListHeader() {
             </Grid>
             <Typography>The better you describe your dream, the better the interpretation will be.</Typography>
           </Grid>
+
           <Grid align="stretch" row space="sm">
             <AddDreamButton />
             <AudioRecorderButton />
@@ -32,6 +34,7 @@ export default function ListHeader() {
           {/* <CreateDreamInput /> */}
         </Grid>
       </Grid>
+      <SubBlock />
       {data?.pages[0].length === 0 ? (
         <Typography weight="extra-bold" variant="title-1">
           Your dreams will be displayed here!
