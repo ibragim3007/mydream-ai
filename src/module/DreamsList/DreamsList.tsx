@@ -55,6 +55,7 @@ export default function DreamsList({ headerComponent }: DreamsListProps) {
           paddingBottom: normalizedSize(80),
           paddingHorizontal: HORIZONTAL_PADDINGS,
           paddingTop: insets.top,
+          minHeight: '100%',
         }}
         renderItem={({ item }) => {
           const analysis = getDreamAnalysisResponse(item.analyzeText);
