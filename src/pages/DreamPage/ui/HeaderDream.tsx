@@ -7,6 +7,8 @@ import Typography from '@/shared/ui/typography/Typography';
 import { router } from 'expo-router';
 import HeaderImage from './HeaderImage';
 
+import DropdownOptions from './DropdownOptions';
+
 interface HeaderDreamProps {
   dream: GetDreamDto;
 }
@@ -22,9 +24,11 @@ export default function HeaderDream({ dream }: HeaderDreamProps) {
         <Typography textAlign="center" variant="title-3" weight="extra-bold">
           Dream
         </Typography>
-        <Grid style={{ opacity: 0 }}>
+
+        <DropdownOptions />
+        {/* <Grid style={{ opacity: 0 }}>
           <GoBackButton onPress={() => {}} />
-        </Grid>
+        </Grid> */}
       </Grid>
       <Grid align="center" space="lg">
         <Grid align="center" paddingHorizontal={HORIZONTAL_PADDINGS}>

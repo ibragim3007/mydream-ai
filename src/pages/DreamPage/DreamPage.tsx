@@ -1,11 +1,13 @@
 import { useGetDreamById } from '@/entities/dream/dream.repository';
 import { getDreamAnalysisResponse } from '@/entities/dream/helpers/getDreamResponse';
 
+import { GeneralFeedback } from '@/entities/feedback';
 import { HORIZONTAL_PADDINGS } from '@/shared/config/constants/constants';
 import { useTheme } from '@/shared/hooks/useTheme';
 import { animationEngine } from '@/shared/service/animation.service';
 import { SleepDataResponse } from '@/shared/types/globalTypes';
 import CardPaper from '@/shared/ui/elements/CardPaper';
+import HeaderPlaceholder from '@/shared/ui/elements/HeaderPlaceholder';
 import Grid from '@/shared/ui/grid/Grid';
 import PageWrapper from '@/shared/ui/layout/PageWrapper';
 import SafeWrapper from '@/shared/ui/layout/SafeWrapper';
@@ -18,10 +20,6 @@ import HeaderDream from './ui/HeaderDream';
 import Interpretations from './ui/Interpretations';
 import LoadingSkeleton from './ui/LoadingSkeleton';
 import Participants from './ui/Participants';
-import { GeneralFeedback } from '@/entities/feedback';
-import HeaderPlaceholder from '@/shared/ui/elements/HeaderPlaceholder';
-import Button from '@/shared/ui/buttons/Button';
-import AntDesign from '@expo/vector-icons/AntDesign';
 
 export default function DreamPage() {
   const params = useLocalSearchParams<{ id: string }>();

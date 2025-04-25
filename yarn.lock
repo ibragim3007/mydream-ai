@@ -1179,6 +1179,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@dominicstop/ts-event-emitter@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@dominicstop/ts-event-emitter@npm:1.1.0"
+  checksum: fcecf835de9049f58faf013d0a5b940b8b4b1c6c9293d98ab18c90fa800ca55407fcaf7d4cc148fbdc361aba5d4af64ae0fde813f8958c0903df3aa2b09e4325
+  languageName: node
+  linkType: hard
+
 "@egjs/hammerjs@npm:^2.0.17":
   version: 2.0.17
   resolution: "@egjs/hammerjs@npm:2.0.17"
@@ -3047,6 +3054,26 @@ __metadata:
   bin:
     rnc-cli: build/bin.js
   checksum: bd4d4142c95339393f35509038042fa854b4dd2d7dd458fcb2226d2e63d947cff561f20ce47253249bde310db35c071f836195377761dd7a8e64cb1ce1e35217
+  languageName: node
+  linkType: hard
+
+"@react-native-menu/menu@npm:1.2.2":
+  version: 1.2.2
+  resolution: "@react-native-menu/menu@npm:1.2.2"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: c3f22c11f7a138d559113e1f1e2b187f39438438d506a7997c2e97a7dc69b416f3f42d508a3252b76965527219af32ebea9f0f263a1db23b7b208e5cd65eb914
+  languageName: node
+  linkType: hard
+
+"@react-native-picker/picker@npm:2.9.0":
+  version: 2.9.0
+  resolution: "@react-native-picker/picker@npm:2.9.0"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 3f88ecbad85f071861bbd16c0d4891dd5eff13d638e6ecfe68da279a07e0a31dfa7844ae329fe2a2144695456f1c96d1be38e10185475dd164f8e918d6d083a1
   languageName: node
   linkType: hard
 
@@ -6128,6 +6155,8 @@ __metadata:
     "@expo-google-fonts/open-sans": ^0.2.3
     "@expo/vector-icons": ^14.0.2
     "@react-native-async-storage/async-storage": 1.23.1
+    "@react-native-menu/menu": 1.2.2
+    "@react-native-picker/picker": 2.9.0
     "@react-navigation/bottom-tabs": ^7.2.0
     "@react-navigation/native": ^7.0.14
     "@sentry/react-native": ^6.10.0
@@ -6183,9 +6212,12 @@ __metadata:
     react-native: 0.76.9
     react-native-gesture-handler: ~2.20.2
     react-native-get-random-values: ^1.11.0
+    react-native-ios-context-menu: 3.1.0
+    react-native-ios-utilities: 5.1.2
     react-native-keychain: ^10.0.0
     react-native-mmkv: ^3.2.0
     react-native-pager-view: 6.5.1
+    react-native-picker-select: ^9.3.1
     react-native-purchases: ^8.9.5
     react-native-purchases-ui: ^8.9.5
     react-native-reanimated: ~3.16.1
@@ -10108,6 +10140,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash.isequal@npm:^4.5.0":
+  version: 4.5.0
+  resolution: "lodash.isequal@npm:4.5.0"
+  checksum: da27515dc5230eb1140ba65ff8de3613649620e8656b19a6270afe4866b7bd461d9ba2ac8a48dcc57f7adac4ee80e1de9f965d89d4d81a0ad52bb3eec2609644
+  languageName: node
+  linkType: hard
+
+"lodash.isobject@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "lodash.isobject@npm:3.0.2"
+  checksum: 6c1667cbc4494d0a13a3617a4b23278d6d02dac520311f2bbb43f16f2cf71d2e6eb9dec8057315b77459df4890c756a256a087d3f4baa44a79ab5d6c968b060e
+  languageName: node
+  linkType: hard
+
 "lodash.merge@npm:^4.6.2":
   version: 4.6.2
   resolution: "lodash.merge@npm:4.6.2"
@@ -11942,6 +11988,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-ios-context-menu@npm:3.1.0":
+  version: 3.1.0
+  resolution: "react-native-ios-context-menu@npm:3.1.0"
+  dependencies:
+    "@dominicstop/ts-event-emitter": ^1.1.0
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+    react-native-ios-utilities: "*"
+  checksum: a515807d3338f219baf9c29c4671ea9a7f7f1b60ee20af319018b31051c1524348bfb140541c56ec0c9bcc3de2a14579cb1d95b97c72fc1a82c4c5d7649b7f9d
+  languageName: node
+  linkType: hard
+
+"react-native-ios-utilities@npm:5.1.2":
+  version: 5.1.2
+  resolution: "react-native-ios-utilities@npm:5.1.2"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: ac94a4e171e3136f49815b3c3bbd5545292a774a87867edf8465cd289dfc78766350024fda0ce5ade91702f726fec69879b5119df0713f8a665e696fa3bc9d00
+  languageName: node
+  linkType: hard
+
 "react-native-is-edge-to-edge@npm:^1.1.6":
   version: 1.1.6
   resolution: "react-native-is-edge-to-edge@npm:1.1.6"
@@ -11976,6 +12045,18 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: 9c8a9bb5f69d0dbc4dcf4826b2d319c0fd926fa60dd7c0dddc765aeb775c070d516b189fab575773f902c924ecb6db6ae8fdb67d6e879890ac82e094a4d2b930
+  languageName: node
+  linkType: hard
+
+"react-native-picker-select@npm:^9.3.1":
+  version: 9.3.1
+  resolution: "react-native-picker-select@npm:9.3.1"
+  dependencies:
+    lodash.isequal: ^4.5.0
+    lodash.isobject: ^3.0.2
+  peerDependencies:
+    "@react-native-picker/picker": ^2.4.0
+  checksum: ba03c79bff736f225f6cf06a971a5058739ef27c26d2f66edf31e80250fc40be29085d4b15a35339c31b4d4830d362594f8d5933a25a0f2f1f9d702189e2d611
   languageName: node
   linkType: hard
 

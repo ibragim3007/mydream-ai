@@ -8,10 +8,13 @@ import SafeWrapper from '@/shared/ui/layout/SafeWrapper';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { useHeaderHeight } from '@react-navigation/elements';
+import * as LocalAuthentication from 'expo-local-authentication';
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
+import RNPickerSelect from 'react-native-picker-select';
 import { Toast } from 'toastify-react-native';
-import * as LocalAuthentication from 'expo-local-authentication';
+
+import { Picker } from '@react-native-picker/picker';
 
 export default function CodeProtectionSettings() {
   const colors = useTheme();
@@ -47,6 +50,8 @@ export default function CodeProtectionSettings() {
     }
   };
 
+  const [selectedLanguage, setSelectedLanguage] = useState();
+
   return (
     <PageWrapper>
       <SafeWrapper style={{ paddingTop: headerHeight + 20 }}>
@@ -79,12 +84,38 @@ export default function CodeProtectionSettings() {
               <LabelSwitch label="Enable Face ID" value={biometric} onChange={handleBiometricChange} />
             </Grid>
           )}
+          <RNPickerSelect
+            onValueChange={value => console.log(value)}
+            items={[
+              { label: 'Football', value: 'football' },
+              { label: 'Baseball', value: 'baseball' },
+              { label: 'Hockey', value: 'hockey' },
+            ]}
+          />
+
+          <Picker
+            selectedValue={selectedLanguage}
+            onValueChange={(itemValue, itemIndex) => setSelectedLanguage(itemValue)}
+          >
+            <Picker.Item label="Java" value="java" />
+            <Picker.Item label="JavaScript" value="js" />
+          </Picker>
           {codeProtection !== null && (
-            <SettingItem
-              onPress={onPressChangeCodeProtection}
-              leftIcon={<MaterialIcons name="refresh" size={23} color={colors.text.primary} />}
-              title="Change code protection"
-            />
+            <>
+              <SettingItem
+                onPress={onPressChangeCodeProtection}
+                leftIcon={<MaterialIcons name="refresh" size={23} color={colors.text.primary} />}
+                title="Change code protection"
+              />
+              <RNPickerSelect
+                onValueChange={value => console.log(value)}
+                items={[
+                  { label: 'Football', value: 'football' },
+                  { label: 'Baseball', value: 'baseball' },
+                  { label: 'Hockey', value: 'hockey' },
+                ]}
+              />
+            </>
           )}
         </Grid>
       </SafeWrapper>
