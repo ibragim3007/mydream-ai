@@ -1,4 +1,5 @@
 import MoonImage from '@/assets/icons/moonImage2.png';
+import { useGetDreams } from '@/entities/dream/dream.repository';
 import { AddDreamButton } from '@/module/AddDreamButton';
 import { AudioRecorderButton } from '@/module/AudioRecorderButton';
 import { Settings } from '@/module/Settings';
@@ -7,6 +8,8 @@ import Typography from '@/shared/ui/typography/Typography';
 import { Image } from 'expo-image';
 
 export default function ListHeader() {
+  const { data } = useGetDreams();
+
   return (
     <Grid gap={50}>
       <Grid>
@@ -29,9 +32,15 @@ export default function ListHeader() {
           {/* <CreateDreamInput /> */}
         </Grid>
       </Grid>
-      <Typography weight="extra-bold" variant="title-1">
-        Your dreams!
-      </Typography>
+      {data?.pages[0].length === 0 ? (
+        <Typography weight="extra-bold" variant="title-1">
+          Your dreams will be displayed here!
+        </Typography>
+      ) : (
+        <Typography weight="extra-bold" variant="title-1">
+          Your dreams!
+        </Typography>
+      )}
       {/* <ClearCacheButton /> */}
     </Grid>
   );
