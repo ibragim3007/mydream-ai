@@ -1,4 +1,4 @@
-import MoonImage from '@/assets/icons/moonImage2.png';
+import AppIcon from '@/assets/icons/app_icon_transparent.png';
 import { useGetDreams } from '@/entities/dream/dream.repository';
 import { AddDreamButton } from '@/module/AddDreamButton';
 import { AudioRecorderButton } from '@/module/AudioRecorderButton';
@@ -21,7 +21,7 @@ export default function ListHeader() {
                 Hi, Dreamer!
               </Typography>
 
-              <Image source={MoonImage} style={{ height: 50, width: 50 }} />
+              <Image source={AppIcon} style={{ height: 50, width: 50 }} />
             </Grid>
             <Typography>The better you describe your dream, the better the interpretation will be.</Typography>
           </Grid>

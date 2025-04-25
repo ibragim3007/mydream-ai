@@ -1,3 +1,4 @@
+import { useApp } from '@/entities/appStore/useApp';
 import { useGetDreams } from '@/entities/dream/dream.repository';
 import { getDreamAnalysisResponse } from '@/entities/dream/helpers/getDreamResponse';
 import { groupDreamsByDate } from '@/entities/dream/helpers/groupDreamsByDate';
@@ -11,7 +12,6 @@ import { router } from 'expo-router';
 import { SectionList } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import SectionHeader from './ui/SectionHeader';
-import { useApp } from '@/entities/appStore/useApp';
 
 interface DreamsListProps {
   headerComponent: React.ComponentType<any>;
@@ -77,7 +77,7 @@ export default function DreamsList({ headerComponent }: DreamsListProps) {
               </Grid>
             );
         }}
-        ItemSeparatorComponent={() => <Grid height={18} />}
+        ItemSeparatorComponent={() => <Grid height={20} />}
       />
     </Grid>
   );

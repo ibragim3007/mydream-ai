@@ -12,7 +12,7 @@ import Superwall from '@superwall/react-native-superwall';
 import { Audio } from 'expo-av';
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Alert, Modal, Animated, Easing } from 'react-native';
+import { Alert, Animated, Easing, Modal } from 'react-native';
 
 interface AudioRecorderButtonProps {}
 
@@ -161,7 +161,7 @@ export default function AudioRecorderButton({}: AudioRecorderButtonProps) {
         align="center"
         style={{ borderRadius: 15, width: 90 }}
       >
-        <FontAwesome name="microphone" size={28} color={colors.text.white} />
+        <FontAwesome name="microphone" size={32} color={colors.text.white} />
         <Grid style={{ position: 'absolute', right: 15, bottom: 5 }}>
           <FontAwesome name="lock" size={18} color={colors.accent.primary} />
         </Grid>
@@ -181,9 +181,9 @@ export default function AudioRecorderButton({}: AudioRecorderButtonProps) {
         style={{ borderRadius: 15, width: 90 }}
       >
         {recording ? (
-          <FontAwesome name="stop-circle-o" size={28} color={colors.text.white} />
+          <FontAwesome name="stop-circle-o" size={30} color={colors.text.white} />
         ) : (
-          <FontAwesome name="microphone" size={28} color={colors.text.white} />
+          <FontAwesome name="microphone" size={30} color={colors.text.white} />
         )}
       </GridPressable>
       <Modal visible={!!recording} animationType="fade" transparent>
