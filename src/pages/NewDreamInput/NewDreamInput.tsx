@@ -73,7 +73,7 @@ export default function NewDreamInput() {
 
   const isButtonDisabled = dreamText.length === 0;
   return (
-    <PageWrapper>
+    <PageWrapper disableGradient>
       <SafeWrapper style={{ paddingTop: 15 + headerHeight, flex: 1 }}>
         <KeyboardAvoidingView
           style={{ flex: 1 }}

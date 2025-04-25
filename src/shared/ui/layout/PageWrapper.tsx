@@ -8,21 +8,29 @@ import { ImageBackground } from 'expo-image';
 
 interface PageWrapper extends GridProps {
   background?: 'dark' | 'stars';
+  disableGradient?: boolean;
 }
 
-export default function PageWrapper({ background = 'stars', ...props }: PageWrapper) {
+export default function PageWrapper({ disableGradient, background = 'stars', ...props }: PageWrapper) {
   const colors = useTheme();
 
-  return (
-    <LinearGradient style={{ flex: 1 }} colors={['#0e1018', '#140d34', '#610e87']}>
-      <Grid flex={1} {...props} />
-    </LinearGradient>
-  );
+  if (disableGradient) {
+    return (
+      <Grid color={colors.background.primary} style={{ flex: 1, height: '100%' }}>
+        <Grid flex={1} {...props} />
+      </Grid>
+    );
+  }
 
   return (
-    <Grid color={colors.background.primary} style={{ flex: 1, height: '100%' }}>
+    <LinearGradient
+      style={{ flex: 1 }}
+      colors={['#0A0C14', '#151832', '#342371', '#7A29C6']}
+      start={{ x: 0.5, y: 0 }}
+      end={{ x: 0.5, y: 1 }}
+    >
       <Grid flex={1} {...props} />
-    </Grid>
+    </LinearGradient>
   );
 
   return (

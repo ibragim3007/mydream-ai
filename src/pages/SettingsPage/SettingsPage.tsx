@@ -10,7 +10,7 @@ import LogOutBlock from './ui/blocks/LogOutBlock';
 export default function SettingsPage() {
   const headerHeight = useHeaderHeight();
   return (
-    <PageWrapper>
+    <PageWrapper disableGradient>
       <ScrollView showsVerticalScrollIndicator={false}>
         <SafeWrapper style={{ paddingTop: 15 + headerHeight, flex: 1 }}>
           <Grid space="lg">
