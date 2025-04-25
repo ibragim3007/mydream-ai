@@ -12,6 +12,8 @@ export const PLACEMENTS = { campaign_trigger: 'campaign_trigger' };
 
 export const EMAIL_FEEDBACK = 'mydream.diary.ai@gmail.com';
 
+export const APP_STORE_LINK = 'https://apps.apple.com/app/apple-store/6744828026?action=write-review';
+
 export const LINKS = {
   privacyPolicy: 'https://mydream-ai.vercel.app/privacy',
   termsOfService: 'https://mydream-ai.vercel.app/terms',

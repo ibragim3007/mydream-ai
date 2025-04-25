@@ -13,6 +13,8 @@ interface SettingItemProps {
   removeSeparator?: boolean;
   danger?: boolean;
   rightPrefix?: string;
+  color?: string;
+  textColor?: string;
 }
 
 export default function SettingItem({
@@ -23,15 +25,23 @@ export default function SettingItem({
   removeSeparator,
   rightPrefix,
   danger,
+  color,
+  textColor,
   onPress,
 }: SettingItemProps) {
   const colors = useTheme();
   return (
     <Pressable onPress={onPress}>
       <Grid
-        style={{ borderRadius: 16 }}
+        style={{
+          borderRadius: 16,
+          shadowColor: color,
+          shadowOpacity: 0.3,
+          shadowRadius: 10,
+          shadowOffset: { height: 0, width: 0 },
+        }}
         // height={50}
-        color={danger ? colors.background.negative : colors.background.secondary}
+        color={color || (danger ? colors.background.negative : colors.background.secondary)}
         row
         padding={7}
         align="center"
@@ -40,16 +50,14 @@ export default function SettingItem({
       >
         <Grid row align="center" space="sm">
           {leftIcon && (
-            <Grid
-              padding={8}
-              // color={danger ? colors.background.negative : colors.background.neutral}
-              style={{ borderRadius: 8 }}
-            >
+            <Grid padding={8} style={{ borderRadius: 8 }}>
               {leftIcon}
             </Grid>
           )}
           <Grid>
-            <Typography weight="bold">{title}</Typography>
+            <Typography style={{ color: textColor || colors.text.primary }} weight="bold">
+              {title}
+            </Typography>
             {prefix && (
               <Typography weight="light" variant="caption-1">
                 {prefix}
@@ -64,7 +72,7 @@ export default function SettingItem({
               {rightPrefix}
             </Typography>
           )}
-          {rightIcon ? rightIcon : <Entypo name="chevron-right" size={24} color={colors.text.secondary} />}
+          {rightIcon ? rightIcon : <Entypo name="chevron-right" size={24} color={textColor || colors.text.secondary} />}
         </Grid>
       </Grid>
       {/* {removeSeparator || <Separator marginVertical={4} />} */}

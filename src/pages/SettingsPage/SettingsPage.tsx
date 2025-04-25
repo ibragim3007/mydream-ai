@@ -7,6 +7,7 @@ import AppSettingsBlock from './ui/blocks/AppSettingsBlock';
 import LegalBlock from './ui/blocks/LegalBlock';
 import LogOutBlock from './ui/blocks/LogOutBlock';
 import FeedbackBlock from './ui/blocks/FeedbackBlock';
+import RateBlock from './ui/blocks/RateBlock';
 
 export default function SettingsPage() {
   const headerHeight = useHeaderHeight();
@@ -16,8 +17,9 @@ export default function SettingsPage() {
         <SafeWrapper style={{ paddingTop: 15 + headerHeight, flex: 1 }}>
           <Grid space="lg">
             <AppSettingsBlock />
-            <LegalBlock />
+            <RateBlock />
             <FeedbackBlock />
+            <LegalBlock />
             <LogOutBlock />
           </Grid>
         </SafeWrapper>
