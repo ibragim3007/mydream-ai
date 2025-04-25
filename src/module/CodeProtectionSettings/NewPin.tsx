@@ -1,5 +1,4 @@
 import { useProtection } from '@/entities/useProtection/useProtection';
-import PageWrapper from '@/shared/ui/layout/PageWrapper';
 import { router } from 'expo-router';
 import { Alert } from 'react-native';
 import { PinCode } from '../PinCode';
@@ -13,9 +12,5 @@ export default function NewPin() {
     router.canGoBack() && router.back();
   };
 
-  return (
-    <PageWrapper>
-      <PinCode onResult={onResultCreateNew} title={'Enter your new code'} isBiometricOn={false} />
-    </PageWrapper>
-  );
+  return <PinCode onResult={onResultCreateNew} title={'Enter your new code'} isBiometricOn={false} />;
 }

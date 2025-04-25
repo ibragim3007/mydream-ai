@@ -92,12 +92,10 @@ export default function CodeProtectionSettings() {
 
   const [selectedLanguage, setSelectedLanguage] = useState();
   const mocks = generateMockTimings(TimingsBeforeBlock, 'minutes');
-  const { blockTime, setBlockTime } = useProtection();
-
-  console.log(blockTime);
+  const { setBlockTime } = useProtection();
 
   return (
-    <PageWrapper>
+    <PageWrapper disableGradient>
       <SafeWrapper style={{ paddingTop: headerHeight + 20 }}>
         <Grid space="md">
           <Grid

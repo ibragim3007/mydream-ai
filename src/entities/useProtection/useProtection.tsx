@@ -21,7 +21,7 @@ export const useProtection = create<State & Actions>()(
     persist(
       set => {
         return {
-          codeProtection: null,
+          codeProtection: 1,
           biometric: false,
           blockTime: generateMockTimings(TimingsBeforeBlock, 'minutes')[0].value,
 

@@ -1,4 +1,5 @@
 import { useTheme } from '@/shared/hooks/useTheme';
+import { useVibration } from '@/shared/hooks/useVibration';
 import { animationEngine, animationService } from '@/shared/service/animation.service';
 import { normalizedSize } from '@/shared/utils/size';
 import Entypo from '@expo/vector-icons/Entypo';
@@ -14,7 +15,6 @@ import Grid from '../grid/Grid';
 import Paper from '../layout/Paper';
 import Typography from '../typography/Typography';
 import WrapIconInPressable from '../wrapper/WrapIconInPressable';
-import { useVibration } from '@/shared/hooks/useVibration';
 
 interface InterpretationItemProps {
   title: string;
@@ -24,7 +24,7 @@ interface InterpretationItemProps {
   description?: string;
 }
 
-const ITEM_HEIGHT = 130;
+const ITEM_HEIGHT = 150;
 
 export default function InterpretationItem({ title, text, image, description, isBlocked }: InterpretationItemProps) {
   const colors = useTheme();

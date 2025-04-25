@@ -1,6 +1,6 @@
-import ScientificImage from '@/assets/Interpretations/dna.png';
-import EsotericImage from '@/assets/Interpretations/flowers.png';
-import SelfDevelopmentImage from '@/assets/Interpretations/lamp2.png';
+import ScientificImage from '@/assets/Interpretations/forest-o3.png';
+import EsotericImage from '@/assets/Interpretations/flowers2-o3.png';
+import SelfDevelopmentImage from '@/assets/Interpretations/lamp-o3.png';
 import { HORIZONTAL_PADDINGS } from '@/shared/config/constants/constants';
 import { SleepDataResponse } from '@/shared/types/globalTypes';
 import InterpretationItem from '@/shared/ui/elements/InterpretationItem';
