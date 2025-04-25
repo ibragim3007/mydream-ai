@@ -6,6 +6,7 @@ import Grid from '../grid/Grid';
 export default function HeaderPlaceholder() {
   const insets = useSafeAreaInsets();
   const colors = useTheme();
+  return null;
 
   const headerHeight = normalizedSize(insets.top) - normalizedSize(insets.top) * 0.2;
   return (

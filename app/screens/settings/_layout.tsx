@@ -24,6 +24,7 @@ export default function SettingsLayout() {
       <Stack.Screen name="index" options={{ headerTitle: 'Settings' }} />
       <Stack.Screen name="nameUpdateScreen" options={{ headerTitle: 'Change name' }} />
       <Stack.Screen name="newPinScreen" options={{ headerTitle: '' }} />
+      <Stack.Screen name="changePinScreen" options={{ headerTitle: '' }} />
 
       <Stack.Screen
         name="codeProtection"

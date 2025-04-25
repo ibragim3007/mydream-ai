@@ -14,6 +14,12 @@ export default function PageWrapper({ background = 'stars', ...props }: PageWrap
   const colors = useTheme();
 
   return (
+    <LinearGradient style={{ flex: 1 }} colors={['#0e1018', '#140d34', '#610e87']}>
+      <Grid flex={1} {...props} />
+    </LinearGradient>
+  );
+
+  return (
     <Grid color={colors.background.primary} style={{ flex: 1, height: '100%' }}>
       <Grid flex={1} {...props} />
     </Grid>

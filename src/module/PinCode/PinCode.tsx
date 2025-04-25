@@ -6,6 +6,7 @@ import Typography from '@/shared/ui/typography/Typography';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import * as Haptic from 'expo-haptics';
+import { LinearGradient } from 'expo-linear-gradient';
 import * as LocalAuthentication from 'expo-local-authentication';
 import { useEffect, useState } from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
@@ -85,59 +86,61 @@ export default function PinCode({ title, isPasscodeOn, isBiometricOn, onResult }
 
   return (
     <PageWrapper>
-      <SafeAreaView>
-        <Grid height="100%" justfity="center">
-          <Grid marginTop={70} row justfity="center" align="center">
-            <Typography weight="bold" textAlign="center" variant="title-1">
-              {title}
-            </Typography>
-          </Grid>
-
-          <Animated.View style={styleAnimation}>
-            <Grid style={styles.codeView}>
-              {codeLength.map((_, index) => (
-                <Grid
-                  key={index}
-                  style={[
-                    styles.codeEmpty,
-                    { backgroundColor: code[index] !== undefined ? colors.accent.primary : '#3a3a3a' },
-                  ]}
-                />
-              ))}
+      <LinearGradient colors={['#000a4478', '#1a009e45', '#9600e76a']}>
+        <SafeAreaView>
+          <Grid height="100%" justfity="center">
+            <Grid marginTop={70} row justfity="center" align="center">
+              <Typography weight="bold" textAlign="center" variant="title-1">
+                {title}
+              </Typography>
             </Grid>
-          </Animated.View>
 
-          <Grid gap={15} align="center" marginHorizontal={50}>
-            {numbers.map((row, rowIndex) => (
-              <Grid gap={15} row key={rowIndex} justfity="space-between">
-                {row.map(number => (
-                  <CircleButton text={number} onPress={() => onNumberPress(number)} key={number} />
+            <Animated.View style={styleAnimation}>
+              <Grid style={styles.codeView}>
+                {codeLength.map((_, index) => (
+                  <Grid
+                    key={index}
+                    style={[
+                      styles.codeEmpty,
+                      { backgroundColor: code[index] !== undefined ? colors.text.primary : '#ffffff27' },
+                    ]}
+                  />
                 ))}
               </Grid>
-            ))}
+            </Animated.View>
 
-            <Grid gap={15} row justfity="space-between">
-              <Grid flex={1} style={{ minWidth: 0 }}>
-                {isBiometricOn && (
-                  <CircleButton onPress={onBiometricPress}>
-                    <MaterialCommunityIcons name="face-recognition" size={26} color="#fff" />
-                  </CircleButton>
-                )}
-              </Grid>
+            <Grid gap={15} align="center" marginHorizontal={50}>
+              {numbers.map((row, rowIndex) => (
+                <Grid gap={15} row key={rowIndex} justfity="space-between">
+                  {row.map(number => (
+                    <CircleButton text={number} onPress={() => onNumberPress(number)} key={number} />
+                  ))}
+                </Grid>
+              ))}
 
-              <CircleButton onPress={() => onNumberPress(0)}>
-                <Typography style={styles.number}>{0}</Typography>
-              </CircleButton>
+              <Grid gap={15} row justfity="space-between">
+                <Grid flex={1} style={{ minWidth: 0 }}>
+                  {isBiometricOn && (
+                    <CircleButton onPress={onBiometricPress}>
+                      <MaterialCommunityIcons name="face-recognition" size={26} color="#fff" />
+                    </CircleButton>
+                  )}
+                </Grid>
 
-              <Grid flex={1} style={{ minWidth: 0 }}>
-                <CircleButton onPress={numberBackSpace}>
-                  <MaterialIcons name="backspace" size={26} color="#fff" />
+                <CircleButton onPress={() => onNumberPress(0)}>
+                  <Typography style={styles.number}>{0}</Typography>
                 </CircleButton>
+
+                <Grid flex={1} style={{ minWidth: 0 }}>
+                  <CircleButton onPress={numberBackSpace}>
+                    <MaterialIcons name="backspace" size={26} color="#fff" />
+                  </CircleButton>
+                </Grid>
               </Grid>
             </Grid>
           </Grid>
-        </Grid>
-      </SafeAreaView>
+        </SafeAreaView>
+      </LinearGradient>
     </PageWrapper>
   );
 }
