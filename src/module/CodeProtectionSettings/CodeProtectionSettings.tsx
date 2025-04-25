@@ -27,7 +27,7 @@ export default function CodeProtectionSettings() {
   const headerHeight = useHeaderHeight();
 
   const onPressChangeCodeProtection = () => {
-    router.navigate('/screens/settings/codeProtection');
+    router.navigate('/screens/settings/changePinScreen');
   };
 
   const handleBiometricChange = (value: boolean) => {
@@ -79,11 +79,13 @@ export default function CodeProtectionSettings() {
               <LabelSwitch label="Enable Face ID" value={biometric} onChange={handleBiometricChange} />
             </Grid>
           )}
-          <SettingItem
-            onPress={onPressChangeCodeProtection}
-            leftIcon={<MaterialIcons name="refresh" size={23} color={colors.text.primary} />}
-            title="Change code protection"
-          />
+          {codeProtection !== null && (
+            <SettingItem
+              onPress={onPressChangeCodeProtection}
+              leftIcon={<MaterialIcons name="refresh" size={23} color={colors.text.primary} />}
+              title="Change code protection"
+            />
+          )}
         </Grid>
       </SafeWrapper>
     </PageWrapper>

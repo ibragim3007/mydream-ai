@@ -1,3 +1,5 @@
 import CodeProtectionSettings from './CodeProtectionSettings';
+import ChangePin from './ChangePin';
+import NewPin from './NewPin';
 
-export { CodeProtectionSettings };
+export { CodeProtectionSettings, NewPin, ChangePin };

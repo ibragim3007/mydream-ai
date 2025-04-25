@@ -1,10 +1,10 @@
-import { useProtection } from '@/entities/useProtection/useProtection';
 import PageWrapper from '@/shared/ui/layout/PageWrapper';
-import { router } from 'expo-router';
-import { Alert } from 'react-native';
 import { PinCode } from '../PinCode';
+import { useProtection } from '@/entities/useProtection/useProtection';
+import { Alert } from 'react-native';
+import { router } from 'expo-router';
 
-export default function NewPin() {
+export default function ChangePin() {
   const { setCodeProtection } = useProtection(state => state);
 
   const onResultCreateNew = (code: string) => {
@@ -15,7 +15,7 @@ export default function NewPin() {
 
   return (
     <PageWrapper>
-      <PinCode onResult={onResultCreateNew} title={'Enter your new code'} isBiometricOn={false} />
+      <PinCode title="Update your code" onResult={onResultCreateNew} isBiometricOn={false} />
     </PageWrapper>
   );
 }
