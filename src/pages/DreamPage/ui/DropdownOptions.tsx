@@ -1,29 +1,26 @@
-import Typography from '@/shared/ui/typography/Typography';
+import { useTheme } from '@/shared/hooks/useTheme';
+import WrapIconInPressable from '@/shared/ui/wrapper/WrapIconInPressable';
+import SimpleLineIcons from '@expo/vector-icons/SimpleLineIcons';
 import * as DropdownMenu from 'zeego/dropdown-menu';
 
-export default function DropdownOptions() {
+interface DropdownOptionsProps {
+  onDelete: () => void;
+}
+
+export default function DropdownOptions({ onDelete }: DropdownOptionsProps) {
+  const colors = useTheme();
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger>
-        <Typography>asd</Typography>
+        <WrapIconInPressable>
+          <SimpleLineIcons name="options" size={24} color={colors.text.primary} />
+        </WrapIconInPressable>
       </DropdownMenu.Trigger>
       <DropdownMenu.Content>
-        <DropdownMenu.Label />
-        <DropdownMenu.Item key="1">
-          <DropdownMenu.ItemTitle>asd</DropdownMenu.ItemTitle>
+        <DropdownMenu.Item onSelect={onDelete} destructive key="delete">
+          <DropdownMenu.ItemTitle>Delete</DropdownMenu.ItemTitle>
+          <DropdownMenu.ItemIcon ios={{ name: 'trash' }} />
         </DropdownMenu.Item>
-        <DropdownMenu.Group>
-          <DropdownMenu.Item key="2">asd</DropdownMenu.Item>
-        </DropdownMenu.Group>
-        <DropdownMenu.CheckboxItem key="3" value={true}>
-          <DropdownMenu.ItemIndicator />
-        </DropdownMenu.CheckboxItem>
-        <DropdownMenu.Sub>
-          <DropdownMenu.SubTrigger key="4" />
-          <DropdownMenu.SubContent />
-        </DropdownMenu.Sub>
-        <DropdownMenu.Separator />
-        <DropdownMenu.Arrow />
       </DropdownMenu.Content>
     </DropdownMenu.Root>
   );

@@ -8,6 +8,8 @@ import { router } from 'expo-router';
 import HeaderImage from './HeaderImage';
 
 import DropdownOptions from './DropdownOptions';
+import { Alert } from 'react-native';
+import { useDeleteDream } from '@/entities/dream/dream.repository';
 
 interface HeaderDreamProps {
   dream: GetDreamDto;
@@ -17,6 +19,26 @@ export default function HeaderDream({ dream }: HeaderDreamProps) {
   const goBack = () => {
     router.back();
   };
+
+  const { deleteDreamFunction } = useDeleteDream();
+
+  const onDelete = () => {
+    Alert.alert('Are you sure you want to delete this dream?', 'The data will be lost forever', [
+      {
+        text: 'No',
+      },
+      {
+        text: 'Yes',
+        isPreferred: true,
+        style: 'destructive',
+        onPress: async () => {
+          await deleteDreamFunction(dream.id);
+          router.replace('/screens/homeScreen');
+        },
+      },
+    ]);
+  };
+
   return (
     <Grid>
       <Grid paddingHorizontal={HORIZONTAL_PADDINGS} row align="center" justfity="space-between" space="lg">
@@ -25,7 +47,7 @@ export default function HeaderDream({ dream }: HeaderDreamProps) {
           Dream
         </Typography>
 
-        <DropdownOptions />
+        <DropdownOptions onDelete={onDelete} />
         {/* <Grid style={{ opacity: 0 }}>
           <GoBackButton onPress={() => {}} />
         </Grid> */}

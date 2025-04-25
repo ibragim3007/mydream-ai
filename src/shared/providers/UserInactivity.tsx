@@ -13,7 +13,8 @@ interface UserInactivityProviderProps extends PropsWithChildren {
 }
 
 export const UserInactivityProvider = ({ isProtected, blockTime, children }: UserInactivityProviderProps) => {
-  const LOCK_TIME = 1000 * blockTime; // minutes
+  const LOCK_TIME = 1000 * blockTime * 60; // minutes
+
   const appState = useRef(AppState.currentState);
   const router = useRouter();
   const wasBlockedRef = useRef(false);

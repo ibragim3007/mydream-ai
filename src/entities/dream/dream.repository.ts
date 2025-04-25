@@ -65,8 +65,15 @@ export const useCreateDream = () => {
 };
 
 export const useDeleteDream = () => {
+  const queryClient = useQueryClient();
+
   const { mutateAsync, isPending, isError } = useMutation({
     mutationFn: (id: string) => deleteDream(id),
+    onSettled: () => {
+      void queryClient.invalidateQueries({
+        queryKey: getDreamsKeys,
+      });
+    },
   });
 
   const deleteDreamFunction = async (id: string) => {
