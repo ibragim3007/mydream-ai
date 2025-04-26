@@ -20,7 +20,9 @@
     "production": {
       "autoIncrement": true,
       "env": {
-        "SENTRY_AUTH_TOKEN": "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"
+        "SENTRY_AUTH_TOKEN": "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",
+        "SENTRY_ALLOW_FAILURE": "true",
+        "SENTRY_DISABLE_AUTO_UPLOAD": "true"
       }
     }
   },
