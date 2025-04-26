@@ -8,6 +8,7 @@ import Grid, { GridProps } from '../grid/Grid';
 import Paper from '../layout/Paper';
 import Typography from '../typography/Typography';
 import ModalContainer from '../wrapper/ModalContainer';
+import { useVibration } from '@/shared/hooks/useVibration';
 
 interface CardPaperProps extends GridProps {
   title: string;
@@ -21,9 +22,11 @@ export default function CardPaper({ title, date, text, extendedText, ...props }:
   const [isOpen, setIsOpen] = useState(false);
   const [isOverflowing, setIsOverflowing] = useState(false);
   const [isOpenFullText, setIsOpenFullText] = useState(false);
+  const { vibrateSelection } = useVibration();
   const textRef = useRef<Text>(null);
 
   const onToggleOpenFullText = () => {
+    vibrateSelection();
     setIsOpenFullText(!isOpenFullText);
   };
 

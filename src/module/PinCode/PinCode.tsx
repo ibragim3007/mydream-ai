@@ -1,4 +1,5 @@
 import { useTheme } from '@/shared/hooks/useTheme';
+import { useVibration } from '@/shared/hooks/useVibration';
 import CircleButton from '@/shared/ui/buttons/CircleButton';
 import Grid from '@/shared/ui/grid/Grid';
 import PageWrapper from '@/shared/ui/layout/PageWrapper';
@@ -39,13 +40,14 @@ export default function PinCode({ title, isPasscodeOn, isBiometricOn, onResult }
     }
   }, [code]);
 
+  const { vibrateSelection } = useVibration();
   const onNumberPress = (number: number) => {
-    Haptic.impactAsync(Haptic.ImpactFeedbackStyle.Light);
+    vibrateSelection();
     setCode([...code, number]);
   };
 
   const numberBackSpace = () => {
-    Haptic.impactAsync(Haptic.ImpactFeedbackStyle.Light);
+    vibrateSelection();
     setCode(code.slice(0, -1));
   };
 

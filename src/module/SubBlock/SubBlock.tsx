@@ -1,6 +1,7 @@
 import BlockImage from '@/assets/other/block_image.png';
 import { PLACEMENTS } from '@/shared/config/constants/constants';
 import { useSubscription } from '@/shared/hooks/useSubscription';
+import { useVibration } from '@/shared/hooks/useVibration';
 import Button from '@/shared/ui/buttons/Button';
 import Grid from '@/shared/ui/grid/Grid';
 import Typography from '@/shared/ui/typography/Typography';
@@ -9,7 +10,9 @@ import { Image } from 'expo-image';
 
 export default function SubBlock() {
   const { isActive } = useSubscription();
+  const { vibrate } = useVibration();
   const onPress = () => {
+    vibrate();
     Superwall.shared.register({
       placement: PLACEMENTS.campaign_trigger,
     });

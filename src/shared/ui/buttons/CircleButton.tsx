@@ -9,7 +9,7 @@ interface CircleButtonProps extends TouchableOpacityProps {
 export default function CircleButton({ text, children, ...props }: CircleButtonProps) {
   return (
     <TouchableOpacity
-      activeOpacity={0.9}
+      activeOpacity={0.8}
       style={{
         backgroundColor: '#ffffff13',
         borderRadius: 1000,
