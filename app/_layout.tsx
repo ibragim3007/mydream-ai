@@ -37,6 +37,7 @@ import { UserInactivityProvider } from '@/shared/providers/UserInactivity';
 import { useProtection } from '@/entities/useProtection/useProtection';
 import ToastManager from 'toastify-react-native';
 import { Appearance } from 'react-native';
+import Purchases from 'react-native-purchases';
 
 Sentry.init({
   dsn: 'https://75639b83524ceb4e5cd2f365c943e3a3@o4509188089708544.ingest.us.sentry.io/4509188098949120',
@@ -84,12 +85,16 @@ export default Sentry.wrap(function RootLayout() {
     Appearance.setColorScheme('dark');
     // Инициализируем Purchases и Superwall
     try {
-      // const apiKeyRevenue =
-      //   Platform.OS === 'ios'
-      //     ? (Environment.revenue_api_key_IOS as string)
-      //     : (Environment.revenue_api_key_ANDROID as string);
+      const apiKeyRevenue =
+        Platform.OS === 'ios'
+          ? (Environment.revenue_api_key_IOS as string)
+          : (Environment.revenue_api_key_ANDROID as string);
 
       const apiKeySuperwall = Platform.OS === 'ios' ? (Environment.superwall_api_key as string) : 'API_KEY_ANDROID';
+
+      Purchases.configure({
+        apiKey: apiKeyRevenue,
+      });
 
       const options = new SuperwallOptions();
       options.logging.level = LogLevel.Warn;

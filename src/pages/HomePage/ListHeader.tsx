@@ -11,6 +11,9 @@ import { Image } from 'expo-image';
 export default function ListHeader() {
   const { data } = useGetDreams();
 
+  const dreamTitle = data?.pages[0][0].title || undefined;
+  const decodeDream = dreamTitle ? `Decode ${dreamTitle}` : undefined;
+
   return (
     <Grid gap={50}>
       <Grid>
@@ -34,7 +37,7 @@ export default function ListHeader() {
           {/* <CreateDreamInput /> */}
         </Grid>
       </Grid>
-      <SubBlock />
+      {data?.pages[0].length !== 0 && <SubBlock title={decodeDream} />}
       {data?.pages[0].length === 0 ? (
         <Typography weight="extra-bold" variant="title-1">
           Your dreams will be displayed here!
