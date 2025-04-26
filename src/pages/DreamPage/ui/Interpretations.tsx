@@ -26,14 +26,14 @@ export default function Interpretations({ analysis }: InterpretationsProps) {
           description={'Hidden signs and soul messages.\nSymbols guide inner awareness.'}
         />
         <InterpretationItem
-          isBlocked={false}
+          isBlocked={true}
           title="Scientific interpretation"
           text={analysis.interpretations.scientific}
           image={ScientificImage}
           description={'Dreams reflect brain activity.\nThey reveal stress and emotion.'}
         />
         <InterpretationItem
-          isBlocked={false}
+          isBlocked={true}
           title="Self development interpretation"
           text={analysis.interpretations.self_development}
           image={SelfDevelopmentImage}

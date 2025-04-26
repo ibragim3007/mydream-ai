@@ -3,6 +3,7 @@ import { useVibration } from '@/shared/hooks/useVibration';
 import { animationEngine, animationService } from '@/shared/service/animation.service';
 import { normalizedSize } from '@/shared/utils/size';
 import Entypo from '@expo/vector-icons/Entypo';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useState } from 'react';
@@ -21,16 +22,46 @@ interface InterpretationItemProps {
   image: string;
   isBlocked: boolean;
   description?: string;
+  onPressBlocked?: () => void;
 }
 
 const ITEM_HEIGHT = 150;
 
-export default function InterpretationItem({ title, text, image, description, isBlocked }: InterpretationItemProps) {
+export default function InterpretationItem({
+  title,
+  text,
+  image,
+  description,
+  isBlocked,
+  onPressBlocked,
+}: InterpretationItemProps) {
   const colors = useTheme();
   const [isExpanded, setIsExpanded] = useState(false);
   const arrowRotation = useSharedValue(0);
   const imageContainerScale = useSharedValue(1);
-  const { vibrateSelection } = useVibration();
+  const { vibrateSelection, vibrate, vibrateError } = useVibration();
+
+  const bounce = useSharedValue(0);
+  const rotate = useSharedValue(0);
+  const scale = useSharedValue(1);
+
+  const callAnimationBlock = () => {
+    bounce.value = withSpring(-4, { stiffness: 220 }, () => {
+      bounce.value = withSpring(0);
+    });
+    rotate.value = withSpring(4, { stiffness: 120 }, () => {
+      rotate.value = withSpring(-4, {}, () => {
+        rotate.value = withSpring(0);
+      });
+    });
+    scale.value = withSpring(1.08, { stiffness: 120 }, () => {
+      scale.value = withSpring(1);
+    });
+  };
+
+  const animatedStyleBlock = useAnimatedStyle(() => ({
+    transform: [{ translateY: bounce.value }, { rotate: `${rotate.value}deg` }, { scale: scale.value }],
+  }));
 
   const imageContainerStyle = useAnimatedStyle(() => ({
     transform: [{ scale: imageContainerScale.value }],
@@ -41,6 +72,13 @@ export default function InterpretationItem({ title, text, image, description, is
   }));
 
   const toggleExpand = () => {
+    if (isBlocked) {
+      vibrateError();
+      onPressBlocked?.();
+      callAnimationBlock();
+      return;
+    }
+
     vibrateSelection();
     setIsExpanded(prev => !prev);
     arrowRotation.value = withSpring(isExpanded ? 0 : -180, { mass: animationService.animationEngine.MASS });
@@ -49,17 +87,15 @@ export default function InterpretationItem({ title, text, image, description, is
 
   return (
     <AnimatedWrapper>
-      <AnimTouchWrapper style={{ zIndex: 100 }}>
+      <AnimTouchWrapper value={isBlocked ? 1 : 0.95} style={{ zIndex: 100 }}>
         <Pressable onPress={toggleExpand}>
-          <Animated.View style={[imageContainerStyle]}>
+          <Animated.View style={[imageContainerStyle, animatedStyleBlock]}>
             <Grid height={ITEM_HEIGHT} style={{ borderRadius: colors.styles.borderRadius }}>
               <Image
-                // contentFit="cover"
                 source={image}
                 style={{
                   height: '100%',
                   width: '100%',
-
                   position: 'absolute',
                   borderRadius: colors.styles.borderRadius,
                 }}
@@ -73,6 +109,19 @@ export default function InterpretationItem({ title, text, image, description, is
                   borderRadius: colors.styles.borderRadius,
                 }}
               />
+              {isBlocked && (
+                <LinearGradient
+                  colors={['transparent', 'rgba(0, 0, 0, 0.001)', '#00000078']}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 1 }}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    position: 'absolute',
+                    borderRadius: colors.styles.borderRadius,
+                  }}
+                />
+              )}
 
               <Grid
                 row
@@ -96,11 +145,14 @@ export default function InterpretationItem({ title, text, image, description, is
                   <Typography weight="bold" variant="headline">
                     {title}
                   </Typography>
-
                   <WrapIconInPressable backgroundColor={colors.background.disabled}>
-                    <Animated.View style={arrowStyle}>
-                      <Entypo name="chevron-down" size={26} color={'#fff'} />
-                    </Animated.View>
+                    {isBlocked ? (
+                      <FontAwesome name="lock" size={26} color={colors.text.primary} />
+                    ) : (
+                      <Animated.View style={arrowStyle}>
+                        <Entypo name="chevron-down" size={26} color={'#fff'} />
+                      </Animated.View>
+                    )}
                   </WrapIconInPressable>
                   {description && (
                     <Typography variant="caption-1" weight="medium">

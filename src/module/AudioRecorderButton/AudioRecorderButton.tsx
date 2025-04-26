@@ -17,7 +17,7 @@ import { Alert, Animated, Easing, Modal } from 'react-native';
 interface AudioRecorderButtonProps {}
 
 export default function AudioRecorderButton({}: AudioRecorderButtonProps) {
-  const { subscriptionStatus, isActive } = useSubscription();
+  const { isActive } = useSubscription();
 
   const { vibrate } = useVibration();
   const colors = useTheme();
