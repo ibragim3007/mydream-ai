@@ -33,7 +33,7 @@ export default function OnboardingPage() {
 
   const router = useRouter();
 
-  const { name, zodiacSign, age, gender, updateGender, updateZodiacSign, updateAge, updateGoals, goals } =
+  const { name, zodiacSign, age, gender, updateGender, updateName, updateZodiacSign, updateAge, updateGoals, goals } =
     useUserTags();
 
   const redirectToHomeScreen = async () => {
@@ -77,7 +77,7 @@ export default function OnboardingPage() {
           genderPickerComponent={<GenderPicker value={gender} onChange={onPressUpdateGender} />}
           onPressButton={preferNotToSayGender}
         />
-        <EnterNameScreen key="3" onPressButton={goNextPage} goPrevPage={goPrevPage} />
+        <EnterNameScreen key="3" onPressButton={goNextPage} goPrevPage={goPrevPage} onChange={updateName} />
         <AgeScreen
           key="4"
           agePickerComponent={<AgePicker onChange={onPressUpdateAge} value={age} />}
