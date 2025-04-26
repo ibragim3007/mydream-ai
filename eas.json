@@ -17,7 +17,12 @@
     "preview": {
       "distribution": "internal"
     },
-    "production": {}
+    "production": {
+      "autoIncrement": true,
+      "env": {
+        "SENTRY_AUTH_TOKEN": "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"
+      }
+    }
   },
   "submit": {
     "production": {}
