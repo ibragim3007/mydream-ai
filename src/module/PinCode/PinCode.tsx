@@ -7,11 +7,13 @@ import Typography from '@/shared/ui/typography/Typography';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import * as Haptic from 'expo-haptics';
+import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as LocalAuthentication from 'expo-local-authentication';
 import { useEffect, useState } from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
+import AppIcon from '@/assets/icons/app_icon_transparent.png';
 
 interface PinCodeProps {
   onResult: (code: string, isBiometricRight: boolean) => void;
@@ -19,9 +21,10 @@ interface PinCodeProps {
   title: string;
   isPasscodeOn?: null | number;
   isBiometricOn: boolean;
+  newPin?: boolean;
 }
 
-export default function PinCode({ title, isPasscodeOn, isBiometricOn, onResult }: PinCodeProps) {
+export default function PinCode({ newPin, title, isPasscodeOn, isBiometricOn, onResult }: PinCodeProps) {
   const colors = useTheme();
   const [code, setCode] = useState<number[]>([]);
   const codeLength = Array(4).fill(0);
@@ -69,7 +72,7 @@ export default function PinCode({ title, isPasscodeOn, isBiometricOn, onResult }
   ];
 
   useEffect(() => {
-    if (!isPasscodeOn && isBiometricOn) {
+    if (isBiometricOn) {
       const auth = LocalAuthentication.authenticateAsync({
         promptMessage: 'Welcome back',
         fallbackLabel: 'Enter your passcode',
@@ -85,6 +88,25 @@ export default function PinCode({ title, isPasscodeOn, isBiometricOn, onResult }
       });
     }
   }, []);
+
+  if (!isPasscodeOn && !newPin) {
+    return (
+      <PageWrapper>
+        <LinearGradient colors={['#000a4478', '#1a009e45', '#9600e76a']}>
+          <SafeAreaView>
+            <Grid height="100%">
+              <Grid space="lg" marginTop={60} align="center">
+                <Typography weight="bold" textAlign="center" variant="title-1">
+                  {title}
+                </Typography>
+                <Image source={AppIcon} style={{ height: 100, width: 100 }} />
+              </Grid>
+            </Grid>
+          </SafeAreaView>
+        </LinearGradient>
+      </PageWrapper>
+    );
+  }
 
   return (
     <PageWrapper>

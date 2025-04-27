@@ -12,5 +12,5 @@ export default function NewPin() {
     router.canGoBack() && router.back();
   };
 
-  return <PinCode onResult={onResultCreateNew} title={'Enter your new code'} isBiometricOn={false} />;
+  return <PinCode newPin onResult={onResultCreateNew} title={'Enter your new code'} isBiometricOn={false} />;
 }

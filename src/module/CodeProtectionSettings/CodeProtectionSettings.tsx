@@ -90,9 +90,8 @@ export default function CodeProtectionSettings() {
     },
   };
 
-  const [selectedLanguage, setSelectedLanguage] = useState();
   const mocks = generateMockTimings(TimingsBeforeBlock, 'minutes');
-  const { setBlockTime } = useProtection();
+  const { blockTime, setBlockTime } = useProtection();
 
   return (
     <PageWrapper disableGradient>
@@ -135,7 +134,7 @@ export default function CodeProtectionSettings() {
                   darkTheme
                   fixAndroidTouchableBug={true}
                   useNativeAndroidPickerStyle={false}
-                  value={selectedLanguage}
+                  value={blockTime}
                   onValueChange={value => setBlockTime(value)}
                   placeholder={{ label: 'Default (1 minute)', value: null }}
                   style={pickerStyle}
