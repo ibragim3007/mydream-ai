@@ -1,14 +1,17 @@
+import DogAnim from '@/assets/animations/dog_anim_2.json';
 import { useCreateDream } from '@/entities/dream/dream.repository';
 import { useTheme } from '@/shared/hooks/useTheme';
 import { Inform } from '@/shared/service/logger.service/logger.service';
 import Button from '@/shared/ui/buttons/Button';
+import LoaderIndicator from '@/shared/ui/elements/LoaderIndicator';
 import Grid from '@/shared/ui/grid/Grid';
 import Paper from '@/shared/ui/layout/Paper';
 import Typography from '@/shared/ui/typography/Typography';
 import ModalContainer from '@/shared/ui/wrapper/ModalContainer';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import { router } from 'expo-router';
-import { ActivityIndicator, Alert, Modal } from 'react-native';
+import LottieView from 'lottie-react-native';
+import { Alert, Modal } from 'react-native';
 
 interface SaveAndAnaluzeButtonProps {
   dreamText: string;
@@ -66,14 +69,22 @@ export default function SaveAndAnaluzeButton({ dreamText, disabled, onChangeText
       </Button>
       <Modal transparent visible={isPending} animationType="fade">
         <ModalContainer>
-          <Paper>
-            <Grid space="md">
-              <Typography weight="bold" variant="title-3">
-                Analyzing your dream...
-              </Typography>
-              <ActivityIndicator size="large" />
-            </Grid>
-          </Paper>
+          <Grid width="90%">
+            <Paper color="#2c4376">
+              <Grid width="100%" space="md" align="center">
+                <LottieView
+                  autoPlay
+                  style={{ width: '100%', height: 250, shadowColor: '#60eaff', shadowOpacity: 1, shadowRadius: 4 }}
+                  source={DogAnim}
+                />
+                <Typography textAlign="center" weight="bold" variant="title-3">
+                  Analyzing your dream{'\n'}Wait a moment...
+                </Typography>
+
+                <LoaderIndicator />
+              </Grid>
+            </Paper>
+          </Grid>
         </ModalContainer>
       </Modal>
     </>

@@ -73,7 +73,7 @@ export default function DreamsList({ headerComponent }: DreamsListProps) {
         ListFooterComponent={() => {
           if (isLoading || isFetchingNextPage)
             return (
-              <Grid marginVertical={10}>
+              <Grid flex={1} align="center" marginVertical={10}>
                 <LoaderIndicator />
               </Grid>
             );
