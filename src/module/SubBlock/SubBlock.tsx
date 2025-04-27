@@ -65,13 +65,13 @@ export default function SubBlock({ title }: SubBlockProps) {
             {title || 'MyDream AI – Premium'}
           </Typography>
           <Grid
-            style={{ shadowColor: '#fff', shadowOpacity: 0.7, shadowRadius: 2, shadowOffset: { height: 0, width: 0 } }}
+            style={{ shadowColor: '#fff', shadowOpacity: 0.9, shadowRadius: 2, shadowOffset: { height: 0, width: 0 } }}
           >
             <Typography variant="footnote" weight="bold">
               • 3-day free trial
             </Typography>
             <Typography variant="footnote">• Decode every dream in seconds</Typography>
-            <Typography variant="footnote">• High-fidelity voice capture (≈ 95 % accuracy)</Typography>
+            <Typography variant="footnote">• High-fidelity voice capture (95 % accuracy)</Typography>
             <Typography variant="footnote">• Continue your dream with 1 tap</Typography>
             <Typography variant="footnote">• {getWeeklyPurchaseCount()} people unlocked insights this week</Typography>
           </Grid>

@@ -1,4 +1,3 @@
-import { useUserTags } from '@/entities/userTags/userTags.repository';
 import Button from '@/shared/ui/buttons/Button';
 import GoBackButton from '@/shared/ui/buttons/GoBackButton';
 import Grid from '@/shared/ui/grid/Grid';
@@ -12,8 +11,6 @@ interface AgeScreenProps {
 }
 
 export default function AgeScreen({ agePickerComponent, onPressButton, goPrevPage }: AgeScreenProps) {
-  const { age } = useUserTags();
-
   return (
     <SafeWrapper>
       <Grid height="100%" space="md" paddingVertical={20}>
@@ -25,10 +22,12 @@ export default function AgeScreen({ agePickerComponent, onPressButton, goPrevPag
             How old are you?
           </Typography>
         </Grid>
-        {agePickerComponent}
-        <Button onPress={onPressButton} variant="text">
-          Don&apos;t share
-        </Button>
+        <Grid space="lg">
+          {agePickerComponent}
+          <Button onPress={onPressButton} variant="text">
+            Don&apos;t share
+          </Button>
+        </Grid>
       </Grid>
     </SafeWrapper>
   );

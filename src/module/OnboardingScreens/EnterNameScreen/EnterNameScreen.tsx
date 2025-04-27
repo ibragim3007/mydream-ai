@@ -7,7 +7,6 @@ import Input from '@/shared/ui/controller/Input';
 import Grid from '@/shared/ui/grid/Grid';
 import SafeWrapper from '@/shared/ui/layout/SafeWrapper';
 import Typography from '@/shared/ui/typography/Typography';
-import { normalizedSize } from '@/shared/utils/size';
 import { useState } from 'react';
 import { KeyboardAvoidingView, Platform } from 'react-native';
 
@@ -42,7 +41,7 @@ export default function EnterNameScreen({ onPressButton, goPrevPage, onChange }:
     <SafeWrapper style={{ flex: 1 }}>
       <KeyboardAvoidingView
         style={{ flex: 1 }}
-        keyboardVerticalOffset={normalizedSize(80)}
+        // keyboardVerticalOffset={normalizedSize(80)}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       >
         <Grid height="100%" justfity="space-between" paddingVertical={20}>

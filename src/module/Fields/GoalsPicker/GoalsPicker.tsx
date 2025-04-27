@@ -30,16 +30,16 @@ export default function GoalsPicker({ value, onChange }: GoalsPickerProps) {
 
   return (
     <Grid space="lg">
-      <Grid space="md" row wrap justfity="center">
+      <Grid space="md" wrap justfity="center">
         {goalsMock.map(item => (
           <View key={item.id} style={styles.halfWidth}>
             <SurfacePicker
-              header={
-                item.image && (
-                  <Image contentFit="fill" style={{ height: 70, width: 70, borderRadius: 100 }} source={item.image} />
-                )
-              }
-              height={100}
+              // header={
+              //   item.image && (
+              //     <Image contentFit="fill" style={{ height: 70, width: 70, borderRadius: 100 }} source={item.image} />
+              //   )
+              // }
+              height={20}
               justfity="center"
               isPicked={isPicked(item)}
               label={item.name}
@@ -58,7 +58,7 @@ export default function GoalsPicker({ value, onChange }: GoalsPickerProps) {
 
 const styles = StyleSheet.create({
   halfWidth: {
-    width: '47%',
+    width: '100%',
     // padding: 8,
   },
 });

@@ -4,6 +4,7 @@ import { PaperPressable } from '../layout/Paper';
 import Typography from '../typography/Typography';
 import Grid, { GridProps } from '../grid/Grid';
 import { useVibration } from '@/shared/hooks/useVibration';
+import { TypographyProps } from '@/shared/styles/typography/typography';
 
 interface SurfacePickerProps<T> extends GridProps {
   isPicked: boolean;
@@ -11,8 +12,17 @@ interface SurfacePickerProps<T> extends GridProps {
   item: T;
   label: string;
   header?: React.ReactNode;
+  textProps?: TypographyProps;
 }
-export default function SurfacePicker<T>({ isPicked, header, onChange, item, label, ...props }: SurfacePickerProps<T>) {
+export default function SurfacePicker<T>({
+  textProps,
+  isPicked,
+  header,
+  onChange,
+  item,
+  label,
+  ...props
+}: SurfacePickerProps<T>) {
   const colors = useTheme();
   const { vibrateSelection } = useVibration();
   const onChangeWrapper = () => {
@@ -32,11 +42,18 @@ export default function SurfacePicker<T>({ isPicked, header, onChange, item, lab
       >
         <Grid space="sm">
           {header && (
-            <Grid width="100%" align="center">
+            <Grid justfity="center" width="100%" align="center">
               {header}
             </Grid>
           )}
-          <Typography variant="callout" textAlign="center" color={isPicked ? 'white' : 'primary'} weight="bold">
+          <Typography
+            style={{ textTransform: 'capitalize' }}
+            variant="callout"
+            textAlign="center"
+            color={isPicked ? 'white' : 'primary'}
+            weight="bold"
+            {...textProps}
+          >
             {label}
           </Typography>
         </Grid>

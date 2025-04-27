@@ -1,5 +1,4 @@
 import { useUserTags } from '@/entities/userTags/userTags.repository';
-import Button from '@/shared/ui/buttons/Button';
 import GoBackButton from '@/shared/ui/buttons/GoBackButton';
 import Grid from '@/shared/ui/grid/Grid';
 import SafeWrapper from '@/shared/ui/layout/SafeWrapper';
@@ -16,7 +15,7 @@ export default function ZodiacSignScreen({ zodiacSignComponent, onPressButton, g
   const isDisabled = !zodiacSign;
   return (
     <SafeWrapper>
-      <Grid paddingVertical={20} height="100%" justfity="space-between">
+      <Grid paddingVertical={20} height="100%" space="lg">
         <Grid space="md">
           <Grid align="flex-start">
             <GoBackButton onPress={goPrevPage} />
@@ -29,11 +28,6 @@ export default function ZodiacSignScreen({ zodiacSignComponent, onPressButton, g
         </Grid>
 
         <Grid>{zodiacSignComponent}</Grid>
-        <Grid marginBottom={16}>
-          <Button onPress={onPressButton} disabled={isDisabled}>
-            Continue
-          </Button>
-        </Grid>
       </Grid>
     </SafeWrapper>
   );

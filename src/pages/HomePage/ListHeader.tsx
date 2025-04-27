@@ -11,7 +11,7 @@ import { Image } from 'expo-image';
 export default function ListHeader() {
   const { data } = useGetDreams();
 
-  const dreamTitle = data?.pages[0][0].title || undefined;
+  const dreamTitle = data?.pages[0][0]?.title || undefined;
   const decodeDream = dreamTitle ? `Decode ${dreamTitle}` : undefined;
 
   return (

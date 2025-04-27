@@ -107,7 +107,7 @@ const Button: React.FC<ButtonProps> = ({
   const styleButton: PressableProps['style'] = {
     paddingVertical: size === 'large' ? normalizedSize(13) : normalizedSize(8),
     paddingHorizontal: size === 'large' ? normalizedSize(10) : normalizedSize(12),
-    borderRadius: 50,
+    borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',

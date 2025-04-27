@@ -1,5 +1,5 @@
 import { useAuth } from '@/entities/auth/auth.repository';
-import { IGenderItem } from '@/entities/userTags/types/types';
+import { IGenderItem, IZodiacItem } from '@/entities/userTags/types/types';
 import { useUserTags } from '@/entities/userTags/userTags.repository';
 import AgePicker from '@/module/Fields/AgePicker/AgePicker';
 import GenderPicker from '@/module/Fields/GenderPicker/GenderPicker';
@@ -8,7 +8,7 @@ import ZodiacSignPicker from '@/module/Fields/ZodiacSignPicker/ZodiacSignPicker'
 import { AgeScreen, EnterNameScreen, GenderChooseScreen, GoalsScreen, WelcomeScreen } from '@/module/OnboardingScreens';
 import ZodiacSignScreen from '@/module/OnboardingScreens/ZodiacSign/ZodiacSignScreen';
 import { useVibration } from '@/shared/hooks/useVibration';
-import { AGE } from '@/shared/types/globalTypes';
+import { AGE, ZODIAC_SIGN } from '@/shared/types/globalTypes';
 import PageWrapper from '@/shared/ui/layout/PageWrapper';
 import { useRouter } from 'expo-router';
 import { useRef, useState } from 'react';
@@ -61,6 +61,11 @@ export default function OnboardingPage() {
     goNextPage();
   };
 
+  const onPressUpdateZodiacSign = (zodiacSign: IZodiacItem) => {
+    updateZodiacSign(zodiacSign);
+    goNextPage();
+  };
+
   return (
     <PageWrapper>
       <PagerView
@@ -86,7 +91,7 @@ export default function OnboardingPage() {
         />
         <ZodiacSignScreen
           key="5"
-          zodiacSignComponent={<ZodiacSignPicker onChange={updateZodiacSign} value={zodiacSign} />}
+          zodiacSignComponent={<ZodiacSignPicker onChange={onPressUpdateZodiacSign} value={zodiacSign} />}
           onPressButton={goNextPage}
           goPrevPage={goPrevPage}
         />

@@ -18,7 +18,7 @@ export default function GenderChooseScreen({ genderPickerComponent, onPressButto
           </Typography>
           <Typography color="disabled">We&apos;ll personalize your interpretations based on your gender</Typography>
         </Grid>
-        <Grid>
+        <Grid space="lg">
           {genderPickerComponent}
           <Button onPress={onPressButton} variant="text">
             Prefer not to say
