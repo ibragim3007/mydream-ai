@@ -16,7 +16,7 @@ interface SubBlockProps {
 }
 
 export default function SubBlock({ title }: SubBlockProps) {
-  const { isActive } = useSubscription();
+  const { subscriptionStatus } = useSubscription();
   const { vibrate } = useVibration();
   const [currentPrice, setCurrentPrice] = useState<string>();
   const onPress = () => {
@@ -33,7 +33,7 @@ export default function SubBlock({ title }: SubBlockProps) {
     })();
   }, []);
 
-  if (isActive) {
+  if (subscriptionStatus === 'INACTIVE') {
     return null;
   }
 

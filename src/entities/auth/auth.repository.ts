@@ -13,6 +13,7 @@ import { errorLogger } from '@/shared/service/logger.service/sentry.service';
 
 interface State {
   user?: UserType;
+  isHydrated: boolean;
 }
 
 interface Actions {
@@ -24,6 +25,7 @@ interface Actions {
 
 export const useAuth = create<State & Actions>(set => {
   return {
+    isHydrated: false,
     //  Только один раз при первом запуске приложения
     //  инициализируем пользователя
     //  и сохраняем токен (приложения) в SecureStore
@@ -48,6 +50,7 @@ export const useAuth = create<State & Actions>(set => {
 
         set({
           user: res.user,
+          isHydrated: true,
         });
       } catch (error) {
         errorLogger.logError('Error to init user');

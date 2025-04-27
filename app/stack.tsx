@@ -13,8 +13,8 @@ export default function GeneralStack() {
   };
 
   return (
-    <Stack initialRouteName="screens/onboarding">
-      <Stack.Screen name="screens/homeScreen" options={{ headerShown: false }} />
+    <Stack initialRouteName="screens/homeScreen">
+      <Stack.Screen name="screens/homeScreen" options={{ headerShown: false, animation: 'none' }} />
       <Stack.Screen name="screens/dream/[id]" options={{ headerShown: false }} />
       <Stack.Screen name="screens/onboarding" options={{ headerShown: false }} />
       <Stack.Screen
@@ -49,7 +49,7 @@ export default function GeneralStack() {
       />
       <Stack.Screen name="utilsScreens/blockScreen" options={{ headerShown: false, animation: 'fade' }} />
       <Stack.Screen name="utilsScreens/lockScreen" options={{ headerShown: false, animation: 'fade' }} />
-      <Stack.Screen name="+not-found" />
+      <Stack.Screen name="+not-found" options={{ headerShown: false }} />
     </Stack>
   );
 }

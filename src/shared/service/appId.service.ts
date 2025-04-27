@@ -5,9 +5,9 @@ import { StorageKeys } from '../config/constants/storageKeys';
 import { errorLogger } from './logger.service/sentry.service';
 
 export const getAppToken = async () => {
-  if (__DEV__) {
-    return '7a0f9f48-03b0-4c8d-9c54-411fb5df6f04';
-  }
+  // if (__DEV__) {
+  //   return '7a0f9f48-03b0-4c8d-9c54-411fb5df6f04';
+  // }
   try {
     let id = await SecureStore.getItemAsync(StorageKeys.appToken);
 

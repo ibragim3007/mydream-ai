@@ -80,6 +80,7 @@ export default Sentry.wrap(function RootLayout() {
   });
   const navigationState = useRootNavigationState();
   const [redirected, setRedirected] = useState(false);
+  const [isReadyToShowStack, setIsReadyToShowStack] = useState(false);
 
   useEffect(() => {
     Appearance.setColorScheme('dark');
@@ -114,31 +115,37 @@ export default Sentry.wrap(function RootLayout() {
 
   useEffect(() => {
     const initializeApp = async () => {
-      if (loaded) void SplashScreen.hideAsync();
+      if (loaded) {
+        if (navigationState?.key && !redirected) {
+          // Проверяем, что навигация инициализирована и редирект ещё не выполнен
+          try {
+            if (codeProtection || biometric) {
+              router.replace('/utilsScreens/lockScreen');
+            } else {
+              const appToken = await isAppToken();
 
-      // Проверяем, что навигация инициализирована и редирект ещё не выполнен
-      if (navigationState?.key && !redirected) {
-        try {
-          if (codeProtection || biometric) {
-            router.replace('/utilsScreens/lockScreen');
-          } else {
-            const appToken = await isAppToken();
+              if (appToken) router.replace('/screens/homeScreen');
+              else router.replace('/screens/onboarding');
 
-            if (appToken) router.replace('/screens/homeScreen');
-            else router.replace('/screens/onboarding');
-
-            setRedirected(true); // Чтобы избежать повторного редиректа
+              void SplashScreen.hideAsync();
+              setRedirected(true); // Чтобы избежать повторного редиректа
+            }
+          } catch (error) {
+            void SplashScreen.hideAsync();
+            errorLogger.logError('Error fetching app token');
           }
-        } catch (error) {
-          errorLogger.logError('Error fetching app token');
         }
       }
     };
 
+    if (loaded) {
+      setIsReadyToShowStack(true); // Теперь можно показать GeneralStack
+    }
+
     void initializeApp();
   }, [loaded, navigationState?.key, redirected]);
 
-  if (!loaded) {
+  if (!loaded || !isReadyToShowStack) {
     return null;
   }
 
