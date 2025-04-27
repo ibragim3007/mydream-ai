@@ -5,7 +5,14 @@ import AgePicker from '@/module/Fields/AgePicker/AgePicker';
 import GenderPicker from '@/module/Fields/GenderPicker/GenderPicker';
 import GoalsPicker from '@/module/Fields/GoalsPicker/GoalsPicker';
 import ZodiacSignPicker from '@/module/Fields/ZodiacSignPicker/ZodiacSignPicker';
-import { AgeScreen, EnterNameScreen, GenderChooseScreen, GoalsScreen, WelcomeScreen } from '@/module/OnboardingScreens';
+import {
+  AgeScreen,
+  EnterNameScreen,
+  GenderChooseScreen,
+  GoalsScreen,
+  ProgrevScreen,
+  WelcomeScreen,
+} from '@/module/OnboardingScreens';
 import ZodiacSignScreen from '@/module/OnboardingScreens/ZodiacSign/ZodiacSignScreen';
 import { useVibration } from '@/shared/hooks/useVibration';
 import { AGE } from '@/shared/types/globalTypes';
@@ -98,9 +105,10 @@ export default function OnboardingPage() {
         <GoalsScreen
           key="6"
           goalsPickerComponent={<GoalsPicker onChange={updateGoals} value={goals} />}
-          onPressButton={redirectToHomeScreen}
+          onPressButton={goNextPage}
           goPrevPage={goPrevPage}
         />
+        <ProgrevScreen onFinishAnimation={redirectToHomeScreen} key="7" />
       </PagerView>
     </PageWrapper>
   );
