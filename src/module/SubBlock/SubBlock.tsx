@@ -39,7 +39,6 @@ export default function SubBlock({ title }: SubBlockProps) {
 
   return (
     <Grid
-      height={270}
       style={{
         shadowColor: '#380077',
         shadowOpacity: 0.2,
@@ -59,7 +58,7 @@ export default function SubBlock({ title }: SubBlockProps) {
           position: 'absolute',
         }}
       />
-      <Grid space="sm" justfity="space-between" flex={1} padding={25}>
+      <Grid space="md" justfity="space-between" flex={1} padding={25}>
         <Grid space="sm" justfity="center">
           <Typography numberOfLines={2} weight="extra-bold" variant="title-2">
             {title || 'MyDream AI – Premium'}

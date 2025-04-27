@@ -8,7 +8,7 @@ import ZodiacSignPicker from '@/module/Fields/ZodiacSignPicker/ZodiacSignPicker'
 import { AgeScreen, EnterNameScreen, GenderChooseScreen, GoalsScreen, WelcomeScreen } from '@/module/OnboardingScreens';
 import ZodiacSignScreen from '@/module/OnboardingScreens/ZodiacSign/ZodiacSignScreen';
 import { useVibration } from '@/shared/hooks/useVibration';
-import { AGE, ZODIAC_SIGN } from '@/shared/types/globalTypes';
+import { AGE } from '@/shared/types/globalTypes';
 import PageWrapper from '@/shared/ui/layout/PageWrapper';
 import { useRouter } from 'expo-router';
 import { useRef, useState } from 'react';
