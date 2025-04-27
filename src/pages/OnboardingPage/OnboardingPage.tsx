@@ -41,7 +41,7 @@ export default function OnboardingPage() {
       displayName: name,
     });
     // Alert.alert('Успех', 'Вы успешно прошли регистрацию');
-    router.push('/screens/homeScreen');
+    router.replace('/screens/homeScreen');
   };
 
   const onPressUpdateGender = (gender: IGenderItem) => {

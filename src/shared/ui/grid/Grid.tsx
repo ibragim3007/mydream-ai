@@ -101,7 +101,7 @@ const Grid = ({
     props.style,
   ]);
 
-  return <Animated.View layout={LinearTransition} {...props} style={gridStyles} />;
+  return <View {...props} style={gridStyles} />;
 };
 
 export default Grid;
