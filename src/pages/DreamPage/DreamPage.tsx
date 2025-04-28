@@ -15,6 +15,7 @@ import PageWrapper from '@/shared/ui/layout/PageWrapper';
 import SafeWrapper from '@/shared/ui/layout/SafeWrapper';
 import Typography from '@/shared/ui/typography/Typography';
 import AntDesign from '@expo/vector-icons/AntDesign';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Superwall from '@superwall/react-native-superwall';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
@@ -24,7 +25,6 @@ import HeaderDream from './ui/HeaderDream';
 import Interpretations from './ui/Interpretations';
 import LoadingSkeleton from './ui/LoadingSkeleton';
 import Participants from './ui/Participants';
-import ContinueButtonBlocked from './ui/FunctionalButtons/ContinueButtonBlocked';
 
 export default function DreamPage() {
   const params = useLocalSearchParams<{ id: string }>();
@@ -58,7 +58,7 @@ export default function DreamPage() {
     }
   }, [isLoading, isFetching, data]);
 
-  if (isLoading || isFetching) {
+  if (isLoading) {
     return <LoadingSkeleton />;
   }
 
@@ -115,17 +115,27 @@ export default function DreamPage() {
                 />
 
                 {data.continuation ? (
-                  <CardPaper title="Continuation" text={data.continuation} />
-                ) : isActive ? (
+                  <Animated.View entering={animationEngine.fadeInUp(0)}>
+                    <CardPaper title="Continuation" text={data.continuation} />
+                  </Animated.View>
+                ) : (
                   <Button
                     onPress={handleContinueDream}
-                    disabled={isPending}
-                    leftIcon={<AntDesign name="arrowdown" size={24} color={colors.text.white} />}
+                    disabled={isFetching}
+                    leftIcon={
+                      !isActive ? (
+                        <FontAwesome name="lock" size={24} color={colors.text.white} />
+                      ) : (
+                        <AntDesign
+                          name="arrowdown"
+                          size={24}
+                          color={isFetching ? colors.text.primary : colors.text.white}
+                        />
+                      )
+                    }
                   >
                     {isPending ? 'Loading...' : 'Finish the dream'}
                   </Button>
-                ) : (
-                  <ContinueButtonBlocked onPress={handleContinueDream} />
                 )}
               </Grid>
 
