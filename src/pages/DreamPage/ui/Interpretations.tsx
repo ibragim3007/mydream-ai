@@ -9,9 +9,10 @@ import Typography from '@/shared/ui/typography/Typography';
 
 interface InterpretationsProps {
   analysis: SleepDataResponse;
+  isActive?: boolean;
 }
 
-export default function Interpretations({ analysis }: InterpretationsProps) {
+export default function Interpretations({ analysis, isActive }: InterpretationsProps) {
   return (
     <Grid paddingHorizontal={HORIZONTAL_PADDINGS} space="md">
       <Typography weight="extra-bold" variant="title-2">
@@ -26,14 +27,14 @@ export default function Interpretations({ analysis }: InterpretationsProps) {
           description={'Hidden signs and soul messages.\nSymbols guide inner awareness.'}
         />
         <InterpretationItem
-          isBlocked={true}
+          isBlocked={!isActive}
           title="Scientific interpretation"
           text={analysis.interpretations.scientific}
           image={ScientificImage}
           description={'Dreams reflect brain activity.\nThey reveal stress and emotion.'}
         />
         <InterpretationItem
-          isBlocked={true}
+          isBlocked={!isActive}
           title="Self development interpretation"
           text={analysis.interpretations.self_development}
           image={SelfDevelopmentImage}

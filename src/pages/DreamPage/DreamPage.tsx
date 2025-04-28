@@ -3,7 +3,6 @@ import { getDreamAnalysisResponse } from '@/entities/dream/helpers/getDreamRespo
 
 import { GeneralFeedback } from '@/entities/feedback';
 import { HORIZONTAL_PADDINGS, PLACEMENTS } from '@/shared/config/constants/constants';
-import { useSubscription } from '@/shared/hooks/useSubscription';
 import { useTheme } from '@/shared/hooks/useTheme';
 import { animationEngine } from '@/shared/service/animation.service';
 import { SleepDataResponse } from '@/shared/types/globalTypes';
@@ -17,7 +16,7 @@ import Typography from '@/shared/ui/typography/Typography';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Superwall from '@superwall/react-native-superwall';
-import { router, useLocalSearchParams } from 'expo-router';
+import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ScrollView } from 'react-native';
 import Animated from 'react-native-reanimated';
@@ -25,6 +24,7 @@ import HeaderDream from './ui/HeaderDream';
 import Interpretations from './ui/Interpretations';
 import LoadingSkeleton from './ui/LoadingSkeleton';
 import Participants from './ui/Participants';
+import { useSubscription } from '@/shared/hooks/useSubscription';
 
 export default function DreamPage() {
   const params = useLocalSearchParams<{ id: string }>();
@@ -45,10 +45,6 @@ export default function DreamPage() {
     if (data) {
       await continueDreamFunction(data.id);
     }
-  };
-
-  const goBack = () => {
-    router.back();
   };
 
   useEffect(() => {
@@ -121,7 +117,7 @@ export default function DreamPage() {
                 ) : (
                   <Button
                     onPress={handleContinueDream}
-                    disabled={isFetching}
+                    disabled={isFetching || isLoading || isPending}
                     leftIcon={
                       !isActive ? (
                         <FontAwesome name="lock" size={24} color={colors.text.white} />
@@ -129,7 +125,7 @@ export default function DreamPage() {
                         <AntDesign
                           name="arrowdown"
                           size={24}
-                          color={isFetching ? colors.text.primary : colors.text.white}
+                          color={isPending ? colors.text.primary : colors.text.white}
                         />
                       )
                     }
@@ -139,7 +135,7 @@ export default function DreamPage() {
                 )}
               </Grid>
 
-              <Interpretations analysis={analysis} />
+              <Interpretations analysis={analysis} isActive={isActive} />
               <Grid marginVertical={60}>
                 <GeneralFeedback title="Did you like the interpretations?" />
               </Grid>
