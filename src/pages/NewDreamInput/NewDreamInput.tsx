@@ -4,6 +4,7 @@ import { transcibe } from '@/shared/api/entities/openai/openai.api';
 import { useTheme } from '@/shared/hooks/useTheme';
 import { errorLogger } from '@/shared/service/logger.service/sentry.service';
 import { fontWeight } from '@/shared/styles/typography/typography';
+import LoaderIndicator from '@/shared/ui/elements/LoaderIndicator';
 import Grid from '@/shared/ui/grid/Grid';
 import PageWrapper from '@/shared/ui/layout/PageWrapper';
 import Paper from '@/shared/ui/layout/Paper';
@@ -13,7 +14,7 @@ import ModalContainer from '@/shared/ui/wrapper/ModalContainer';
 import { useHeaderHeight } from '@react-navigation/elements';
 import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, Keyboard, KeyboardAvoidingView, Modal, Platform, TextInput } from 'react-native';
+import { KeyboardAvoidingView, Modal, Platform, TextInput } from 'react-native';
 
 export default function NewDreamInput() {
   const { uri } = useLocalSearchParams<{ uri?: string }>();
@@ -45,30 +46,8 @@ export default function NewDreamInput() {
   const colors = useTheme();
   const headerHeight = useHeaderHeight();
 
-  const [keyboardVisible, setKeyboardVisible] = useState(false);
-
   const onChangeText = (text: string) => {
     setDreamText(text);
-  };
-
-  // Пока не используется
-  useEffect(() => {
-    const showSubscription = Keyboard.addListener('keyboardDidShow', () => {
-      setKeyboardVisible(true);
-    });
-    const hideSubscription = Keyboard.addListener('keyboardDidHide', () => {
-      setKeyboardVisible(false);
-    });
-
-    return () => {
-      showSubscription.remove();
-      hideSubscription.remove();
-    };
-  }, []);
-
-  const hideKeyboard = () => {
-    setKeyboardVisible(false);
-    Keyboard.dismiss();
   };
 
   const isButtonDisabled = dreamText.length === 0;
@@ -104,30 +83,15 @@ export default function NewDreamInput() {
           <Modal visible={isLoadingTranscribing} animationType="fade" transparent>
             <ModalContainer>
               <Paper>
-                <Grid space="md">
-                  <Typography weight="bold" variant="title-3">
-                    Transcribing your audio... just a moment
+                <Grid space="md" align="center">
+                  <Typography textAlign="center" weight="bold" variant="title-3">
+                    Transcribing your audio...{'\n'}just a moment
                   </Typography>
-                  <ActivityIndicator size="large" />
+                  <LoaderIndicator />
                 </Grid>
               </Paper>
             </ModalContainer>
           </Modal>
-          {/* {keyboardVisible && (
-            <Pressable
-              onPress={hideKeyboard}
-              style={{
-                position: 'absolute',
-                right: 0,
-                bottom: 330,
-                backgroundColor: '#fff',
-                padding: 10,
-                borderRadius: 9,
-              }}
-            >
-              <MaterialIcons name="keyboard-hide" size={24} color="black" />
-            </Pressable>
-          )} */}
         </KeyboardAvoidingView>
       </SafeWrapper>
     </PageWrapper>
