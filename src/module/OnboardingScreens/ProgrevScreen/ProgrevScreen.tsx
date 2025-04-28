@@ -1,11 +1,12 @@
+import LoadingAnimation from '@/assets/animations/anim3.json';
+import ProgressAnimation from '@/assets/animations/progress.json';
 import Grid from '@/shared/ui/grid/Grid';
 import PageWrapper from '@/shared/ui/layout/PageWrapper';
 import SafeWrapper from '@/shared/ui/layout/SafeWrapper';
 import Typography from '@/shared/ui/typography/Typography';
+import { normalizedSize } from '@/shared/utils/size';
 import LottieView from 'lottie-react-native';
 import { useRef } from 'react';
-import LoadingAnimation from '@/assets/animations/anim3.json';
-import ProgressAnimation from '@/assets/animations/progress.json';
 
 interface ProgrevScreenProps {
   onFinishAnimation: () => void;
@@ -29,7 +30,7 @@ export default function ProgrevScreen({ onFinishAnimation }: ProgrevScreenProps)
               ref={animation}
               style={{
                 width: '100%',
-                height: 300,
+                height: normalizedSize(290),
                 // backgroundColor: 'red',
               }}
               source={LoadingAnimation}
@@ -42,11 +43,12 @@ export default function ProgrevScreen({ onFinishAnimation }: ProgrevScreenProps)
             autoPlay
             loop={false}
             onAnimationFinish={handleAnimationFinish}
-            speed={0.5}
+            speed={1}
             resizeMode="cover"
             style={{
               width: '100%',
-              height: 90,
+              height: normalizedSize(90),
+              paddingRight: normalizedSize(15),
             }}
             source={ProgressAnimation}
           />
