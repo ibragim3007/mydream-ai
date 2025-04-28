@@ -1,0 +1,7 @@
+{
+  "home": {
+    "welcome": "Добро пожаловать, {{name}}!",
+    "items": "{{count}} предмет",
+    "items_other": "{{count}} предметов"
+  }
+}

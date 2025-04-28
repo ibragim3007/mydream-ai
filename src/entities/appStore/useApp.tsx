@@ -1,26 +1,7 @@
-import { getDeviceLanguage } from '@/shared/helpers/getDeviceLanguage';
 import { create } from 'zustand';
-import { immer } from 'zustand/middleware/immer';
 
-interface State {
-  local: string;
-}
+interface State {}
 
-interface Actions {
-  setLocal: (local: string) => void;
-}
+interface Actions {}
 
-export const useApp = create<State & Actions>()(
-  immer(set => {
-    const deviceLocal = getDeviceLanguage();
-    return {
-      local: deviceLocal,
-      isAppLocked: false,
-
-      setLocal: local =>
-        set(state => {
-          state.local = local;
-        }),
-    };
-  }),
-);
+export const useApp = create();

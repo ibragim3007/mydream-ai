@@ -1,8 +1,8 @@
-import { useApp } from '@/entities/appStore/useApp';
 import { useGetDreams } from '@/entities/dream/dream.repository';
 import { getDreamAnalysisResponse } from '@/entities/dream/helpers/getDreamResponse';
 import { groupDreamsByDate } from '@/entities/dream/helpers/groupDreamsByDate';
 import { HORIZONTAL_PADDINGS } from '@/shared/config/constants/constants';
+import { useLang } from '@/shared/hooks/useLangStore';
 import DreamItem from '@/shared/ui/elements/DreamItem';
 import LoaderIndicator from '@/shared/ui/elements/LoaderIndicator';
 import Grid from '@/shared/ui/grid/Grid';
@@ -10,9 +10,9 @@ import Typography from '@/shared/ui/typography/Typography';
 import { normalizedSize } from '@/shared/utils/size';
 import { router } from 'expo-router';
 import { SectionList } from 'react-native';
+import Animated, { LinearTransition } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import SectionHeader from './ui/SectionHeader';
-import Animated, { LinearTransition } from 'react-native-reanimated';
 
 interface DreamsListProps {
   headerComponent: React.ComponentType<any>;
@@ -30,9 +30,9 @@ export default function DreamsList({ headerComponent }: DreamsListProps) {
     router.push(`/screens/dream/${id}`);
   };
 
-  const { local } = useApp();
+  const { lang } = useLang();
 
-  const groupedDreams = groupDreamsByDate(flatData, local);
+  const groupedDreams = groupDreamsByDate(flatData, lang);
 
   if (isError) {
     return <Typography>Error loading dreams</Typography>;
