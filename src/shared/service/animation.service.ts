@@ -1,9 +1,12 @@
 import {
   ComplexAnimationBuilder,
+  FadeInDown,
   FadeInUp,
   FadeOutUp,
+  SlideInDown,
   SlideInLeft,
   SlideInRight,
+  SlideInUp,
   SlideOutLeft,
   SlideOutRight,
   ZoomInDown,
@@ -44,12 +47,15 @@ class AnimationEngine {
   }
 
   fadeInUp = (n: number) => this.createAnimation(new FadeInUp(), n);
+  fadeInDown = (n: number) => this.createAnimation(new FadeInDown(), n);
   fadeOutUp = (n: number) => this.createAnimation(new FadeOutUp(), n);
   zoomInDown = (n: number) => this.createAnimation(new ZoomInDown(), n);
   slideInRight = (n: number) => this.createAnimation(new SlideInRight(), n);
   slideOutRight = (n: number) => this.createAnimation(new SlideOutRight(), n);
   slideOutLeft = (n: number) => this.createAnimation(new SlideOutLeft(), n);
   slideInLeft = (n: number) => this.createAnimation(new SlideInLeft(), n);
+  slideInDown = (n: number) => this.createAnimation(new SlideInDown(), n);
+  slideInUp = (n: number) => this.createAnimation(new SlideInUp(), n);
 }
 
 export const animationEngine = new AnimationEngine(OptionsAnimationService);

@@ -13,7 +13,8 @@ export default function GeneralStack() {
   };
 
   return (
-    <Stack initialRouteName="screens/homeScreen">
+    <Stack>
+      <Stack.Screen name="index" options={{ headerShown: false }} />
       <Stack.Screen name="screens/homeScreen" options={{ headerShown: false, animation: 'none' }} />
       <Stack.Screen name="screens/dream/[id]" options={{ headerShown: false }} />
       <Stack.Screen name="screens/onboarding" options={{ headerShown: false }} />

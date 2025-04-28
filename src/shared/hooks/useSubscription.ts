@@ -10,7 +10,6 @@ export function useSubscription() {
 
   useEffect(() => {
     Superwall.shared.subscriptionStatusEmitter.addListener('change', (newStatus: SubscriptionStatus) => {
-      console.log(newStatus);
       setSubscriptionStatus(newStatus.status);
     });
     (async () => {

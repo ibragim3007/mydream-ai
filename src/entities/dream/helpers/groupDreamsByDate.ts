@@ -2,7 +2,7 @@ import { GetDreamDto } from '@/shared/api/entities/dream/dream.types';
 import { errorLogger } from '@/shared/service/logger.service/sentry.service';
 import moment from 'moment';
 
-type GroupedDreams = {
+export type GroupedDreams = {
   title: string; // дата, например "2025-04-17"
   data: GetDreamDto[];
 };

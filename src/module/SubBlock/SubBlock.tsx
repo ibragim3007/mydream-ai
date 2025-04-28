@@ -33,7 +33,7 @@ export default function SubBlock({ title }: SubBlockProps) {
     })();
   }, []);
 
-  if (subscriptionStatus === 'INACTIVE') {
+  if (subscriptionStatus !== 'INACTIVE') {
     return null;
   }
 
@@ -58,8 +58,8 @@ export default function SubBlock({ title }: SubBlockProps) {
           position: 'absolute',
         }}
       />
-      <Grid space="md" justfity="space-between" flex={1} padding={25}>
-        <Grid space="sm" justfity="center">
+      <Grid space="lg" justfity="space-between" flex={1} padding={25}>
+        <Grid space="md" justfity="center">
           <Typography numberOfLines={2} weight="extra-bold" variant="title-2">
             {title || 'MyDream AI – Premium'}
           </Typography>
@@ -79,9 +79,9 @@ export default function SubBlock({ title }: SubBlockProps) {
           <Button style={{ paddingVertical: 9 }} onPress={onPress}>
             Start 3-day free trial
           </Button>
-          <Typography marginLeft={20} variant="caption-1" color="disabled">
+          {/* <Typography marginLeft={20} variant="caption-1" color="disabled">
             Then {currentPrice} per week
-          </Typography>
+          </Typography> */}
         </Grid>
       </Grid>
     </Grid>

@@ -12,6 +12,7 @@ import { router } from 'expo-router';
 import { SectionList } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import SectionHeader from './ui/SectionHeader';
+import Animated, { LinearTransition } from 'react-native-reanimated';
 
 interface DreamsListProps {
   headerComponent: React.ComponentType<any>;
@@ -38,7 +39,7 @@ export default function DreamsList({ headerComponent }: DreamsListProps) {
   }
 
   return (
-    <Grid>
+    <Animated.View layout={LinearTransition.duration(500)}>
       <SectionList
         sections={groupedDreams}
         keyExtractor={item => item.id}
@@ -64,7 +65,7 @@ export default function DreamsList({ headerComponent }: DreamsListProps) {
               id={item.id}
               date={new Date(item.createdAt).toDateString()}
               title={item.title}
-              description={analysis?.summary || item.inputText}
+              description={item.inputText}
               onPress={onPressDreamCard}
             />
           );
@@ -80,6 +81,6 @@ export default function DreamsList({ headerComponent }: DreamsListProps) {
         }}
         ItemSeparatorComponent={() => <Grid height={20} />}
       />
-    </Grid>
+    </Animated.View>
   );
 }
