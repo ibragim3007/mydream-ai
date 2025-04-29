@@ -50,7 +50,8 @@
     "audio-too-short": "Audio recording too short",
     "record-a-few-more": "Try recording at least a few seconds.",
     "your-dreams": "Your dreams!",
-    "your-dreams-displayed": "Your dreams will be displayed here!"
+    "your-dreams-displayed": "Your dreams will be displayed here!",
+    "decode-word": "Decode"
   },
   "sub-block": {
     "mydream-ai-premium": "MyDream AI – Premium",
@@ -69,7 +70,8 @@
     "error": "Error",
     "dream-not-created": "Dream not created",
     "analyzing-loading": "Analyzing your dream\nWait a moment...",
-    "analyze-button": "Save & Analyze"
+    "analyze-button": "Save & Analyze",
+    "new-dream-header": "New dream"
   },
   "dream-page": {
     "general-info": "General info",
@@ -112,7 +114,13 @@
     "terms": "Terms of service",
     "account-info": "Account info",
     "log-out": "Log Out",
-    "language-title": "Language"
+    "language-title": "Language",
+    "legal": "Legal",
+    "reach-us": "Reach us",
+    "logout-alert-title": "Logout",
+    "log-out-warn": "Are you sure you want to log out? And lose all your's data",
+    "header-title": "Settings",
+    "update-name-header": "Change name"
   },
   "protection": {
     "welcome-back": "Welcome back",
@@ -125,6 +133,11 @@
     "success": "Success",
     "new-code-set": "New code has been set successfully",
     "update-code-title": "Update your code",
-    "enter-new-code": "Enter your new code"
-  }
+    "enter-new-code": "Enter your new code",
+    "enable-code": "Enable code protection",
+    "error": "Error",
+    "invalid-code": "Invalid code"
+  },
+  "yes": "Yes",
+  "no": "No"
 }

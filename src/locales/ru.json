@@ -1,6 +1,133 @@
 {
+  "onboarding": {
+    "grettings-text": "Раскройте глубокий смысл своих снов.",
+    "continue": "Продолжить",
+    "what-your-gender": "Какой у вас пол?",
+    "prefer-not-to-say": "Предпочитаю не указывать",
+    "personalize-explanation-gender": "Мы персонализируем толкования на основе вашего пола",
+    "name-question": "Как вас зовут?",
+    "name-question-explanation": "Мы персонализируем толкования на основе вашего имени",
+    "input-name-placeholder": "Ваше имя",
+    "age-question": "Сколько вам лет?",
+    "zodiac-sign-title": "Выберите свой знак зодиака",
+    "goals-question": "Каковы ваши цели?",
+    "preparing-text": "Мы подготавливаем ваш персональный опыт",
+    "genders": {
+      "male": "Мужской",
+      "female": "Женский",
+      "non-binary": "Небинарный"
+    },
+    "zodiac-signs": {
+      "Aries": "Овен",
+      "Taurus": "Телец",
+      "Gemini": "Близнецы",
+      "Cancer": "Рак",
+      "Leo": "Лев",
+      "Virgo": "Дева",
+      "Libra": "Весы",
+      "Scorpio": "Скорпион",
+      "Sagittarius": "Стрелец",
+      "Capricorn": "Козерог",
+      "Aquarius": "Водолей",
+      "Pisces": "Рыбы"
+    },
+    "goals": {
+      "Jornaling": "Ведение дневника",
+      "Understanding dreams": "Понимание снов",
+      "Have lucid dreams": "Осознанные сновидения",
+      "Get to know myself better": "Лучше узнать себя",
+      "Find the patterns": "Найти закономерности"
+    }
+  },
   "home": {
-    "headerTitle": "Привет, Мечтатель!",
-    "description": "The better you describe your dream, the better the interpretation will be."
+    "headerTitle": "Добрый день!",
+    "description": "Чем подробнее вы опишете сон, тем точнее будет толкование.",
+    "error-loading-dreams": "Ошибка загрузки снов",
+    "continue-writing": "Продолжить запись",
+    "note-a-new-dream": "Записать сон",
+    "permission-to-access-microphone-was-denied": "Доступ к микрофону был запрещён",
+    "enable-microphone-permission": "Пожалуйста, включите его в настройках.",
+    "audio-too-short": "Аудиозапись слишком короткая",
+    "record-a-few-more": "Попробуйте записать хотя бы несколько секунд.",
+    "your-dreams": "Ваши сны!",
+    "your-dreams-displayed": "Здесь будут отображаться ваши сны!"
+  },
+  "sub-block": {
+    "mydream-ai-premium": "MyDream AI — Премиум",
+    "free-trial": "3-дневная бесплатная пробная версия",
+    "decode-dream-in-seconds": "Расшифруйте каждый сон за секунды",
+    "high-fidelity-voice": "Запись голоса высокого качества (95 % точности)",
+    "continue-dream-one-tap": "Продолжите сон одним касанием",
+    "people-unlocked-week": "человек получили инсайты на этой неделе",
+    "start-free-trial": "Начать бесплатно"
+  },
+  "dream-input": {
+    "placeholder": "Опишите свой сон здесь. При желании нажмите микрофон на клавиатуре, чтобы говорить.",
+    "audio-loading": "Расшифровываем вашу аудиозапись...\nподождите немного",
+    "enter-description": "Введите описание вашего сна",
+    "more-words-needed": "Пожалуйста, введите не менее 3 слов",
+    "error": "Ошибка",
+    "dream-not-created": "Сон не создан",
+    "analyzing-loading": "Анализируем ваш сон\nПодождите...",
+    "analyze-button": "Сохранить и проанализировать"
+  },
+  "dream-page": {
+    "general-info": "Общая информация",
+    "loading-continuation": "Загрузка...",
+    "finish-dream": "Дополнить сон",
+    "feed-back-interpretations": "Вам понравились толкования?",
+    "interpretations-label": "Толкования",
+    "interpretations": {
+      "esoteric": "Эзотерическое толкование",
+      "esoteric-desc": "Скрытые знаки и послания души.\nСимволы ведут к внутреннему осознанию.",
+      "scientific": "Научное толкование",
+      "scientific-desc": "Сны отражают активность мозга.\\nОни раскрывают стресс и эмоции.",
+      "self-development": "Толкование для саморазвития",
+      "self-development-desc": "Сны отражают рост и изменения.\\nОни помогают раскрыть потенциал."
+    },
+    "delete-warning": "Вы уверены, что хотите удалить этот сон?",
+    "lose-data-warning": "Данные будут потеряны навсегда",
+    "dream-word": "Сон",
+    "delete-title": "Удалить",
+    "less": "Скрыть",
+    "more": "Читать далее",
+    "original-input": "Исходный текст",
+    "characters": "Персонажи"
+  },
+  "settings-page": {
+    "app-settings": "Настройки приложения",
+    "name": "Имя",
+    "pin-code-title": "Защита кодом",
+    "make-better": "Помогите сделать приложение лучше",
+    "review": "Оставить отзыв",
+    "feedback-important": "Ваш отзыв важен для нас",
+    "rate-us": "Оцените нас",
+    "feedback-from": "Обратная связь из MyDream",
+    "bug-from": "Сообщение об ошибке из MyDream",
+    "feature-from": "Запрос функции из MyDream",
+    "send-email": "Напишите нам письмо",
+    "report-bug": "Сообщить об ошибке",
+    "request-a-feature": "Запросить функцию",
+    "privacy": "Политика конфиденциальности",
+    "terms": "Условия обслуживания",
+    "account-info": "Информация об аккаунте",
+    "log-out": "Выйти",
+    "language-title": "Язык",
+    "legal": "Правовая информация",
+    "reach-us": "Свяжитесь с нами"
+  },
+  "protection": {
+    "welcome-back": "С возвращением",
+    "enter-passcode": "Введите код доступа",
+    "minutes": "минут",
+    "enable-biometric": "Включить биометрию",
+    "block-after": "Блокировать приложение через (минут)",
+    "default-time-to-block": "По умолчанию (1 минута)",
+    "change-code": "Изменить код защиты",
+    "success": "Успешно",
+    "new-code-set": "Новый код успешно установлен",
+    "update-code-title": "Обновите свой код",
+    "enter-new-code": "Введите новый код",
+    "enable-code": "Включить защиту кодом"
   }
 }

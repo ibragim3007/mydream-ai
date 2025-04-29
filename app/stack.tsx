@@ -3,9 +3,11 @@ import { useTheme } from '@/shared/hooks/useTheme';
 import { fontWeight } from '@/shared/styles/typography/typography';
 import DismissModalButton from '@/shared/ui/elements/DismissModalButton';
 import { Stack } from 'expo-router';
+import { useTranslation } from 'react-i18next';
 
 export default function GeneralStack() {
   const color = useTheme();
+  const { t } = useTranslation();
 
   const headerTitleStyle = {
     fontFamily: fontWeight['extra-bold'],
@@ -39,7 +41,7 @@ export default function GeneralStack() {
         options={{
           headerShown: true,
           presentation: 'modal',
-          headerTitle: 'New dream',
+          headerTitle: t('dream-input.new-dream-header'),
           headerBlurEffect: 'regular',
           headerTransparent: true,
           gestureEnabled: true,

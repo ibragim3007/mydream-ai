@@ -13,11 +13,11 @@ import NoDreamsBlock from './ui/NoDreamsBlock';
 import { useTranslation } from 'react-i18next';
 
 export default function ListHeader() {
-  const { data } = useGetDreams();
+  const { data, isLoading } = useGetDreams();
   const { t } = useTranslation();
 
   const dreamTitle = data?.pages[0][0]?.title || undefined;
-  const decodeDream = dreamTitle ? `Decode ${dreamTitle}` : undefined;
+  const decodeDream = dreamTitle ? `${t('home.decode-word')} ${dreamTitle}` : undefined;
 
   const isDreamsExists = data?.pages[0].length !== 0;
 
@@ -50,7 +50,7 @@ export default function ListHeader() {
         {!isDreamsExists && <NoDreamsBlock />}
       </Grid>
 
-      {isDreamsExists && (
+      {isDreamsExists && !isLoading && (
         <Grid>
           <Typography weight="extra-bold" variant="title-1">
             {t('home.your-dreams')}

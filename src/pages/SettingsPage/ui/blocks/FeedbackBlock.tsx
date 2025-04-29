@@ -13,7 +13,7 @@ export default function FeedbackBlock() {
   const bugSubject = t('settings-page.bug-from');
   const featureSubject = t('settings-page.feature-from');
   return (
-    <GroupCard title="Reach us">
+    <GroupCard title={t('settings-page.reach-us')}>
       <SettingItem
         onPress={() => Linking.openURL(`mailto:${EMAIL_FEEDBACK}?subject=${subject}`)}
         leftIcon={<Feather name="mail" size={24} color={colors.text.primary} />}

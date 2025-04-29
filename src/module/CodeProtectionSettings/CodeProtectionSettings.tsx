@@ -63,7 +63,7 @@ export default function CodeProtectionSettings() {
             width="100%"
           >
             <LabelSwitch
-              label="Enable code protection"
+              label={t('protection.enable-code')}
               value={codeProtection !== null}
               onChange={onPressEnableProtection}
             />

@@ -11,7 +11,7 @@ export default function LegalBlock() {
   const colors = useTheme();
 
   return (
-    <GroupCard title="Legal">
+    <GroupCard title={t('settings-page.legal')}>
       <SettingItem
         onPress={() => Linking.openURL(LINKS.privacyPolicy)}
         leftIcon={<Feather name="shield" size={24} color={colors.text.primary} />}
