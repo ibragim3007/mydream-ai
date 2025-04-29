@@ -10,7 +10,7 @@ export default function ListHeaderTitles() {
   return (
     <Grid space="sm">
       <Grid space="md" row align="center">
-        <Typography variant="largeTitle" weight="bold">
+        <Typography variant="title-0" weight="bold">
           {t('home.headerTitle')}
         </Typography>
         <Image source={AppIcon} style={{ height: normalizedSize(45), width: normalizedSize(45) }} />

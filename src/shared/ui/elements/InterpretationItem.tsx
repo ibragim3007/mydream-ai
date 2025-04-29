@@ -142,18 +142,20 @@ export default function InterpretationItem({
                   paddingVertical={6}
                   paddingHorizontal={20}
                 >
-                  <Typography weight="bold" variant="headline">
-                    {title}
-                  </Typography>
-                  <WrapIconInPressable backgroundColor={colors.background.disabled}>
-                    {isBlocked ? (
-                      <FontAwesome name="lock" size={26} color={colors.text.primary} />
-                    ) : (
-                      <Animated.View style={arrowStyle}>
-                        <Entypo name="chevron-down" size={26} color={'#fff'} />
-                      </Animated.View>
-                    )}
-                  </WrapIconInPressable>
+                  <Grid row space="lg" align="center">
+                    <Typography style={{ flex: 0.99 }} weight="bold" variant="headline">
+                      {title}
+                    </Typography>
+                    <WrapIconInPressable backgroundColor={colors.background.disabled}>
+                      {isBlocked ? (
+                        <FontAwesome name="lock" size={26} color={colors.text.primary} />
+                      ) : (
+                        <Animated.View style={arrowStyle}>
+                          <Entypo name="chevron-down" size={26} color={'#fff'} />
+                        </Animated.View>
+                      )}
+                    </WrapIconInPressable>
+                  </Grid>
                   {description && (
                     <Typography variant="caption-1" weight="medium">
                       {description}

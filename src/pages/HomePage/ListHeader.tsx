@@ -27,7 +27,7 @@ export default function ListHeader() {
     <Grid gap={30}>
       <Grid gap={90}>
         <Grid gap={40}>
-          <Grid>
+          <Grid space="sm">
             <Settings />
             <Grid space="lg">
               <ListHeaderTitles />

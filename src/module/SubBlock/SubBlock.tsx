@@ -70,7 +70,7 @@ export default function SubBlock({ title }: SubBlockProps) {
             </Typography>
           </Grid>
         </Grid>
-        <Grid gap={2} width="80%" flex={1} justfity="flex-end">
+        <Grid gap={2} width="auto" flex={1} justfity="flex-end">
           <Button style={{ paddingVertical: 9 }} onPress={onPress}>
             {t('sub-block.start-free-trial')}
           </Button>
