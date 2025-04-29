@@ -14,6 +14,7 @@ import { useEffect, useState } from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
 import AppIcon from '@/assets/icons/app_icon_transparent.png';
+import { useTranslation } from 'react-i18next';
 
 interface PinCodeProps {
   onResult: (code: string, isBiometricRight: boolean) => void;
@@ -26,6 +27,7 @@ interface PinCodeProps {
 
 export default function PinCode({ newPin, title, isPasscodeOn, isBiometricOn, onResult }: PinCodeProps) {
   const colors = useTheme();
+  const { t } = useTranslation();
   const [code, setCode] = useState<number[]>([]);
   const codeLength = Array(4).fill(0);
 
@@ -74,8 +76,8 @@ export default function PinCode({ newPin, title, isPasscodeOn, isBiometricOn, on
   useEffect(() => {
     if (isBiometricOn) {
       const auth = LocalAuthentication.authenticateAsync({
-        promptMessage: 'Welcome back',
-        fallbackLabel: 'Enter your passcode',
+        promptMessage: t('protection.welcome-back'),
+        fallbackLabel: t('protection.enter-passcode'),
       });
 
       auth.then(result => {

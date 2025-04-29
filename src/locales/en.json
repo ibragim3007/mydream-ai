@@ -73,5 +73,18 @@
     "account-info": "Account info",
     "log-out": "Log Out",
     "language-title": "Language"
+  },
+  "protection": {
+    "welcome-back": "Welcome back",
+    "enter-passcode": "Enter your passcode",
+    "minutes": "minutes",
+    "enable-biometric": "Enable biometric",
+    "block-after": "Block app after (minutes)",
+    "default-time-to-block": "Default (1 minute)",
+    "change-code": "Change code protection",
+    "success": "Success",
+    "new-code-set": "New code has been set successfully",
+    "update-code-title": "Update your code",
+    "enter-new-code": "Enter your new code"
   }
 }
