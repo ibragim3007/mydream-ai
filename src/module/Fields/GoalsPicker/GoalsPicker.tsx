@@ -39,7 +39,8 @@ export default function GoalsPicker({ value, onChange }: GoalsPickerProps) {
               //     <Image contentFit="fill" style={{ height: 70, width: 70, borderRadius: 100 }} source={item.image} />
               //   )
               // }
-              height={20}
+              paddingVertical={9}
+              // height={25}
               justfity="center"
               isPicked={isPicked(item)}
               label={t(`onboarding.goals.${item.name}`)}

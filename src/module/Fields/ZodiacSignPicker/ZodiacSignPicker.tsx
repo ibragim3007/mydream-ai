@@ -5,6 +5,7 @@ import SurfacePicker from '@/shared/ui/elements/SurfacePicker';
 import Grid from '@/shared/ui/grid/Grid';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { useTranslation } from 'react-i18next';
+import { ScrollView } from 'react-native';
 interface ZodiacSignPickerProps {
   value?: IZodiacItem;
   onChange: (sign: IZodiacItem) => void;
@@ -19,23 +20,25 @@ export default function ZodiacSignPicker({ onChange, value }: ZodiacSignPickerPr
   };
 
   return (
-    <Grid space="sm" row wrap align="center" justfity="center">
-      {zodiacSignsMock.map(item => (
-        <Grid key={item.id} width="31%">
-          <SurfacePicker
-            textProps={{
-              variant: 'footnote',
-            }}
-            height={65}
-            justfity="center"
-            isPicked={value?.id == item.id}
-            label={t(`onboarding.zodiac-signs.${item.name}`)}
-            item={item}
-            onChange={item => onChahgeZodiacSign(item)}
-            header={<MaterialCommunityIcons name={item.icon} size={30} color={item.color} />}
-          />
-        </Grid>
-      ))}
-    </Grid>
+    <ScrollView>
+      <Grid space="sm" row wrap align="center" justfity="center">
+        {zodiacSignsMock.map(item => (
+          <Grid key={item.id} width="31%">
+            <SurfacePicker
+              textProps={{
+                variant: 'footnote',
+              }}
+              height={63}
+              justfity="center"
+              isPicked={value?.id == item.id}
+              label={t(`onboarding.zodiac-signs.${item.name}`)}
+              item={item}
+              onChange={item => onChahgeZodiacSign(item)}
+              header={<MaterialCommunityIcons name={item.icon} size={30} color={item.color} />}
+            />
+          </Grid>
+        ))}
+      </Grid>
+    </ScrollView>
   );
 }

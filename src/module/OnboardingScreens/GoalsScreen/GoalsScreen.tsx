@@ -19,7 +19,7 @@ export default function GoalsScreen({ goalsPickerComponent, onPressButton, goPre
   const isDisabled = goals.length === 0;
   return (
     <SafeWrapper>
-      <Grid paddingVertical={20} justfity="space-between" height="100%">
+      <Grid space="md" paddingVertical={20} justfity="space-between" height="100%">
         <Grid space="md">
           <Grid align="flex-start">
             <GoBackButton onPress={goPrevPage} />

@@ -15,6 +15,7 @@ import { SafeAreaView, StyleSheet } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
 import AppIcon from '@/assets/icons/app_icon_transparent.png';
 import { useTranslation } from 'react-i18next';
+import { normalizedSize } from '@/shared/utils/size';
 
 interface PinCodeProps {
   onResult: (code: string, isBiometricRight: boolean) => void;
@@ -101,7 +102,7 @@ export default function PinCode({ newPin, title, isPasscodeOn, isBiometricOn, on
                 <Typography weight="bold" textAlign="center" variant="title-1">
                   {title}
                 </Typography>
-                <Image source={AppIcon} style={{ height: 100, width: 100 }} />
+                <Image source={AppIcon} style={{ height: normalizedSize(90), width: normalizedSize(90) }} />
               </Grid>
             </Grid>
           </SafeAreaView>
@@ -175,23 +176,22 @@ const styles = StyleSheet.create({
   greetings: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginTop: 80,
+    marginTop: normalizedSize(60),
     alignSelf: 'center',
   },
   codeView: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    gap: 20,
-    marginVertical: 80,
+    gap: normalizedSize(20),
+    marginVertical: normalizedSize(60),
   },
   codeEmpty: {
-    width: 20,
-    height: 20,
+    width: normalizedSize(20),
+    height: normalizedSize(20),
     borderRadius: 10,
   },
-
   number: {
-    fontSize: 32,
+    fontSize: normalizedSize(20),
   },
 });

@@ -12,7 +12,15 @@ export default function AgePicker({ value, onChange }: AgePickerProps) {
   return (
     <Grid space="md">
       {ageMock.map(age => (
-        <SurfacePicker isPicked={age === value} key={age} label={age} item={age} onChange={onChange} />
+        <SurfacePicker
+          // height={20}
+          paddingVertical={7}
+          isPicked={age === value}
+          key={age}
+          label={age}
+          item={age}
+          onChange={onChange}
+        />
       ))}
     </Grid>
   );

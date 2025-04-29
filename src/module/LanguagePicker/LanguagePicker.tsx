@@ -54,7 +54,7 @@ export default function LanguagePicker() {
                 keyExtractor={item => item.code}
                 getItemLayout={(_, index) => ({ length: ITEM_HEIGHT, offset: ITEM_HEIGHT * index, index })}
                 initialScrollIndex={currentIndex}
-                style={{ maxHeight: normalizedSize(500) }}
+                style={{ maxHeight: normalizedSize(400) }}
                 renderItem={({ item, index }) => (
                   <LangItem
                     isPicked={lang === item.code}
