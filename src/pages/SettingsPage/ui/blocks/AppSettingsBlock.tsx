@@ -7,8 +7,10 @@ import SettingItem from '../../../../shared/ui/elements/SettingsItem';
 
 import { LanguagePicker } from '@/module/LanguagePicker';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import { useTranslation } from 'react-i18next';
 
 export default function AppSettingsBlock() {
+  const { t } = useTranslation();
   const { user } = useAuth();
   const colors = useTheme();
 
@@ -21,10 +23,10 @@ export default function AppSettingsBlock() {
   };
 
   return (
-    <GroupCard title="App Preferences">
+    <GroupCard title={t('settings-page.app-settings')}>
       <SettingItem
         onPress={onPressChangeName}
-        title="Name"
+        title={t('settings-page.name')}
         leftIcon={<Foundation name="text-color" size={24} color={colors.text.primary} />}
         rightPrefix={user?.displayName}
       />
@@ -32,7 +34,7 @@ export default function AppSettingsBlock() {
       <SettingItem
         onPress={onPressChangeCodeProtection}
         leftIcon={<MaterialIcons name="password" size={23} color={colors.text.primary} />}
-        title="Code protection"
+        title={t('settings-page.pin-code-title')}
       />
 
       <LanguagePicker />

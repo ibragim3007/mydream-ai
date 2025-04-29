@@ -53,5 +53,25 @@
     "more": "Read more",
     "original-input": "Input",
     "characters": "Characters"
+  },
+  "settings-page": {
+    "app-settings": "App Preferences",
+    "name": "Name",
+    "pin-code-title": "Code protection",
+    "make-better": "Help to make the app better",
+    "review": "Leave a review",
+    "feedback-important": "Your feedback is important to us",
+    "rate-us": "Rate us",
+    "feedback-from": "Feedback from MyDream",
+    "bug-from": "Bug report from MyDream",
+    "feature-from": "Feature request from MyDream",
+    "send-email": "Send us an email",
+    "report-bug": "Report a bug",
+    "request-a-feature": "Request a feature",
+    "privacy": "Privacy policy",
+    "terms": "Terms of service",
+    "account-info": "Account info",
+    "log-out": "Log Out",
+    "language-title": "Language"
   }
 }

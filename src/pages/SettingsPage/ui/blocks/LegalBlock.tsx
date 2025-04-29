@@ -4,8 +4,10 @@ import GroupCard from '@/shared/ui/elements/GroupCard';
 import Feather from '@expo/vector-icons/Feather';
 import { Linking } from 'react-native';
 import SettingItem from '../../../../shared/ui/elements/SettingsItem';
+import { useTranslation } from 'react-i18next';
 
 export default function LegalBlock() {
+  const { t } = useTranslation();
   const colors = useTheme();
 
   return (
@@ -13,12 +15,12 @@ export default function LegalBlock() {
       <SettingItem
         onPress={() => Linking.openURL(LINKS.privacyPolicy)}
         leftIcon={<Feather name="shield" size={24} color={colors.text.primary} />}
-        title="Privacy policy"
+        title={t('settings-page.privacy')}
       />
       <SettingItem
         onPress={() => Linking.openURL(LINKS.termsOfService)}
         leftIcon={<Feather name="book" size={24} color={colors.text.primary} />}
-        title="Terms of service"
+        title={t('settings-page.terms')}
       />
     </GroupCard>
   );

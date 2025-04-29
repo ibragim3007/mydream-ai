@@ -9,9 +9,11 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { useState } from 'react';
 import { Modal } from 'react-native';
 import LangItem from './LangItem';
+import { useTranslation } from 'react-i18next';
 
 export default function LanguagePicker() {
   const colors = useTheme();
+  const { t } = useTranslation();
   const { lang, setLang } = useLang();
   const currentLanguage = languages.find(language => language.code === lang);
 
@@ -24,7 +26,7 @@ export default function LanguagePicker() {
     <Grid>
       <SettingsItem
         leftIcon={<MaterialIcons name="language" size={24} color={colors.text.primary} />}
-        title="Language"
+        title={t('settings-page.language-title')}
         onPress={toggleModal}
         rightPrefix={currentLanguage?.label}
       />

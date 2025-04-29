@@ -5,9 +5,11 @@ import { useTheme } from '@/shared/hooks/useTheme';
 import * as StoreReview from 'expo-store-review';
 import { Linking } from 'react-native';
 import { APP_STORE_LINK } from '@/shared/config/constants/constants';
+import { useTranslation } from 'react-i18next';
 
 export default function RateBlock() {
   const colors = useTheme();
+  const { t } = useTranslation();
 
   const handleRatePress = async () => {
     if (await StoreReview.isAvailableAsync()) {
@@ -22,19 +24,19 @@ export default function RateBlock() {
   };
 
   return (
-    <GroupCard title="Help to make the app better">
+    <GroupCard title={t('settings-page.make-better')}>
       <SettingsItem
         onPress={handleFeedbackPress}
         leftIcon={<FontAwesome name="commenting" size={24} color={colors.text.primary} />}
-        title="Leave a review"
-        prefix="Your feedback is important to us"
+        title={t('settings-page.review')}
+        prefix={t('settings-page.feedback-important')}
       />
       <SettingsItem
         textColor={colors.background.primary}
         color={colors.background.alert}
         onPress={handleRatePress}
         leftIcon={<FontAwesome name="star" size={24} color={colors.text.white} />}
-        title="Rate us"
+        title={t('settings-page.rate-us')}
       />
     </GroupCard>
   );
