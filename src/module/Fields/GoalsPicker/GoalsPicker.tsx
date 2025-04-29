@@ -4,9 +4,8 @@ import SurfacePicker from '@/shared/ui/elements/SurfacePicker';
 import Grid from '@/shared/ui/grid/Grid';
 import Typography from '@/shared/ui/typography/Typography';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
-
-import { Image } from 'expo-image';
 
 interface GoalsPickerProps {
   value: IGoalItem[];
@@ -15,6 +14,7 @@ interface GoalsPickerProps {
 
 export default function GoalsPicker({ value, onChange }: GoalsPickerProps) {
   const [currentGoals, setCurrentGoals] = useState<IGoalItem[]>(value);
+  const { t } = useTranslation();
 
   const handleGoalChange = (goal: IGoalItem) => {
     const isGoalSelected = currentGoals.some(item => item.id === goal.id);
@@ -42,7 +42,7 @@ export default function GoalsPicker({ value, onChange }: GoalsPickerProps) {
               height={20}
               justfity="center"
               isPicked={isPicked(item)}
-              label={item.name}
+              label={t(`onboarding.goals.${item.name}`)}
               item={item}
               onChange={item => handleGoalChange(item)}
             />

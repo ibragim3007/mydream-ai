@@ -5,6 +5,7 @@ import GoBackButton from '@/shared/ui/buttons/GoBackButton';
 import Grid from '@/shared/ui/grid/Grid';
 import SafeWrapper from '@/shared/ui/layout/SafeWrapper';
 import Typography from '@/shared/ui/typography/Typography';
+import { useTranslation } from 'react-i18next';
 
 interface GoalsScreenProps {
   goalsPickerComponent: React.ReactNode;
@@ -14,6 +15,7 @@ interface GoalsScreenProps {
 
 export default function GoalsScreen({ goalsPickerComponent, onPressButton, goPrevPage }: GoalsScreenProps) {
   const { goals } = useUserTags();
+  const { t } = useTranslation();
   const isDisabled = goals.length === 0;
   return (
     <SafeWrapper>
@@ -24,14 +26,14 @@ export default function GoalsScreen({ goalsPickerComponent, onPressButton, goPre
           </Grid>
           <Grid space="sm">
             <Typography variant="largeTitle" weight="extra-bold">
-              What are your goals?
+              {t('onboarding.goals-question')}
             </Typography>
           </Grid>
         </Grid>
         <AnimatedWrapper>{goalsPickerComponent}</AnimatedWrapper>
         <Grid marginBottom={15} space="lg">
           <Button onPress={onPressButton} disabled={isDisabled}>
-            Continue
+            {t('onboarding.continue')}
           </Button>
         </Grid>
       </Grid>

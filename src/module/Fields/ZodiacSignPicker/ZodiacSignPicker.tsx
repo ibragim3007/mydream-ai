@@ -4,6 +4,7 @@ import { useVibration } from '@/shared/hooks/useVibration';
 import SurfacePicker from '@/shared/ui/elements/SurfacePicker';
 import Grid from '@/shared/ui/grid/Grid';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { useTranslation } from 'react-i18next';
 interface ZodiacSignPickerProps {
   value?: IZodiacItem;
   onChange: (sign: IZodiacItem) => void;
@@ -11,6 +12,7 @@ interface ZodiacSignPickerProps {
 
 export default function ZodiacSignPicker({ onChange, value }: ZodiacSignPickerProps) {
   const { vibrateSelection } = useVibration();
+  const { t } = useTranslation();
   const onChahgeZodiacSign = (sign: IZodiacItem) => {
     onChange(sign);
     vibrateSelection();
@@ -27,7 +29,7 @@ export default function ZodiacSignPicker({ onChange, value }: ZodiacSignPickerPr
             height={65}
             justfity="center"
             isPicked={value?.id == item.id}
-            label={item.name}
+            label={t(`onboarding.zodiac-signs.${item.name}`)}
             item={item}
             onChange={item => onChahgeZodiacSign(item)}
             header={<MaterialCommunityIcons name={item.icon} size={30} color={item.color} />}

@@ -8,6 +8,7 @@ import Grid from '@/shared/ui/grid/Grid';
 import SafeWrapper from '@/shared/ui/layout/SafeWrapper';
 import Typography from '@/shared/ui/typography/Typography';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { KeyboardAvoidingView, Platform } from 'react-native';
 
 interface EnterNameScreenProps {
@@ -19,6 +20,7 @@ interface EnterNameScreenProps {
 export default function EnterNameScreen({ onPressButton, goPrevPage, onChange }: EnterNameScreenProps) {
   const { updateName } = useUserTags();
   const { user } = useAuth();
+  const { t } = useTranslation();
 
   const [nameText, setNameText] = useState(user?.displayName || '');
   const isDisabled = nameText.length === 0;
@@ -52,18 +54,18 @@ export default function EnterNameScreen({ onPressButton, goPrevPage, onChange }:
               </Grid>
             )}
             <Typography variant="largeTitle" weight="extra-bold">
-              What&apos;s your name?
+              {t('onboarding.name-question')}
             </Typography>
-            <Typography color="disabled">Enter your name to personalize your experience</Typography>
+            <Typography color="disabled">{t('onboarding.name-question-explanation')}</Typography>
           </Grid>
 
           <AnimatedWrapper>
-            <Input value={nameText} placeholder="Your name" onChangeText={onChangeName} />
+            <Input value={nameText} placeholder={t('onboarding.input-name-placeholder')} onChangeText={onChangeName} />
           </AnimatedWrapper>
 
           <AnimatedWrapper style={{ marginBottom: 0 }}>
             <Button disabled={isDisabled} onPress={onPressButtonFunc}>
-              Continue
+              {t('onboarding.continue')}
             </Button>
           </AnimatedWrapper>
         </Grid>

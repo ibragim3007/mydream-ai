@@ -1,4 +1,44 @@
 {
+  "onboarding": {
+    "grettings-text": "Uncover the deep meaning of your dreams.",
+    "continue": "Continue",
+    "what-your-gender": "What’s your gender?",
+    "prefer-not-to-say": "Prefer not to say",
+    "personalize-explanation-gender": "We’ll personalize your interpretations based on your gender",
+    "name-question": "What’s your name?",
+    "name-question-explanation": "We’ll personalize your interpretations based on your name",
+    "input-name-placeholder": "Your name",
+    "age-question": "How old are you?",
+    "zodiac-sign-title": "Choose your zodiac sign",
+    "goals-question": "What are your goals?",
+    "preparing-text": "We are preparing your personalized experienceq",
+    "genders": {
+      "male": "Male",
+      "female": "Female",
+      "non-binary": "Non-binary"
+    },
+    "zodiac-signs": {
+      "Aries": "Aries",
+      "Taurus": "Taurus",
+      "Gemini": "Gemini",
+      "Cancer": "Cancer",
+      "Leo": "Leo",
+      "Virgo": "Virgo",
+      "Libra": "Libra",
+      "Scorpio": "Scorpio",
+      "Sagittarius": "Sagittarius",
+      "Capricorn": "Capricorn",
+      "Aquarius": "Aquarius",
+      "Pisces": "Pisces"
+    },
+    "goals": {
+      "Jornaling": "Journaling",
+      "Understanding dreams": "Understanding dreams",
+      "Have lucid dreams": "Have lucid dreams",
+      "Get to know myself better": "Get to know myself better",
+      "Find the patterns": "Find the patterns"
+    }
+  },
   "home": {
     "headerTitle": "Hi, Dreamer!",
     "description": "The better you describe your dream, the better the interpretation will be.",

@@ -7,6 +7,7 @@ import Typography from '@/shared/ui/typography/Typography';
 import { normalizedSize } from '@/shared/utils/size';
 import LottieView from 'lottie-react-native';
 import { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface ProgrevScreenProps {
   onFinishAnimation: () => void;
@@ -14,7 +15,7 @@ interface ProgrevScreenProps {
 
 export default function ProgrevScreen({ onFinishAnimation }: ProgrevScreenProps) {
   const animation = useRef<LottieView>(null);
-
+  const { t } = useTranslation();
   const handleAnimationFinish = () => {
     onFinishAnimation();
   };
@@ -36,7 +37,7 @@ export default function ProgrevScreen({ onFinishAnimation }: ProgrevScreenProps)
               source={LoadingAnimation}
             />
             <Typography weight="bold" variant="largeTitle" textAlign="center">
-              We are preparing your personalized experienceq
+              {t('onboarding.preparing-text')}
             </Typography>
           </Grid>
           <LottieView
