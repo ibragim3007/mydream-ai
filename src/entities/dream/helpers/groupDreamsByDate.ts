@@ -8,17 +8,45 @@ export type GroupedDreams = {
 };
 
 const TODAY_LABELS: Record<string, string> = {
-  ru: 'Сегодня',
   en: 'Today',
+  ru: 'Сегодня',
+  tr: 'Bugün',
+  cs: 'Dnes',
   de: 'Heute',
+  es: 'Hoy',
   fr: 'Aujourd’hui',
+  it: 'Oggi',
+  nl: 'Vandaag',
+  pl: 'Dziś',
+  sv: 'Idag',
+  no: 'I dag',
+  ja: '今日',
+  zh: '今天',
+  pt: 'Hoje',
+  ar: 'اليوم',
+  ko: '오늘',
+  hi: 'आज',
 };
 
 const YESTERDAY_LABELS: Record<string, string> = {
-  ru: 'Вчера',
   en: 'Yesterday',
+  ru: 'Вчера',
+  tr: 'Dün',
+  cs: 'Včera',
   de: 'Gestern',
+  es: 'Ayer',
   fr: 'Hier',
+  it: 'Ieri',
+  nl: 'Gisteren',
+  pl: 'Wczoraj',
+  sv: 'Igår',
+  no: 'I går',
+  ja: '昨日',
+  zh: '昨天',
+  pt: 'Ontem',
+  ar: 'أمس',
+  ko: '어제',
+  hi: 'कल',
 };
 
 export function groupDreamsByDate(dreams: GetDreamDto[], locale = 'ru'): GroupedDreams[] {

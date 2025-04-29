@@ -1,0 +1,4 @@
+{
+  "NSFaceIDUsageDescription": "$(PRODUCT_NAME) को Face ID का उपयोग करने की अनुमति दें।",
+  "NSMicrophoneUsageDescription": "$(PRODUCT_NAME) को माइक्रोफ़ोन का उपयोग करने की अनुमति दें।"
+}

@@ -8,6 +8,26 @@
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "locales": {
+      "en": "./assets/locales/en.json",
+      "tr": "./assets/locales/tr.json",
+      "cs": "./assets/locales/cs.json",
+      "de": "./assets/locales/de.json",
+      "es": "./assets/locales/es.json",
+      "fr": "./assets/locales/fr.json",
+      "it": "./assets/locales/it.json",
+      "nl": "./assets/locales/nl.json",
+      "pl": "./assets/locales/pl.json",
+      "sv": "./assets/locales/sv.json",
+      "ru": "./assets/locales/ru.json",
+      "ja": "./assets/locales/ja.json",
+      "zh": "./assets/locales/zh.json",
+      "pt": "./assets/locales/pt.json",
+      "ar": "./assets/locales/ar.json",
+      "no": "./assets/locales/no.json",
+      "ko": "./assets/locales/ko.json",
+      "hi": "./assets/locales/hi.json"
+    },
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.ibragim.mydreamjornal",
@@ -53,17 +73,14 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/icons_ios/ios-light.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#151718"
+          "backgroundColor": "#0C111C"
         }
       ],
       [
         "expo-secure-store",
         {
           "configureAndroidBackup": true,
-          "faceIDPermission": "Allow $(PRODUCT_NAME) to access your Face ID biometric data."
+          "faceIDPermission": "Allow $(PRODUCT_NAME) to use Face ID."
         }
       ],
       [
