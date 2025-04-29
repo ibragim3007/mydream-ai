@@ -14,6 +14,7 @@ import { Audio } from 'expo-av';
 import { router } from 'expo-router';
 import LottieView from 'lottie-react-native';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Alert, Modal } from 'react-native';
 
 interface AudioRecorderButtonProps {}
@@ -26,6 +27,7 @@ export default function AudioRecorderButton({}: AudioRecorderButtonProps) {
   const [startTime, setStartTime] = useState<number | null>(null);
   const [elapsedTime, setElapsedTime] = useState<number>(0);
   const [recording, setRecording] = useState<Audio.Recording>();
+  const { t } = useTranslation();
 
   const startRecording = async () => {
     if (!isActive) {
@@ -44,7 +46,7 @@ export default function AudioRecorderButton({}: AudioRecorderButtonProps) {
       if (permissionResponse.status === 'granted') {
         console.log('Permission granted');
       } else {
-        Alert.alert('Permission to access microphone was denied', 'Please enable it in the settings.');
+        Alert.alert(t('home.permission-to-access-microphone-was-denied'), t('home.enable-microphone-permission'));
       }
 
       await Audio.setAudioModeAsync({
@@ -80,7 +82,7 @@ export default function AudioRecorderButton({}: AudioRecorderButtonProps) {
       setRecording(undefined);
 
       if (durationMs < 3000) {
-        Alert.alert('Слишком короткая запись', 'Попробуй записать хотя бы несколько секунд.');
+        Alert.alert(t('home.audio-too-short'), t('home.record-a-few-more'));
         return;
       }
 

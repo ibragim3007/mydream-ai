@@ -4,9 +4,11 @@ import { useVibration } from '@/shared/hooks/useVibration';
 import Button from '@/shared/ui/buttons/Button';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { router } from 'expo-router';
+import { useTranslation } from 'react-i18next';
 
 export default function AddDreamButton() {
   const colors = useTheme();
+  const { t } = useTranslation();
   const { dreamText } = useDreamStore();
   const { vibrate } = useVibration();
   const handlePress = () => {
@@ -20,7 +22,7 @@ export default function AddDreamButton() {
       style={{ borderRadius: 15, flex: 1 }}
       leftIcon={<MaterialCommunityIcons name="pencil-plus" size={24} color={colors.text.white} />}
     >
-      {dreamText ? 'Continue writing' : 'Note a new dream'}
+      {dreamText ? t('continue-writing') : t('note-a-new-dream')}
     </Button>
   );
 }

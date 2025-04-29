@@ -1,6 +1,24 @@
 {
   "home": {
     "headerTitle": "Hi, Dreamer!",
-    "description": "The better you describe your dream, the better the interpretation will be."
+    "description": "The better you describe your dream, the better the interpretation will be.",
+    "error-loading-dreams": "Error loading dreams",
+    "continue-writing": "Continue writing",
+    "note-a-new-dream": "Note a new dream",
+    "permission-to-access-microphone-was-denied": "Permission to access microphone was denied",
+    "enable-microphone-permission": "Please enable it in the settings.",
+    "audio-too-short": "Audio recording too short",
+    "record-a-few-more": "Try recording at least a few seconds.",
+    "your-dreams": "Your dreams!",
+    "your-dreams-displayed": "Your dreams will be displayed here!"
+  },
+  "sub-block": {
+    "mydream-ai-premium": "MyDream AI – Premium",
+    "free-trial": "3-day free trial",
+    "decode-dream-in-seconds": "Decode every dream in seconds",
+    "high-fidelity-voice": "High-fidelity voice capture (95 % accuracy)",
+    "continue-dream-one-tap": "Continue your dream with 1 tap",
+    "people-unlocked-week": "people unlocked insights this week",
+    "start-free-trial": "Start 3-day free trial"
   }
 }

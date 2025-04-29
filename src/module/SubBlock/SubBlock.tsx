@@ -7,8 +7,7 @@ import Grid from '@/shared/ui/grid/Grid';
 import Typography from '@/shared/ui/typography/Typography';
 import Superwall from '@superwall/react-native-superwall';
 import { Image } from 'expo-image';
-import { useEffect, useState } from 'react';
-import Purchases from 'react-native-purchases';
+import { useTranslation } from 'react-i18next';
 import { getWeeklyPurchaseCount } from './helpers/generatePeopleNumber';
 
 interface SubBlockProps {
@@ -18,20 +17,14 @@ interface SubBlockProps {
 export default function SubBlock({ title }: SubBlockProps) {
   const { subscriptionStatus } = useSubscription();
   const { vibrate } = useVibration();
-  const [currentPrice, setCurrentPrice] = useState<string>();
+  const { t } = useTranslation('sub-block');
+
   const onPress = () => {
     vibrate();
     Superwall.shared.register({
       placement: PLACEMENTS.campaign_trigger,
     });
   };
-
-  useEffect(() => {
-    (async () => {
-      const res = await Purchases.getProducts(['mydream_weekly_regular']);
-      setCurrentPrice(res[0].priceString);
-    })();
-  }, []);
 
   if (subscriptionStatus !== 'INACTIVE') {
     return null;
@@ -61,23 +54,25 @@ export default function SubBlock({ title }: SubBlockProps) {
       <Grid space="lg" justfity="space-between" flex={1} padding={25}>
         <Grid space="md" justfity="center">
           <Typography numberOfLines={2} weight="extra-bold" variant="title-2">
-            {title || 'MyDream AI – Premium'}
+            {title || t('mydream-ai-premium')}
           </Typography>
           <Grid
             style={{ shadowColor: '#fff', shadowOpacity: 0.9, shadowRadius: 2, shadowOffset: { height: 0, width: 0 } }}
           >
             <Typography variant="footnote" weight="bold">
-              • 3-day free trial
+              • {t('free-trial')}
             </Typography>
-            <Typography variant="footnote">• Decode every dream in seconds</Typography>
-            <Typography variant="footnote">• High-fidelity voice capture (95 % accuracy)</Typography>
-            <Typography variant="footnote">• Continue your dream with 1 tap</Typography>
-            <Typography variant="footnote">• {getWeeklyPurchaseCount()} people unlocked insights this week</Typography>
+            <Typography variant="footnote">• {t('decode-dream-in-seconds')}</Typography>
+            <Typography variant="footnote">• {t('high-fidelity-voice')}</Typography>
+            <Typography variant="footnote">• {t('continue-dream-one-tap')}</Typography>
+            <Typography variant="footnote">
+              • {getWeeklyPurchaseCount()} {t('people-unlocked-week')}
+            </Typography>
           </Grid>
         </Grid>
         <Grid gap={2} width="80%" flex={1} justfity="flex-end">
           <Button style={{ paddingVertical: 9 }} onPress={onPress}>
-            Start 3-day free trial
+            {t('start-free-trial')}
           </Button>
           {/* <Typography marginLeft={20} variant="caption-1" color="disabled">
             Then {currentPrice} per week

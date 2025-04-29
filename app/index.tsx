@@ -23,10 +23,8 @@ import {
 } from '@expo-google-fonts/nunito';
 import Superwall, { LogLevel, LogScope, SuperwallOptions } from '@superwall/react-native-superwall';
 import { useFonts } from 'expo-font';
-import { Href, Redirect, SplashScreen } from 'expo-router';
+import { Redirect, SplashScreen } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Platform } from 'react-native';
-import Purchases from 'react-native-purchases';
 
 SplashScreen.preventAutoHideAsync(); // вызываем как можно раньше
 
@@ -59,12 +57,8 @@ export default function Index() {
     const init = async () => {
       if (!fontsLoaded) return;
 
-      // RevenueCat - Superwall
+      //* 3. Инициализируем Superwall */
       try {
-        Purchases.configure({
-          apiKey: Platform.OS === 'ios' ? Environment.revenue_api_key_IOS! : Environment.revenue_api_key_ANDROID!,
-        });
-
         const opts = new SuperwallOptions();
         opts.logging.level = LogLevel.Warn;
         opts.logging.scopes = [LogScope.PaywallPresentation];

@@ -13,6 +13,7 @@ import { SectionList } from 'react-native';
 import Animated, { LinearTransition } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import SectionHeader from './ui/SectionHeader';
+import { useTranslation } from 'react-i18next';
 
 interface DreamsListProps {
   headerComponent: React.ComponentType<any>;
@@ -20,7 +21,7 @@ interface DreamsListProps {
 
 export default function DreamsList({ headerComponent }: DreamsListProps) {
   // const { data, isLoading, isError } = useGetDreams();
-
+  const { t } = useTranslation();
   const { data, isError, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage, refetch } = useGetDreams();
 
   const flatData = data?.pages.flat() || [];
@@ -35,7 +36,7 @@ export default function DreamsList({ headerComponent }: DreamsListProps) {
   const groupedDreams = groupDreamsByDate(flatData, lang);
 
   if (isError) {
-    return <Typography>Error loading dreams</Typography>;
+    return <Typography>{t('error-loading-dreams')}</Typography>;
   }
 
   return (
