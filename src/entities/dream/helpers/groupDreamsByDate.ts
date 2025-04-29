@@ -1,9 +1,7 @@
 import { GetDreamDto } from '@/shared/api/entities/dream/dream.types';
-import { errorLogger } from '@/shared/service/logger.service/sentry.service';
-import moment from 'moment';
 
 export type GroupedDreams = {
-  title: string; // дата, например "2025-04-17"
+  title: string;
   data: GetDreamDto[];
 };
 
@@ -27,7 +25,6 @@ const TODAY_LABELS: Record<string, string> = {
   ko: '오늘',
   hi: 'आज',
 };
-
 const YESTERDAY_LABELS: Record<string, string> = {
   en: 'Yesterday',
   ru: 'Вчера',
@@ -49,49 +46,60 @@ const YESTERDAY_LABELS: Record<string, string> = {
   hi: 'कल',
 };
 
+/**
+ * Группирует записи по дате, возвращая заголовки "Today", "Yesterday" или форматированные даты.
+ */
 export function groupDreamsByDate(dreams: GetDreamDto[], locale = 'ru'): GroupedDreams[] {
-  try {
-    moment.locale(locale);
-    const map = new Map<string, GetDreamDto[]>();
+  const map = new Map<string, GetDreamDto[]>();
+  const now = new Date();
+  const todayKey = TODAY_LABELS[locale] || TODAY_LABELS.en;
+  const yesterdayKey = YESTERDAY_LABELS[locale] || YESTERDAY_LABELS.en;
 
-    for (const dream of dreams) {
-      const date = moment(dream.createdAt);
+  // Функция форматирования произвольной даты
+  const dateFormatter = new Intl.DateTimeFormat(locale, {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+  });
 
-      let title: string;
+  for (const dream of dreams) {
+    const dt = new Date(dream.createdAt);
+    let title: string;
+    const diff = Math.floor(
+      (new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime() -
+        new Date(dt.getFullYear(), dt.getMonth(), dt.getDate()).getTime()) /
+        (1000 * 60 * 60 * 24),
+    );
 
-      if (date.isSame(moment(), 'day')) {
-        title = TODAY_LABELS[locale] || TODAY_LABELS['en'];
-      } else if (date.isSame(moment().subtract(1, 'day'), 'day')) {
-        title = YESTERDAY_LABELS[locale] || YESTERDAY_LABELS['en'];
-      } else {
-        title = date.format('dddd, D MMMM');
-      }
-
-      // Заглавная первая буква
+    if (diff === 0) {
+      title = todayKey;
+    } else if (diff === 1) {
+      title = yesterdayKey;
+    } else {
+      // приводит к "monday, 17 april"
+      title = dateFormatter.format(dt);
+      // капитализируем первую букву
       title = title.charAt(0).toUpperCase() + title.slice(1);
-
-      if (!map.has(title)) {
-        map.set(title, []);
-      }
-      map.get(title)!.push(dream);
     }
 
-    const sortedGroups = Array.from(map.entries()).sort((a, b) => {
-      const getMoment = (label: string, firstDream: GetDreamDto) => {
-        const normalized = label.toLowerCase();
-        if (normalized === (TODAY_LABELS[locale] || 'today').toLowerCase()) return moment();
-        if (normalized === (YESTERDAY_LABELS[locale] || 'yesterday').toLowerCase()) return moment().subtract(1, 'day');
-        return moment(firstDream.createdAt);
-      };
-
-      const dateA = getMoment(a[0], a[1][0]);
-      const dateB = getMoment(b[0], b[1][0]);
-      return dateB.diff(dateA);
-    });
-
-    return sortedGroups.map(([title, data]) => ({ title, data }));
-  } catch (error) {
-    errorLogger.logError('Error to group dreams by date');
-    return [];
+    if (!map.has(title)) {
+      map.set(title, []);
+    }
+    map.get(title)!.push(dream);
   }
+
+  // Сортировка групп по дате: сегодня → вчера → более старые
+  const groups = Array.from(map.entries());
+  groups.sort(([aKey, aList], [bKey, bList]) => {
+    const parseKey = (key: string, firstDate: string) => {
+      if (key === todayKey) return now;
+      if (key === yesterdayKey) return new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1);
+      return new Date(firstDate);
+    };
+    const dateA = parseKey(aKey, aList[0].createdAt.toISOString());
+    const dateB = parseKey(bKey, bList[0].createdAt.toISOString());
+    return dateB.getTime() - dateA.getTime();
+  });
+
+  return groups.map(([title, data]) => ({ title, data }));
 }
