@@ -1,20 +1,20 @@
 import { generateMockTimings, TimingsBeforeBlock } from '@/entities/useProtection/protection.mock';
 import { useProtection } from '@/entities/useProtection/useProtection';
-import SettingItem from '@/pages/SettingsPage/ui/SettingsItem';
+import SettingItem from '@/shared/ui/elements/SettingsItem';
 import { useTheme } from '@/shared/hooks/useTheme';
+import { pickerStyle } from '@/shared/styles/picker';
 import LabelSwitch from '@/shared/ui/elements/LabelSwitch';
 import Grid from '@/shared/ui/grid/Grid';
 import PageWrapper from '@/shared/ui/layout/PageWrapper';
 import SafeWrapper from '@/shared/ui/layout/SafeWrapper';
 import Typography from '@/shared/ui/typography/Typography';
-import { normalizedSize } from '@/shared/utils/size';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { useHeaderHeight } from '@react-navigation/elements';
 import * as LocalAuthentication from 'expo-local-authentication';
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
-import RNPickerSelect, { PickerStyle } from 'react-native-picker-select';
+import RNPickerSelect from 'react-native-picker-select';
 import { Toast } from 'toastify-react-native';
 
 export default function CodeProtectionSettings() {
@@ -49,45 +49,6 @@ export default function CodeProtectionSettings() {
     } else {
       setCodeProtection(null);
     }
-  };
-
-  const pickerStyle: PickerStyle = {
-    inputIOS: {
-      paddingVertical: normalizedSize(14),
-      paddingHorizontal: normalizedSize(16),
-      borderWidth: 1,
-      borderColor: '#2F3A59',
-      borderRadius: 15,
-      color: '#FFFFFF',
-      backgroundColor: colors.background.secondary,
-      fontSize: normalizedSize(16),
-      fontWeight: '500',
-    },
-    inputIOSContainer: {
-      zIndex: 1000,
-    },
-    inputAndroid: {
-      paddingVertical: 10,
-      paddingHorizontal: 16,
-      borderWidth: 1,
-      borderColor: '#2F3A59',
-      borderRadius: 12,
-      color: '#FFFFFF',
-      backgroundColor: '#1C1F2E',
-      fontSize: 16,
-      fontWeight: '500',
-    },
-    inputAndroidContainer: {
-      zIndex: 1000,
-    },
-    placeholder: {
-      color: '#ffffff', // серый текст
-      zIndex: -1,
-    },
-    iconContainer: {
-      top: 16,
-      right: 12,
-    },
   };
 
   const mocks = generateMockTimings(TimingsBeforeBlock, 'minutes');
@@ -137,7 +98,7 @@ export default function CodeProtectionSettings() {
                   value={blockTime}
                   onValueChange={value => setBlockTime(value)}
                   placeholder={{ label: 'Default (1 minute)', value: null }}
-                  style={pickerStyle}
+                  style={pickerStyle(colors.background.secondary)}
                   items={mocks}
                 />
               </Grid>

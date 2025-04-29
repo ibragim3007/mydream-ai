@@ -1,5 +1,5 @@
 import GroupCard from '@/shared/ui/elements/GroupCard';
-import SettingsItem from '../SettingsItem';
+import SettingsItem from '../../../../shared/ui/elements/SettingsItem';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useTheme } from '@/shared/hooks/useTheme';
 import * as StoreReview from 'expo-store-review';

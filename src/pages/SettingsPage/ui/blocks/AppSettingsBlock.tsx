@@ -2,9 +2,10 @@ import { useAuth } from '@/entities/auth/auth.repository';
 import { useTheme } from '@/shared/hooks/useTheme';
 import GroupCard from '@/shared/ui/elements/GroupCard';
 import Foundation from '@expo/vector-icons/Foundation';
-import SettingItem from '../SettingsItem';
 import { router } from 'expo-router';
+import SettingItem from '../../../../shared/ui/elements/SettingsItem';
 
+import { LanguagePicker } from '@/module/LanguagePicker';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
 export default function AppSettingsBlock() {
@@ -33,6 +34,8 @@ export default function AppSettingsBlock() {
         leftIcon={<MaterialIcons name="password" size={23} color={colors.text.primary} />}
         title="Code protection"
       />
+
+      <LanguagePicker />
     </GroupCard>
   );
 }

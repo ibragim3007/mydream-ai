@@ -1,6 +1,6 @@
 import GroupCard from '@/shared/ui/elements/GroupCard';
 import Feather from '@expo/vector-icons/Feather';
-import SettingItem from '../SettingsItem';
+import SettingItem from '../../../../shared/ui/elements/SettingsItem';
 import { useTheme } from '@/shared/hooks/useTheme';
 import { Linking } from 'react-native';
 import { EMAIL_FEEDBACK } from '@/shared/config/constants/constants';

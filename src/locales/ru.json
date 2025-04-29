@@ -1,7 +1,6 @@
 {
   "home": {
-    "welcome": "Добро пожаловать, {{name}}!",
-    "items": "{{count}} предмет",
-    "items_other": "{{count}} предметов"
+    "headerTitle": "Привет, Мечтатель!",
+    "description": "The better you describe your dream, the better the interpretation will be."
   }
 }

@@ -7,9 +7,11 @@ import { zustandMMKVStorageLang } from './lang.storage';
 
 interface State {
   lang: string;
+  _hasHydrated: boolean;
 }
 interface Actions {
   setLang: (lang: string) => void;
+  setHasHydrated: (v: boolean) => void;
 }
 
 /**
@@ -18,26 +20,28 @@ interface Actions {
  */
 export const useLang = create<State & Actions>()(
   persist(
-    immer(set => {
-      // язык устройства по умолчанию
-      const deviceLang = getDeviceLanguage();
-      i18n.changeLanguage(deviceLang); // синхронизируем i18n при старте
-
-      return {
-        lang: deviceLang,
-
-        setLang: lang =>
-          set(state => {
-            if (state.lang !== lang) {
-              state.lang = lang; // обновляем стор
-              i18n.changeLanguage(lang); // переключаем i18n
-            }
-          }),
-      };
-    }),
+    immer((set /*, get */) => ({
+      lang: getDeviceLanguage(), // fallback
+      setLang: lang =>
+        set(s => {
+          if (s.lang !== lang) {
+            s.lang = lang;
+            i18n.changeLanguage(lang); // переключаем сразу
+          }
+        }),
+      _hasHydrated: false, // флаг, чтобы UI знал, что всё готово
+      setHasHydrated: (v: boolean) => set({ _hasHydrated: v }),
+    })),
     {
-      name: 'lang', // ключ в SecureStore/AsyncStorage
-      storage: createJSONStorage(() => zustandMMKVStorageLang), // ваша обёртка на SecureStore
+      name: 'lang',
+      storage: createJSONStorage(() => zustandMMKVStorageLang),
+
+      /** выстрелит ровно один раз после подгрузки сохранённого стейта */
+      onRehydrateStorage: state => persistedState => {
+        const saved = persistedState?.lang;
+        i18n.changeLanguage(saved ?? state.lang); // если был — применяем
+        state.setHasHydrated(true); // даём знать UI
+      },
     },
   ),
 );

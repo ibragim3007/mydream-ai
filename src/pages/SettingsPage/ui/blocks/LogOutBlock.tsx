@@ -2,7 +2,7 @@ import { useAuth } from '@/entities/auth/auth.repository';
 import { useTheme } from '@/shared/hooks/useTheme';
 import GroupCard from '@/shared/ui/elements/GroupCard';
 import Feather from '@expo/vector-icons/Feather';
-import SettingItem from '../SettingsItem';
+import SettingItem from '../../../../shared/ui/elements/SettingsItem';
 
 export default function LogOutBlock() {
   const colors = useTheme();

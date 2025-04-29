@@ -11,6 +11,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import ToastManager from 'toastify-react-native';
 import { vexo } from 'vexo-analytics';
 import GeneralStack from './stack';
+import { I18nextProvider, useTranslation } from 'react-i18next';
 
 Sentry.init({
   dsn: 'https://75639b83524ceb4e5cd2f365c943e3a3@o4509188089708544.ingest.us.sentry.io/4509188098949120',
@@ -34,17 +35,21 @@ void SplashScreen.preventAutoHideAsync();
 
 export default Sentry.wrap(function RootLayout() {
   const { blockTime, codeProtection, biometric } = useProtection();
+  const { i18n } = useTranslation(); // автоматический re-render при смене языка
+
   return (
-    <ThemeProvider>
-      <UserInactivityProvider blockTime={blockTime} isProtected={codeProtection || biometric ? true : false}>
-        <QueryClientProvider client={queryClient}>
-          <GestureHandlerRootView style={{ flex: 1 }}>
-            <StatusBar style="light" />
-            <GeneralStack />
-            <ToastManager />
-          </GestureHandlerRootView>
-        </QueryClientProvider>
-      </UserInactivityProvider>
-    </ThemeProvider>
+    <I18nextProvider i18n={i18n}>
+      <ThemeProvider>
+        <UserInactivityProvider blockTime={blockTime} isProtected={codeProtection || biometric ? true : false}>
+          <QueryClientProvider client={queryClient}>
+            <GestureHandlerRootView style={{ flex: 1 }}>
+              <StatusBar style="light" />
+              <GeneralStack />
+              <ToastManager />
+            </GestureHandlerRootView>
+          </QueryClientProvider>
+        </UserInactivityProvider>
+      </ThemeProvider>
+    </I18nextProvider>
   );
 });
