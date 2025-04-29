@@ -14,7 +14,7 @@ import { useTranslation } from 'react-i18next';
 
 export default function ListHeader() {
   const { data } = useGetDreams();
-  const { t } = useTranslation('home');
+  const { t } = useTranslation();
 
   const dreamTitle = data?.pages[0][0]?.title || undefined;
   const decodeDream = dreamTitle ? `Decode ${dreamTitle}` : undefined;
@@ -53,7 +53,7 @@ export default function ListHeader() {
       {isDreamsExists && (
         <Grid>
           <Typography weight="extra-bold" variant="title-1">
-            {t('your-dreams')}
+            {t('home.your-dreams')}
           </Typography>
         </Grid>
       )}

@@ -22,7 +22,7 @@ export default function AddDreamButton() {
       style={{ borderRadius: 15, flex: 1 }}
       leftIcon={<MaterialCommunityIcons name="pencil-plus" size={24} color={colors.text.white} />}
     >
-      {dreamText ? t('continue-writing') : t('note-a-new-dream')}
+      {dreamText ? t('home.continue-writing') : t('home.note-a-new-dream')}
     </Button>
   );
 }

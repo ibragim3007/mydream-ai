@@ -17,7 +17,7 @@ interface SubBlockProps {
 export default function SubBlock({ title }: SubBlockProps) {
   const { subscriptionStatus } = useSubscription();
   const { vibrate } = useVibration();
-  const { t } = useTranslation('sub-block');
+  const { t } = useTranslation();
 
   const onPress = () => {
     vibrate();
@@ -54,25 +54,25 @@ export default function SubBlock({ title }: SubBlockProps) {
       <Grid space="lg" justfity="space-between" flex={1} padding={25}>
         <Grid space="md" justfity="center">
           <Typography numberOfLines={2} weight="extra-bold" variant="title-2">
-            {title || t('mydream-ai-premium')}
+            {title || t('sub-block.mydream-ai-premium')}
           </Typography>
           <Grid
             style={{ shadowColor: '#fff', shadowOpacity: 0.9, shadowRadius: 2, shadowOffset: { height: 0, width: 0 } }}
           >
             <Typography variant="footnote" weight="bold">
-              • {t('free-trial')}
+              • {t('sub-block.free-trial')}
             </Typography>
-            <Typography variant="footnote">• {t('decode-dream-in-seconds')}</Typography>
-            <Typography variant="footnote">• {t('high-fidelity-voice')}</Typography>
-            <Typography variant="footnote">• {t('continue-dream-one-tap')}</Typography>
+            <Typography variant="footnote">• {t('sub-block.decode-dream-in-seconds')}</Typography>
+            <Typography variant="footnote">• {t('sub-block.high-fidelity-voice')}</Typography>
+            <Typography variant="footnote">• {t('sub-block.continue-dream-one-tap')}</Typography>
             <Typography variant="footnote">
-              • {getWeeklyPurchaseCount()} {t('people-unlocked-week')}
+              • {getWeeklyPurchaseCount()} {t('sub-block.people-unlocked-week')}
             </Typography>
           </Grid>
         </Grid>
         <Grid gap={2} width="80%" flex={1} justfity="flex-end">
           <Button style={{ paddingVertical: 9 }} onPress={onPress}>
-            {t('start-free-trial')}
+            {t('sub-block.start-free-trial')}
           </Button>
           {/* <Typography marginLeft={20} variant="caption-1" color="disabled">
             Then {currentPrice} per week

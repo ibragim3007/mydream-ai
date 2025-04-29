@@ -9,12 +9,12 @@ import Animated from 'react-native-reanimated';
 import { useTranslation } from 'react-i18next';
 
 export default function NoDreamsBlock() {
-  const { t } = useTranslation('home');
+  const { t } = useTranslation();
   return (
     <Animated.View entering={animationEngine.fadeInUp(1)}>
       <Grid>
         <Typography weight="extra-bold" variant="title-1">
-          {t('your-dreams-displayed')}
+          {t('home.your-dreams-displayed')}
         </Typography>
         <LottieView autoPlay style={{ width: '100%', height: normalizedSize(290) }} source={LadyAnimation} />
       </Grid>
