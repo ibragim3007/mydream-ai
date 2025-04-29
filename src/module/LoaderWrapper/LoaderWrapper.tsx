@@ -1,9 +1,7 @@
-// app/index.tsx
 import { useProtection } from '@/entities/useProtection/useProtection';
 import { Environment } from '@/shared/config/config';
 import { isAppToken } from '@/shared/service/appId.service';
 import { errorLogger } from '@/shared/service/logger.service/sentry.service';
-import PageWrapper from '@/shared/ui/layout/PageWrapper';
 import {
   Nunito_200ExtraLight,
   Nunito_200ExtraLight_Italic,
@@ -24,12 +22,10 @@ import {
 } from '@expo-google-fonts/nunito';
 import Superwall, { LogLevel, LogScope, SuperwallOptions } from '@superwall/react-native-superwall';
 import { useFonts } from 'expo-font';
-import { Redirect, SplashScreen } from 'expo-router';
+import { SplashScreen } from 'expo-router';
 import { useEffect, useState } from 'react';
 
-SplashScreen.preventAutoHideAsync(); // вызываем как можно раньше
-
-export default function Index() {
+export default function LoaderWrapper() {
   const [fontsLoaded] = useFonts({
     Nunito_200ExtraLight,
     Nunito_300Light,
@@ -48,17 +44,13 @@ export default function Index() {
     Nunito_800ExtraBold_Italic,
     Nunito_900Black_Italic,
   });
-
-  /* 2. Сохраняем, куда нужно редиректить */
-  const [target, setTarget] = useState<string | null>(null);
-
-  const { codeProtection, biometric } = useProtection(); // zustand
+  const [isAppReady, setIsAppReady] = useState<boolean>(false);
+  const { codeProtection, biometric } = useProtection();
 
   useEffect(() => {
     const init = async () => {
       if (!fontsLoaded) return;
 
-      //* 3. Инициализируем Superwall */
       try {
         const opts = new SuperwallOptions();
         opts.logging.level = LogLevel.Warn;
@@ -76,21 +68,10 @@ export default function Index() {
       } else if (await isAppToken()) {
         href = '/screens/homeScreen';
       }
-      setTarget(href);
+      setIsAppReady(true);
       SplashScreen.hideAsync(); // теперь можно скрывать Splash
     };
 
     init();
-  }, [fontsLoaded, codeProtection, biometric]);
-
-  if (!target) return null;
-
-  /* 5. Когда всё готово — мгновенный редирект */
-  return (
-    <PageWrapper>
-      {/* <Grid flex={1} color="#0C111C" width="100%"> */}
-      <Redirect href={target} />
-      {/* </Grid> */}
-    </PageWrapper>
-  ); // компонент Redirect поддерживается Expo Router :contentReference[oaicite:1]{index=1}
+  }, [fontsLoaded, codeProtection, biometric]); // добавляем зависимости
 }
