@@ -23,12 +23,35 @@
   },
   "dream-input": {
     "placeholder": "Describe your dream here. If you prefer, press the keyboard microphone to speak.",
-    "audio-loading": "Transcribing your audio...{'\\n'}just a moment",
+    "audio-loading": "Transcribing your audio...\njust a moment",
     "enter-description": "Enter a description of your dream",
     "more-words-needed": "Please enter at least 3 words",
     "error": "Error",
     "dream-not-created": "Dream not created",
-    "analyzing-loading": "Analyzing your dream{'\\n'}Wait a moment...",
+    "analyzing-loading": "Analyzing your dream\nWait a moment...",
     "analyze-button": "Save & Analyze"
+  },
+  "dream-page": {
+    "general-info": "General info",
+    "loading-continuation": "Loading...",
+    "finish-dream": "Finish the dream",
+    "feed-back-interpretations": "Did you like the interpretations?",
+    "interpretations-label": "Interpretations",
+    "interpretations": {
+      "esoteric": "Esoteric interpretation",
+      "esoteric-desc": "Hidden signs and soul messages.\nSymbols guide inner awareness.",
+      "scientific": "Scientific interpretation",
+      "scientific-desc": "Dreams reflect brain activity.\\nThey reveal stress and emotion.",
+      "self-development": "Self development interpretation",
+      "self-development-desc": "Dreams mirror growth and change.\\nThey help unlock potential."
+    },
+    "delete-warning": "Are you sure you want to delete this dream?",
+    "lose-data-warning": "The data will be lost forever",
+    "dream-word": "Dream",
+    "delete-title": "Delete",
+    "less": "Less",
+    "more": "Read more",
+    "original-input": "Input",
+    "characters": "Characters"
   }
 }

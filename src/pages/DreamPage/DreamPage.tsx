@@ -25,8 +25,10 @@ import Interpretations from './ui/Interpretations';
 import LoadingSkeleton from './ui/LoadingSkeleton';
 import Participants from './ui/Participants';
 import { useSubscription } from '@/shared/hooks/useSubscription';
+import { useTranslation } from 'react-i18next';
 
 export default function DreamPage() {
+  const { t } = useTranslation();
   const params = useLocalSearchParams<{ id: string }>();
   const colors = useTheme();
   const { isActive } = useSubscription();
@@ -101,11 +103,11 @@ export default function DreamPage() {
 
               <Grid width="100%" space="md" paddingHorizontal={HORIZONTAL_PADDINGS}>
                 <Typography weight="extra-bold" variant="title-2">
-                  General info
+                  {t('dream-page.general-info')}
                 </Typography>
                 <CardPaper
                   width="100%"
-                  title={'Input'}
+                  title={t('dream-page.original-input')}
                   date={new Date(data.createdAt).toDateString()}
                   text={data.inputText}
                 />
@@ -130,14 +132,14 @@ export default function DreamPage() {
                       )
                     }
                   >
-                    {isPending ? 'Loading...' : 'Finish the dream'}
+                    {isPending ? t('dream-page.loading-continuation') : t('dream-page.finish-dream')}
                   </Button>
                 )}
               </Grid>
 
               <Interpretations analysis={analysis} isActive={isActive} />
               <Grid marginVertical={60}>
-                <GeneralFeedback title="Did you like the interpretations?" />
+                <GeneralFeedback title={t('dream-page.feed-back-interpretations')} />
               </Grid>
             </Grid>
           </Animated.View>

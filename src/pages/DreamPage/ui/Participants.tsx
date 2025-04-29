@@ -3,6 +3,7 @@ import { SleepDataResponse } from '@/shared/types/globalTypes';
 import ParticipantItem from '@/shared/ui/elements/ParticipantItem';
 import Grid from '@/shared/ui/grid/Grid';
 import Typography from '@/shared/ui/typography/Typography';
+import { useTranslation } from 'react-i18next';
 import { ScrollView } from 'react-native';
 
 interface ParticipantsProps {
@@ -10,6 +11,7 @@ interface ParticipantsProps {
 }
 
 export default function Participants({ analysis }: ParticipantsProps) {
+  const { t } = useTranslation();
   if (analysis.characters.length === 0) {
     return null;
   }
@@ -17,7 +19,7 @@ export default function Participants({ analysis }: ParticipantsProps) {
   return (
     <Grid space="md">
       <Typography variant="title-2" weight="extra-bold" marginLeft={HORIZONTAL_PADDINGS}>
-        Characters
+        {t('dream-page.characters')}
       </Typography>
       <ScrollView
         horizontal

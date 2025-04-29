@@ -82,7 +82,6 @@ export default function SaveAndAnaluzeButton({ dreamText, disabled, onChangeText
                 <Typography textAlign="center" weight="bold" variant="title-3">
                   {t('dream-input.analyzing-loading')}
                 </Typography>
-
                 <LoaderIndicator />
               </Grid>
             </Paper>

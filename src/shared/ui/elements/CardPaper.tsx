@@ -9,6 +9,7 @@ import Paper from '../layout/Paper';
 import Typography from '../typography/Typography';
 import ModalContainer from '../wrapper/ModalContainer';
 import { useVibration } from '@/shared/hooks/useVibration';
+import { useTranslation } from 'react-i18next';
 
 interface CardPaperProps extends GridProps {
   title: string;
@@ -18,6 +19,7 @@ interface CardPaperProps extends GridProps {
 }
 
 export default function CardPaper({ title, date, text, extendedText, ...props }: CardPaperProps) {
+  const { t } = useTranslation();
   const colors = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [isOverflowing, setIsOverflowing] = useState(false);
@@ -67,7 +69,7 @@ export default function CardPaper({ title, date, text, extendedText, ...props }:
         </Typography>
         {isOverflowing && (
           <Button textStyle={{ color: colors.text.white }} onPress={onToggleOpenFullText} variant="text">
-            {isOpenFullText ? 'Less' : 'Read more'}
+            {isOpenFullText ? t('dream-page.less') : t('dream-page.more')}
           </Button>
         )}
       </Grid>

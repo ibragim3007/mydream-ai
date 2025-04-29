@@ -10,12 +10,14 @@ import HeaderImage from './HeaderImage';
 import DropdownOptions from './DropdownOptions';
 import { Alert } from 'react-native';
 import { useDeleteDream } from '@/entities/dream/dream.repository';
+import { useTranslation } from 'react-i18next';
 
 interface HeaderDreamProps {
   dream: GetDreamDto;
 }
 
 export default function HeaderDream({ dream }: HeaderDreamProps) {
+  const { t } = useTranslation();
   const goBack = () => {
     router.back();
   };
@@ -23,7 +25,7 @@ export default function HeaderDream({ dream }: HeaderDreamProps) {
   const { deleteDreamFunction } = useDeleteDream();
 
   const onDelete = () => {
-    Alert.alert('Are you sure you want to delete this dream?', 'The data will be lost forever', [
+    Alert.alert(t('dream-page.delete-warning'), t('dream-page.lose-data-warning'), [
       {
         text: 'No',
       },
@@ -44,7 +46,7 @@ export default function HeaderDream({ dream }: HeaderDreamProps) {
       <Grid paddingHorizontal={HORIZONTAL_PADDINGS} row align="center" justfity="space-between" space="lg">
         <GoBackButton onPress={goBack} />
         <Typography textAlign="center" variant="title-3" weight="extra-bold">
-          Dream
+          {t('dream-page.dream-word')}
         </Typography>
 
         <DropdownOptions onDelete={onDelete} />

@@ -6,6 +6,7 @@ import { SleepDataResponse } from '@/shared/types/globalTypes';
 import InterpretationItem from '@/shared/ui/elements/InterpretationItem';
 import Grid from '@/shared/ui/grid/Grid';
 import Typography from '@/shared/ui/typography/Typography';
+import { useTranslation } from 'react-i18next';
 
 interface InterpretationsProps {
   analysis: SleepDataResponse;
@@ -13,32 +14,33 @@ interface InterpretationsProps {
 }
 
 export default function Interpretations({ analysis, isActive }: InterpretationsProps) {
+  const { t } = useTranslation();
   return (
     <Grid paddingHorizontal={HORIZONTAL_PADDINGS} space="md">
       <Typography weight="extra-bold" variant="title-2">
-        Interpretations
+        {t('dream-page.interpretations-label')}
       </Typography>
       <Grid space="md">
         <InterpretationItem
           isBlocked={false}
-          title="Esoteric interpretation"
+          title={t('dream-page.interpretations.esoteric')}
           text={analysis.interpretations.esoteric}
           image={EsotericImage}
-          description={'Hidden signs and soul messages.\nSymbols guide inner awareness.'}
+          description={t('dream-page.interpretations.esoteric-desc')}
         />
         <InterpretationItem
           isBlocked={!isActive}
-          title="Scientific interpretation"
+          title={t('dream-page.interpretations.scientific')}
           text={analysis.interpretations.scientific}
           image={ScientificImage}
-          description={'Dreams reflect brain activity.\nThey reveal stress and emotion.'}
+          description={t('dream-page.interpretations.scientific-desc')}
         />
         <InterpretationItem
           isBlocked={!isActive}
-          title="Self development interpretation"
+          title={t('dream-page.interpretations.self-development')}
           text={analysis.interpretations.self_development}
           image={SelfDevelopmentImage}
-          description={'Dreams mirror growth and change.\nThey help unlock potential.'}
+          description={t('dream-page.interpretations.self-development-desc')}
         />
       </Grid>
     </Grid>
