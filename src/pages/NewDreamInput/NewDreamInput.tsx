@@ -14,9 +14,11 @@ import ModalContainer from '@/shared/ui/wrapper/ModalContainer';
 import { useHeaderHeight } from '@react-navigation/elements';
 import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { KeyboardAvoidingView, Modal, Platform, TextInput } from 'react-native';
 
 export default function NewDreamInput() {
+  const { t } = useTranslation();
   const { uri } = useLocalSearchParams<{ uri?: string }>();
   const [isLoadingTranscribing, setIsLoadingTranscribing] = useState(false);
   const { dreamText, setDreamText } = useDreamStore();
@@ -67,7 +69,7 @@ export default function NewDreamInput() {
             autoFocus
             multiline
             scrollEnabled
-            placeholder="Enter your dream here. You can use microphone button on your keyboard"
+            placeholder={t('dream-input.placeholder')}
             style={{
               fontSize: 22,
               fontFamily: fontWeight.medium,
@@ -85,7 +87,7 @@ export default function NewDreamInput() {
               <Paper>
                 <Grid space="md" align="center">
                   <Typography textAlign="center" weight="bold" variant="title-3">
-                    Transcribing your audio...{'\n'}just a moment
+                    {t('dream-input.audio-loading')}
                   </Typography>
                   <LoaderIndicator />
                 </Grid>

@@ -20,5 +20,15 @@
     "continue-dream-one-tap": "Continue your dream with 1 tap",
     "people-unlocked-week": "people unlocked insights this week",
     "start-free-trial": "Start 3-day free trial"
+  },
+  "dream-input": {
+    "placeholder": "Describe your dream here. If you prefer, press the keyboard microphone to speak.",
+    "audio-loading": "Transcribing your audio...{'\\n'}just a moment",
+    "enter-description": "Enter a description of your dream",
+    "more-words-needed": "Please enter at least 3 words",
+    "error": "Error",
+    "dream-not-created": "Dream not created",
+    "analyzing-loading": "Analyzing your dream{'\\n'}Wait a moment...",
+    "analyze-button": "Save & Analyze"
   }
 }
