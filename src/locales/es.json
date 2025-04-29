@@ -44,7 +44,7 @@
     "description": "Cuanto mejor describas tu sueño, mejor será la interpretación.",
     "error-loading-dreams": "Error al cargar los sueños",
     "continue-writing": "Seguir escribiendo",
-    "note-a-new-dream": "Registrar un nuevo sueño",
+    "note-a-new-dream": "Registrar un sueño",
     "permission-to-access-microphone-was-denied": "Se denegó el acceso al micrófono",
     "enable-microphone-permission": "Actívalo en los ajustes.",
     "audio-too-short": "Grabación demasiado corta",
@@ -60,7 +60,7 @@
     "high-fidelity-voice": "Captura de voz de alta fidelidad (95 % de precisión)",
     "continue-dream-one-tap": "Continúa tu sueño con un toque",
     "people-unlocked-week": "personas obtuvieron ideas esta semana",
-    "start-free-trial": "Comenzar prueba gratuita de 3 días"
+    "start-free-trial": "Comenzar prueba gratuita"
   },
   "dream-input": {
     "placeholder": "Describe tu sueño aquí. Si lo prefieres, usa el micrófono del teclado para dictar.",
@@ -70,7 +70,7 @@
     "error": "Error",
     "dream-not-created": "El sueño no se guardó",
     "analyzing-loading": "Analizando tu sueño...\nEspera un momento…",
-    "analyze-button": "Guardar y analizar",
+    "analyze-button": "Guardar",
     "new-dream-header": "Nuevo sueño"
   },
   "dream-page": {
