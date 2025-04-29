@@ -12,6 +12,8 @@ import ToastManager from 'toastify-react-native';
 import { vexo } from 'vexo-analytics';
 import GeneralStack from './stack';
 import { I18nextProvider, useTranslation } from 'react-i18next';
+import i18n from '@/shared/providers/i18n';
+import { I18nManager } from 'react-native';
 
 Sentry.init({
   dsn: 'https://75639b83524ceb4e5cd2f365c943e3a3@o4509188089708544.ingest.us.sentry.io/4509188098949120',
@@ -29,6 +31,15 @@ Sentry.init({
 if (!__DEV__) {
   vexo(Environment.vexo_api_key || '');
 }
+
+const isRTL = i18n.language.startsWith('ar');
+I18nManager.allowRTL(isRTL);
+I18nManager.forceRTL(isRTL);
+
+// Если режим изменился, перезапускаем приложение
+// if (I18nManager.isRTL !== isRTL) {
+//   RNRestart.Restart();
+// }
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 void SplashScreen.preventAutoHideAsync();

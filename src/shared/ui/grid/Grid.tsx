@@ -4,6 +4,7 @@ import { normalizeLayoutDimenstionValue } from '../../helpers/styleHelpers/norma
 import { normalizedSize } from '../../utils/size';
 import { withPressable } from '@/shared/hoc/withPressable';
 import Animated, { LinearTransition } from 'react-native-reanimated';
+import i18n from '@/shared/providers/i18n';
 
 export interface GridProps extends ViewProps {
   flex?: number;
@@ -64,7 +65,7 @@ const Grid = ({
     justfity !== undefined && { justifyContent: justfity },
     align !== undefined && { alignItems: align },
     color !== undefined && { backgroundColor: color },
-    row !== undefined && { flexDirection: 'row' },
+    row !== undefined && { flexDirection: i18n.language.startsWith('ar') ? 'row-reverse' : 'row' },
     gap !== undefined && { gap: normalizedSize(gap) },
     wrap !== undefined && { flexWrap: 'wrap' },
     height !== undefined && { height: normalizeLayoutDimenstionValue(height) },
