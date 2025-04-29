@@ -108,7 +108,7 @@ export default function DreamPage() {
                 <CardPaper
                   width="100%"
                   title={t('dream-page.original-input')}
-                  date={new Date(data.createdAt).toDateString()}
+                  date={new Date(data.createdAt).toLocaleDateString()}
                   text={data.inputText}
                 />
 
