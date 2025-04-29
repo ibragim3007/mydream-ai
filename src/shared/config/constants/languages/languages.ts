@@ -5,7 +5,7 @@ interface IDisplayLanguage {
 }
 
 export const languages: IDisplayLanguage[] = [
-  { label: 'العربية', code: 'ar', flag: '🇸🇦' },
+  // { label: 'العربية', code: 'ar', flag: '🇸🇦' },
   { label: '中文', code: 'zh', flag: '🇨🇳' },
   { label: 'Nederlands', code: 'nl', flag: '🇳🇱' },
   { label: 'English', code: 'en', flag: '🇬🇧' },
