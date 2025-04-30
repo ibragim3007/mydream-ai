@@ -1,4 +1,4 @@
 {
-  "NSFaceIDUsageDescription": "允许 $(PRODUCT_NAME) 使用 Face ID。",
-  "NSMicrophoneUsageDescription": "允许 $(PRODUCT_NAME) 使用麦克风。"
+  "NSFaceIDUsageDescription": "允许 使用 Face ID。",
+  "NSMicrophoneUsageDescription": "允许 使用麦克风。"
 }

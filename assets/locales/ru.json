@@ -1,4 +1,4 @@
 {
-  "NSFaceIDUsageDescription": "Разрешите $(PRODUCT_NAME) использовать Face ID.",
-  "NSMicrophoneUsageDescription": "Разрешите $(PRODUCT_NAME) использовать микрофон."
+  "NSFaceIDUsageDescription": "Разрешите использовать Face ID.",
+  "NSMicrophoneUsageDescription": "Разрешите использовать микрофон."
 }

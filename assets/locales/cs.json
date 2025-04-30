@@ -1,4 +1,4 @@
 {
-  "NSFaceIDUsageDescription": "Umožněte aplikaci $(PRODUCT_NAME) používat Face ID.",
-  "NSMicrophoneUsageDescription": "Umožněte aplikaci $(PRODUCT_NAME) používat mikrofon."
+  "NSFaceIDUsageDescription": "Umožněte aplikaci používat Face ID.",
+  "NSMicrophoneUsageDescription": "Umožněte aplikaci používat mikrofon."
 }
