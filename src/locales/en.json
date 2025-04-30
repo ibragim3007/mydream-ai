@@ -120,7 +120,10 @@
     "logout-alert-title": "Logout",
     "log-out-warn": "Are you sure you want to log out? And lose all your's data",
     "header-title": "Settings",
-    "update-name-header": "Change name"
+    "update-name-header": "Change name",
+    "app-icon": "App Icon",
+    "pick-icon": "Pick icon",
+    "reset": "Reset"
   },
   "protection": {
     "welcome-back": "Welcome back",

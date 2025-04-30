@@ -120,7 +120,10 @@
     "logout-alert-title": "Çıkış",
     "log-out-warn": "Çıkış yapmak istediğinizden emin misiniz? Tüm verileriniz silinecek",
     "header-title": "Ayarlar",
-    "update-name-header": "Adı Değiştir"
+    "update-name-header": "Adı Değiştir",
+    "app-icon": "Uygulama simgesi",
+    "pick-icon": "Simge seç",
+    "reset": "Sıfırla"
   },
   "protection": {
     "welcome-back": "Tekrar hoş geldiniz",

@@ -34,6 +34,10 @@
       "config": {
         "usesNonExemptEncryption": false
       },
+      "icon": {
+        "dark": "./assets/images/icons_ios/icon-dark.png",
+        "light": "./assets/images/icons_ios/icon-a.png"
+      },
       "buildNumber": "8"
     },
     "android": {
@@ -107,11 +111,7 @@
         [
           {
             "name": "IconA",
-            "ios": {
-              "light": "./assets/images/icons_ios/icon-a.png",
-              "dark": "./assets/images/icons_ios/icon-dark.png",
-              "tinted": "./assets/images/icons_ios/icon-dark.png"
-            },
+            "ios": "./assets/images/icons_ios/icon-a.png",
             "android": {
               "foregroundImage": "./assets/icon-a-foreground.png",
               "backgroundColor": "#001413"
@@ -119,11 +119,7 @@
           },
           {
             "name": "IconB",
-            "ios": {
-              "light": "./assets/images/icons_ios/icon-b.png",
-              "dark": "./assets/images/icons_ios/icon-dark.png",
-              "tinted": "./assets/images/icons_ios/icon-dark.png"
-            },
+            "ios": "./assets/images/icons_ios/icon-b.png",
             "android": {
               "foregroundImage": "./assets/icon-b-foreground.png",
               "backgroundColor": "#001413"
@@ -131,11 +127,7 @@
           },
           {
             "name": "IconC",
-            "ios": {
-              "light": "./assets/images/icons_ios/icon-c.png",
-              "dark": "./assets/images/icons_ios/icon-dark.png",
-              "tinted": "./assets/images/icons_ios/icon-dark.png"
-            },
+            "ios": "./assets/images/icons_ios/icon-c.png",
             "android": {
               "foregroundImage": "./assets/icon-c-foreground.png",
               "backgroundColor": "#001413"
@@ -143,11 +135,15 @@
           },
           {
             "name": "IconD",
-            "ios": {
-              "light": "./assets/images/icons_ios/icon-d.png",
-              "dark": "./assets/images/icons_ios/icon-dark.png",
-              "tinted": "./assets/images/icons_ios/icon-dark.png"
-            },
+            "ios": "./assets/images/icons_ios/icon-d.png",
+            "android": {
+              "foregroundImage": "./assets/icon-c-foreground.png",
+              "backgroundColor": "#001413"
+            }
+          },
+          {
+            "name": "IconE",
+            "ios": "./assets/images/icons_ios/icon-e.png",
             "android": {
               "foregroundImage": "./assets/icon-c-foreground.png",
               "backgroundColor": "#001413"

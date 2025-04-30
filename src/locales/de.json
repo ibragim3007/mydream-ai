@@ -120,7 +120,10 @@
     "logout-alert-title": "Abmelden",
     "log-out-warn": "Bist du sicher, dass du dich abmelden willst? Alle deine Daten gehen verloren.",
     "header-title": "Einstellungen",
-    "update-name-header": "Name ändern"
+    "update-name-header": "Name ändern",
+    "app-icon": "App-Symbol",
+    "pick-icon": "Symbol auswählen",
+    "reset": "Zurücksetzen"
   },
   "protection": {
     "welcome-back": "Willkommen zurück",

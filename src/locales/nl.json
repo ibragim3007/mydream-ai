@@ -120,7 +120,10 @@
     "logout-alert-title": "Uitloggen",
     "log-out-warn": "Weet je zeker dat je wilt uitloggen? Je gegevens gaan verloren",
     "header-title": "Instellingen",
-    "update-name-header": "Naam wijzigen"
+    "update-name-header": "Naam wijzigen",
+    "app-icon": "App-pictogram",
+    "pick-icon": "Selecteer pictogram",
+    "reset": "Resetten"
   },
   "protection": {
     "welcome-back": "Welkom terug",

@@ -22,4 +22,5 @@ export const languages: IDisplayLanguage[] = [
   { label: 'Svenska', code: 'sv', flag: '🇸🇪' },
   { label: 'Norsk', code: 'no', flag: '🇳🇴' },
   { label: 'Русский', code: 'ru', flag: '🇷🇺' },
+  { label: 'Čeština', code: 'cs', flag: '🇨🇿' },
 ].sort((a, b) => a.code.localeCompare(b.code));

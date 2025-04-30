@@ -120,7 +120,10 @@
     "logout-alert-title": "تسجيل الخروج",
     "log-out-warn": "هل أنت متأكد أنك تريد تسجيل الخروج؟ سيؤدي ذلك إلى فقدان جميع بياناتك",
     "header-title": "الإعدادات",
-    "update-name-header": "تغيير الاسم"
+    "update-name-header": "تغيير الاسم",
+    "app-icon": "رمز التطبيق",
+    "pick-icon": "اختر الرمز",
+    "reset": "إعادة تعيين"
   },
   "protection": {
     "welcome-back": "مرحبًا بعودتك",

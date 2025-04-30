@@ -120,7 +120,10 @@
     "logout-alert-title": "Выход",
     "log-out-warn": "Вы уверены, что хотите выйти? Ваши данные будут потеряны",
     "header-title": "Настройки",
-    "update-name-header": "Изменить имя"
+    "update-name-header": "Изменить имя",
+    "app-icon": "Значок приложения",
+    "pick-icon": "Выбрать значок",
+    "reset": "Сбросить"
   },
   "protection": {
     "welcome-back": "С возвращением",

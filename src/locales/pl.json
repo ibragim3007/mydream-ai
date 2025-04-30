@@ -120,7 +120,10 @@
     "logout-alert-title": "Wylogowanie",
     "log-out-warn": "Czy na pewno chcesz się wylogować? Dane zostaną utracone",
     "header-title": "Ustawienia",
-    "update-name-header": "Zmień imię"
+    "update-name-header": "Zmień imię",
+    "app-icon": "Ikona aplikacji",
+    "pick-icon": "Wybierz ikonę",
+    "reset": "Resetuj"
   },
   "protection": {
     "welcome-back": "Witaj ponownie",

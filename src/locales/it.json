@@ -120,7 +120,10 @@
     "logout-alert-title": "Disconnessione",
     "log-out-warn": "Sei sicuro di voler uscire? Tutti i tuoi dati andranno persi",
     "header-title": "Impostazioni",
-    "update-name-header": "Cambia nome"
+    "update-name-header": "Cambia nome",
+    "app-icon": "Icona dell’app",
+    "pick-icon": "Scegli icona",
+    "reset": "Ripristina"
   },
   "protection": {
     "welcome-back": "Bentornato",

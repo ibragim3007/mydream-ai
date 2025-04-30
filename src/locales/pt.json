@@ -120,7 +120,10 @@
     "logout-alert-title": "Sair",
     "log-out-warn": "Tem certeza de que deseja sair? Todos os seus dados serão perdidos.",
     "header-title": "Configurações",
-    "update-name-header": "Alterar nome"
+    "update-name-header": "Alterar nome",
+    "app-icon": "Ícone do app",
+    "pick-icon": "Selecionar ícone",
+    "reset": "Redefinir"
   },
   "protection": {
     "welcome-back": "Bem-vindo de volta",

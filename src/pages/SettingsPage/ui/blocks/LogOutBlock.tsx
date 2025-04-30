@@ -10,6 +10,7 @@ import * as SecureStore from 'expo-secure-store';
 import { useTranslation } from 'react-i18next';
 import { Alert } from 'react-native';
 import SettingItem from '../../../../shared/ui/elements/SettingsItem';
+import { AppIconsPicker } from '@/module/AppIconsPicker';
 
 export default function LogOutBlock() {
   const colors = useTheme();
@@ -48,6 +49,7 @@ export default function LogOutBlock() {
         title="Restore purchases"
       /> */}
       {/* <SettingItem leftIcon={<Feather name="user" size={24} color={colors.text.primary} />} title="Account settings" /> */}
+      <AppIconsPicker />
       <SettingItem
         danger
         leftIcon={<Feather name="log-out" size={24} color={colors.text.primary} />}

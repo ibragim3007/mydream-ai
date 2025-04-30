@@ -18,6 +18,7 @@ import pl from '@/locales/pl.json';
 import ko from '@/locales/ko.json';
 import hi from '@/locales/hi.json';
 import tr from '@/locales/tr.json';
+import cs from '@/locales/cs.json';
 
 import { getDeviceLanguage } from '../helpers/getDeviceLanguage';
 
@@ -40,6 +41,7 @@ i18n.use(initReactI18next).init({
     ko: { translation: ko },
     hi: { translation: hi },
     tr: { translation: tr },
+    cs: { translation: cs },
   },
   lng: getDeviceLanguage(),
   fallbackLng: 'en',

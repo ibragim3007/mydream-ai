@@ -120,7 +120,10 @@
     "logout-alert-title": "Logg ut",
     "log-out-warn": "Er du sikker på at du vil logge ut? Dataene dine forsvinner",
     "header-title": "Innstillinger",
-    "update-name-header": "Endre navn"
+    "update-name-header": "Endre navn",
+    "app-icon": "App-ikon",
+    "pick-icon": "Velg ikon",
+    "reset": "Tilbakestill"
   },
   "protection": {
     "welcome-back": "Velkommen tilbake",
