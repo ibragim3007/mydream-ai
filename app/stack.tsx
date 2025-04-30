@@ -24,18 +24,6 @@ export default function GeneralStack() {
         name="screens/settings"
         options={{ headerShown: false }} // заголовок внутри nested-stack
       />
-      {/* <Stack.Screen
-        name="screens/settingsScreen"
-        options={{
-          headerShown: true,
-          presentation: 'modal',
-          headerBlurEffect: 'regular',
-          headerTransparent: true,
-          headerTitle: 'Settings',
-          headerTitleStyle: headerTitleStyle,
-          headerLeft: () => <DismissModalButton />,
-        }}
-      /> */}
       <Stack.Screen
         name="screens/newDreamScreen"
         options={{

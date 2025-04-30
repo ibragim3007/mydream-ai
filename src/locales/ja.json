@@ -85,7 +85,11 @@
       "scientific": "科学的解釈",
       "scientific-desc": "夢は脳の活動を反映します。\nストレスや感情を明らかにします。",
       "self-development": "自己成長の解釈",
-      "self-development-desc": "夢は成長と変化を映し出します。\n潜在能力を解き放つ手助けをします。"
+      "self-development-desc": "夢は成長と変化を映し出します。\n潜在能力を解き放つ手助けをします。",
+      "freudian": "フロイト的解釈",
+      "freudian-desc": "夢は無意識の欲望を明らかにします。\n抑圧された感情が表面に浮かび上がります。",
+      "jungian": "ユング的解釈",
+      "jungian-desc": "元型的シンボルが道を照らします。\n夢は自己の完全性への旅を導きます。"
     },
     "delete-warning": "この夢を削除してもよろしいですか？",
     "lose-data-warning": "データは永久に失われます",

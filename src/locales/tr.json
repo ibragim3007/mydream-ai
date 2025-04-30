@@ -85,7 +85,11 @@
       "scientific": "Bilimsel yorum",
       "scientific-desc": "Rüyalar beyin aktivitesini yansıtır.\nStresi ve duyguları ortaya çıkarır.",
       "self-development": "Kişisel gelişim yorumu",
-      "self-development-desc": "Rüyalar büyüme ve değişimi yansıtır.\nPotansiyelinizi açığa çıkarmanıza yardımcı olur."
+      "self-development-desc": "Rüyalar büyüme ve değişimi yansıtır.\nPotansiyelinizi açığa çıkarmanıza yardımcı olur.",
+      "freudian": "Freudyen yorum",
+      "freudian-desc": "Rüyalar bilinçdışı arzuyu açığa çıkarır.\nBastırılan duygular su yüzüne çıkar.",
+      "jungian": "Jungi yorum",
+      "jungian-desc": "Arketipsel semboller yolu aydınlatır.\nRüyalar benlik bütünlüğüne giden yolculuğa rehberlik eder."
     },
     "delete-warning": "Bu rüyayı silmek istediğinizden emin misiniz?",
     "lose-data-warning": "Veriler kalıcı olarak kaybolacak",

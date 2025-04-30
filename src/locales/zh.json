@@ -85,7 +85,11 @@
       "scientific": "科学解读",
       "scientific-desc": "梦境反映大脑活动。\n揭示压力与情绪。",
       "self-development": "自我成长解读",
-      "self-development-desc": "梦境映射成长与变化。\n助你释放潜能。"
+      "self-development-desc": "梦境映射成长与变化。\n助你释放潜能。",
+      "freudian": "弗洛伊德式解释",
+      "freudian-desc": "梦境揭示无意识的欲望。\n被压抑的情感浮出水面。",
+      "jungian": "荣格式解释",
+      "jungian-desc": "原型符号照亮前行之路。\n梦境引导通往自我圆满的旅程。"
     },
     "delete-warning": "确定要删除此梦境吗？",
     "lose-data-warning": "数据将被永久删除",

@@ -44,7 +44,7 @@
     "description": "The better you describe your dream, the better the interpretation will be.",
     "error-loading-dreams": "Error loading dreams.",
     "continue-writing": "Continue writing",
-    "note-a-new-dream": "Record a new dream",
+    "note-a-new-dream": "Record a dream",
     "permission-to-access-microphone-was-denied": "Permission to access the microphone was denied.",
     "enable-microphone-permission": "Please enable microphone access in Settings.",
     "audio-too-short": "Audio recording is too short.",
@@ -85,7 +85,11 @@
       "scientific": "Scientific Interpretation",
       "scientific-desc": "Dreams reflect brain activity.\nThey reveal stress and emotion.",
       "self-development": "Self-Development Interpretation",
-      "self-development-desc": "Dreams mirror growth and change.\nThey help unlock potential."
+      "self-development-desc": "Dreams mirror growth and change.\nThey help unlock potential.",
+      "freudian": "Freudian interpretation",
+      "freudian-desc": "Dreams expose unconscious desire.\nRepressed emotions rise to the surface.",
+      "jungian": "Jungian interpretation",
+      "jungian-desc": "Archetypal symbols light the way.\nDreams guide the journey to self-wholeness."
     },
     "delete-warning": "Are you sure you want to delete this dream?",
     "lose-data-warning": "This data will be lost forever.",

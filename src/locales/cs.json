@@ -85,7 +85,11 @@
       "scientific": "Vědecká interpretace",
       "scientific-desc": "Sny odrážejí aktivitu mozku.\nOdhalují stres a emoce.",
       "self-development": "Interpretace pro osobní rozvoj",
-      "self-development-desc": "Sny odrážejí růst a změnu.\nPomáhají uvolnit potenciál."
+      "self-development-desc": "Sny odrážejí růst a změnu.\nPomáhají uvolnit potenciál.",
+      "freudian": "Freudovská interpretace",
+      "freudian-desc": "Sny odhalují nevědomé touhy.\nPotlačené emoce vystupují na povrch.",
+      "jungian": "Jungiánská interpretace",
+      "jungian-desc": "Archetypální symboly osvětlují cestu.\nSny vedou k dosažení vnitřní celistvosti."
     },
     "delete-warning": "Opravdu chcete tento sen smazat?",
     "lose-data-warning": "Data budou nenávratně ztracena",

@@ -85,7 +85,11 @@
       "scientific": "Interpretazione scientifica",
       "scientific-desc": "I sogni riflettono l’attività cerebrale.\nRivelano stress ed emozioni.",
       "self-development": "Interpretazione per lo sviluppo personale",
-      "self-development-desc": "I sogni riflettono crescita e cambiamento.\nAiutano a sbloccare il tuo potenziale."
+      "self-development-desc": "I sogni riflettono crescita e cambiamento.\nAiutano a sbloccare il tuo potenziale.",
+      "freudian": "Interpretazione freudiana",
+      "freudian-desc": "I sogni rivelano desideri inconsci.\nLe emozioni represse emergono in superficie.",
+      "jungian": "Interpretazione junghiana",
+      "jungian-desc": "I simboli archetipici illuminano la via.\nI sogni guidano il viaggio verso la completezza del sé."
     },
     "delete-warning": "Sei sicuro di voler eliminare questo sogno?",
     "lose-data-warning": "I dati saranno persi per sempre",

@@ -1,10 +1,9 @@
+import { withPressable } from '@/shared/hoc/withPressable';
+import i18n from '@/shared/providers/i18n';
 import { DimensionValue, FlexAlignType, StyleProp, StyleSheet, View, ViewProps, ViewStyle } from 'react-native';
 import { calculateSpacing, TSpaceGrid } from '../../helpers/styleHelpers/calculateSpacing';
 import { normalizeLayoutDimenstionValue } from '../../helpers/styleHelpers/normalizeLayoutDimenstionValue';
 import { normalizedSize } from '../../utils/size';
-import { withPressable } from '@/shared/hoc/withPressable';
-import Animated, { LinearTransition } from 'react-native-reanimated';
-import i18n from '@/shared/providers/i18n';
 
 export interface GridProps extends ViewProps {
   flex?: number;

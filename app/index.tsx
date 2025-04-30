@@ -3,6 +3,7 @@ import { useProtection } from '@/entities/useProtection/useProtection';
 import { Environment } from '@/shared/config/config';
 import { isAppToken } from '@/shared/service/appId.service';
 import { errorLogger } from '@/shared/service/logger.service/sentry.service';
+import Grid from '@/shared/ui/grid/Grid';
 import PageWrapper from '@/shared/ui/layout/PageWrapper';
 import {
   Nunito_200ExtraLight,
@@ -24,6 +25,7 @@ import {
 } from '@expo-google-fonts/nunito';
 import Superwall, { LogLevel, LogScope, SuperwallOptions } from '@superwall/react-native-superwall';
 import { useFonts } from 'expo-font';
+import { LinearGradient } from 'expo-linear-gradient';
 import { Redirect, SplashScreen } from 'expo-router';
 import { useEffect, useState } from 'react';
 
@@ -83,7 +85,17 @@ export default function Index() {
     init();
   }, [fontsLoaded, codeProtection, biometric]);
 
-  if (!target) return null;
+  if (!target)
+    return (
+      <LinearGradient
+        style={{ flex: 1 }}
+        colors={['#0A0C14', '#151832', '#342371', '#7A29C6']}
+        start={{ x: 0.5, y: 0 }}
+        end={{ x: 0.5, y: 1 }}
+      >
+        <Grid flex={1}>{null}</Grid>
+      </LinearGradient>
+    );
 
   /* 5. Когда всё готово — мгновенный редирект */
   return (

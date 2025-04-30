@@ -36,6 +36,8 @@ export interface SleepDataResponse {
     esoteric: string;
     scientific: string;
     self_development: string;
+    freudian: string;
+    jungian: string;
   };
   tags: string[];
 }

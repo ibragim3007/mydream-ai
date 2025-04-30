@@ -85,7 +85,11 @@
       "scientific": "Vitenskapelig tolkning",
       "scientific-desc": "Drømmer gjenspeiler hjerneaktivitet.\nDe avslører stress og følelser.",
       "self-development": "Tolkning for selvutvikling",
-      "self-development-desc": "Drømmer gjenspeiler vekst og endring.\nDe hjelper deg å frigjøre potensialet."
+      "self-development-desc": "Drømmer gjenspeiler vekst og endring.\nDe hjelper deg å frigjøre potensialet.",
+      "freudian": "Freudiansk tolkning",
+      "freudian-desc": "Drømmer avdekker ubevisste ønsker.\nUndertrykte følelser stiger til overflaten.",
+      "jungian": "Jungiansk tolkning",
+      "jungian-desc": "Arketypiske symboler lyser opp veien.\nDrømmer guider reisen mot selvhelhet."
     },
     "delete-warning": "Er du sikker på at du vil slette denne drømmen?",
     "lose-data-warning": "Dataene vil gå tapt for alltid",

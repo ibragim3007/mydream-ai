@@ -85,7 +85,11 @@
       "scientific": "Wissenschaftliche Interpretation",
       "scientific-desc": "Träume spiegeln die Gehirnaktivität wider.\nSie zeigen Stress und Emotionen.",
       "self-development": "Interpretation zur Selbstentwicklung",
-      "self-development-desc": "Träume spiegeln Wachstum und Veränderung wider.\nSie helfen, dein Potenzial freizusetzen."
+      "self-development-desc": "Träume spiegeln Wachstum und Veränderung wider.\nSie helfen, dein Potenzial freizusetzen.",
+      "freudian": "Freudianische Interpretation",
+      "freudian-desc": "Träume offenbaren unbewusste Wünsche.\nUnterdrückte Emotionen steigen an die Oberfläche.",
+      "jungian": "Jungianische Interpretation",
+      "jungian-desc": "Archetypische Symbole weisen den Weg.\nTräume führen die Reise zur inneren Ganzheit."
     },
     "delete-warning": "Möchtest du diesen Traum wirklich löschen?",
     "lose-data-warning": "Die Daten gehen dauerhaft verloren",

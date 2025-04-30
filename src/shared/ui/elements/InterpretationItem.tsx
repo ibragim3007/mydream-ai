@@ -78,7 +78,7 @@ export default function InterpretationItem({
 
   const toggleExpand = () => {
     if (isBlocked) {
-      analytics.trackEvent(Events.open_interpretation, {
+      analytics.trackEvent(Events.disabled_interpretation, {
         local: lang,
         interpretation: interprerationId,
       });
@@ -88,7 +88,7 @@ export default function InterpretationItem({
       return;
     }
 
-    analytics.trackEvent(Events.disabled_interpretation, {
+    analytics.trackEvent(Events.open_interpretation, {
       local: lang,
       interpretation: interprerationId,
     });

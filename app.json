@@ -34,11 +34,8 @@
       "config": {
         "usesNonExemptEncryption": false
       },
-      "icon": {
-        "dark": "./assets/images/icons_ios/icon-dark.png",
-        "light": "./assets/images/icons_ios/icon-a.png"
-      },
-      "buildNumber": "10"
+      "icon": "./assets/images/icons_ios/icon-a.png",
+      "buildNumber": "11"
     },
     "android": {
       "adaptiveIcon": {

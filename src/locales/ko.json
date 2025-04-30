@@ -85,7 +85,11 @@
       "scientific": "과학적 해석",
       "scientific-desc": "꿈은 뇌 활동을 반영합니다.\n스트레스와 감정을 드러냅니다.",
       "self-development": "자기 계발 해석",
-      "self-development-desc": "꿈은 성장과 변화를 비춥니다.\n잠재력을 깨우는 데 도움을 줍니다."
+      "self-development-desc": "꿈은 성장과 변화를 비춥니다.\n잠재력을 깨우는 데 도움을 줍니다.",
+      "freudian": "프로이트식 해석",
+      "freudian-desc": "꿈은 무의식적 욕망을 드러냅니다.\n억눌린 감정이 표면으로 떠오릅니다.",
+      "jungian": "융식 해석",
+      "jungian-desc": "원형적 상징이 길을 밝힙니다.\n꿈은 자아 완전으로 가는 여정을 안내합니다."
     },
     "delete-warning": "이 꿈을 삭제하시겠습니까?",
     "lose-data-warning": "데이터가 영구적으로 삭제됩니다",

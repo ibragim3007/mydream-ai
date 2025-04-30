@@ -85,7 +85,11 @@
       "scientific": "Interprétation scientifique",
       "scientific-desc": "Les rêves reflètent l’activité cérébrale.\nIls révèlent stress et émotions.",
       "self-development": "Interprétation pour le développement personnel",
-      "self-development-desc": "Les rêves reflètent croissance et changement.\nIls aident à libérer le potentiel."
+      "self-development-desc": "Les rêves reflètent croissance et changement.\nIls aident à libérer le potentiel.",
+      "freudian": "Interprétation freudienne",
+      "freudian-desc": "Les rêves dévoilent les désirs inconscients.\nLes émotions refoulées remontent à la surface.",
+      "jungian": "Interprétation jungienne",
+      "jungian-desc": "Les symboles archétypaux éclairent le chemin.\nLes rêves guident le voyage vers la plénitude de soi."
     },
     "delete-warning": "Êtes-vous sûr de vouloir supprimer ce rêve ?",
     "lose-data-warning": "Les données seront définitivement perdues",

@@ -85,7 +85,11 @@
       "scientific": "Wetenschappelijke interpretatie",
       "scientific-desc": "Dromen weerspiegelen hersenactiviteit.\nZe onthullen stress en emoties.",
       "self-development": "Interpretatie voor persoonlijke ontwikkeling",
-      "self-development-desc": "Dromen weerspiegelen groei en verandering.\nZe helpen je potentieel te ontgrendelen."
+      "self-development-desc": "Dromen weerspiegelen groei en verandering.\nZe helpen je potentieel te ontgrendelen.",
+      "freudian": "Freudiaanse interpretatie",
+      "freudian-desc": "Dromen onthullen onbewuste verlangens.\nOnderdrukte emoties komen naar de oppervlakte.",
+      "jungian": "Jungiaanse interpretatie",
+      "jungian-desc": "Archetypische symbolen verlichten de weg.\nDromen leiden de reis naar innerlijke heelheid."
     },
     "delete-warning": "Weet je zeker dat je deze droom wilt verwijderen?",
     "lose-data-warning": "De gegevens gaan definitief verloren",

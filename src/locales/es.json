@@ -85,7 +85,11 @@
       "scientific": "Interpretación científica",
       "scientific-desc": "Los sueños reflejan la actividad cerebral.\nRevelan estrés y emociones.",
       "self-development": "Interpretación de desarrollo personal",
-      "self-development-desc": "Los sueños reflejan crecimiento y cambio.\nAyudan a liberar tu potencial."
+      "self-development-desc": "Los sueños reflejan crecimiento y cambio.\nAyudan a liberar tu potencial.",
+      "freudian": "Interpretación freudiana",
+      "freudian-desc": "Los sueños exponen deseos inconscientes.\nLas emociones reprimidas salen a la superficie.",
+      "jungian": "Interpretación junguiana",
+      "jungian-desc": "Los símbolos arquetípicos iluminan el camino.\nLos sueños guían el viaje hacia la plenitud del yo."
     },
     "delete-warning": "¿Seguro que deseas eliminar este sueño?",
     "lose-data-warning": "Los datos se perderán para siempre",

@@ -85,7 +85,11 @@
       "scientific": "Vetenskaplig tolkning",
       "scientific-desc": "Drömmar speglar hjärnaktivitet.\nDe avslöjar stress och känslor.",
       "self-development": "Tolkning för personlig utveckling",
-      "self-development-desc": "Drömmar speglar tillväxt och förändring.\nDe hjälper dig att låsa upp din potential."
+      "self-development-desc": "Drömmar speglar tillväxt och förändring.\nDe hjälper dig att låsa upp din potential.",
+      "freudian": "Freudiansk tolkning",
+      "freudian-desc": "Drömmar blottlägger omedvetna önskningar.\nUndertryckta känslor stiger upp till ytan.",
+      "jungian": "Jungiansk tolkning",
+      "jungian-desc": "Arketypiska symboler belyser vägen.\nDrömmar vägleder resan mot självharmoni."
     },
     "delete-warning": "Är du säker på att du vill radera den här drömmen?",
     "lose-data-warning": "Data kommer att gå förlorade för alltid",

@@ -38,7 +38,7 @@ export default function SaveAndAnaluzeButton({ dreamText, disabled, onChangeText
       return;
     }
 
-    if (dreamText.split(' ').length < 9) {
+    if (dreamText.trim().length < 9) {
       Alert.alert(t('dream-input.more-words-needed'));
       analytics.trackEvent(Events.press_record_button_under_text, {
         dreamText: dreamText,

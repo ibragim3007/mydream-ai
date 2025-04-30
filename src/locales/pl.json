@@ -85,7 +85,11 @@
       "scientific": "Interpretacja naukowa",
       "scientific-desc": "Sny odzwierciedlają aktywność mózgu.\nPokazują stres i emocje.",
       "self-development": "Interpretacja rozwoju osobistego",
-      "self-development-desc": "Sny odzwierciedlają wzrost i zmiany.\nPomagają uwolnić potencjał."
+      "self-development-desc": "Sny odzwierciedlają wzrost i zmiany.\nPomagają uwolnić potencjał.",
+      "freudian": "Interpretacja freudowska",
+      "freudian-desc": "Sny ujawniają nieświadome pragnienia.\nTłumione emocje wypływają na powierzchnię.",
+      "jungian": "Interpretacja jungowska",
+      "jungian-desc": "Archetypowe symbole oświetlają drogę.\nSny prowadzą podróż ku wewnętrznej całości."
     },
     "delete-warning": "Czy na pewno chcesz usunąć ten sen?",
     "lose-data-warning": "Dane zostaną trwale usunięte",

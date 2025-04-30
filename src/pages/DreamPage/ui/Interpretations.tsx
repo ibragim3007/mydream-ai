@@ -1,6 +1,8 @@
 import ScientificImage from '@/assets/Interpretations/forest-o3.png';
 import EsotericImage from '@/assets/Interpretations/flowers2-o3.png';
 import SelfDevelopmentImage from '@/assets/Interpretations/lamp-o3.png';
+import Fraid from '@/assets/Interpretations/fraid3.png';
+import Juing from '@/assets/Interpretations/juing2.png';
 import { HORIZONTAL_PADDINGS } from '@/shared/config/constants/constants';
 import { SleepDataResponse } from '@/shared/types/globalTypes';
 import InterpretationItem from '@/shared/ui/elements/InterpretationItem';
@@ -28,6 +30,22 @@ export default function Interpretations({ analysis, isActive }: InterpretationsP
           image={EsotericImage}
           description={t('dream-page.interpretations.esoteric-desc')}
           interprerationId="esoteric"
+        />
+        <InterpretationItem
+          isBlocked={!isActive}
+          title={t('dream-page.interpretations.freudian')}
+          text={analysis.interpretations.freudian}
+          image={Fraid}
+          description={t('dream-page.interpretations.freudian-desc')}
+          interprerationId="freudian"
+        />
+        <InterpretationItem
+          isBlocked={!isActive}
+          title={t('dream-page.interpretations.jungian')}
+          text={analysis.interpretations.jungian}
+          image={Juing}
+          description={t('dream-page.interpretations.jungian-desc')}
+          interprerationId="jungian"
         />
         <InterpretationItem
           isBlocked={!isActive}
