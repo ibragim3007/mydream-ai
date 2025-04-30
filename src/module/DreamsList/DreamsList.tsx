@@ -6,14 +6,15 @@ import { useLang } from '@/shared/hooks/useLangStore';
 import DreamItem from '@/shared/ui/elements/DreamItem';
 import LoaderIndicator from '@/shared/ui/elements/LoaderIndicator';
 import Grid from '@/shared/ui/grid/Grid';
+import SafeWrapper from '@/shared/ui/layout/SafeWrapper';
 import Typography from '@/shared/ui/typography/Typography';
 import { normalizedSize } from '@/shared/utils/size';
 import { router } from 'expo-router';
+import { useTranslation } from 'react-i18next';
 import { SectionList } from 'react-native';
 import Animated, { LinearTransition } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import SectionHeader from './ui/SectionHeader';
-import { useTranslation } from 'react-i18next';
 
 interface DreamsListProps {
   headerComponent: React.ComponentType<any>;
@@ -36,7 +37,12 @@ export default function DreamsList({ headerComponent }: DreamsListProps) {
   const groupedDreams = groupDreamsByDate(flatData, lang);
 
   if (isError) {
-    return <Typography>{t('error-loading-dreams')}</Typography>;
+    return (
+      <SafeWrapper>
+        <Typography>{t('home.error-loading-dreams')}</Typography>
+        <Typography>Restart app</Typography>
+      </SafeWrapper>
+    );
   }
 
   return (

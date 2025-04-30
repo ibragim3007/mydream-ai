@@ -52,7 +52,7 @@ export default function LogOutBlock() {
         title="Restore purchases"
       /> */}
       {/* <SettingItem leftIcon={<Feather name="user" size={24} color={colors.text.primary} />} title="Account settings" /> */}
-      <AppIconsPicker />
+      {__DEV__ && <AppIconsPicker />}
       <SettingItem
         danger
         leftIcon={<Feather name="log-out" size={24} color={colors.text.primary} />}

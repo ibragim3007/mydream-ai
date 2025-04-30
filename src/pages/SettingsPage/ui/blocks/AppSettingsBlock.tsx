@@ -8,17 +8,23 @@ import SettingItem from '../../../../shared/ui/elements/SettingsItem';
 import { LanguagePicker } from '@/module/LanguagePicker';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { useTranslation } from 'react-i18next';
+import { analytics, Events } from '@/shared/service/analytics.service';
+import { useLang } from '@/shared/hooks/useLangStore';
 
 export default function AppSettingsBlock() {
   const { t } = useTranslation();
   const { user } = useAuth();
   const colors = useTheme();
+  const { lang } = useLang();
 
   const onPressChangeName = () => {
     router.navigate('/screens/settings/nameUpdateScreen');
   };
 
   const onPressChangeCodeProtection = () => {
+    analytics.trackEvent(Events.press_passcode, {
+      local: lang,
+    });
     router.navigate('/screens/settings/codeProtection');
   };
 

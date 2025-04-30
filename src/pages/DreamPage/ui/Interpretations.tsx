@@ -27,6 +27,7 @@ export default function Interpretations({ analysis, isActive }: InterpretationsP
           text={analysis.interpretations.esoteric}
           image={EsotericImage}
           description={t('dream-page.interpretations.esoteric-desc')}
+          interprerationId="esoteric"
         />
         <InterpretationItem
           isBlocked={!isActive}
@@ -34,6 +35,7 @@ export default function Interpretations({ analysis, isActive }: InterpretationsP
           text={analysis.interpretations.scientific}
           image={ScientificImage}
           description={t('dream-page.interpretations.scientific-desc')}
+          interprerationId="scientific"
         />
         <InterpretationItem
           isBlocked={!isActive}
@@ -41,6 +43,7 @@ export default function Interpretations({ analysis, isActive }: InterpretationsP
           text={analysis.interpretations.self_development}
           image={SelfDevelopmentImage}
           description={t('dream-page.interpretations.self-development-desc')}
+          interprerationId="self-development"
         />
       </Grid>
     </Grid>

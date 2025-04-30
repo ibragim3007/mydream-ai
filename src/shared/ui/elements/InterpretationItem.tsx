@@ -15,6 +15,8 @@ import Grid from '../grid/Grid';
 import Paper from '../layout/Paper';
 import Typography from '../typography/Typography';
 import WrapIconInPressable from '../wrapper/WrapIconInPressable';
+import { analytics, Events } from '@/shared/service/analytics.service';
+import { useLang } from '@/shared/hooks/useLangStore';
 
 interface InterpretationItemProps {
   title: string;
@@ -23,6 +25,7 @@ interface InterpretationItemProps {
   isBlocked: boolean;
   description?: string;
   onPressBlocked?: () => void;
+  interprerationId: string;
 }
 
 const ITEM_HEIGHT = 150;
@@ -33,6 +36,7 @@ export default function InterpretationItem({
   image,
   description,
   isBlocked,
+  interprerationId,
   onPressBlocked,
 }: InterpretationItemProps) {
   const colors = useTheme();
@@ -40,6 +44,7 @@ export default function InterpretationItem({
   const arrowRotation = useSharedValue(0);
   const imageContainerScale = useSharedValue(1);
   const { vibrateSelection, vibrate, vibrateError } = useVibration();
+  const { lang } = useLang();
 
   const bounce = useSharedValue(0);
   const rotate = useSharedValue(0);
@@ -73,11 +78,20 @@ export default function InterpretationItem({
 
   const toggleExpand = () => {
     if (isBlocked) {
+      analytics.trackEvent(Events.open_interpretation, {
+        local: lang,
+        interpretation: interprerationId,
+      });
       vibrateError();
       onPressBlocked?.();
       callAnimationBlock();
       return;
     }
+
+    analytics.trackEvent(Events.disabled_interpretation, {
+      local: lang,
+      interpretation: interprerationId,
+    });
 
     vibrateSelection();
     setIsExpanded(prev => !prev);

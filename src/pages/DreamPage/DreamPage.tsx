@@ -26,6 +26,8 @@ import LoadingSkeleton from './ui/LoadingSkeleton';
 import Participants from './ui/Participants';
 import { useSubscription } from '@/shared/hooks/useSubscription';
 import { useTranslation } from 'react-i18next';
+import { analytics, Events } from '@/shared/service/analytics.service';
+import { useLang } from '@/shared/hooks/useLangStore';
 
 export default function DreamPage() {
   const { t } = useTranslation();
@@ -35,9 +37,13 @@ export default function DreamPage() {
   const [analysis, setAnalysis] = useState<SleepDataResponse | undefined>(undefined);
   const { data, isLoading, isError, isFetching } = useGetDreamById(params.id);
   const { continueDreamFunction, isPending } = useContinueDream();
-
+  const { lang } = useLang();
   const handleContinueDream = async () => {
     if (!isActive) {
+      analytics.trackEvent(Events.press_complete_dream_inactive, {
+        local: lang,
+        dreamId: data?.id,
+      });
       Superwall.shared.register({
         placement: PLACEMENTS.campaign_trigger,
       });
@@ -45,6 +51,10 @@ export default function DreamPage() {
       return;
     }
     if (data) {
+      analytics.trackEvent(Events.press_complete_dream_active, {
+        local: lang,
+        dreamId: data.id,
+      });
       await continueDreamFunction(data.id);
     }
   };
@@ -55,6 +65,22 @@ export default function DreamPage() {
       setAnalysis(analysis);
     }
   }, [isLoading, isFetching, data]);
+
+  const onPressLike = () => {
+    analytics.trackEvent(Events.press_feedback, {
+      local: lang,
+      dreamId: data?.id,
+      reaction: 1,
+    });
+  };
+
+  const onPressDislike = () => {
+    analytics.trackEvent(Events.press_feedback, {
+      local: lang,
+      dreamId: data?.id,
+      reaction: 0,
+    });
+  };
 
   if (isLoading) {
     return <LoadingSkeleton />;
@@ -85,6 +111,11 @@ export default function DreamPage() {
       <PageWrapper>
         <SafeWrapper>
           <Typography weight="bold">No analysis available</Typography>
+          <CardPaper
+            title={t('dream-page.original-input')}
+            text={data.inputText}
+            date={new Date(data.createdAt).toLocaleDateString()}
+          />
         </SafeWrapper>
       </PageWrapper>
     );
@@ -139,7 +170,11 @@ export default function DreamPage() {
 
               <Interpretations analysis={analysis} isActive={isActive} />
               <Grid marginVertical={60}>
-                <GeneralFeedback title={t('dream-page.feed-back-interpretations')} />
+                <GeneralFeedback
+                  onPressLike={onPressLike}
+                  onPressDislike={onPressDislike}
+                  title={t('dream-page.feed-back-interpretations')}
+                />
               </Grid>
             </Grid>
           </Animated.View>

@@ -7,9 +7,11 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 
 interface GeneralFeedbackProps {
   title: string;
+  onPressLike?: () => void;
+  onPressDislike?: () => void;
 }
 
-export default function GeneralFeedback({ title }: GeneralFeedbackProps) {
+export default function GeneralFeedback({ title, onPressDislike, onPressLike }: GeneralFeedbackProps) {
   const colors = useTheme();
   return (
     <AnimatedWrapper>

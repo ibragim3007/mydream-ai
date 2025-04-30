@@ -6,20 +6,33 @@ import * as StoreReview from 'expo-store-review';
 import { Linking } from 'react-native';
 import { APP_STORE_LINK } from '@/shared/config/constants/constants';
 import { useTranslation } from 'react-i18next';
+import { analytics, Events } from '@/shared/service/analytics.service';
+import { useLang } from '@/shared/hooks/useLangStore';
+import { useSubscription } from '@/shared/hooks/useSubscription';
 
 export default function RateBlock() {
   const colors = useTheme();
   const { t } = useTranslation();
+  const { lang } = useLang();
+  const { subscriptionStatus } = useSubscription();
 
   const handleRatePress = async () => {
     if (await StoreReview.isAvailableAsync()) {
       StoreReview.requestReview();
+      analytics.trackEvent(Events.press_rate_us, {
+        local: lang,
+        sub_status: subscriptionStatus,
+      });
     }
   };
 
   const handleFeedbackPress = async () => {
     if (await Linking.canOpenURL(APP_STORE_LINK)) {
       await Linking.openURL(APP_STORE_LINK);
+      analytics.trackEvent(Events.press_leave_a_review, {
+        local: lang,
+        sub_status: subscriptionStatus,
+      });
     }
   };
 

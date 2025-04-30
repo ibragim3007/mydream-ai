@@ -9,6 +9,8 @@ import Superwall from '@superwall/react-native-superwall';
 import { Image } from 'expo-image';
 import { useTranslation } from 'react-i18next';
 import { getWeeklyPurchaseCount } from './helpers/generatePeopleNumber';
+import { analytics, Events } from '@/shared/service/analytics.service';
+import { useLang } from '@/shared/hooks/useLangStore';
 
 interface SubBlockProps {
   title?: string;
@@ -18,9 +20,13 @@ export default function SubBlock({ title }: SubBlockProps) {
   const { subscriptionStatus } = useSubscription();
   const { vibrate } = useVibration();
   const { t } = useTranslation();
+  const { lang } = useLang();
 
   const onPress = () => {
     vibrate();
+    analytics.trackEvent(Events.press_subblock, {
+      local: lang,
+    });
     Superwall.shared.register({
       placement: PLACEMENTS.campaign_trigger,
     });

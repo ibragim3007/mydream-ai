@@ -1,9 +1,11 @@
 import Waveform from '@/assets/animations/wave.json';
 import { PLACEMENTS } from '@/shared/config/constants/constants';
 import formatTime from '@/shared/helpers/formatTime';
+import { useLang } from '@/shared/hooks/useLangStore';
 import { useSubscription } from '@/shared/hooks/useSubscription';
 import { useTheme } from '@/shared/hooks/useTheme';
 import { useVibration } from '@/shared/hooks/useVibration';
+import { analytics, Events } from '@/shared/service/analytics.service';
 import { errorLogger } from '@/shared/service/logger.service/sentry.service';
 import Grid, { GridPressable } from '@/shared/ui/grid/Grid';
 import Typography from '@/shared/ui/typography/Typography';
@@ -28,9 +30,13 @@ export default function AudioRecorderButton({}: AudioRecorderButtonProps) {
   const [elapsedTime, setElapsedTime] = useState<number>(0);
   const [recording, setRecording] = useState<Audio.Recording>();
   const { t } = useTranslation();
+  const { lang } = useLang();
 
   const startRecording = async () => {
     if (!isActive) {
+      analytics.trackEvent(Events.mic_button_inactive, {
+        local: lang,
+      });
       Superwall.shared.register({
         placement: PLACEMENTS.campaign_trigger,
       });
@@ -44,10 +50,21 @@ export default function AudioRecorderButton({}: AudioRecorderButtonProps) {
       const permissionResponse = await Audio.requestPermissionsAsync();
 
       if (permissionResponse.status === 'granted') {
-        console.log('Permission granted');
+        analytics.trackEvent(Events.mic_button_active, {
+          local: lang,
+          permission: 'granted',
+        });
       } else {
+        analytics.trackEvent(Events.mic_button_active, {
+          local: lang,
+          permission: 'denied',
+        });
         Alert.alert(t('home.permission-to-access-microphone-was-denied'), t('home.enable-microphone-permission'));
       }
+
+      analytics.trackEvent(Events.mic_button_active, {
+        local: lang,
+      });
 
       await Audio.setAudioModeAsync({
         allowsRecordingIOS: true,
@@ -82,6 +99,10 @@ export default function AudioRecorderButton({}: AudioRecorderButtonProps) {
       setRecording(undefined);
 
       if (durationMs < 3000) {
+        analytics.trackEvent(Events.audio_too_short, {
+          local: lang,
+          duration: durationMs,
+        });
         Alert.alert(t('home.audio-too-short'), t('home.record-a-few-more'));
         return;
       }
