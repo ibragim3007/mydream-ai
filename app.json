@@ -34,11 +34,7 @@
       "config": {
         "usesNonExemptEncryption": false
       },
-      "icon": {
-        "dark": "./assets/images/icons_ios/ios-dark.png",
-        "light": "./assets/images/icons_ios/ios-light.png"
-      },
-      "buildNumber": "6"
+      "buildNumber": "8"
     },
     "android": {
       "adaptiveIcon": {
@@ -113,7 +109,8 @@
             "name": "IconA",
             "ios": {
               "light": "./assets/images/icons_ios/icon-a.png",
-              "dark": "./assets/images/icons_ios/icon-dark.png"
+              "dark": "./assets/images/icons_ios/icon-dark.png",
+              "tinted": "./assets/images/icons_ios/icon-dark.png"
             },
             "android": {
               "foregroundImage": "./assets/icon-a-foreground.png",
@@ -123,7 +120,9 @@
           {
             "name": "IconB",
             "ios": {
-              "light": "./assets/images/icons_ios/icon-b.png"
+              "light": "./assets/images/icons_ios/icon-b.png",
+              "dark": "./assets/images/icons_ios/icon-dark.png",
+              "tinted": "./assets/images/icons_ios/icon-dark.png"
             },
             "android": {
               "foregroundImage": "./assets/icon-b-foreground.png",
@@ -133,7 +132,9 @@
           {
             "name": "IconC",
             "ios": {
-              "light": "./assets/images/icons_ios/icon-c.png"
+              "light": "./assets/images/icons_ios/icon-c.png",
+              "dark": "./assets/images/icons_ios/icon-dark.png",
+              "tinted": "./assets/images/icons_ios/icon-dark.png"
             },
             "android": {
               "foregroundImage": "./assets/icon-c-foreground.png",
@@ -143,7 +144,9 @@
           {
             "name": "IconD",
             "ios": {
-              "light": "./assets/images/icons_ios/icon-d.png"
+              "light": "./assets/images/icons_ios/icon-d.png",
+              "dark": "./assets/images/icons_ios/icon-dark.png",
+              "tinted": "./assets/images/icons_ios/icon-dark.png"
             },
             "android": {
               "foregroundImage": "./assets/icon-c-foreground.png",
