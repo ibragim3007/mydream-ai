@@ -11,11 +11,13 @@ import { useTranslation } from 'react-i18next';
 import { Alert } from 'react-native';
 import SettingItem from '../../../../shared/ui/elements/SettingsItem';
 import { AppIconsPicker } from '@/module/AppIconsPicker';
+import { useProtection } from '@/entities/useProtection/useProtection';
 
 export default function LogOutBlock() {
   const colors = useTheme();
 
   const { t } = useTranslation();
+  const { reset } = useProtection();
 
   const logout = async () => {
     Alert.alert(t('settings-page.logout-alert-title'), t('settings-page.log-out-warn'), [
@@ -25,8 +27,9 @@ export default function LogOutBlock() {
         onPress: async () => {
           try {
             await SecureStore.deleteItemAsync(StorageKeys.appToken);
+            reset();
             apiService.setAuthorizationHeader('');
-            router.push('/screens/onboarding');
+            router.replace('/screens/onboarding');
           } catch (error) {
             errorLogger.logError('Error to logout user');
             Inform.error(error);

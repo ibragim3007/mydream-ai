@@ -1,6 +1,6 @@
 import { QueryClient } from '@tanstack/react-query';
 import axios, { AxiosInstance } from 'axios';
-import { AuthServiceAsync } from '../service/auth.service';
+
 import { Environment } from '../config/config';
 
 const API_URL = Environment.api_url || '';
@@ -20,18 +20,11 @@ export interface IAuthService {
 class ApiService {
   apiUrl: string;
   api: AxiosInstance;
-  authService: IAuthService;
   queryClient: QueryClient;
 
-  constructor(body: {
-    apiInstance: AxiosInstance;
-    API_URL: string;
-    authService: IAuthService;
-    queryClient: QueryClient;
-  }) {
+  constructor(body: { apiInstance: AxiosInstance; API_URL: string; queryClient: QueryClient }) {
     this.api = body.apiInstance;
     this.apiUrl = body.API_URL;
-    this.authService = body.authService;
     this.queryClient = body.queryClient;
   }
 
@@ -47,10 +40,9 @@ class ApiService {
 const apiService = new ApiService({
   apiInstance,
   API_URL,
-  authService: new AuthServiceAsync(),
   queryClient: queryClientInstance,
 });
 
-const { api, apiUrl, authService, queryClient } = apiService;
+const { api, apiUrl, queryClient } = apiService;
 
-export { api, apiService, apiUrl, queryClient, authService };
+export { api, apiService, apiUrl, queryClient };

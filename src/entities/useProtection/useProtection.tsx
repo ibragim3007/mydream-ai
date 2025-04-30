@@ -14,6 +14,8 @@ interface Actions {
   setCodeProtection: (codeProtection: number | null) => void;
   setBiometric: (biometric: boolean) => void;
   setBlockTime: (blockTime: number) => void;
+
+  reset: () => void;
 }
 
 export const useProtection = create<State & Actions>()(
@@ -38,6 +40,13 @@ export const useProtection = create<State & Actions>()(
           setBlockTime: blockTime =>
             set(state => {
               state.blockTime = blockTime;
+            }),
+
+          reset: () =>
+            set(state => {
+              state.codeProtection = null;
+              state.biometric = false;
+              state.blockTime = 1;
             }),
         };
       },

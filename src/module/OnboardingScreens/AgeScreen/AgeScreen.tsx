@@ -24,7 +24,8 @@ export default function AgeScreen({ agePickerComponent, onPressButton, goPrevPag
             {t('onboarding.age-question')}
           </Typography>
         </Grid>
-        <Grid space="lg">
+
+        <Grid space="lg" justfity="center" flex={1}>
           {agePickerComponent}
           <Button onPress={onPressButton} variant="text">
             {t('onboarding.prefer-not-to-say')}

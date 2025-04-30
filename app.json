@@ -38,7 +38,7 @@
         "dark": "./assets/images/icons_ios/icon-dark.png",
         "light": "./assets/images/icons_ios/icon-a.png"
       },
-      "buildNumber": "8"
+      "buildNumber": "9"
     },
     "android": {
       "adaptiveIcon": {

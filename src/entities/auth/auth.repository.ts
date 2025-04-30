@@ -1,15 +1,11 @@
 import { apiService } from '@/shared/api/api';
 import { init } from '@/shared/api/entities/auth/auth.api';
-import { getDeviceLanguage } from '@/shared/helpers/getDeviceLanguage';
+import i18n from '@/shared/providers/i18n';
 import { getAppToken } from '@/shared/service/appId.service';
-import * as SecureStore from 'expo-secure-store';
+import { Inform } from '@/shared/service/logger.service/logger.service';
+import { errorLogger } from '@/shared/service/logger.service/sentry.service';
 import { create } from 'zustand';
 import { InitUserType, UserType } from './auth.types';
-import { Inform } from '@/shared/service/logger.service/logger.service';
-import { Alert } from 'react-native';
-import { StorageKeys } from '@/shared/config/constants/storageKeys';
-import { router } from 'expo-router';
-import { errorLogger } from '@/shared/service/logger.service/sentry.service';
 
 interface State {
   user?: UserType;
@@ -17,7 +13,6 @@ interface State {
 }
 
 interface Actions {
-  logout: () => Promise<void>;
   initUser: (body?: InitUserType) => Promise<void>;
 
   setUser: (user?: UserType) => void;
@@ -38,7 +33,7 @@ export const useAuth = create<State & Actions>(set => {
           throw new Error('App token is not defined');
         }
 
-        const local = getDeviceLanguage();
+        const local = i18n.language;
 
         const res = await init({
           appToken: appToken,
@@ -56,32 +51,6 @@ export const useAuth = create<State & Actions>(set => {
         errorLogger.logError('Error to init user');
         Inform.error(error);
       }
-    },
-
-    // Вызывает очистку токена приложения
-    // и удаляет заголовок авторизации
-    logout: async () => {
-      Alert.alert('Logout', "Are you sure you want to log out? And lose all your's data", [
-        {
-          text: 'Yes',
-          style: 'destructive',
-          onPress: async () => {
-            try {
-              await SecureStore.deleteItemAsync(StorageKeys.appToken);
-              apiService.setAuthorizationHeader('');
-              router.push('/screens/onboarding');
-            } catch (error) {
-              errorLogger.logError('Error to logout user');
-              Inform.error(error);
-            }
-          },
-        },
-        {
-          text: 'No',
-          onPress: () => {},
-          style: 'cancel',
-        },
-      ]);
     },
 
     setUser: (user?: UserType) => {
