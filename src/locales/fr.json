@@ -98,7 +98,8 @@
     "less": "Moins",
     "more": "Lire la suite",
     "original-input": "Saisie originale",
-    "characters": "Caractères"
+    "characters": "Caractères",
+    "continuation-title": "Suite"
   },
   "settings-page": {
     "app-settings": "Préférences de l’application",

@@ -98,7 +98,8 @@
     "less": "Mindre",
     "more": "Les mer",
     "original-input": "Input",
-    "characters": "Tegn"
+    "characters": "Tegn",
+    "continuation-title": "Fortsettelse"
   },
   "settings-page": {
     "app-settings": "App-innstillinger",

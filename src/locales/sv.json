@@ -98,7 +98,8 @@
     "less": "Mindre",
     "more": "Läs mer",
     "original-input": "Inmatning",
-    "characters": "Tecken"
+    "characters": "Tecken",
+    "continuation-title": "Fortsättning"
   },
   "settings-page": {
     "app-settings": "App-inställningar",

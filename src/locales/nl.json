@@ -98,7 +98,8 @@
     "less": "Minder",
     "more": "Lees meer",
     "original-input": "Invoer",
-    "characters": "Tekens"
+    "characters": "Tekens",
+    "continuation-title": "Vervolg"
   },
   "settings-page": {
     "app-settings": "App-voorkeuren",

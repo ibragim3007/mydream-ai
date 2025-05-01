@@ -98,7 +98,8 @@
     "less": "少なく表示",
     "more": "もっと読む",
     "original-input": "入力内容",
-    "characters": "文字数"
+    "characters": "文字数",
+    "continuation-title": "続き"
   },
   "settings-page": {
     "app-settings": "アプリ設定",

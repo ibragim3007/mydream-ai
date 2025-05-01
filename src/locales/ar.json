@@ -98,7 +98,8 @@
     "less": "أقل",
     "more": "اقرأ المزيد",
     "original-input": "النص الأصلي",
-    "characters": "الأحرف"
+    "characters": "الأحرف",
+    "continuation-title": "استمرار"
   },
   "settings-page": {
     "app-settings": "تفضيلات التطبيق",

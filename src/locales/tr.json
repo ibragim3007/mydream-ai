@@ -98,7 +98,8 @@
     "less": "Daha Az",
     "more": "Daha Fazla Oku",
     "original-input": "Girdi",
-    "characters": "Karakterler"
+    "characters": "Karakterler",
+    "continuation-title": "Devam"
   },
   "settings-page": {
     "app-settings": "Uygulama Ayarları",

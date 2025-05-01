@@ -98,7 +98,8 @@
     "less": "收起",
     "more": "阅读更多",
     "original-input": "原始输入",
-    "characters": "字符数"
+    "characters": "字符数",
+    "continuation-title": "继续"
   },
   "settings-page": {
     "app-settings": "应用偏好",

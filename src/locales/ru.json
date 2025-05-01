@@ -98,7 +98,8 @@
     "less": "Меньше",
     "more": "Подробнее",
     "original-input": "Исходный текст",
-    "characters": "Персонажи"
+    "characters": "Персонажи",
+    "continuation-title": "Продолжение"
   },
   "settings-page": {
     "app-settings": "Настройки приложения",

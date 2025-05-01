@@ -98,7 +98,8 @@
     "less": "간략히",
     "more": "더 읽기",
     "original-input": "입력",
-    "characters": "문자 수"
+    "characters": "문자 수",
+    "continuation-title": "계속"
   },
   "settings-page": {
     "app-settings": "앱 환경설정",

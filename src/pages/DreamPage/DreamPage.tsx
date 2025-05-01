@@ -142,10 +142,9 @@ export default function DreamPage() {
                   date={new Date(data.createdAt).toLocaleDateString()}
                   text={data.inputText}
                 />
-
                 {data.continuation ? (
                   <Animated.View entering={animationEngine.fadeInUp(0)}>
-                    <CardPaper title="Continuation" text={data.continuation} />
+                    <CardPaper title={t('dream-page.continuation-title')} text={data.continuation} />
                   </Animated.View>
                 ) : (
                   <Button

@@ -98,7 +98,8 @@
     "less": "Mniej",
     "more": "Czytaj więcej",
     "original-input": "Wejście",
-    "characters": "Znaki"
+    "characters": "Znaki",
+    "continuation-title": "Kontynuacja"
   },
   "settings-page": {
     "app-settings": "Preferencje aplikacji",
