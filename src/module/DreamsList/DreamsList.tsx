@@ -1,5 +1,4 @@
 import { useGetDreams } from '@/entities/dream/dream.repository';
-import { getDreamAnalysisResponse } from '@/entities/dream/helpers/getDreamResponse';
 import { groupDreamsByDate } from '@/entities/dream/helpers/groupDreamsByDate';
 import { HORIZONTAL_PADDINGS } from '@/shared/config/constants/constants';
 import { useLang } from '@/shared/hooks/useLangStore';
@@ -21,9 +20,8 @@ interface DreamsListProps {
 }
 
 export default function DreamsList({ headerComponent }: DreamsListProps) {
-  // const { data, isLoading, isError } = useGetDreams();
   const { t } = useTranslation();
-  const { data, isError, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage, refetch } = useGetDreams();
+  const { data, isError, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } = useGetDreams();
 
   const flatData = data?.pages.flat() || [];
 
@@ -40,7 +38,7 @@ export default function DreamsList({ headerComponent }: DreamsListProps) {
     return (
       <SafeWrapper>
         <Typography>{t('home.error-loading-dreams')}</Typography>
-        <Typography>Restart app</Typography>
+        <Typography>Try to restart app</Typography>
       </SafeWrapper>
     );
   }
@@ -66,7 +64,7 @@ export default function DreamsList({ headerComponent }: DreamsListProps) {
           minHeight: '100%',
         }}
         renderItem={({ item }) => {
-          const analysis = getDreamAnalysisResponse(item.analyzeText);
+          // const analysis = getDreamAnalysisResponse(item.analyzeText);
           return (
             <DreamItem
               id={item.id}

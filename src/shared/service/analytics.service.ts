@@ -16,6 +16,7 @@ export const Events = {
   open_interpretation: 'open_interpretation',
   disabled_interpretation: 'disabled_interpretation',
   press_feedback: 'press_feedback',
+  error_to_create_dream: 'error_to_create_dream',
 };
 
 class EventsController {

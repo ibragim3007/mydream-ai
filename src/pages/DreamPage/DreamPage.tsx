@@ -3,7 +3,10 @@ import { getDreamAnalysisResponse } from '@/entities/dream/helpers/getDreamRespo
 
 import { GeneralFeedback } from '@/entities/feedback';
 import { HORIZONTAL_PADDINGS, PLACEMENTS } from '@/shared/config/constants/constants';
+import { useLang } from '@/shared/hooks/useLangStore';
+import { useSubscription } from '@/shared/hooks/useSubscription';
 import { useTheme } from '@/shared/hooks/useTheme';
+import { analytics, Events } from '@/shared/service/analytics.service';
 import { animationEngine } from '@/shared/service/animation.service';
 import { SleepDataResponse } from '@/shared/types/globalTypes';
 import Button from '@/shared/ui/buttons/Button';
@@ -18,16 +21,13 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Superwall from '@superwall/react-native-superwall';
 import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ScrollView } from 'react-native';
 import Animated from 'react-native-reanimated';
 import HeaderDream from './ui/HeaderDream';
 import Interpretations from './ui/Interpretations';
 import LoadingSkeleton from './ui/LoadingSkeleton';
 import Participants from './ui/Participants';
-import { useSubscription } from '@/shared/hooks/useSubscription';
-import { useTranslation } from 'react-i18next';
-import { analytics, Events } from '@/shared/service/analytics.service';
-import { useLang } from '@/shared/hooks/useLangStore';
 
 export default function DreamPage() {
   const { t } = useTranslation();
@@ -38,6 +38,7 @@ export default function DreamPage() {
   const { data, isLoading, isError, isFetching } = useGetDreamById(params.id);
   const { continueDreamFunction, isPending } = useContinueDream();
   const { lang } = useLang();
+
   const handleContinueDream = async () => {
     if (!isActive) {
       analytics.trackEvent(Events.press_complete_dream_inactive, {

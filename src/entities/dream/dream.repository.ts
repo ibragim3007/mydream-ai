@@ -54,7 +54,7 @@ export const useCreateDream = () => {
   });
 
   const createDreamFunction = async (payload: CreateDreamDto) => {
-    return await handleMutation(() => mutateAsync(payload));
+    return await mutateAsync(payload);
   };
 
   return {

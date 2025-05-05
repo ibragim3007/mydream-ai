@@ -1,6 +1,7 @@
 import DogAnim from '@/assets/animations/dog_anim_2.json';
 import { useCreateDream } from '@/entities/dream/dream.repository';
 import { useLang } from '@/shared/hooks/useLangStore';
+import { useSubscription } from '@/shared/hooks/useSubscription';
 import { useTheme } from '@/shared/hooks/useTheme';
 import { analytics, Events } from '@/shared/service/analytics.service';
 import { errorLogger } from '@/shared/service/logger.service/sentry.service';
@@ -11,6 +12,7 @@ import Paper from '@/shared/ui/layout/Paper';
 import Typography from '@/shared/ui/typography/Typography';
 import ModalContainer from '@/shared/ui/wrapper/ModalContainer';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+import { AxiosError } from 'axios';
 import { router } from 'expo-router';
 import LottieView from 'lottie-react-native';
 import { useTranslation } from 'react-i18next';
@@ -27,6 +29,7 @@ export default function SaveAndAnaluzeButton({ dreamText, disabled, onChangeText
   const { t } = useTranslation();
   const { lang } = useLang();
   const { createDreamFunction, isPending } = useCreateDream();
+  const { subscriptionStatus } = useSubscription();
 
   const onPressCreateDream = async () => {
     if (dreamText.trim().length === 0) {
@@ -38,7 +41,7 @@ export default function SaveAndAnaluzeButton({ dreamText, disabled, onChangeText
       return;
     }
 
-    if (dreamText.trim().length < 9) {
+    if (dreamText.trim().length < 7) {
       Alert.alert(t('dream-input.more-words-needed'));
       analytics.trackEvent(Events.press_record_button_under_text, {
         dreamText: dreamText,
@@ -56,14 +59,26 @@ export default function SaveAndAnaluzeButton({ dreamText, disabled, onChangeText
         inputText: dreamText,
       });
 
+      console.log('RES: ', res);
+
       router.dismissAll();
+
       if (!res) {
-        Alert.alert(t('dream-input.error'), t('dream-input.dream-not-created'));
         return;
+        // throw new Error(t('dream-input.dream-not-created'));
       }
+
       onChangeText('');
       router.push(`/screens/dream/${res.id}`);
-    } catch {
+    } catch (e) {
+      if (e instanceof AxiosError) {
+        Alert.alert(e?.response?.data?.message ?? t('dream-input.unknown-error'));
+        analytics.trackEvent(Events.error_to_create_dream, {
+          local: lang,
+          error: e.message,
+          subStatus: subscriptionStatus,
+        });
+      }
       errorLogger.logError('Error in SaveAndAnaluzeButton');
     }
   };
