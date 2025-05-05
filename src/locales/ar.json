@@ -71,7 +71,8 @@
     "dream-not-created": "لم يتم إنشاء الحلم",
     "analyzing-loading": "جارٍ تحليل حلمك\nيرجى الانتظار…",
     "analyze-button": "حفظ",
-    "new-dream-header": "حلم جديد"
+    "new-dream-header": "حلم جديد",
+    "reached-limit": "لقد وصلت إلى الحد اليومي البالغ {{limit}} حلمًا. التوليد التالي سيكون متاحًا في: {{time}}"
   },
   "dream-page": {
     "general-info": "معلومات عامة",

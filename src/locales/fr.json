@@ -71,7 +71,8 @@
     "dream-not-created": "Le rêve n’a pas été créé",
     "analyzing-loading": "Analyse de votre rêve…\nVeuillez patienter…",
     "analyze-button": "Enregistrer",
-    "new-dream-header": "Nouveau rêve"
+    "new-dream-header": "Nouveau rêve",
+    "reached-limit": "Vous avez atteint la limite quotidienne de {{limit}} rêves. Prochaine génération disponible à : {{time}}"
   },
   "dream-page": {
     "general-info": "Infos générales",

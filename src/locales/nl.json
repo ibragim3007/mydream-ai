@@ -71,7 +71,8 @@
     "dream-not-created": "Droom niet opgeslagen",
     "analyzing-loading": "Je droom wordt geanalyseerd\nEven geduld…",
     "analyze-button": "Opslaan",
-    "new-dream-header": "Nieuwe droom"
+    "new-dream-header": "Nieuwe droom",
+    "reached-limit": "Je hebt de dagelijkse limiet van {{limit}} dromen bereikt. Volgende generatie beschikbaar om: {{time}}"
   },
   "dream-page": {
     "general-info": "Algemene info",

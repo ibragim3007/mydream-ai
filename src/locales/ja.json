@@ -71,7 +71,8 @@
     "dream-not-created": "夢が作成されませんでした",
     "analyzing-loading": "夢を分析中…\n少々お待ちください…",
     "analyze-button": "保存して分析",
-    "new-dream-header": "新しい夢"
+    "new-dream-header": "新しい夢",
+    "reached-limit": "{{limit}}件の夢の1日上限に達しました。次の生成は{{time}}に利用可能です"
   },
   "dream-page": {
     "general-info": "一般情報",

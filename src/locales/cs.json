@@ -71,7 +71,8 @@
     "dream-not-created": "Sen nebyl vytvořen",
     "analyzing-loading": "Analyzujeme váš sen… chvíli strpení",
     "analyze-button": "Uložit a analyzovat",
-    "new-dream-header": "Nový sen"
+    "new-dream-header": "Nový sen",
+    "reached-limit": "Dosáhli jste denního limitu {{limit}} snů. Další generace bude dostupná v: {{time}}"
   },
   "dream-page": {
     "general-info": "Obecné informace",

@@ -72,7 +72,11 @@ export default function SaveAndAnaluzeButton({ dreamText, disabled, onChangeText
       router.push(`/screens/dream/${res.id}`);
     } catch (e) {
       if (e instanceof AxiosError) {
-        Alert.alert(e?.response?.data?.message ?? t('dream-input.unknown-error'));
+        const nextAvailableDate = new Date(e?.response?.data?.nextDate).toLocaleString();
+        const limit = e?.response?.data?.limit;
+        Alert.alert(
+          t('dream-input.reached-limit', { limit, time: nextAvailableDate }) || t('dream-input.unknown-error'),
+        );
         analytics.trackEvent(Events.error_to_create_dream, {
           local: lang,
           error: e.message,

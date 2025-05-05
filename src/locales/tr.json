@@ -71,7 +71,8 @@
     "dream-not-created": "Rüya oluşturulmadı",
     "analyzing-loading": "Rüyanız analiz ediliyor\nLütfen bekleyin…",
     "analyze-button": "Kaydet ve Analiz Et",
-    "new-dream-header": "Yeni Rüya"
+    "new-dream-header": "Yeni Rüya",
+    "reached-limit": "{{limit}} rüya için günlük sınırına ulaştınız. Sonraki oluşturma zamanı: {{time}}"
   },
   "dream-page": {
     "general-info": "Genel Bilgi",

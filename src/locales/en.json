@@ -71,7 +71,8 @@
     "dream-not-created": "Unable to create dream.",
     "analyzing-loading": "Analyzing your dream… please wait a moment.",
     "analyze-button": "Save & Analyze",
-    "new-dream-header": "New Dream"
+    "new-dream-header": "New Dream",
+    "reached-limit": "You have reached the daily limit of {{limit}} dreams. Next generation available at: {{time}}"
   },
   "dream-page": {
     "general-info": "General Information",

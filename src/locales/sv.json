@@ -71,7 +71,8 @@
     "dream-not-created": "Drömmen skapades inte",
     "analyzing-loading": "Analyserar din dröm\nVänta en stund…",
     "analyze-button": "Spara",
-    "new-dream-header": "Ny dröm"
+    "new-dream-header": "Ny dröm",
+    "reached-limit": "Du har nått den dagliga gränsen på {{limit}} drömmar. Nästa generering tillgänglig kl: {{time}}"
   },
   "dream-page": {
     "general-info": "Allmän info",

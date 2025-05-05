@@ -71,7 +71,8 @@
     "dream-not-created": "Сон не сохранён",
     "analyzing-loading": "Анализируем сон…\nподождите…",
     "analyze-button": "Сохранить",
-    "new-dream-header": "Новый сон"
+    "new-dream-header": "Новый сон",
+    "reached-limit": "Вы достигли дневного лимита в {{limit}} снов. Следующая генерация будет доступна в: {{time}}"
   },
   "dream-page": {
     "general-info": "Общая информация",

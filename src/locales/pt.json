@@ -71,7 +71,8 @@
     "dream-not-created": "Sonho não criado",
     "analyzing-loading": "Analisando seu sonho...\nAguarde…",
     "analyze-button": "Salvar",
-    "new-dream-header": "Novo sonho"
+    "new-dream-header": "Novo sonho",
+    "reached-limit": "Você atingiu o limite diário de {{limit}} sonhos. A próxima geração estará disponível às: {{time}}"
   },
   "dream-page": {
     "general-info": "Informações gerais",

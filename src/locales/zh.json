@@ -71,7 +71,8 @@
     "dream-not-created": "梦境未创建",
     "analyzing-loading": "正在分析梦境\n请稍候…",
     "analyze-button": "保存",
-    "new-dream-header": "新梦境"
+    "new-dream-header": "新梦境",
+    "reached-limit": "您已达到每日{{limit}}个梦的上限。下次生成时间为：{{time}}"
   },
   "dream-page": {
     "general-info": "基本信息",

@@ -71,7 +71,8 @@
     "dream-not-created": "Drømmen ble ikke opprettet",
     "analyzing-loading": "Analyserer drømmen din\nVent litt…",
     "analyze-button": "Lagre",
-    "new-dream-header": "Ny drøm"
+    "new-dream-header": "Ny drøm",
+    "reached-limit": "Du har nådd den daglige grensen på {{limit}} drømmer. Neste generering er tilgjengelig kl: {{time}}"
   },
   "dream-page": {
     "general-info": "Generell info",

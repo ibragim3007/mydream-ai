@@ -71,7 +71,8 @@
     "dream-not-created": "Sen nie został zapisany",
     "analyzing-loading": "Analizujemy Twój sen\nPoczekaj chwilę…",
     "analyze-button": "Zapisz",
-    "new-dream-header": "Nowy sen"
+    "new-dream-header": "Nowy sen",
+    "reached-limit": "Osiągnąłeś dzienny limit {{limit}} snów. Następna generacja dostępna o: {{time}}"
   },
   "dream-page": {
     "general-info": "Informacje ogólne",

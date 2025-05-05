@@ -71,7 +71,8 @@
     "dream-not-created": "Traum wurde nicht erstellt",
     "analyzing-loading": "Dein Traum wird analysiert…\nBitte warten…",
     "analyze-button": "Speichern",
-    "new-dream-header": "Neuer Traum"
+    "new-dream-header": "Neuer Traum",
+    "reached-limit": "Du hast das tägliche Limit von {{limit}} Träumen erreicht. Die nächste Generierung ist verfügbar um: {{time}}"
   },
   "dream-page": {
     "general-info": "Allgemeine Informationen",

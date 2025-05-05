@@ -71,7 +71,8 @@
     "dream-not-created": "सपना सहेजा नहीं गया",
     "analyzing-loading": "आपके सपने का विश्लेषण कर रहे हैं\nकृपया प्रतीक्षा करें...",
     "analyze-button": "सहेजें",
-    "new-dream-header": "नया सपना"
+    "new-dream-header": "नया सपना",
+    "reached-limit": "आप {{limit}} सपनों की दैनिक सीमा तक पहुँच चुके हैं। अगली जनरेशन उपलब्ध होगी: {{time}}"
   },
   "dream-page": {
     "general-info": "सामान्य जानकारी",

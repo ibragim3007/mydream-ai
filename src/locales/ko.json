@@ -71,7 +71,8 @@
     "dream-not-created": "꿈이 생성되지 않았습니다",
     "analyzing-loading": "꿈을 분석 중입니다…\n잠시만 기다려주세요…",
     "analyze-button": "저장",
-    "new-dream-header": "새 꿈"
+    "new-dream-header": "새 꿈",
+    "reached-limit": "{{limit}}개의 꿈에 대한 일일 한도에 도달했습니다. 다음 생성 가능 시간: {{time}}"
   },
   "dream-page": {
     "general-info": "기본 정보",
