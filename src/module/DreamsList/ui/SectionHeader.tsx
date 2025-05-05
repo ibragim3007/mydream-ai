@@ -7,7 +7,7 @@ interface SectionHeaderProps {
 
 export default function SectionHeader({ title }: SectionHeaderProps) {
   return (
-    <Grid marginTop={20} marginLeft={20} marginBottom={10}>
+    <Grid marginTop={20} marginBottom={10}>
       <Typography variant="title-3" weight="light">
         {title}
       </Typography>

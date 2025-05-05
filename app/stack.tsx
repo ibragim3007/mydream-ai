@@ -2,6 +2,7 @@ import { AudioRecorderButton } from '@/module/AudioRecorderButton';
 import { useTheme } from '@/shared/hooks/useTheme';
 import { fontWeight } from '@/shared/styles/typography/typography';
 import DismissModalButton from '@/shared/ui/elements/DismissModalButton';
+import { isTablet } from '@/shared/utils/size';
 import { Stack } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 
@@ -28,7 +29,7 @@ export default function GeneralStack() {
         name="screens/newDreamScreen"
         options={{
           headerShown: true,
-          presentation: 'modal',
+          presentation: isTablet() ? 'fullScreenModal' : 'modal',
           headerTitle: t('dream-input.new-dream-header'),
           headerBlurEffect: 'regular',
           headerTransparent: true,

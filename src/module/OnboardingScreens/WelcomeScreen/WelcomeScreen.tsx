@@ -4,6 +4,7 @@ import Button from '@/shared/ui/buttons/Button';
 import Grid from '@/shared/ui/grid/Grid';
 import SafeWrapper from '@/shared/ui/layout/SafeWrapper';
 import Typography from '@/shared/ui/typography/Typography';
+import { isTablet, normalizedSize } from '@/shared/utils/size';
 import LottieView from 'lottie-react-native';
 import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -34,28 +35,13 @@ export default function WelcomeScreen({ onPressButton }: WelcomeScreenProps) {
           backgroundColor: '#201b1b0',
           position: 'absolute',
           top: 0,
-          left: 0,
+          left: isTablet() ? -normalizedSize(108) : 0,
         }}
         source={WelcomScreenAnimation}
       />
 
       <Grid paddingVertical={20} justfity="space-between" height="100%">
         <Grid space="md" width={'100%'}>
-          {/* <EnterFadeText text="Welcome to Dreamlens AI!" /> */}
-
-          {/* <Animated.View entering={animationEngine.zoomInDown(1)}>
-            <Grid
-              align="center"
-              justfity="center"
-              style={{
-                shadowColor: '#B9D3EA',
-                shadowOpacity: 0.4,
-                shadowRadius: 35,
-              }}
-            >
-              <Image source={moonImage} style={{ height: 250, width: 250, transform: [{ rotate: '9deg' }] }} />
-            </Grid>
-          </Animated.View> */}
           <Animated.View entering={animationEngine.zoomInDown(1)}>
             <Typography variant="title-0" weight="extra-bold" textAlign="center">
               {t('onboarding.grettings-text')}
