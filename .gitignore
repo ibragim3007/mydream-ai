@@ -46,3 +46,8 @@ app-example
 *.gz
 
 .env.local
+
+# Expo
+.expo
+dist/
+web-build/

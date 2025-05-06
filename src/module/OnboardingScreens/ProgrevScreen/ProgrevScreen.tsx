@@ -44,7 +44,7 @@ export default function ProgrevScreen({ onFinishAnimation }: ProgrevScreenProps)
             autoPlay
             loop={false}
             onAnimationFinish={handleAnimationFinish}
-            speed={0.6}
+            speed={0.3}
             resizeMode="cover"
             style={{
               width: '100%',

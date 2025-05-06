@@ -35,11 +35,11 @@
         "usesNonExemptEncryption": false
       },
       "icon": "./assets/images/icons_ios/icon-a.png",
-      "buildNumber": "13"
+      "buildNumber": "14"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/icons_android/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.ibragim.mydreamjornal"
@@ -110,7 +110,6 @@
             "name": "IconA",
             "ios": "./assets/images/icons_ios/icon-a.png",
             "android": {
-              "foregroundImage": "./assets/icon-a-foreground.png",
               "backgroundColor": "#001413"
             }
           },
@@ -118,7 +117,6 @@
             "name": "IconB",
             "ios": "./assets/images/icons_ios/icon-b.png",
             "android": {
-              "foregroundImage": "./assets/icon-b-foreground.png",
               "backgroundColor": "#001413"
             }
           },
@@ -126,7 +124,6 @@
             "name": "IconC",
             "ios": "./assets/images/icons_ios/icon-c.png",
             "android": {
-              "foregroundImage": "./assets/icon-c-foreground.png",
               "backgroundColor": "#001413"
             }
           },
@@ -134,7 +131,6 @@
             "name": "IconD",
             "ios": "./assets/images/icons_ios/icon-d.png",
             "android": {
-              "foregroundImage": "./assets/icon-c-foreground.png",
               "backgroundColor": "#001413"
             }
           },
@@ -142,7 +138,6 @@
             "name": "IconE",
             "ios": "./assets/images/icons_ios/icon-e.png",
             "android": {
-              "foregroundImage": "./assets/icon-c-foreground.png",
               "backgroundColor": "#001413"
             }
           }
