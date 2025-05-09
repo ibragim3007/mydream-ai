@@ -17,6 +17,9 @@ import Typography from '../typography/Typography';
 import WrapIconInPressable from '../wrapper/WrapIconInPressable';
 import { analytics, Events } from '@/shared/service/analytics.service';
 import { useLang } from '@/shared/hooks/useLangStore';
+import Superwall from '@superwall/react-native-superwall';
+import { PLACEMENTS } from '@/shared/config/constants/constants';
+import { useTranslation } from 'react-i18next';
 
 interface InterpretationItemProps {
   title: string;
@@ -45,6 +48,7 @@ export default function InterpretationItem({
   const imageContainerScale = useSharedValue(1);
   const { vibrateSelection, vibrate, vibrateError } = useVibration();
   const { lang } = useLang();
+  const { t } = useTranslation();
 
   const bounce = useSharedValue(0);
   const rotate = useSharedValue(0);
@@ -78,6 +82,10 @@ export default function InterpretationItem({
 
   const toggleExpand = () => {
     if (isBlocked) {
+      Superwall.shared.register({
+        placement: PLACEMENTS.campaign_trigger,
+      });
+
       analytics.trackEvent(Events.disabled_interpretation, {
         local: lang,
         interpretation: interprerationId,
@@ -115,7 +123,7 @@ export default function InterpretationItem({
                 }}
               />
               <LinearGradient
-                colors={['transparent', 'rgba(0, 0, 0, 0.316)', '#000000be']}
+                colors={['transparent', isBlocked ? 'rgba(0, 0, 0, 0.552)' : 'rgba(0, 0, 0, 0.316)', '#000000be']}
                 style={{
                   width: '100%',
                   height: '100%',
@@ -125,7 +133,7 @@ export default function InterpretationItem({
               />
               {isBlocked && (
                 <LinearGradient
-                  colors={['transparent', 'rgba(0, 0, 0, 0.001)', '#00000078']}
+                  colors={['transparent', 'rgba(0, 0, 0, 0.734)', '#0000009e']}
                   start={{ x: 0, y: 0 }}
                   end={{ x: 1, y: 1 }}
                   style={{
@@ -152,6 +160,7 @@ export default function InterpretationItem({
                   style={{ alignContent: 'flex-end' }}
                   justfity="space-between"
                   wrap
+                  space="sm"
                   width="100%"
                   paddingVertical={6}
                   paddingHorizontal={20}
@@ -160,9 +169,15 @@ export default function InterpretationItem({
                     <Typography style={{ flex: 0.99 }} weight="bold" variant="headline">
                       {title}
                     </Typography>
-                    <WrapIconInPressable backgroundColor={colors.background.disabled}>
+
+                    <WrapIconInPressable backgroundColor={isBlocked ? colors.accent.alert : colors.background.disabled}>
                       {isBlocked ? (
-                        <FontAwesome name="lock" size={26} color={colors.text.primary} />
+                        <Grid row space="sm" paddingHorizontal={5} align="center">
+                          <FontAwesome name="lock" size={24} color={colors.text.white} />
+                          <Typography weight="extra-bold" variant="headline" color="white">
+                            Pro
+                          </Typography>
+                        </Grid>
                       ) : (
                         <Animated.View style={arrowStyle}>
                           <Entypo name="chevron-down" size={26} color={'#fff'} />
@@ -170,6 +185,7 @@ export default function InterpretationItem({
                       )}
                     </WrapIconInPressable>
                   </Grid>
+
                   {description && (
                     <Typography variant="caption-1" weight="medium">
                       {description}
