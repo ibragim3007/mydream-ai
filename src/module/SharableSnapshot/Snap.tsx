@@ -29,6 +29,9 @@ export default function Snap({ dream, analysis }: SnapProps) {
 
           <Typography>{analysis?.summary}</Typography>
         </Grid>
+        <Grid align="center">
+          <Logo />
+        </Grid>
         <Grid space="sm">
           <Typography weight="bold" variant="headline">
             Анализ показал
@@ -37,9 +40,6 @@ export default function Snap({ dream, analysis }: SnapProps) {
             <Grid height="100%" width={3} color={colors.accent.alert} style={{ borderRadius: 10 }} />
             <Typography>{analysis?.interpretations.esoteric}</Typography>
           </Grid>
-        </Grid>
-        <Grid align="center">
-          <Logo />
         </Grid>
       </Grid>
     </LinearGradient>

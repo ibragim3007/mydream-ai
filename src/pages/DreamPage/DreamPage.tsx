@@ -2,6 +2,7 @@ import { useContinueDream, useGetDreamById } from '@/entities/dream/dream.reposi
 import { getDreamAnalysisResponse } from '@/entities/dream/helpers/getDreamResponse';
 
 import { GeneralFeedback } from '@/entities/feedback';
+import { SharableSnapshot } from '@/module/SharableSnapshot';
 import { HORIZONTAL_PADDINGS, PLACEMENTS } from '@/shared/config/constants/constants';
 import { useLang } from '@/shared/hooks/useLangStore';
 import { useSubscription } from '@/shared/hooks/useSubscription';
@@ -20,7 +21,7 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Superwall from '@superwall/react-native-superwall';
 import { useLocalSearchParams } from 'expo-router';
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ScrollView } from 'react-native';
 import Animated from 'react-native-reanimated';
@@ -28,7 +29,6 @@ import HeaderDream from './ui/HeaderDream';
 import Interpretations from './ui/Interpretations';
 import LoadingSkeleton from './ui/LoadingSkeleton';
 import Participants from './ui/Participants';
-import { SharableSnapshot } from '@/module/SharableSnapshot';
 
 export default function DreamPage() {
   const { t } = useTranslation();
@@ -61,7 +61,7 @@ export default function DreamPage() {
     }
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (data) {
       const analysis = getDreamAnalysisResponse(data.analyzeText);
       setAnalysis(analysis);
@@ -131,9 +131,7 @@ export default function DreamPage() {
           <Animated.View entering={animationEngine.fadeInUp(0)}>
             <Grid space="lg">
               <HeaderDream dream={data} />
-              <SharableSnapshot dream={data} analysis={analysis} />
               <Participants analysis={analysis} />
-
               <Grid width="100%" space="md" paddingHorizontal={HORIZONTAL_PADDINGS}>
                 <Typography weight="extra-bold" variant="title-2">
                   {t('dream-page.general-info')}
@@ -170,6 +168,8 @@ export default function DreamPage() {
               </Grid>
 
               <Interpretations analysis={analysis} isActive={isActive} />
+
+              <SharableSnapshot dream={data} analysis={analysis} />
               <Grid marginVertical={60}>
                 <GeneralFeedback
                   onPressLike={onPressLike}

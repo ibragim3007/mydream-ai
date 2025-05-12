@@ -4,9 +4,7 @@ import { useTheme } from '@/shared/hooks/useTheme';
 import { SleepDataResponse } from '@/shared/types/globalTypes';
 import Button from '@/shared/ui/buttons/Button';
 import Grid from '@/shared/ui/grid/Grid';
-import WrapIconInCircle from '@/shared/ui/wrapper/WrapIconInCircle';
 import Feather from '@expo/vector-icons/Feather';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import * as Sharing from 'expo-sharing';
 import { useRef, useState } from 'react';
@@ -48,10 +46,12 @@ export default function SharableSnapshot({ dream, analysis }: SharableSnapshotPr
   };
 
   return (
-    <Grid>
-      <WrapIconInCircle onPress={toggleModal}>
-        <FontAwesome name="share-alt" size={24} color={colors.text.primary} />
-      </WrapIconInCircle>
+    <Grid flex={1}>
+      <Grid marginHorizontal={HORIZONTAL_PADDINGS}>
+        <Button leftIcon={<Feather name="share" size={24} color={colors.text.white} />} onPress={toggleModal}>
+          Share my dream
+        </Button>
+      </Grid>
       <Modal animationType="slide" visible={isOpen} transparent onRequestClose={toggleModal}>
         <Pressable
           style={{
@@ -88,7 +88,6 @@ export default function SharableSnapshot({ dream, analysis }: SharableSnapshotPr
                 >
                   <Ionicons name="close" size={24} color="black" />
                 </Pressable>
-
                 <ViewShot
                   captureMode="mount"
                   ref={ref}
