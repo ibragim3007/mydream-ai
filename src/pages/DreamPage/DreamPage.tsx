@@ -28,6 +28,7 @@ import HeaderDream from './ui/HeaderDream';
 import Interpretations from './ui/Interpretations';
 import LoadingSkeleton from './ui/LoadingSkeleton';
 import Participants from './ui/Participants';
+import { SharableSnapshot } from '@/module/SharableSnapshot';
 
 export default function DreamPage() {
   const { t } = useTranslation();
@@ -130,7 +131,7 @@ export default function DreamPage() {
           <Animated.View entering={animationEngine.fadeInUp(0)}>
             <Grid space="lg">
               <HeaderDream dream={data} />
-
+              <SharableSnapshot dream={data} analysis={analysis} />
               <Participants analysis={analysis} />
 
               <Grid width="100%" space="md" paddingHorizontal={HORIZONTAL_PADDINGS}>
