@@ -100,7 +100,10 @@
     "more": "もっと読む",
     "original-input": "入力内容",
     "characters": "文字数",
-    "continuation-title": "続き"
+    "continuation-title": "続き",
+    "share-my-dream": "私の夢を共有する",
+    "created-by": "作成者",
+    "analysis-showed": "分析の結果"
   },
   "settings-page": {
     "app-settings": "アプリ設定",

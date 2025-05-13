@@ -100,7 +100,10 @@
     "more": "Mehr lesen",
     "original-input": "Eingabe",
     "characters": "Charaktere",
-    "continuation-title": "Fortsetzung"
+    "continuation-title": "Fortsetzung",
+    "share-my-dream": "Teile meinen Traum",
+    "created-by": "Erstellt von",
+    "analysis-showed": "Die Analyse zeigte"
   },
   "settings-page": {
     "app-settings": "App-Einstellungen",

@@ -100,7 +100,10 @@
     "more": "阅读更多",
     "original-input": "原始输入",
     "characters": "字符数",
-    "continuation-title": "继续"
+    "continuation-title": "继续",
+    "share-my-dream": "分享我的梦",
+    "created-by": "创建者",
+    "analysis-showed": "分析显示"
   },
   "settings-page": {
     "app-settings": "应用偏好",

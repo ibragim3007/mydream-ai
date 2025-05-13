@@ -100,7 +100,10 @@
     "more": "Les mer",
     "original-input": "Input",
     "characters": "Tegn",
-    "continuation-title": "Fortsettelse"
+    "continuation-title": "Fortsettelse",
+    "share-my-dream": "Del drømmen min",
+    "created-by": "Laget av",
+    "analysis-showed": "Analysen viste"
   },
   "settings-page": {
     "app-settings": "App-innstillinger",

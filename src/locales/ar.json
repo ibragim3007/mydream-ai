@@ -100,7 +100,10 @@
     "more": "اقرأ المزيد",
     "original-input": "النص الأصلي",
     "characters": "الأحرف",
-    "continuation-title": "استمرار"
+    "continuation-title": "استمرار",
+    "share-my-dream": "شارك حلمي",
+    "created-by": "أنشئ بواسطة",
+    "analysis-showed": "أظهر التحليل"
   },
   "settings-page": {
     "app-settings": "تفضيلات التطبيق",

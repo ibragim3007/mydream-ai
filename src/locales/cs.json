@@ -100,7 +100,10 @@
     "more": "Číst více",
     "original-input": "Vstup",
     "characters": "Znaky",
-    "continuation-title": "Pokračování"
+    "continuation-title": "Pokračování",
+    "share-my-dream": "Sdílet můj sen",
+    "created-by": "Vytvořil(a)",
+    "analysis-showed": "Analýza ukázala"
   },
   "settings-page": {
     "app-settings": "Nastavení aplikace",

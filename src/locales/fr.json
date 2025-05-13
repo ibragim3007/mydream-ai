@@ -100,7 +100,10 @@
     "more": "Lire la suite",
     "original-input": "Saisie originale",
     "characters": "Caractères",
-    "continuation-title": "Suite"
+    "continuation-title": "Suite",
+    "share-my-dream": "Partager mon rêve",
+    "created-by": "Créé par",
+    "analysis-showed": "L'analyse a montré"
   },
   "settings-page": {
     "app-settings": "Préférences de l’application",

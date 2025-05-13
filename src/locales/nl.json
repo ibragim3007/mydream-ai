@@ -100,7 +100,10 @@
     "more": "Lees meer",
     "original-input": "Invoer",
     "characters": "Tekens",
-    "continuation-title": "Vervolg"
+    "continuation-title": "Vervolg",
+    "share-my-dream": "Deel mijn droom",
+    "created-by": "Gemaakt door",
+    "analysis-showed": "De analyse toonde"
   },
   "settings-page": {
     "app-settings": "App-voorkeuren",

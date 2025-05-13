@@ -100,7 +100,10 @@
     "more": "Czytaj więcej",
     "original-input": "Wejście",
     "characters": "Znaki",
-    "continuation-title": "Kontynuacja"
+    "continuation-title": "Kontynuacja",
+    "share-my-dream": "Udostępnij mój sen",
+    "created-by": "Utworzone przez",
+    "analysis-showed": "Analiza wykazała"
   },
   "settings-page": {
     "app-settings": "Preferencje aplikacji",

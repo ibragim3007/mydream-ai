@@ -100,7 +100,10 @@
     "more": "Daha Fazla Oku",
     "original-input": "Girdi",
     "characters": "Karakterler",
-    "continuation-title": "Devam"
+    "continuation-title": "Devam",
+    "share-my-dream": "Rüyamı paylaş",
+    "created-by": "Oluşturan",
+    "analysis-showed": "Analiz gösterdi"
   },
   "settings-page": {
     "app-settings": "Uygulama Ayarları",

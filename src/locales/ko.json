@@ -100,7 +100,10 @@
     "more": "더 읽기",
     "original-input": "입력",
     "characters": "문자 수",
-    "continuation-title": "계속"
+    "continuation-title": "계속",
+    "share-my-dream": "내 꿈 공유하기",
+    "created-by": "작성자",
+    "analysis-showed": "분석 결과"
   },
   "settings-page": {
     "app-settings": "앱 환경설정",
