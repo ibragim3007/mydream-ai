@@ -1,6 +1,8 @@
 import { GetDreamDto } from '@/shared/api/entities/dream/dream.types';
 import { HORIZONTAL_PADDINGS } from '@/shared/config/constants/constants';
 import { useTheme } from '@/shared/hooks/useTheme';
+import { analytics, Events } from '@/shared/service/analytics.service';
+import { errorLogger } from '@/shared/service/logger.service/sentry.service';
 import { SleepDataResponse } from '@/shared/types/globalTypes';
 import Button from '@/shared/ui/buttons/Button';
 import Grid from '@/shared/ui/grid/Grid';
@@ -8,11 +10,11 @@ import Feather from '@expo/vector-icons/Feather';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import * as Sharing from 'expo-sharing';
 import { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Modal, Pressable, ScrollView } from 'react-native';
 import ViewShot from 'react-native-view-shot';
 import Snap from './Snap';
-import { errorLogger } from '@/shared/service/logger.service/sentry.service';
-import { useTranslation } from 'react-i18next';
+import { useLang } from '@/shared/hooks/useLangStore';
 interface SharableSnapshotProps {
   dream: GetDreamDto;
   analysis: SleepDataResponse | undefined;
@@ -21,11 +23,19 @@ interface SharableSnapshotProps {
 export default function SharableSnapshot({ dream, analysis }: SharableSnapshotProps) {
   const ref = useRef<ViewShot>(null);
   const { t } = useTranslation();
+  const { lang } = useLang();
   const [isLoadingShare, setIsLoadingShare] = useState(false);
   const colors = useTheme();
   const [isOpen, setIsOpen] = useState(false);
+
   const toggleModal = () => {
     setIsOpen(prev => !prev);
+    analytics.trackEvent(Events.press_outer_share_button, {
+      lang: lang,
+      dreamId: dream.id,
+      sizeOfSummary: analysis?.summary.length || 0,
+      sizeOfInterpretation: analysis?.interpretations.esoteric.length || 0,
+    });
   };
 
   const onPressShare = async () => {
@@ -46,6 +56,13 @@ export default function SharableSnapshot({ dream, analysis }: SharableSnapshotPr
       }
 
       await Sharing.shareAsync(uri);
+
+      analytics.trackEvent(Events.press_inner_share_button, {
+        lang: lang,
+        dreamId: dream.id,
+        sizeOfSummary: analysis?.summary.length || 0,
+        sizeOfInterpretation: analysis?.interpretations.esoteric.length || 0,
+      });
     } catch (e) {
       errorLogger.logError(`ShrableSnapshot: ${JSON.stringify(e)}`);
     } finally {
@@ -55,7 +72,7 @@ export default function SharableSnapshot({ dream, analysis }: SharableSnapshotPr
 
   return (
     <Grid flex={1}>
-      <Grid marginHorizontal={HORIZONTAL_PADDINGS}>
+      <Grid paddingHorizontal={HORIZONTAL_PADDINGS}>
         <Button leftIcon={<Feather name="share" size={24} color={colors.text.white} />} onPress={toggleModal}>
           {t('dream-page.share-my-dream')}
         </Button>
@@ -88,7 +105,8 @@ export default function SharableSnapshot({ dream, analysis }: SharableSnapshotPr
                     alignSelf: 'flex-end',
                     position: 'absolute',
                     zIndex: 40,
-                    top: -10,
+                    top: 15,
+                    right: 10,
                     borderRadius: 50,
                     backgroundColor: '#fff',
                     padding: 5,

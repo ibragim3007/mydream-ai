@@ -17,6 +17,8 @@ export const Events = {
   disabled_interpretation: 'disabled_interpretation',
   press_feedback: 'press_feedback',
   error_to_create_dream: 'error_to_create_dream',
+  press_outer_share_button: 'press_outer_share_button',
+  press_inner_share_button: 'press_inner_share_button',
 };
 
 class EventsController {

@@ -21,23 +21,30 @@ export default function Snap({ dream, analysis }: SnapProps) {
   const { t } = useTranslation();
   return (
     <LinearGradient
-      colors={['#26175e', '#5f2398']}
+      colors={['#241557', '#562089']}
       style={{
         padding: 20,
       }}
     >
-      <Grid paddingHorizontal={5} space="lg">
+      <Grid paddingHorizontal={5} space="md">
         <Grid space="md">
-          <Grid space="sm">
-            <Typography color="secondary" variant="subhead">
+          <Grid>
+            <Typography style={{ opacity: 0.8 }} color="secondary" variant="subhead">
               {localizeDate(new Date(dream.createdAt), lang)}
             </Typography>
             <Typography weight="bold" variant="title-2">
-              {dream.title}
+              {t('dream-page.i-dreamed')}
             </Typography>
           </Grid>
-
-          <Typography>{analysis?.summary}</Typography>
+          <Grid space="sm">
+            <Typography weight="bold" variant="headline">
+              {dream.title}
+            </Typography>
+            <Grid row space="sm">
+              <Grid height="100%" width={3} color={colors.accent.alert} style={{ borderRadius: 10 }} />
+              <Typography style={{ lineHeight: 25 }}>{analysis?.summary}</Typography>
+            </Grid>
+          </Grid>
         </Grid>
         <Grid align="center">
           <Logo />
@@ -47,7 +54,6 @@ export default function Snap({ dream, analysis }: SnapProps) {
             {t('dream-page.analysis-showed')}
           </Typography>
           <Grid row space="sm">
-            <Grid height="100%" width={3} color={colors.accent.alert} style={{ borderRadius: 10 }} />
             <Typography>{analysis?.interpretations.esoteric}</Typography>
           </Grid>
         </Grid>

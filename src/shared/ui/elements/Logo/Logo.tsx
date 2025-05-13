@@ -8,7 +8,16 @@ export default function Logo() {
   const { t } = useTranslation();
   return (
     <Grid
-      style={{ borderWidth: 1, borderColor: '#ffffff8f', borderRadius: 20 }}
+      // style={{ borderWidth: 1, borderColor: '#ffffff8f', borderRadius: 20 }}
+      style={{
+        shadowColor: '#fff',
+        shadowOpacity: 0.35,
+        shadowRadius: 1,
+        shadowOffset: {
+          height: 0,
+          width: 0,
+        },
+      }}
       row
       wrap
       justfity="center"
