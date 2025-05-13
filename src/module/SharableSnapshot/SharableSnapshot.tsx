@@ -96,13 +96,15 @@ export default function SharableSnapshot({ dream, analysis }: SharableSnapshotPr
                 >
                   <Ionicons name="close" size={24} color="black" />
                 </Pressable>
-                <ViewShot
-                  captureMode="mount"
-                  ref={ref}
-                  options={{ fileName: 'Your-File-Name', format: 'png', quality: 1 }}
-                >
-                  <Snap dream={dream} analysis={analysis} />
-                </ViewShot>
+                <Grid style={{ borderRadius: colors.styles.borderRadius, overflow: 'hidden' }}>
+                  <ViewShot
+                    captureMode="mount"
+                    ref={ref}
+                    options={{ fileName: 'Your-File-Name', format: 'png', quality: 1 }}
+                  >
+                    <Snap dream={dream} analysis={analysis} />
+                  </ViewShot>
+                </Grid>
               </Grid>
             </Pressable>
           </ScrollView>

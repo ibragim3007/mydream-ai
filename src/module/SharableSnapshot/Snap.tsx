@@ -24,7 +24,6 @@ export default function Snap({ dream, analysis }: SnapProps) {
       colors={['#26175e', '#5f2398']}
       style={{
         padding: 20,
-        borderRadius: colors.styles.borderRadius,
       }}
     >
       <Grid paddingHorizontal={5} space="lg">
