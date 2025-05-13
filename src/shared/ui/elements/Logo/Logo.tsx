@@ -1,11 +1,11 @@
 import ImageIcon from '@/assets/icons/app_icon_transparent.png';
-import { useTheme } from '@/shared/hooks/useTheme';
 import { Image } from 'expo-image';
+import { useTranslation } from 'react-i18next';
 import Grid from '../../grid/Grid';
 import Typography from '../../typography/Typography';
 
 export default function Logo() {
-  const colors = useTheme();
+  const { t } = useTranslation();
   return (
     <Grid
       style={{ borderWidth: 1, borderColor: '#ffffff8f', borderRadius: 20 }}
@@ -20,9 +20,9 @@ export default function Logo() {
     >
       <Image source={ImageIcon} style={{ width: 40, height: 40 }} />
       <Grid>
-        <Typography variant="title-4">Created by </Typography>
+        <Typography variant="title-4">{t('dream-page.created-by')}</Typography>
         <Typography variant="title-4" weight="extra-bold">
-          MyDream – AI
+          MyDream AI
         </Typography>
       </Grid>
     </Grid>

@@ -11,6 +11,8 @@ import { useRef, useState } from 'react';
 import { Modal, Pressable, ScrollView } from 'react-native';
 import ViewShot from 'react-native-view-shot';
 import Snap from './Snap';
+import { errorLogger } from '@/shared/service/logger.service/sentry.service';
+import { useTranslation } from 'react-i18next';
 interface SharableSnapshotProps {
   dream: GetDreamDto;
   analysis: SleepDataResponse | undefined;
@@ -18,6 +20,8 @@ interface SharableSnapshotProps {
 
 export default function SharableSnapshot({ dream, analysis }: SharableSnapshotProps) {
   const ref = useRef<ViewShot>(null);
+  const { t } = useTranslation();
+  const [isLoadingShare, setIsLoadingShare] = useState(false);
   const colors = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const toggleModal = () => {
@@ -25,31 +29,35 @@ export default function SharableSnapshot({ dream, analysis }: SharableSnapshotPr
   };
 
   const onPressShare = async () => {
-    if (!ref.current) {
-      console.error('ViewShot reference is null');
-      return;
+    try {
+      if (isLoadingShare) {
+        return;
+      }
+
+      setIsLoadingShare(true);
+
+      if (!ref.current) {
+        throw new Error('ViewShot reference is null');
+      }
+
+      const uri = await ref.current?.capture?.();
+      if (!uri) {
+        throw new Error('Failed to capture the snapshot');
+      }
+
+      await Sharing.shareAsync(uri);
+    } catch (e) {
+      errorLogger.logError(`ShrableSnapshot: ${JSON.stringify(e)}`);
+    } finally {
+      setIsLoadingShare(false);
     }
-
-    const uri = await ref.current?.capture?.();
-    if (!uri) {
-      console.error('Failed to capture the view');
-      return;
-    }
-
-    await Sharing.shareAsync(uri, {
-      mimeType: 'image/png',
-      dialogTitle: 'Share your dream summary',
-      UTI: 'public.png',
-    });
-
-    console.log(uri);
   };
 
   return (
     <Grid flex={1}>
       <Grid marginHorizontal={HORIZONTAL_PADDINGS}>
         <Button leftIcon={<Feather name="share" size={24} color={colors.text.white} />} onPress={toggleModal}>
-          Share my dream
+          {t('dream-page.share-my-dream')}
         </Button>
       </Grid>
       <Modal animationType="slide" visible={isOpen} transparent onRequestClose={toggleModal}>
@@ -100,7 +108,7 @@ export default function SharableSnapshot({ dream, analysis }: SharableSnapshotPr
           </ScrollView>
           <Grid paddingHorizontal={30} style={{ position: 'absolute', bottom: 50, width: '100%' }}>
             <Button leftIcon={<Feather name="share" size={24} color={colors.text.white} />} onPress={onPressShare}>
-              Share my dream
+              {t('dream-page.share-my-dream')}
             </Button>
           </Grid>
         </Pressable>

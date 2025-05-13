@@ -29,6 +29,7 @@ import HeaderDream from './ui/HeaderDream';
 import Interpretations from './ui/Interpretations';
 import LoadingSkeleton from './ui/LoadingSkeleton';
 import Participants from './ui/Participants';
+import { localizeDate } from '@/entities/dream/helpers/groupDreamsByDate';
 
 export default function DreamPage() {
   const { t } = useTranslation();
@@ -139,7 +140,7 @@ export default function DreamPage() {
                 <CardPaper
                   width="100%"
                   title={t('dream-page.original-input')}
-                  date={new Date(data.createdAt).toLocaleDateString()}
+                  date={localizeDate(new Date(data.createdAt), lang)}
                   text={data.inputText}
                 />
                 {data.continuation ? (

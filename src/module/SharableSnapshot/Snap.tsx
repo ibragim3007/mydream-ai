@@ -1,4 +1,6 @@
+import { localizeDate } from '@/entities/dream/helpers/groupDreamsByDate';
 import { GetDreamDto } from '@/shared/api/entities/dream/dream.types';
+import { useLang } from '@/shared/hooks/useLangStore';
 import { useTheme } from '@/shared/hooks/useTheme';
 import { SleepDataResponse } from '@/shared/types/globalTypes';
 import Logo from '@/shared/ui/elements/Logo/Logo';
@@ -6,6 +8,7 @@ import Logo from '@/shared/ui/elements/Logo/Logo';
 import Grid from '@/shared/ui/grid/Grid';
 import Typography from '@/shared/ui/typography/Typography';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useTranslation } from 'react-i18next';
 
 interface SnapProps {
   dream: GetDreamDto;
@@ -14,16 +17,24 @@ interface SnapProps {
 
 export default function Snap({ dream, analysis }: SnapProps) {
   const colors = useTheme();
+  const { lang } = useLang();
+  const { t } = useTranslation();
   return (
-    <LinearGradient colors={['#26175e', '#5f2398']} style={{ padding: 20, borderRadius: colors.styles.borderRadius }}>
+    <LinearGradient
+      colors={['#26175e', '#5f2398']}
+      style={{
+        padding: 20,
+        borderRadius: colors.styles.borderRadius,
+      }}
+    >
       <Grid paddingHorizontal={5} space="lg">
         <Grid space="md">
           <Grid space="sm">
             <Typography color="secondary" variant="subhead">
-              {new Date(dream.createdAt).toDateString()}
+              {localizeDate(new Date(dream.createdAt), lang)}
             </Typography>
             <Typography weight="bold" variant="title-2">
-              Мне снился: {dream.title}
+              {dream.title}
             </Typography>
           </Grid>
 
@@ -34,9 +45,9 @@ export default function Snap({ dream, analysis }: SnapProps) {
         </Grid>
         <Grid space="sm">
           <Typography weight="bold" variant="headline">
-            Анализ показал
+            {t('dream-page.analysis-showed')}
           </Typography>
-          <Grid row space="md">
+          <Grid row space="sm">
             <Grid height="100%" width={3} color={colors.accent.alert} style={{ borderRadius: 10 }} />
             <Typography>{analysis?.interpretations.esoteric}</Typography>
           </Grid>
