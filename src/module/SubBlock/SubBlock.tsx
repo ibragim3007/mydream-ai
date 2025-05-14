@@ -28,7 +28,7 @@ export default function SubBlock({ title }: SubBlockProps) {
       local: lang,
     });
     Superwall.shared.register({
-      placement: PLACEMENTS.campaign_trigger,
+      placement: PLACEMENTS.sub_block_press,
     });
   };
 
@@ -80,9 +80,6 @@ export default function SubBlock({ title }: SubBlockProps) {
           <Button style={{ paddingVertical: 9 }} onPress={onPress}>
             {t('sub-block.start-free-trial')}
           </Button>
-          {/* <Typography marginLeft={20} variant="caption-1" color="disabled">
-            Then {currentPrice} per week
-          </Typography> */}
         </Grid>
       </Grid>
     </Grid>
