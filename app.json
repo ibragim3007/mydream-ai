@@ -35,14 +35,15 @@
         "usesNonExemptEncryption": false
       },
       "icon": "./assets/images/icons_ios/icon-a.png",
-      "buildNumber": "18"
+      "buildNumber": "19"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icons_android/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.ibragim.mydreamjornal"
+      "package": "com.ibragim.mydreamjornal",
+      "versionCode": 4
     },
     "web": {
       "bundler": "metro",
@@ -70,7 +71,11 @@
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#0C111C"
+          "backgroundColor": "#0C111C",
+          "android": {
+            "image": "./assets/images/icons_android/adaptive-icon.png",
+            "resizeMode": "contain"
+          }
         }
       ],
       [
@@ -147,7 +152,8 @@
             }
           }
         ]
-      ]
+      ],
+      "expo-asset"
     ],
     "experiments": {
       "typedRoutes": true
