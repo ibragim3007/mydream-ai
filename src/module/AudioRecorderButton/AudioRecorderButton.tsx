@@ -33,6 +33,7 @@ export default function AudioRecorderButton({}: AudioRecorderButtonProps) {
   const { lang } = useLang();
 
   const startRecording = async () => {
+    console.log('first');
     if (!isActive) {
       analytics.trackEvent(Events.mic_button_inactive, {
         local: lang,
