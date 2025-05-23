@@ -1,4 +1,12 @@
-import { continueDream, createDream, deleteDream, getDream, getDreams } from '@/shared/api/entities/dream/dream.api';
+import {
+  analyzePastDreams,
+  continueDream,
+  createDream,
+  deleteDream,
+  getDream,
+  getDreams,
+  getProgressOnGeneralAnalysis,
+} from '@/shared/api/entities/dream/dream.api';
 import { CreateDreamDto } from '@/shared/api/entities/dream/dream.types';
 import { handleMutation } from '@/shared/utils/handleMutation';
 import { useInfiniteQuery, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
@@ -44,11 +52,11 @@ export const useCreateDream = () => {
   const queryClient = useQueryClient();
 
   const { mutateAsync, isPending, isError } = useMutation({
-    mutationKey: getDreamsKeys,
+    mutationKey: [...getDreamsKeys],
     mutationFn: (payload: CreateDreamDto) => createDream(payload),
     onSettled: () => {
       void queryClient.invalidateQueries({
-        queryKey: getDreamsKeys,
+        queryKey: [...getProgressOnGeneralAnalysisKeys, ...getDreamsKeys],
       });
     },
   });
@@ -71,7 +79,7 @@ export const useDeleteDream = () => {
     mutationFn: (id: string) => deleteDream(id),
     onSettled: () => {
       void queryClient.invalidateQueries({
-        queryKey: getDreamsKeys,
+        queryKey: [...getDreamsKeys, ...getProgressOnGeneralAnalysisKeys],
       });
     },
   });
@@ -105,6 +113,39 @@ export const useContinueDream = () => {
 
   return {
     continueDreamFunction,
+    isPending,
+    isError,
+  };
+};
+
+const getProgressOnGeneralAnalysisKeys = ['progressOnGeneralAnalysis'];
+export const useGetProgressOnGeneralAnalysis = () => {
+  const { data, isError, isLoading } = useQuery({
+    queryKey: getProgressOnGeneralAnalysisKeys,
+    queryFn: () => getProgressOnGeneralAnalysis(),
+  });
+
+  return { data, isLoading, isError };
+};
+
+export const useAnalyzePastDreams = () => {
+  const queryClient = useQueryClient();
+
+  const { mutateAsync, isPending, isError } = useMutation({
+    mutationFn: () => analyzePastDreams(),
+    onSettled: () => {
+      void queryClient.invalidateQueries({
+        queryKey: getProgressOnGeneralAnalysisKeys,
+      });
+    },
+  });
+
+  const analyzePastDreamsFunction = async () => {
+    return await handleMutation(() => mutateAsync());
+  };
+
+  return {
+    analyzePastDreamsFunction,
     isPending,
     isError,
   };

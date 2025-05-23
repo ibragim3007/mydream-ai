@@ -10,6 +10,8 @@ export const apiConfig = {
     delete: (id: string) => `/dream/${id}`,
     update: (id: string) => `/dream/${id}`,
     continueDream: (id: string) => `/dream/continueDream/${id}`,
+    analyzePastDreams: '/dream/analyzePastDreams',
+    getProgressOnGeneralAnalysis: '/dream/getProgressOnGeneralAnalysis',
   },
   user: {
     post: '/user',

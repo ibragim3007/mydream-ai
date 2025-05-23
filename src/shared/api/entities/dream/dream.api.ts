@@ -1,6 +1,6 @@
 import { api } from '@/shared/api/api';
 import { apiConfig } from '@/shared/api/apiConfig';
-import { CreateDreamDto, DreamsQueryDto, GetDreamDto } from './dream.types';
+import { AnalyzePastDreamsResponseDto, CreateDreamDto, DreamsQueryDto, GetDreamDto } from './dream.types';
 
 export const getDreams = async (params?: DreamsQueryDto) => {
   return (await api.get<Promise<GetDreamDto[]>>(apiConfig.dream.get, { params })).data;
@@ -20,4 +20,13 @@ export const deleteDream = async (id: string) => {
 
 export const continueDream = async (id: string) => {
   return (await api.post<Promise<GetDreamDto>>(apiConfig.dream.continueDream(id))).data;
+};
+
+export const analyzePastDreams = async () => {
+  return (await api.post<Promise<AnalyzePastDreamsResponseDto>>(apiConfig.dream.analyzePastDreams)).data;
+};
+
+export const getProgressOnGeneralAnalysis = async () => {
+  return (await api.post<Promise<{ current: Number; total: number }>>(apiConfig.dream.getProgressOnGeneralAnalysis))
+    .data;
 };

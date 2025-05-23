@@ -10,6 +10,7 @@ import Superwall from '@superwall/react-native-superwall';
 import { useEffect } from 'react';
 import Animated from 'react-native-reanimated';
 import ListHeader from './ListHeader';
+import { GeneralAnalyzeButton } from '@/module/GeneralAnalyzeButton';
 
 export default function HomePage() {
   const { initUser } = useAuth();

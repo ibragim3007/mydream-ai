@@ -11,6 +11,7 @@ import ArrowAnimation from './ui/ArrowAnimation';
 import ListHeaderTitles from './ui/ListHeaderTitles';
 import NoDreamsBlock from './ui/NoDreamsBlock';
 import { useTranslation } from 'react-i18next';
+import { GeneralAnalyzeButton } from '@/module/GeneralAnalyzeButton';
 
 export default function ListHeader() {
   const { data, isLoading } = useGetDreams();
@@ -57,6 +58,8 @@ export default function ListHeader() {
           </Typography>
         </Grid>
       )}
+
+      <GeneralAnalyzeButton />
     </Grid>
   );
 }
