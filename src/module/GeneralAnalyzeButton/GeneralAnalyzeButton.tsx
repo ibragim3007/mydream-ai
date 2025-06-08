@@ -1,10 +1,13 @@
 import { useAnalyzePastDreams, useGetProgressOnGeneralAnalysis } from '@/entities/dream/dream.repository';
+import ArrowAnimation from '@/pages/HomePage/ui/ArrowAnimation';
 import { PLACEMENTS } from '@/shared/config/constants/constants';
 import { useSubscription } from '@/shared/hooks/useSubscription';
 import { useTheme } from '@/shared/hooks/useTheme';
 import LoaderIndicator from '@/shared/ui/elements/LoaderIndicator';
-import { GridPressable } from '@/shared/ui/grid/Grid';
+import LoadingModal from '@/shared/ui/elements/LoadingModal';
+import Grid, { GridPressable } from '@/shared/ui/grid/Grid';
 import Typography from '@/shared/ui/typography/Typography';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Superwall from '@superwall/react-native-superwall';
 import Animated from 'react-native-reanimated';
 
@@ -17,11 +20,12 @@ export default function GeneralAnalyzeButton() {
   const onHandlePress = () => {
     if (!isActive) {
       Superwall.shared.register({
-        placement: PLACEMENTS.analyze_button_press,
+        placement: PLACEMENTS.campaign_trigger,
       });
       return;
     }
-    analyzePastDreamsFunction();
+
+    void analyzePastDreamsFunction();
   };
 
   // Values
@@ -35,58 +39,75 @@ export default function GeneralAnalyzeButton() {
 
   const buttonString = `${String(current ?? 0)}/${String(total ?? 0)} Analyze`;
 
+  // Scale animation
+
   if (isLoading || !data) {
     return null;
   }
 
-  if (current === 0) {
-    return null;
-  }
-
   return (
-    <GridPressable
-      disabled={!isPressable}
-      onPress={onHandlePress}
-      color={'#ffffff28'}
-      paddingHorizontal={20}
-      paddingVertical={10}
-      align="center"
-      height={50}
-      justfity="center"
+    <Grid
       style={{
-        borderRadius: 20,
-        overflow: 'hidden',
+        shadowColor: colors.text.primary,
+        shadowOpacity: 0.3,
+        shadowRadius: 10,
+        zIndex: 100,
+        shadowOffset: {
+          width: 0,
+          height: 0,
+        },
       }}
     >
-      {isLoading ? (
-        <LoaderIndicator />
-      ) : (
-        <>
-          <Typography weight="bold" variant="title-3">
-            {buttonString}
-          </Typography>
-          <Animated.View
-            style={{
-              height: 60,
-              position: 'absolute',
-              width: `${progressWidth}%`,
-              backgroundColor: colors.text.primary,
-              justifyContent: 'center',
-              left: 0,
-              overflow: 'hidden',
-            }}
-          >
-            <Typography
-              style={{ position: 'absolute', left: 130, zIndex: 20 }}
-              weight="bold"
-              color="white"
-              variant="title-3"
-            >
+      <LoadingModal open={isLoading} />
+      {isPressable && isActive && <ArrowAnimation />}
+      <GridPressable
+        disabled={!isPressable}
+        onPress={onHandlePress}
+        color={'#ffffff28'}
+        paddingVertical={10}
+        align="center"
+        height={50}
+        justfity="center"
+        style={{
+          borderRadius: colors.styles.borderRadius,
+          overflow: 'hidden',
+        }}
+      >
+        {!isActive && (
+          <Grid style={{ position: 'absolute', right: 25, bottom: 5, zIndex: 100 }}>
+            <FontAwesome name="lock" size={18} color={colors.accent.primary} />
+          </Grid>
+        )}
+        {isLoading ? (
+          <LoaderIndicator />
+        ) : (
+          <>
+            <Typography weight="bold" variant="title-3">
               {buttonString}
             </Typography>
-          </Animated.View>
-        </>
-      )}
-    </GridPressable>
+            <Animated.View
+              style={{
+                height: 60,
+                position: 'absolute',
+                width: `${progressWidth}%`,
+                backgroundColor: colors.text.primary,
+                justifyContent: 'center',
+                left: 0,
+                overflow: 'hidden',
+              }}
+            >
+              <Typography
+                style={{ position: 'absolute', left: 130, zIndex: 20 }}
+                weight="bold"
+                color="white"
+                variant="title-3"
+              >
+                {buttonString}
+              </Typography>
+            </Animated.View>
+          </>
+        )}
+      </GridPressable>
+    </Grid>
   );
 }
