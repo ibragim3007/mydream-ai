@@ -1,3 +1,4 @@
+import backgroundLastAnalysis from '@/assets/background/background-last-analysis.jpg';
 import { useGetLastDreamsAnalysis } from '@/entities/dream/dream.repository';
 import { localizeDate } from '@/entities/dream/helpers/groupDreamsByDate';
 import { useTheme } from '@/shared/hooks/useTheme';
@@ -5,9 +6,9 @@ import Chip from '@/shared/ui/elements/Chip';
 import TextLine from '@/shared/ui/elements/TextLine';
 import Grid from '@/shared/ui/grid/Grid';
 import GroupBy from '@/shared/ui/layout/GroupBy';
-import Paper from '@/shared/ui/layout/Paper';
 import Typography from '@/shared/ui/typography/Typography';
-import { LinearGradient } from 'expo-linear-gradient';
+import { ImageBackground } from 'expo-image';
+import Snap from '../SharableSnapshot/Snap';
 
 export default function LastDreamAnalysisCard() {
   const { data, isLoading } = useGetLastDreamsAnalysis();
@@ -18,23 +19,56 @@ export default function LastDreamAnalysisCard() {
   }
 
   return (
-    <LinearGradient colors={data.analysis.colors} style={{ borderRadius: colors.styles.borderRadius }}>
-      <Paper color="#214a4ade">
-        <Grid space="md">
-          <Grid justfity="space-between" row align="center">
-            <Typography style={{ flex: 1 }} variant="title-2" weight="bold">
-              Анализ снов
-            </Typography>
-            <Typography variant="callout">{localizeDate(data.createdAt)}</Typography>
-          </Grid>
-          <Grid space="lg">
-            <Grid row space="sm">
-              <TextLine />
-              <Typography variant="callout">{data.analysis.summary}</Typography>
+    // <LinearGradient
+    //   colors={data.analysis.colors}
+    //   style={{ borderRadius: colors.styles.borderRadius, borderWidth: 1, borderColor: '#ffffff73' }}
+    // >
+
+    <Grid
+      style={{
+        shadowColor: '#000000',
+        shadowOpacity: 0.4,
+        shadowRadius: 10,
+      }}
+    >
+      <ImageBackground
+        source={backgroundLastAnalysis}
+        style={{
+          borderRadius: colors.styles.borderRadius,
+          borderWidth: 1,
+          borderColor: '#ffffff73',
+          overflow: 'hidden',
+        }}
+        contentFit="cover"
+      >
+        <Grid padding={20}>
+          <Grid gap={20}>
+            <Grid>
+              <Grid row align="center">
+                <Typography variant="caption-1">
+                  {localizeDate(data.createdAt)} проанализированно {data.amountOfDreams} снов
+                </Typography>
+              </Grid>
+
+              <Typography style={{ flex: 1 }} variant="title-2" weight="bold">
+                Анализ снов
+              </Typography>
             </Grid>
-            <GroupBy title="Cовет">
-              <Typography>{data.analysis.advice}</Typography>
+
+            <GroupBy title="Общее описание">
+              <Grid row space="md">
+                <TextLine />
+                <Typography style={{ lineHeight: 25 }} variant="callout">
+                  {data.analysis.summary}
+                </Typography>
+              </Grid>
             </GroupBy>
+            <GroupBy title="Cовет">
+              <Typography style={{ lineHeight: 25 }} variant="callout">
+                {data.analysis.advice}
+              </Typography>
+            </GroupBy>
+
             <GroupBy title="Эмоции">
               <Grid row wrap space="sm">
                 {data.analysis.emotions.map((emotion, index) => (
@@ -42,29 +76,18 @@ export default function LastDreamAnalysisCard() {
                 ))}
               </Grid>
             </GroupBy>
-            <GroupBy title="Символы">
-              <Grid row space="sm">
-                {data.analysis.repeatingElements.map((symbol, index) => (
-                  <Chip key={index} label={symbol} />
-                ))}
-              </Grid>
-            </GroupBy>
+
             <GroupBy title="Психологические аспекты">
               <Grid row space="sm">
-                <TextLine />
-                <Typography style={{ flex: 1 }}>{data.analysis.psychologicalInsights}</Typography>
-              </Grid>
-            </GroupBy>
-            <GroupBy title="Темы">
-              <Grid row space="sm">
-                {data.analysis.themes.map((theme, index) => (
-                  <Chip key={index} label={theme} />
-                ))}
+                <Typography variant="callout" style={{ flex: 1, lineHeight: 25 }}>
+                  {data.analysis.psychologicalInsights}
+                </Typography>
               </Grid>
             </GroupBy>
           </Grid>
         </Grid>
-      </Paper>
-    </LinearGradient>
+      </ImageBackground>
+    </Grid>
+    // </LinearGradient>
   );
 }

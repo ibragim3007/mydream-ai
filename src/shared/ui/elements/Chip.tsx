@@ -9,13 +9,7 @@ interface ChipProps extends GridProps {
 export default function Chip({ label, ...props }: ChipProps) {
   const colors = useTheme();
   return (
-    <Grid
-      style={{ borderRadius: 100 }}
-      paddingHorizontal={10}
-      paddingVertical={4}
-      color={colors.text.primary}
-      {...props}
-    >
+    <Grid style={{ borderRadius: 100 }} paddingHorizontal={15} paddingVertical={3} color={'#fff'} {...props}>
       <Typography variant="callout" weight="medium" color="white">
         {label}
       </Typography>

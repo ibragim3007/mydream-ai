@@ -62,7 +62,10 @@ export default function ListHeader() {
         </Grid>
       )}
 
-      <GeneralAnalyzeButton />
+      <Grid space="md">
+        <Typography variant="headline">До следующего анализа</Typography>
+        <GeneralAnalyzeButton />
+      </Grid>
     </Grid>
   );
 }
