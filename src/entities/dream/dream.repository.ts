@@ -5,6 +5,7 @@ import {
   deleteDream,
   getDream,
   getDreams,
+  getLastDreamsAnalysis,
   getProgressOnGeneralAnalysis,
 } from '@/shared/api/entities/dream/dream.api';
 import { CreateDreamDto } from '@/shared/api/entities/dream/dream.types';
@@ -121,7 +122,7 @@ export const useContinueDream = () => {
 const getProgressOnGeneralAnalysisKeys = ['progressOnGeneralAnalysis'];
 export const useGetProgressOnGeneralAnalysis = () => {
   const { data, isError, isLoading } = useQuery({
-    queryKey: getProgressOnGeneralAnalysisKeys,
+    queryKey: [...getProgressOnGeneralAnalysisKeys, ...getDreamKeys],
     queryFn: () => getProgressOnGeneralAnalysis(),
   });
 
@@ -149,4 +150,13 @@ export const useAnalyzePastDreams = () => {
     isPending,
     isError,
   };
+};
+
+export const useGetLastDreamsAnalysis = () => {
+  const { data, isError, isLoading } = useQuery({
+    queryKey: ['lastDreamsAnalysis'],
+    queryFn: () => getLastDreamsAnalysis(),
+  });
+
+  return { data, isLoading, isError };
 };

@@ -4,6 +4,7 @@ import { useLang } from '@/shared/hooks/useLangStore';
 import { useTheme } from '@/shared/hooks/useTheme';
 import { SleepDataResponse } from '@/shared/types/globalTypes';
 import Logo from '@/shared/ui/elements/Logo/Logo';
+import TextLine from '@/shared/ui/elements/TextLine';
 
 import Grid from '@/shared/ui/grid/Grid';
 import Typography from '@/shared/ui/typography/Typography';
@@ -41,7 +42,7 @@ export default function Snap({ dream, analysis }: SnapProps) {
               {dream.title}
             </Typography>
             <Grid row space="sm">
-              <Grid height="100%" width={3} color={colors.accent.alert} style={{ borderRadius: 10 }} />
+              <TextLine />
               <Typography style={{ lineHeight: 25 }}>{analysis?.summary}</Typography>
             </Grid>
           </Grid>

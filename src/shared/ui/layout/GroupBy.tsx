@@ -9,7 +9,7 @@ interface GroupByProps extends PropsWithChildren {
 
 export default function GroupBy({ title, children }: GroupByProps) {
   return (
-    <Grid space="sm">
+    <Grid gap={10}>
       <Typography variant="headline" weight="bold">
         {title}
       </Typography>

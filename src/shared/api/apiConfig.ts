@@ -12,6 +12,7 @@ export const apiConfig = {
     continueDream: (id: string) => `/dream/continueDream/${id}`,
     analyzePastDreams: '/dream/analyzePastDreams',
     getProgressOnGeneralAnalysis: '/dream/getProgressOnGeneralAnalysis',
+    getLastDreamsAnalysis: '/dream/getLastDreamsAnalysis',
   },
   user: {
     post: '/user',

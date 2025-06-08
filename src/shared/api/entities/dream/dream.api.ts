@@ -30,3 +30,7 @@ export const getProgressOnGeneralAnalysis = async () => {
   return (await api.post<Promise<{ current: Number; total: number }>>(apiConfig.dream.getProgressOnGeneralAnalysis))
     .data;
 };
+
+export const getLastDreamsAnalysis = async () => {
+  return (await api.post<Promise<AnalyzePastDreamsResponseDto>>(apiConfig.dream.getLastDreamsAnalysis)).data;
+};

@@ -12,6 +12,7 @@ import ListHeaderTitles from './ui/ListHeaderTitles';
 import NoDreamsBlock from './ui/NoDreamsBlock';
 import { useTranslation } from 'react-i18next';
 import { GeneralAnalyzeButton } from '@/module/GeneralAnalyzeButton';
+import LastDreamAnalysisCard from '@/module/LastDreamAnalysisCard/LastDreamAnalysisCard';
 
 export default function ListHeader() {
   const { data, isLoading } = useGetDreams();
@@ -46,6 +47,8 @@ export default function ListHeader() {
               <SubBlock title={decodeDream} />
             </Animated.View>
           )}
+
+          <LastDreamAnalysisCard />
         </Grid>
 
         {!isDreamsExists && <NoDreamsBlock />}
