@@ -8,7 +8,7 @@ import Grid from '@/shared/ui/grid/Grid';
 import GroupBy from '@/shared/ui/layout/GroupBy';
 import Typography from '@/shared/ui/typography/Typography';
 import { ImageBackground } from 'expo-image';
-import Snap from '../SharableSnapshot/Snap';
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 
 export default function LastDreamAnalysisCard() {
   const { data, isLoading } = useGetLastDreamsAnalysis();
@@ -43,16 +43,19 @@ export default function LastDreamAnalysisCard() {
       >
         <Grid padding={20}>
           <Grid gap={20}>
-            <Grid>
+            <Grid space="sm">
               <Grid row align="center">
                 <Typography variant="caption-1">
                   {localizeDate(data.createdAt)} проанализированно {data.amountOfDreams} снов
                 </Typography>
               </Grid>
 
-              <Typography style={{ flex: 1 }} variant="title-2" weight="bold">
-                Анализ снов
-              </Typography>
+              <Grid space="md" align="center" row>
+                <Typography variant="title-2" weight="bold">
+                  Анализ снов
+                </Typography>
+                <FontAwesome6 name="wand-magic-sparkles" size={20} color={colors.text.primary} />
+              </Grid>
             </Grid>
 
             <GroupBy title="Общее описание">

@@ -39,6 +39,10 @@ export default function ListHeader() {
                 <AudioRecorderButton />
                 {!isDreamsExists && <ArrowAnimation />}
               </Grid>
+              <Grid space="md">
+                <Typography variant="headline">До следующего анализа</Typography>
+                <GeneralAnalyzeButton />
+              </Grid>
             </Grid>
           </Grid>
 
@@ -61,11 +65,6 @@ export default function ListHeader() {
           </Typography>
         </Grid>
       )}
-
-      <Grid space="md">
-        <Typography variant="headline">До следующего анализа</Typography>
-        <GeneralAnalyzeButton />
-      </Grid>
     </Grid>
   );
 }
