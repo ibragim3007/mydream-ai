@@ -13,6 +13,7 @@ import { handleMutation } from '@/shared/utils/handleMutation';
 import { useInfiniteQuery, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 const getDreamKeys = ['dream'];
+
 export const useGetDreamById = (id: string) => {
   const { data, isError, isLoading, isFetching } = useQuery({
     queryKey: getDreamKeys,
@@ -21,16 +22,6 @@ export const useGetDreamById = (id: string) => {
 
   return { data, isLoading, isFetching, isError };
 };
-
-// const getDreamsKeys = ['dreams'];
-// export const useGetDreams = (params?: DreamsQueryDto) => {
-//   const { data, isError, isLoading } = useQuery({
-//     queryKey: getDreamsKeys,
-//     queryFn: () => getDreams(params),
-//   });
-
-//   return { data, isLoading, isError };
-// };
 
 const getDreamsKeys = ['dreams'];
 export const useGetDreams = (limit = 10) => {
@@ -57,7 +48,10 @@ export const useCreateDream = () => {
     mutationFn: (payload: CreateDreamDto) => createDream(payload),
     onSettled: () => {
       void queryClient.invalidateQueries({
-        queryKey: [...getProgressOnGeneralAnalysisKeys, ...getDreamsKeys],
+        queryKey: getProgressOnGeneralAnalysisKeys,
+      });
+      void queryClient.invalidateQueries({
+        queryKey: getDreamsKeys,
       });
     },
   });
@@ -135,6 +129,9 @@ export const useAnalyzePastDreams = () => {
   const { mutateAsync, isPending, isError } = useMutation({
     mutationFn: () => analyzePastDreams(),
     onSettled: () => {
+      void queryClient.invalidateQueries({
+        queryKey: ['lastDreamsAnalysis'],
+      });
       void queryClient.invalidateQueries({
         queryKey: getProgressOnGeneralAnalysisKeys,
       });
