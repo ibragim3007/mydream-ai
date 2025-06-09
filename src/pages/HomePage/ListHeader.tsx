@@ -32,9 +32,9 @@ export default function ListHeader() {
           <Grid space="sm">
             <Settings />
             <Grid space="lg">
-              <ListHeaderTitles />
+              <ListHeaderTitles showDescription={!isDreamsExists} />
 
-              <Grid align="stretch" row space="sm">
+              <Grid align="stretch" row space="md">
                 <AddDreamButton />
                 <AudioRecorderButton />
                 {!isDreamsExists && <ArrowAnimation />}
