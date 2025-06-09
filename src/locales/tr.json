@@ -151,6 +151,18 @@
     "error": "Hata",
     "invalid-code": "Geçersiz kod"
   },
+  "general-analysis": {
+    "dreams": "Rüya",
+    "progress-title": "Genel analize ilerleme",
+    "card": {
+      "title": "Rüya analizi",
+      "date": "{{ date }} tarihinde {{ amountOfDreams }} rüya analiz edildi",
+      "general-description": "Genel açıklama",
+      "advice": "Tavsiye",
+      "emotions": "Duygular",
+      "aspects": "Psikolojik yönler"
+    }
+  },
   "yes": "Evet",
   "no": "Hayır"
 }

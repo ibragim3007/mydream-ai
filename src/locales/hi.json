@@ -151,6 +151,18 @@
     "error": "त्रुटि",
     "invalid-code": "अमान्य कोड"
   },
+  "general-analysis": {
+    "dreams": "सपना",
+    "progress-title": "सामान्य विश्लेषण की प्रगति",
+    "card": {
+      "title": "सपने का विश्लेषण",
+      "date": "{{ date }} ने {{ amountOfDreams }} सपनों का विश्लेषण किया",
+      "general-description": "सामान्य विवरण",
+      "advice": "सलाह",
+      "emotions": "भावनाएँ",
+      "aspects": "मनोवैज्ञानिक पहलू"
+    }
+  },
   "yes": "हाँ",
   "no": "नहीं"
 }

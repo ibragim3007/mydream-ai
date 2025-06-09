@@ -151,6 +151,18 @@
     "error": "خطأ",
     "invalid-code": "رمز غير صالح"
   },
+  "general-analysis": {
+    "dreams": "حلم",
+    "progress-title": "التقدم نحو التحليل العام",
+    "card": {
+      "title": "تحليل الحلم",
+      "date": "{{ date }} حلّل {{ amountOfDreams }} أحلامًا",
+      "general-description": "وصف عام",
+      "advice": "نصيحة",
+      "emotions": "المشاعر",
+      "aspects": "الجوانب النفسية"
+    }
+  },
   "yes": "نعم",
   "no": "لا"
 }

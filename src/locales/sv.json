@@ -151,6 +151,18 @@
     "error": "Fel",
     "invalid-code": "Ogiltig kod"
   },
+  "general-analysis": {
+    "dreams": "Dröm",
+    "progress-title": "Framsteg till allmän analys",
+    "card": {
+      "title": "Drömanalys",
+      "date": "{{ date }} analyserade {{ amountOfDreams }} drömmar",
+      "general-description": "Allmän beskrivning",
+      "advice": "Råd",
+      "emotions": "Känslor",
+      "aspects": "Psykologiska aspekter"
+    }
+  },
   "yes": "Ja",
   "no": "Nej"
 }

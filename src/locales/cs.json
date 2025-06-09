@@ -151,6 +151,18 @@
     "error": "Chyba",
     "invalid-code": "Neplatný kód"
   },
+  "general-analysis": {
+    "dreams": "Sen",
+    "progress-title": "Postup k obecné analýze",
+    "card": {
+      "title": "Analýza snu",
+      "date": "{{ date }} analyzoval {{ amountOfDreams }} snů",
+      "general-description": "Obecný popis",
+      "advice": "Rada",
+      "emotions": "Emoce",
+      "aspects": "Psychologické aspekty"
+    }
+  },
   "yes": "Ano",
   "no": "Ne"
 }

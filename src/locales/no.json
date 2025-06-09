@@ -151,6 +151,18 @@
     "error": "Feil",
     "invalid-code": "Ugyldig kode"
   },
+  "general-analysis": {
+    "dreams": "Drøm",
+    "progress-title": "Fremgang mot generell analyse",
+    "card": {
+      "title": "Drømanalyse",
+      "date": "{{ date }} analyserte {{ amountOfDreams }} drømmer",
+      "general-description": "Generell beskrivelse",
+      "advice": "Råd",
+      "emotions": "Følelser",
+      "aspects": "Psykologiske aspekter"
+    }
+  },
   "yes": "Ja",
   "no": "Nei"
 }

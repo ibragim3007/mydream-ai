@@ -151,6 +151,18 @@
     "error": "Fout",
     "invalid-code": "Ongeldige code"
   },
+  "general-analysis": {
+    "dreams": "Droom",
+    "progress-title": "Voortgang naar algemene analyse",
+    "card": {
+      "title": "Droomanalyse",
+      "date": "{{ date }} heeft {{ amountOfDreams }} dromen geanalyseerd",
+      "general-description": "Algemene beschrijving",
+      "advice": "Advies",
+      "emotions": "Emoties",
+      "aspects": "Psychologische aspecten"
+    }
+  },
   "yes": "Ja",
   "no": "Nee"
 }

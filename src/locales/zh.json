@@ -151,6 +151,18 @@
     "error": "错误",
     "invalid-code": "无效密码"
   },
+  "general-analysis": {
+    "dreams": "梦",
+    "progress-title": "通往综合分析的进度",
+    "card": {
+      "title": "梦境分析",
+      "date": "{{ date }} 分析了 {{ amountOfDreams }} 个梦",
+      "general-description": "总体描述",
+      "advice": "建议",
+      "emotions": "情绪",
+      "aspects": "心理方面"
+    }
+  },
   "yes": "是",
   "no": "否"
 }

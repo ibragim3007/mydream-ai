@@ -151,6 +151,18 @@
     "error": "오류",
     "invalid-code": "잘못된 암호"
   },
+  "general-analysis": {
+    "dreams": "꿈",
+    "progress-title": "종합 분석까지의 진행",
+    "card": {
+      "title": "꿈 분석",
+      "date": "{{ date }}에 {{ amountOfDreams }}개의 꿈을 분석함",
+      "general-description": "전체 설명",
+      "advice": "조언",
+      "emotions": "감정",
+      "aspects": "심리적 측면"
+    }
+  },
   "yes": "예",
   "no": "아니요"
 }

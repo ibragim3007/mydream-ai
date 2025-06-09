@@ -133,7 +133,7 @@ export default function InterpretationItem({
               />
               {isBlocked && (
                 <LinearGradient
-                  colors={['transparent', 'rgba(0, 0, 0, 0.734)', '#0000009e']}
+                  colors={['transparent', 'rgba(0, 0, 0, 0.234)', '#0000009e']}
                   start={{ x: 0, y: 0 }}
                   end={{ x: 1, y: 1 }}
                   style={{

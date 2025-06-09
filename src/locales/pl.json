@@ -151,6 +151,18 @@
     "error": "Błąd",
     "invalid-code": "Nieprawidłowy kod"
   },
+  "general-analysis": {
+    "dreams": "Sen",
+    "progress-title": "Postęp do analizy ogólnej",
+    "card": {
+      "title": "Analiza snu",
+      "date": "{{ date }} przeanalizował {{ amountOfDreams }} snów",
+      "general-description": "Ogólny opis",
+      "advice": "Porada",
+      "emotions": "Emocje",
+      "aspects": "Psychologiczne aspekty"
+    }
+  },
   "yes": "Tak",
   "no": "Nie"
 }

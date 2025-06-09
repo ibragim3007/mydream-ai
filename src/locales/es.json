@@ -151,6 +151,18 @@
     "error": "Error",
     "invalid-code": "Código inválido"
   },
+  "general-analysis": {
+    "dreams": "Sueño",
+    "progress-title": "Progreso hacia el análisis general",
+    "card": {
+      "title": "Análisis del sueño",
+      "date": "{{ date }} analizó {{ amountOfDreams }} sueños",
+      "general-description": "Descripción general",
+      "advice": "Consejo",
+      "emotions": "Emociones",
+      "aspects": "Aspectos psicológicos"
+    }
+  },
   "yes": "Sí",
   "no": "No"
 }

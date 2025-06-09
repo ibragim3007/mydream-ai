@@ -152,5 +152,17 @@
     "invalid-code": "Неверный код"
   },
   "yes": "Да",
-  "no": "Нет"
+  "no": "Нет",
+  "general-analysis": {
+    "dreams": "Сон",
+    "progress-title": "Прогресс к общему анализу",
+    "card": {
+      "title": "Анализ сна",
+      "date": "{{ date }} проанализировано {{ amountOfDreams }} снов",
+      "general-description": "Общее описание",
+      "advice": "Совет",
+      "emotions": "Эмоции",
+      "aspects": "Психологические аспекты"
+    }
+  }
 }

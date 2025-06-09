@@ -151,6 +151,18 @@
     "error": "Fehler",
     "invalid-code": "Ungültiger Code"
   },
+  "general-analysis": {
+    "dreams": "Traum",
+    "progress-title": "Fortschritt zur Gesamtanalyse",
+    "card": {
+      "title": "Traumanalyse",
+      "date": "{{ date }} analysierte {{ amountOfDreams }} Träume",
+      "general-description": "Allgemeine Beschreibung",
+      "advice": "Ratschlag",
+      "emotions": "Emotionen",
+      "aspects": "Psychologische Aspekte"
+    }
+  },
   "yes": "Ja",
   "no": "Nein"
 }
