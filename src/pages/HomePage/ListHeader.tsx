@@ -39,8 +39,8 @@ export default function ListHeader() {
                 <AudioRecorderButton />
                 {!isDreamsExists && <ArrowAnimation />}
               </Grid>
-              <Grid space="md">
-                <Typography variant="headline">До следующего анализа</Typography>
+              <Grid space="sm">
+                <Typography weight="bold">{t('general-analysis.progress-title')}</Typography>
                 <GeneralAnalyzeButton />
               </Grid>
             </Grid>

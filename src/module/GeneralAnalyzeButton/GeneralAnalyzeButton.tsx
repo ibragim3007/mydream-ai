@@ -9,10 +9,12 @@ import Grid, { GridPressable } from '@/shared/ui/grid/Grid';
 import Typography from '@/shared/ui/typography/Typography';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Superwall from '@superwall/react-native-superwall';
+import { useTranslation } from 'react-i18next';
 import Animated from 'react-native-reanimated';
 
 export default function GeneralAnalyzeButton() {
   const colors = useTheme();
+  const { t } = useTranslation();
   const { isActive } = useSubscription();
   const { data, isLoading } = useGetProgressOnGeneralAnalysis();
   const { analyzePastDreamsFunction } = useAnalyzePastDreams();
@@ -37,7 +39,7 @@ export default function GeneralAnalyzeButton() {
 
   const isPressable = current === total && total !== 0;
 
-  const buttonString = `${String(current ?? 0)}/${String(total ?? 0)} Analyze`;
+  const buttonString = `${String(current ?? 0)}/${String(total ?? 0)} ${t('general-analysis.dreams')}`;
 
   // Scale animation
 
@@ -74,8 +76,8 @@ export default function GeneralAnalyzeButton() {
         }}
       >
         {!isActive && (
-          <Grid style={{ position: 'absolute', right: 25, bottom: 5, zIndex: 100 }}>
-            <FontAwesome name="lock" size={18} color={colors.accent.primary} />
+          <Grid style={{ position: 'absolute', right: 25, zIndex: 100 }}>
+            <FontAwesome name="lock" size={18} color={colors.text.primary} />
           </Grid>
         )}
         {isLoading ? (

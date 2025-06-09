@@ -9,8 +9,12 @@ import GroupBy from '@/shared/ui/layout/GroupBy';
 import Typography from '@/shared/ui/typography/Typography';
 import { ImageBackground } from 'expo-image';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+import { useTranslation } from 'react-i18next';
+import { useLang } from '@/shared/hooks/useLangStore';
 
 export default function LastDreamAnalysisCard() {
+  const { t } = useTranslation();
+  const { lang } = useLang();
   const { data, isLoading } = useGetLastDreamsAnalysis();
   const colors = useTheme();
 
@@ -46,19 +50,22 @@ export default function LastDreamAnalysisCard() {
             <Grid space="sm">
               <Grid row align="center">
                 <Typography variant="caption-1">
-                  {localizeDate(data.createdAt)} проанализированно {data.amountOfDreams} снов
+                  {t('general-analysis.card.date', {
+                    date: localizeDate(data.createdAt, lang),
+                    amountOfDreams: data.amountOfDreams,
+                  })}
                 </Typography>
               </Grid>
 
               <Grid space="md" align="center" row>
                 <Typography variant="title-2" weight="bold">
-                  Анализ снов
+                  {t('general-analysis.card.title')}
                 </Typography>
                 <FontAwesome6 name="wand-magic-sparkles" size={20} color={colors.text.primary} />
               </Grid>
             </Grid>
 
-            <GroupBy title="Общее описание">
+            <GroupBy title={t('general-analysis.card.general-description')}>
               <Grid row space="md">
                 <TextLine />
                 <Typography style={{ lineHeight: 25 }} variant="callout">
@@ -66,13 +73,13 @@ export default function LastDreamAnalysisCard() {
                 </Typography>
               </Grid>
             </GroupBy>
-            <GroupBy title="Cовет">
+            <GroupBy title={t('general-analysis.card.advice')}>
               <Typography style={{ lineHeight: 25 }} variant="callout">
                 {data.analysis.advice}
               </Typography>
             </GroupBy>
 
-            <GroupBy title="Эмоции">
+            <GroupBy title={t('general-analysis.card.emotions')}>
               <Grid row wrap space="sm">
                 {data.analysis.emotions.map((emotion, index) => (
                   <Chip key={index} label={emotion} />
@@ -80,7 +87,7 @@ export default function LastDreamAnalysisCard() {
               </Grid>
             </GroupBy>
 
-            <GroupBy title="Психологические аспекты">
+            <GroupBy title={t('general-analysis.card.aspects')}>
               <Grid row space="sm">
                 <Typography variant="callout" style={{ flex: 1, lineHeight: 25 }}>
                   {data.analysis.psychologicalInsights}

@@ -152,5 +152,17 @@
     "invalid-code": "Invalid passcode"
   },
   "yes": "Yes",
-  "no": "No"
+  "no": "No",
+  "general-analysis": {
+    "dreams": "Dreams",
+    "progress-title": "Progress to General Analysis",
+    "card": {
+      "title": "Dream Analysis",
+      "date": "{{ date }} analyzed {{ amountOfDreams }} dreams",
+      "general-description": "General description",
+      "advice": "Advice",
+      "emotions": "Emotions",
+      "aspects": "Psychological aspects"
+    }
+  }
 }

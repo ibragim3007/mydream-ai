@@ -120,7 +120,7 @@ export function groupDreamsByDate(dreams: GetDreamDto[], locale = 'ru'): Grouped
  * @example
  * localizeDate('2025‑05‑13T09:20:00Z', 'en')  // → "Today"
  */
-export function localizeDate(input: string | number | Date, locale: string = 'ru'): string {
+export function localizeDate(input: string | number | Date, locale: string = 'en'): string {
   try {
     const dt = new Date(input);
     if (Number.isNaN(dt.getTime())) return '';
