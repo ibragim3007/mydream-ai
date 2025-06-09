@@ -17,7 +17,7 @@ export default function GeneralAnalyzeButton() {
   const { t } = useTranslation();
   const { isActive } = useSubscription();
   const { data, isLoading } = useGetProgressOnGeneralAnalysis();
-  const { analyzePastDreamsFunction } = useAnalyzePastDreams();
+  const { analyzePastDreamsFunction, isPending } = useAnalyzePastDreams();
 
   const onHandlePress = () => {
     if (!isActive) {
@@ -60,7 +60,7 @@ export default function GeneralAnalyzeButton() {
         },
       }}
     >
-      <LoadingModal open={isLoading} />
+      <LoadingModal open={isLoading || isPending} />
       {isPressable && isActive && <ArrowAnimation />}
       <GridPressable
         disabled={!isPressable}
@@ -77,9 +77,10 @@ export default function GeneralAnalyzeButton() {
       >
         {!isActive && (
           <Grid style={{ position: 'absolute', right: 25, zIndex: 100 }}>
-            <FontAwesome name="lock" size={18} color={colors.text.primary} />
+            <FontAwesome name="lock" size={18} color={colors.text.white} />
           </Grid>
         )}
+
         {isLoading ? (
           <LoaderIndicator />
         ) : (
@@ -99,7 +100,7 @@ export default function GeneralAnalyzeButton() {
               }}
             >
               <Typography
-                style={{ position: 'absolute', left: 130, zIndex: 20 }}
+                style={{ position: 'absolute', left: 150, zIndex: 20 }}
                 weight="bold"
                 color="white"
                 variant="title-3"

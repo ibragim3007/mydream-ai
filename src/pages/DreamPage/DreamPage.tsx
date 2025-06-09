@@ -24,7 +24,7 @@ import { useLocalSearchParams } from 'expo-router';
 import { useLayoutEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ScrollView } from 'react-native';
-import Animated from 'react-native-reanimated';
+import Animated, { LinearTransition } from 'react-native-reanimated';
 import HeaderDream from './ui/HeaderDream';
 import Interpretations from './ui/Interpretations';
 import LoadingSkeleton from './ui/LoadingSkeleton';
@@ -170,7 +170,9 @@ export default function DreamPage() {
 
               <Interpretations analysis={analysis} isActive={isActive} />
 
-              <SharableSnapshot dream={data} analysis={analysis} />
+              <Animated.View layout={LinearTransition}>
+                <SharableSnapshot dream={data} analysis={analysis} />
+              </Animated.View>
               <Grid marginVertical={60}>
                 <GeneralFeedback
                   onPressLike={onPressLike}

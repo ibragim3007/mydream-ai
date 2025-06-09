@@ -112,7 +112,7 @@ const Button: React.FC<ButtonProps> = ({
     alignItems: 'center',
     flexDirection: 'row',
     shadowColor: '#fff',
-    shadowOpacity: props.disabled ? 0 : 0.6,
+    shadowOpacity: props.disabled ? 0 : 0.3,
     shadowRadius: 10,
     gap: 15,
     shadowOffset: {

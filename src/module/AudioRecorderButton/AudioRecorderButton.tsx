@@ -162,7 +162,7 @@ export default function AudioRecorderButton({}: AudioRecorderButtonProps) {
         paddingHorizontal={25}
         color={colors.text.primary}
         align="center"
-        style={{ borderRadius: 15, width: 90 }}
+        style={{ borderRadius: colors.styles.borderRadius, width: 90 }}
       >
         {recording ? (
           <FontAwesome name="stop-circle-o" size={30} color={colors.text.white} />
