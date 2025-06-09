@@ -100,7 +100,7 @@ export const themes: ITheme[] = [
       red: '#FF1744',
     },
     styles: {
-      borderRadius: 15,
+      borderRadius: 20,
       borderRadiusSmall: 12,
       borderRadiusLarge: 36,
     },

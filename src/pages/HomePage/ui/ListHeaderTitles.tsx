@@ -18,7 +18,6 @@ export default function ListHeaderTitles({ showDescription }: ListHeaderTitlesPr
         </Typography>
         <Image source={AppIcon} style={{ height: normalizedSize(45), width: normalizedSize(45) }} />
       </Grid>
-      {showDescription && <Typography>{t('home.description')}</Typography>}
     </Grid>
   );
 }

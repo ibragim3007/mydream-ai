@@ -33,15 +33,14 @@ export default function ListHeader() {
             <Settings />
             <Grid space="lg">
               <ListHeaderTitles showDescription={!isDreamsExists} />
-
+              <Grid space="sm">
+                <Typography>{t('general-analysis.progress-title')}</Typography>
+                <GeneralAnalyzeButton />
+              </Grid>
               <Grid align="stretch" row space="md">
                 <AddDreamButton />
                 <AudioRecorderButton />
                 {!isDreamsExists && <ArrowAnimation />}
-              </Grid>
-              <Grid space="sm">
-                <Typography weight="bold">{t('general-analysis.progress-title')}</Typography>
-                <GeneralAnalyzeButton />
               </Grid>
             </Grid>
           </Grid>
