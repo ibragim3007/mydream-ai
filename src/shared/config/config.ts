@@ -1,5 +1,5 @@
 export const Environment = {
-  api_url: __DEV__ ? 'https://mydream-server-dev-production.up.railway.app' : 'https://dream-lens.up.railway.app',
+  api_url: 'https://dream-lens.up.railway.app',
   superwall_api_key: 'pk_23335537e4deb4fefc254bd5d7e5d3b0ff0df32966b22094',
   superwall_api_key_ANDROID: 'pk_40c0e52996ebfd93514f02d9a83c58637a40372345157e1b',
   revenue_api_key_IOS: 'appl_rNqmjVZghuWRbwfowlEHShPyhce',

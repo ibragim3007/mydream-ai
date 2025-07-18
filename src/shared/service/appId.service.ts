@@ -25,6 +25,7 @@ export const isAppToken = async () => {
 
   try {
     const id = await SecureStore.getItemAsync(StorageKeys.appToken);
+    console.log(id);
     return !!id;
   } catch {
     errorLogger.logError('Error to get app token (isAppToken)');
