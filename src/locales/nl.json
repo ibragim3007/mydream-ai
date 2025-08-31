@@ -155,6 +155,9 @@
     "dreams": "Droom",
     "progress-title": "Voortgang naar algemene analyse",
     "card": {
+      "dream-progress": "Droomvoortgang",
+      "you-need-to-complete": "Je moet alle droomanalyses voltooien om meer inzichten te krijgen.",
+      "get-more-insights": "Meer inzichten verkrijgen",
       "title": "Droomanalyse",
       "date": "{{ date }} heeft {{ amountOfDreams }} dromen geanalyseerd",
       "general-description": "Algemene beschrijving",

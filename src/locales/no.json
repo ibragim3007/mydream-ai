@@ -155,6 +155,9 @@
     "dreams": "Drøm",
     "progress-title": "Fremgang mot generell analyse",
     "card": {
+      "dream-progress": "Drømmefremgang",
+      "you-need-to-complete": "Du må fullføre alle drømmeanalyser for å få flere innsikter.",
+      "get-more-insights": "Få flere innsikter",
       "title": "Drømanalyse",
       "date": "{{ date }} analyserte {{ amountOfDreams }} drømmer",
       "general-description": "Generell beskrivelse",

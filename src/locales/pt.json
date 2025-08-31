@@ -155,6 +155,9 @@
     "dreams": "Sonho",
     "progress-title": "Progresso para análise geral",
     "card": {
+      "dream-progress": "Progresso dos sonhos",
+      "you-need-to-complete": "Você precisa concluir todas as análises de sonhos para obter mais insights.",
+      "get-more-insights": "Obter mais insights",
       "title": "Análise de sonho",
       "date": "{{ date }} analisou {{ amountOfDreams }} sonhos",
       "general-description": "Descrição geral",

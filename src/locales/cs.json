@@ -155,6 +155,9 @@
     "dreams": "Sen",
     "progress-title": "Postup k obecné analýze",
     "card": {
+      "dream-progress": "Postup snů",
+      "you-need-to-complete": "Abyste získali více poznatků, musíte dokončit všechny analýzy snů.",
+      "get-more-insights": "Získat více poznatků",
       "title": "Analýza snu",
       "date": "{{ date }} analyzoval {{ amountOfDreams }} snů",
       "general-description": "Obecný popis",

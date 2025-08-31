@@ -157,6 +157,9 @@
     "dreams": "Сон",
     "progress-title": "Прогресс к общему анализу",
     "card": {
+      "dream-progress": "Прогресс снов",
+      "you-need-to-complete": "Вам нужно завершить все анализы снов, чтобы получить больше инсайтов.",
+      "get-more-insights": "Получить больше инсайтов",
       "title": "Анализ сна",
       "date": "{{ date }} проанализировано {{ amountOfDreams }} снов",
       "general-description": "Общее описание",

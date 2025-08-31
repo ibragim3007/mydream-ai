@@ -40,9 +40,6 @@ export default function OnboardingPage() {
 
   const router = useRouter();
 
-  const { name, zodiacSign, age, gender, updateGender, updateName, updateZodiacSign, updateAge, updateGoals, goals } =
-    useUserTags();
-
   const redirectToHomeScreen = async () => {
     await initUser({
       displayName: name,
@@ -50,6 +47,9 @@ export default function OnboardingPage() {
     // Alert.alert('Успех', 'Вы успешно прошли регистрацию');
     router.replace('/screens/homeScreen');
   };
+
+  const { name, zodiacSign, age, gender, updateGender, updateName, updateZodiacSign, updateAge, updateGoals, goals } =
+    useUserTags();
 
   const onPressUpdateGender = (gender: IGenderItem) => {
     updateGender(gender);

@@ -154,7 +154,11 @@
   "general-analysis": {
     "dreams": "حلم",
     "progress-title": "التقدم نحو التحليل العام",
+
     "card": {
+      "dream-progress": "تقدم الأحلام",
+      "you-need-to-complete": "تحتاج إلى إكمال جميع تحليلات الأحلام للحصول على المزيد من الرؤى.",
+      "get-more-insights": "الحصول على المزيد من الرؤى",
       "title": "تحليل الحلم",
       "date": "{{ date }} حلّل {{ amountOfDreams }} أحلامًا",
       "general-description": "وصف عام",

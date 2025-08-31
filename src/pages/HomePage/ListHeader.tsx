@@ -13,6 +13,7 @@ import NoDreamsBlock from './ui/NoDreamsBlock';
 import { useTranslation } from 'react-i18next';
 import { GeneralAnalyzeButton } from '@/module/GeneralAnalyzeButton';
 import LastDreamAnalysisCard from '@/module/LastDreamAnalysisCard/LastDreamAnalysisCard';
+import GeneralAnalyzeBlock from '@/module/GeneralAnalyzeButton/GeneralAnalyzeBlock';
 
 export default function ListHeader() {
   const { data, isLoading } = useGetDreams();
@@ -35,8 +36,7 @@ export default function ListHeader() {
               <ListHeaderTitles showDescription={!isDreamsExists} />
               <Grid space="md">
                 <Grid space="sm">
-                  <Typography>{t('general-analysis.progress-title')}</Typography>
-                  <GeneralAnalyzeButton />
+                  <GeneralAnalyzeBlock />
                 </Grid>
                 <Grid align="stretch" row space="md">
                   <AddDreamButton />

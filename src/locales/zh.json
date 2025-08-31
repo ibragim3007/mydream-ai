@@ -155,6 +155,9 @@
     "dreams": "梦",
     "progress-title": "通往综合分析的进度",
     "card": {
+      "dream-progress": "梦境进度",
+      "you-need-to-complete": "您需要完成所有梦境分析才能获得更多见解。",
+      "get-more-insights": "获取更多见解",
       "title": "梦境分析",
       "date": "{{ date }} 分析了 {{ amountOfDreams }} 个梦",
       "general-description": "总体描述",

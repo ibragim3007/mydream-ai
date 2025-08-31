@@ -155,6 +155,9 @@
     "dreams": "Traum",
     "progress-title": "Fortschritt zur Gesamtanalyse",
     "card": {
+      "dream-progress": "Traumfortschritt",
+      "you-need-to-complete": "Du musst alle Traumanalysen abschließen, um weitere Erkenntnisse zu erhalten.",
+      "get-more-insights": "Mehr Erkenntnisse erhalten",
       "title": "Traumanalyse",
       "date": "{{ date }} analysierte {{ amountOfDreams }} Träume",
       "general-description": "Allgemeine Beschreibung",

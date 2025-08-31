@@ -1,32 +1,20 @@
 import { useAnalyzePastDreams, useGetProgressOnGeneralAnalysis } from '@/entities/dream/dream.repository';
 import ArrowAnimation from '@/pages/HomePage/ui/ArrowAnimation';
-import { PLACEMENTS } from '@/shared/config/constants/constants';
-import { useSubscription } from '@/shared/hooks/useSubscription';
 import { useTheme } from '@/shared/hooks/useTheme';
 import LoaderIndicator from '@/shared/ui/elements/LoaderIndicator';
 import LoadingModal from '@/shared/ui/elements/LoadingModal';
 import Grid, { GridPressable } from '@/shared/ui/grid/Grid';
 import Typography from '@/shared/ui/typography/Typography';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import Superwall from '@superwall/react-native-superwall';
 import { useTranslation } from 'react-i18next';
 import Animated from 'react-native-reanimated';
 
 export default function GeneralAnalyzeButton() {
   const colors = useTheme();
   const { t } = useTranslation();
-  const { isActive } = useSubscription();
   const { data, isLoading } = useGetProgressOnGeneralAnalysis();
   const { analyzePastDreamsFunction, isPending } = useAnalyzePastDreams();
 
   const onHandlePress = () => {
-    if (!isActive) {
-      Superwall.shared.register({
-        placement: PLACEMENTS.campaign_trigger,
-      });
-      return;
-    }
-
     void analyzePastDreamsFunction();
   };
 
@@ -61,7 +49,7 @@ export default function GeneralAnalyzeButton() {
       }}
     >
       <LoadingModal open={isLoading || isPending} />
-      {isPressable && isActive && <ArrowAnimation />}
+      {isPressable && <ArrowAnimation />}
       <GridPressable
         disabled={!isPressable}
         onPress={onHandlePress}
@@ -75,12 +63,6 @@ export default function GeneralAnalyzeButton() {
           overflow: 'hidden',
         }}
       >
-        {!isActive && (
-          <Grid style={{ position: 'absolute', right: 25, zIndex: 100 }}>
-            <FontAwesome name="lock" size={18} color={colors.text.white} />
-          </Grid>
-        )}
-
         {isLoading ? (
           <LoaderIndicator />
         ) : (

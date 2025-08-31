@@ -157,6 +157,9 @@
     "dreams": "Dreams",
     "progress-title": "Progress to General Analysis",
     "card": {
+      "dream-progress": "Dream progress",
+      "you-need-to-complete": "You need to complete all dream analyses to get more insights.",
+      "get-more-insights": "Get more insights",
       "title": "Dream Analysis",
       "date": "{{ date }} analyzed {{ amountOfDreams }} dreams",
       "general-description": "General description",

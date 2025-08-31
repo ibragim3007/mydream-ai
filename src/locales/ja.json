@@ -155,6 +155,9 @@
     "dreams": "夢",
     "progress-title": "総合分析までの進捗",
     "card": {
+      "dream-progress": "夢の進捗",
+      "you-need-to-complete": "さらに洞察を得るには、すべての夢分析を完了する必要があります。",
+      "get-more-insights": "さらに洞察を得る",
       "title": "夢分析",
       "date": "{{ date }} に {{ amountOfDreams }} 件の夢を分析",
       "general-description": "概要説明",

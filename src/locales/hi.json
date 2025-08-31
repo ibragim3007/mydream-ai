@@ -155,6 +155,9 @@
     "dreams": "सपना",
     "progress-title": "सामान्य विश्लेषण की प्रगति",
     "card": {
+      "dream-progress": "सपनों की प्रगति",
+      "you-need-to-complete": "अधिक अंतर्दृष्टि पाने के लिए आपको सभी सपनों के विश्लेषण पूरे करने होंगे।",
+      "get-more-insights": "अधिक अंतर्दृष्टि प्राप्त करें",
       "title": "सपने का विश्लेषण",
       "date": "{{ date }} ने {{ amountOfDreams }} सपनों का विश्लेषण किया",
       "general-description": "सामान्य विवरण",

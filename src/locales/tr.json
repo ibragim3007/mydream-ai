@@ -155,6 +155,9 @@
     "dreams": "Rüya",
     "progress-title": "Genel analize ilerleme",
     "card": {
+      "dream-progress": "Rüya ilerlemesi",
+      "you-need-to-complete": "Daha fazla içgörü elde etmek için tüm rüya analizlerini tamamlamanız gerekiyor.",
+      "get-more-insights": "Daha fazla içgörü elde et",
       "title": "Rüya analizi",
       "date": "{{ date }} tarihinde {{ amountOfDreams }} rüya analiz edildi",
       "general-description": "Genel açıklama",
