@@ -2,7 +2,7 @@
   "expo": {
     "name": "MyDream AI",
     "slug": "Dream-lens",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
@@ -35,7 +35,7 @@
         "usesNonExemptEncryption": false
       },
       "icon": "./assets/images/icons_ios/icon-a.png",
-      "buildNumber": "21"
+      "buildNumber": "23"
     },
     "android": {
       "adaptiveIcon": {
