@@ -9,16 +9,34 @@ interface DreamProgressBarProps {
 
 export default function DreamProgressBar({ current, total }: DreamProgressBarProps) {
   const colors = useTheme();
+  // Guard against invalid totals
+  const safeTotal = Math.max(1, total || 0);
+  const clampedCurrent = Math.max(0, Math.min(current, safeTotal));
+  const wholeSegments = Math.floor(clampedCurrent);
+  const partial = clampedCurrent - wholeSegments; // 0..1
   return (
     <Grid space="sm">
-      <Grid flex={1} height={8}>
-        <Grid
-          style={{ borderRadius: 40, position: 'absolute', zIndex: 10 }}
-          width={`${(current / total) * 100}%`}
-          height="100%"
-          color={colors.text.primary}
-        />
-        <Grid style={{ borderRadius: 40 }} height="100%" color={'#ffffff20'} />
+      <Grid row gap={8} align="center" height={10} flex={1}>
+        {Array.from({ length: safeTotal }).map((_, i) => {
+          // Determine fill for this segment
+          let fill = 0;
+          if (i < wholeSegments)
+            fill = 1; // full
+          else if (i === wholeSegments) fill = partial; // partial (0..1)
+
+          return (
+            <Grid key={i} flex={1} height="100%" style={{ borderRadius: 40, overflow: 'hidden' }} color={'#ffffff20'}>
+              {fill > 0 && (
+                <Grid
+                  width={`${fill * 100}%`}
+                  height="100%"
+                  color={colors.text.primary}
+                  style={{ borderRadius: 40, position: 'absolute', left: 0, top: 0 }}
+                />
+              )}
+            </Grid>
+          );
+        })}
       </Grid>
       <Typography color="secondary" variant="footnote">{`${current} / ${total}`}</Typography>
     </Grid>
