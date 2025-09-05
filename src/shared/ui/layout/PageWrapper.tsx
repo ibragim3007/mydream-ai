@@ -22,23 +22,23 @@ export default function PageWrapper({ disableGradient, background = 'stars', ...
     );
   }
 
-  return (
-    <LinearGradient
-      style={{ flex: 1 }}
-      colors={['#0A0C14', '#151832', '#342371', '#7A29C6']}
-      start={{ x: 0.5, y: 0 }}
-      end={{ x: 0.5, y: 1 }}
-    >
-      <Grid flex={1} {...props} />
-    </LinearGradient>
-  );
+  // return (
+  //   <LinearGradient
+  //     style={{ flex: 1 }}
+  //     colors={['#862DD9', '#342371', '#151832', '#0A0C14']}
+  //     start={{ x: 1, y: 0 }}
+  //     end={{ x: 0.5, y: 1 }}
+  //   >
+  //     <Grid flex={1} {...props} />
+  //   </LinearGradient>
+  // );
 
   return (
     <LinearGradient
       style={{ flex: 1 }}
       colors={['#862DD9', '#342371', '#151832', '#0A0C14']}
-      start={{ x: 2, y: 0.2 }}
-      end={{ x: -1.3, y: -0.1 }}
+      start={{ x: 1, y: 0 }}
+      end={{ x: 0, y: 1 }}
     >
       <Grid flex={1} {...props} />
     </LinearGradient>
