@@ -37,6 +37,15 @@
       "Have lucid dreams": "Berrak rüyalar görme",
       "Get to know myself better": "Kendimi daha iyi tanıma",
       "Find the patterns": "Desenleri bulma"
+    },
+    "new-screens": {
+      "help-us-grow": "Büyümemize yardımcı olun!",
+      "grow-description": "Bizi değerlendirenlerin ilklerinden olun!",
+      "what-is-my-dream": "MyDream nedir?",
+      "short-explanation-description-part": "MyDream, yapay zekâ teknolojisiyle rüyalarını kaydetmene, analiz etmene ve yorumlamana yardımcı olan bir uygulamadır.",
+      "quality-of-sleep": "Uyku kalitesi",
+      "before": "ÖNCE",
+      "with-app": "MYDREAM İLE"
     }
   },
   "home": {
@@ -100,7 +109,11 @@
     "more": "Daha Fazla Oku",
     "original-input": "Girdi",
     "characters": "Karakterler",
-    "continuation-title": "Devam"
+    "continuation-title": "Devam",
+    "share-my-dream": "Rüyamı paylaş",
+    "created-by": "Oluşturan",
+    "analysis-showed": "Analiz gösterdi",
+    "i-dreamed": "Rüya gördüm..."
   },
   "settings-page": {
     "app-settings": "Uygulama Ayarları",
@@ -146,6 +159,21 @@
     "enable-code": "Kod korumasını etkinleştir",
     "error": "Hata",
     "invalid-code": "Geçersiz kod"
+  },
+  "general-analysis": {
+    "dreams": "Rüya",
+    "progress-title": "Genel analize ilerleme",
+    "card": {
+      "dream-progress": "Rüya ilerlemesi",
+      "you-need-to-complete": "Daha fazla içgörü elde etmek için tüm rüya analizlerini tamamlamanız gerekiyor.",
+      "get-more-insights": "Daha fazla içgörü elde et",
+      "title": "Rüya analizi",
+      "date": "{{ date }} tarihinde {{ amountOfDreams }} rüya analiz edildi",
+      "general-description": "Genel açıklama",
+      "advice": "Tavsiye",
+      "emotions": "Duygular",
+      "aspects": "Psikolojik yönler"
+    }
   },
   "yes": "Evet",
   "no": "Hayır"

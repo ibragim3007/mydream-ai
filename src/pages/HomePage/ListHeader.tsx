@@ -11,6 +11,9 @@ import ArrowAnimation from './ui/ArrowAnimation';
 import ListHeaderTitles from './ui/ListHeaderTitles';
 import NoDreamsBlock from './ui/NoDreamsBlock';
 import { useTranslation } from 'react-i18next';
+import { GeneralAnalyzeButton } from '@/module/GeneralAnalyzeButton';
+import LastDreamAnalysisCard from '@/module/LastDreamAnalysisCard/LastDreamAnalysisCard';
+import GeneralAnalyzeBlock from '@/module/GeneralAnalyzeButton/GeneralAnalyzeBlock';
 
 export default function ListHeader() {
   const { data, isLoading } = useGetDreams();
@@ -30,12 +33,16 @@ export default function ListHeader() {
           <Grid space="sm">
             <Settings />
             <Grid space="lg">
-              <ListHeaderTitles />
-
-              <Grid align="stretch" row space="sm">
-                <AddDreamButton />
-                <AudioRecorderButton />
-                {!isDreamsExists && <ArrowAnimation />}
+              <ListHeaderTitles showDescription={!isDreamsExists} />
+              <Grid space="md">
+                <Grid space="sm">
+                  <GeneralAnalyzeBlock />
+                </Grid>
+                <Grid align="stretch" row space="md">
+                  <AddDreamButton />
+                  <AudioRecorderButton />
+                  {!isDreamsExists && <ArrowAnimation />}
+                </Grid>
               </Grid>
             </Grid>
           </Grid>
@@ -45,6 +52,8 @@ export default function ListHeader() {
               <SubBlock title={decodeDream} />
             </Animated.View>
           )}
+
+          <LastDreamAnalysisCard />
         </Grid>
 
         {!isDreamsExists && <NoDreamsBlock />}

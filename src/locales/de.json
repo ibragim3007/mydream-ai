@@ -37,6 +37,15 @@
       "Have lucid dreams": "Klarträume haben",
       "Get to know myself better": "Mich selbst besser kennenlernen",
       "Find the patterns": "Muster erkennen"
+    },
+    "new-screens": {
+      "help-us-grow": "Hilf uns zu wachsen!",
+      "grow-description": "Sei einer der Ersten, die uns bewerten!",
+      "what-is-my-dream": "Was ist MyDream?",
+      "short-explanation-description-part": "MyDream ist eine App, die dir mithilfe von KI dabei hilft, deine Träume aufzuzeichnen, zu analysieren und zu interpretieren.",
+      "quality-of-sleep": "Schlafqualität",
+      "before": "VORHER",
+      "with-app": "MIT MYDREAM"
     }
   },
   "home": {
@@ -100,7 +109,11 @@
     "more": "Mehr lesen",
     "original-input": "Eingabe",
     "characters": "Charaktere",
-    "continuation-title": "Fortsetzung"
+    "continuation-title": "Fortsetzung",
+    "share-my-dream": "Teile meinen Traum",
+    "created-by": "Erstellt von",
+    "analysis-showed": "Die Analyse zeigte",
+    "i-dreamed": "Ich habe geträumt..."
   },
   "settings-page": {
     "app-settings": "App-Einstellungen",
@@ -146,6 +159,21 @@
     "enable-code": "Code-Schutz aktivieren",
     "error": "Fehler",
     "invalid-code": "Ungültiger Code"
+  },
+  "general-analysis": {
+    "dreams": "Traum",
+    "progress-title": "Fortschritt zur Gesamtanalyse",
+    "card": {
+      "dream-progress": "Traumfortschritt",
+      "you-need-to-complete": "Du musst alle Traumanalysen abschließen, um weitere Erkenntnisse zu erhalten.",
+      "get-more-insights": "Mehr Erkenntnisse erhalten",
+      "title": "Traumanalyse",
+      "date": "{{ date }} analysierte {{ amountOfDreams }} Träume",
+      "general-description": "Allgemeine Beschreibung",
+      "advice": "Ratschlag",
+      "emotions": "Emotionen",
+      "aspects": "Psychologische Aspekte"
+    }
   },
   "yes": "Ja",
   "no": "Nein"

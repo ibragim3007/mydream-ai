@@ -37,6 +37,15 @@
       "Have lucid dreams": "Have lucid dreams",
       "Get to know myself better": "Get to know myself better",
       "Find the patterns": "Find the patterns"
+    },
+    "new-screens": {
+      "help-us-grow": "Help us grow!",
+      "grow-description": "Be one of the first to rate us!",
+      "what-is-my-dream": "What is MyDream?",
+      "short-explanation-description-part": "MyDream is an app that helps you record, analyze, and interpret your dreams using AI technology.",
+      "quality-of-sleep": "Quality of Sleep",
+      "before": "BEFORE",
+      "with-app": "WITH MYDREAM"
     }
   },
   "home": {
@@ -100,7 +109,11 @@
     "more": "Read More",
     "original-input": "Original Input",
     "characters": "Characters",
-    "continuation-title": "Continuation"
+    "continuation-title": "Continuation",
+    "share-my-dream": "Share my dream",
+    "created-by": "Created by",
+    "analysis-showed": "The analysis showed",
+    "i-dreamed": "I dreamed..."
   },
   "settings-page": {
     "app-settings": "App Preferences",
@@ -148,5 +161,20 @@
     "invalid-code": "Invalid passcode"
   },
   "yes": "Yes",
-  "no": "No"
+  "no": "No",
+  "general-analysis": {
+    "dreams": "Dreams",
+    "progress-title": "Progress to General Analysis",
+    "card": {
+      "dream-progress": "Dream progress",
+      "you-need-to-complete": "You need to complete all dream analyses to get more insights.",
+      "get-more-insights": "Get more insights",
+      "title": "Dream Analysis",
+      "date": "{{ date }} analyzed {{ amountOfDreams }} dreams",
+      "general-description": "General description",
+      "advice": "Advice",
+      "emotions": "Emotions",
+      "aspects": "Psychological aspects"
+    }
+  }
 }

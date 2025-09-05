@@ -11,12 +11,14 @@ import { useTranslation } from 'react-i18next';
 import { getWeeklyPurchaseCount } from './helpers/generatePeopleNumber';
 import { analytics, Events } from '@/shared/service/analytics.service';
 import { useLang } from '@/shared/hooks/useLangStore';
+import { useTheme } from '@/shared/hooks/useTheme';
 
 interface SubBlockProps {
   title?: string;
 }
 
 export default function SubBlock({ title }: SubBlockProps) {
+  const colors = useTheme();
   const { subscriptionStatus } = useSubscription();
   const { vibrate } = useVibration();
   const { t } = useTranslation();
@@ -28,7 +30,7 @@ export default function SubBlock({ title }: SubBlockProps) {
       local: lang,
     });
     Superwall.shared.register({
-      placement: PLACEMENTS.campaign_trigger,
+      placement: PLACEMENTS.sub_block_press,
     });
   };
 
@@ -53,7 +55,7 @@ export default function SubBlock({ title }: SubBlockProps) {
           borderColor: '#fff',
           width: '100%',
           height: '100%',
-          borderRadius: 30,
+          borderRadius: colors.styles.borderRadius,
           position: 'absolute',
         }}
       />
@@ -80,9 +82,6 @@ export default function SubBlock({ title }: SubBlockProps) {
           <Button style={{ paddingVertical: 9 }} onPress={onPress}>
             {t('sub-block.start-free-trial')}
           </Button>
-          {/* <Typography marginLeft={20} variant="caption-1" color="disabled">
-            Then {currentPrice} per week
-          </Typography> */}
         </Grid>
       </Grid>
     </Grid>

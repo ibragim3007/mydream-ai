@@ -37,6 +37,15 @@
       "Have lucid dreams": "Helder dromen ervaren",
       "Get to know myself better": "Mezelf beter leren kennen",
       "Find the patterns": "Patronen ontdekken"
+    },
+    "new-screens": {
+      "help-us-grow": "Help ons groeien!",
+      "grow-description": "Wees een van de eersten die ons beoordeelt!",
+      "what-is-my-dream": "Wat is MyDream?",
+      "short-explanation-description-part": "MyDream is een app die je met AI helpt je dromen vast te leggen, te analyseren en te interpreteren.",
+      "quality-of-sleep": "Slaapkwaliteit",
+      "before": "VOOR",
+      "with-app": "MET MYDREAM"
     }
   },
   "home": {
@@ -100,7 +109,11 @@
     "more": "Lees meer",
     "original-input": "Invoer",
     "characters": "Tekens",
-    "continuation-title": "Vervolg"
+    "continuation-title": "Vervolg",
+    "share-my-dream": "Deel mijn droom",
+    "created-by": "Gemaakt door",
+    "analysis-showed": "De analyse toonde",
+    "i-dreamed": "Ik droomde..."
   },
   "settings-page": {
     "app-settings": "App-voorkeuren",
@@ -146,6 +159,21 @@
     "enable-code": "Schakel codebeveiliging in",
     "error": "Fout",
     "invalid-code": "Ongeldige code"
+  },
+  "general-analysis": {
+    "dreams": "Droom",
+    "progress-title": "Voortgang naar algemene analyse",
+    "card": {
+      "dream-progress": "Droomvoortgang",
+      "you-need-to-complete": "Je moet alle droomanalyses voltooien om meer inzichten te krijgen.",
+      "get-more-insights": "Meer inzichten verkrijgen",
+      "title": "Droomanalyse",
+      "date": "{{ date }} heeft {{ amountOfDreams }} dromen geanalyseerd",
+      "general-description": "Algemene beschrijving",
+      "advice": "Advies",
+      "emotions": "Emoties",
+      "aspects": "Psychologische aspecten"
+    }
   },
   "yes": "Ja",
   "no": "Nee"

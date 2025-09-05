@@ -37,6 +37,15 @@
       "Have lucid dreams": "تحقيق الأحلام الواعية",
       "Get to know myself better": "التعرّف على نفسي بشكل أفضل",
       "Find the patterns": "اكتشاف الأنماط"
+    },
+    "new-screens": {
+      "help-us-grow": "ساعدونا على النمو!",
+      "grow-description": "كن من أوائل من يقيّمنا!",
+      "what-is-my-dream": "ما هو MyDream؟",
+      "short-explanation-description-part": "‏MyDream هو تطبيق يساعدك، باستخدام تقنيات الذكاء الاصطناعي، على تسجيل أحلامك وتحليلها وتفسيرها.",
+      "quality-of-sleep": "جودة النوم",
+      "before": "قبل",
+      "with-app": "مع MYDREAM"
     }
   },
   "home": {
@@ -100,7 +109,11 @@
     "more": "اقرأ المزيد",
     "original-input": "النص الأصلي",
     "characters": "الأحرف",
-    "continuation-title": "استمرار"
+    "continuation-title": "استمرار",
+    "share-my-dream": "شارك حلمي",
+    "created-by": "أنشئ بواسطة",
+    "analysis-showed": "أظهر التحليل",
+    "i-dreamed": "حلمتُ..."
   },
   "settings-page": {
     "app-settings": "تفضيلات التطبيق",
@@ -146,6 +159,22 @@
     "enable-code": "تمكين حماية الكود",
     "error": "خطأ",
     "invalid-code": "رمز غير صالح"
+  },
+  "general-analysis": {
+    "dreams": "حلم",
+    "progress-title": "التقدم نحو التحليل العام",
+
+    "card": {
+      "dream-progress": "تقدم الأحلام",
+      "you-need-to-complete": "تحتاج إلى إكمال جميع تحليلات الأحلام للحصول على المزيد من الرؤى.",
+      "get-more-insights": "الحصول على المزيد من الرؤى",
+      "title": "تحليل الحلم",
+      "date": "{{ date }} حلّل {{ amountOfDreams }} أحلامًا",
+      "general-description": "وصف عام",
+      "advice": "نصيحة",
+      "emotions": "المشاعر",
+      "aspects": "الجوانب النفسية"
+    }
   },
   "yes": "نعم",
   "no": "لا"

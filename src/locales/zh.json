@@ -37,6 +37,15 @@
       "Have lucid dreams": "体验清醒梦",
       "Get to know myself better": "更好地了解自己",
       "Find the patterns": "发现模式"
+    },
+    "new-screens": {
+      "help-us-grow": "帮助我们成长！",
+      "grow-description": "成为首批为我们评分的人！",
+      "what-is-my-dream": "什么是 MyDream？",
+      "short-explanation-description-part": "MyDream 是一款利用人工智能技术帮助你记录、分析并解读梦境的应用。",
+      "quality-of-sleep": "睡眠质量",
+      "before": "之前",
+      "with-app": "使用 MYDREAM"
     }
   },
   "home": {
@@ -100,7 +109,11 @@
     "more": "阅读更多",
     "original-input": "原始输入",
     "characters": "字符数",
-    "continuation-title": "继续"
+    "continuation-title": "继续",
+    "share-my-dream": "分享我的梦",
+    "created-by": "创建者",
+    "analysis-showed": "分析显示",
+    "i-dreamed": "我做了一个梦..."
   },
   "settings-page": {
     "app-settings": "应用偏好",
@@ -146,6 +159,21 @@
     "enable-code": "启用密码保护",
     "error": "错误",
     "invalid-code": "无效密码"
+  },
+  "general-analysis": {
+    "dreams": "梦",
+    "progress-title": "通往综合分析的进度",
+    "card": {
+      "dream-progress": "梦境进度",
+      "you-need-to-complete": "您需要完成所有梦境分析才能获得更多见解。",
+      "get-more-insights": "获取更多见解",
+      "title": "梦境分析",
+      "date": "{{ date }} 分析了 {{ amountOfDreams }} 个梦",
+      "general-description": "总体描述",
+      "advice": "建议",
+      "emotions": "情绪",
+      "aspects": "心理方面"
+    }
   },
   "yes": "是",
   "no": "否"

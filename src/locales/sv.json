@@ -37,6 +37,15 @@
       "Have lucid dreams": "Få klardrömmar",
       "Get to know myself better": "Lära känna mig själv bättre",
       "Find the patterns": "Hitta mönster"
+    },
+    "new-screens": {
+      "help-us-grow": "Hjälp oss att växa!",
+      "grow-description": "Bli en av de första att betygsätta oss!",
+      "what-is-my-dream": "Vad är MyDream?",
+      "short-explanation-description-part": "MyDream är en app som med hjälp av AI hjälper dig att registrera, analysera och tolka dina drömmar.",
+      "quality-of-sleep": "Sömnkvalitet",
+      "before": "FÖRE",
+      "with-app": "MED MYDREAM"
     }
   },
   "home": {
@@ -100,7 +109,11 @@
     "more": "Läs mer",
     "original-input": "Inmatning",
     "characters": "Tecken",
-    "continuation-title": "Fortsättning"
+    "continuation-title": "Fortsättning",
+    "share-my-dream": "Dela min dröm",
+    "created-by": "Skapad av",
+    "analysis-showed": "Analysen visade",
+    "i-dreamed": "Jag drömde..."
   },
   "settings-page": {
     "app-settings": "App-inställningar",
@@ -146,6 +159,21 @@
     "enable-code": "Aktivera kodskydd",
     "error": "Fel",
     "invalid-code": "Ogiltig kod"
+  },
+  "general-analysis": {
+    "dreams": "Dröm",
+    "progress-title": "Framsteg till allmän analys",
+    "card": {
+      "dream-progress": "Drömframsteg",
+      "you-need-to-complete": "Du måste slutföra alla drömanalyser för att få fler insikter.",
+      "get-more-insights": "Få fler insikter",
+      "title": "Drömanalys",
+      "date": "{{ date }} analyserade {{ amountOfDreams }} drömmar",
+      "general-description": "Allmän beskrivning",
+      "advice": "Råd",
+      "emotions": "Känslor",
+      "aspects": "Psykologiska aspekter"
+    }
   },
   "yes": "Ja",
   "no": "Nej"

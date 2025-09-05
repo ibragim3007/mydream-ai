@@ -29,3 +29,23 @@ export type DreamsQueryDto = {
   lastDreamId?: string;
   limit?: string;
 };
+
+export type AnalyzePastDreamsResponseDto = {
+  id: string;
+  createdAt: Date;
+  updatedAt: Date;
+  userId: string;
+  analysis: PastDreamsAnalysisResponse;
+  amountOfDreams: number | null;
+  lastDreamId: string | null;
+};
+
+export interface PastDreamsAnalysisResponse {
+  themes: string[];
+  emotions: string[];
+  repeatingElements: string[];
+  psychologicalInsights: string;
+  advice: string;
+  summary: string;
+  colors: [string, string, string]; // строго три HEX-цвета
+}

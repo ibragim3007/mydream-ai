@@ -13,7 +13,7 @@ import { vexo } from 'vexo-analytics';
 import GeneralStack from './stack';
 import { I18nextProvider, useTranslation } from 'react-i18next';
 import i18n from '@/shared/providers/i18n';
-import { I18nManager } from 'react-native';
+import { I18nManager, Platform } from 'react-native';
 import { useEffect } from 'react';
 import Superwall, { LogLevel, LogScope, SuperwallOptions } from '@superwall/react-native-superwall';
 import { errorLogger } from '@/shared/service/logger.service/sentry.service';
@@ -56,7 +56,12 @@ export default Sentry.wrap(function RootLayout() {
       const opts = new SuperwallOptions();
       opts.logging.level = LogLevel.Warn;
       opts.logging.scopes = [LogScope.PaywallPresentation];
-      Superwall.configure({ apiKey: Environment.superwall_api_key!, options: opts });
+
+      console.log(Environment.superwall_api_key_ANDROID);
+      Superwall.configure({
+        apiKey: Platform.OS === 'ios' ? Environment.superwall_api_key! : Environment.superwall_api_key_ANDROID!,
+        options: opts,
+      });
       Superwall.shared.preloadAllPaywalls();
     } catch (e) {
       errorLogger.logError('Superwall init');

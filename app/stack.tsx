@@ -20,7 +20,7 @@ export default function GeneralStack() {
       <Stack.Screen name="index" options={{ headerShown: false }} />
       <Stack.Screen name="screens/homeScreen" options={{ headerShown: false, animation: 'none' }} />
       <Stack.Screen name="screens/dream/[id]" options={{ headerShown: false }} />
-      <Stack.Screen name="screens/onboarding" options={{ headerShown: false }} />
+      <Stack.Screen name="screens/onboarding" options={{ headerShown: false, animation: 'fade' }} />
       <Stack.Screen
         name="screens/settings"
         options={{ headerShown: false }} // заголовок внутри nested-stack

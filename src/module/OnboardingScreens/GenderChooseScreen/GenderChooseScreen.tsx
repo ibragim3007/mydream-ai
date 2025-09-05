@@ -18,7 +18,7 @@ export default function GenderChooseScreen({ genderPickerComponent, onPressButto
           <Typography variant="largeTitle" weight="extra-bold">
             {t('onboarding.what-your-gender')}
           </Typography>
-          <Typography color="disabled">{t('onboarding.personalize-explanation-gender')}</Typography>
+          <Typography color="secondary">{t('onboarding.personalize-explanation-gender')}</Typography>
         </Grid>
         <Grid space="lg">
           {genderPickerComponent}

@@ -37,6 +37,15 @@
       "Have lucid dreams": "जाग्रत स्वप्न देखना",
       "Get to know myself better": "खुद को बेहतर जानना",
       "Find the patterns": "नमूनों को खोजें"
+    },
+    "new-screens": {
+      "help-us-grow": "हमें बढ़ने में मदद करें!",
+      "grow-description": "हमें रेट करने वालों में पहले बनें!",
+      "what-is-my-dream": "MyDream क्या है?",
+      "short-explanation-description-part": "MyDream एक ऐप है जो एआई तकनीक की मदद से आपके सपनों को रिकॉर्ड, विश्लेषित और व्याख्या करने में मदद करता है।",
+      "quality-of-sleep": "नींद की गुणवत्ता",
+      "before": "पहले",
+      "with-app": "MYDREAM के साथ"
     }
   },
   "home": {
@@ -100,7 +109,11 @@
     "more": "और पढ़ें",
     "original-input": "इनपुट",
     "characters": "वर्ण",
-    "continuation-title": "जारी रखना"
+    "continuation-title": "जारी रखना",
+    "share-my-dream": "अपना सपना साझा करें",
+    "created-by": "द्वारा निर्मित",
+    "analysis-showed": "विश्लेषण ने दिखाया",
+    "i-dreamed": "मैंने सपना देखा..."
   },
   "settings-page": {
     "app-settings": "ऐप प्राथमिकताएं",
@@ -146,6 +159,21 @@
     "enable-code": "कोड सुरक्षा सक्षम करें",
     "error": "त्रुटि",
     "invalid-code": "अमान्य कोड"
+  },
+  "general-analysis": {
+    "dreams": "सपना",
+    "progress-title": "सामान्य विश्लेषण की प्रगति",
+    "card": {
+      "dream-progress": "सपनों की प्रगति",
+      "you-need-to-complete": "अधिक अंतर्दृष्टि पाने के लिए आपको सभी सपनों के विश्लेषण पूरे करने होंगे।",
+      "get-more-insights": "अधिक अंतर्दृष्टि प्राप्त करें",
+      "title": "सपने का विश्लेषण",
+      "date": "{{ date }} ने {{ amountOfDreams }} सपनों का विश्लेषण किया",
+      "general-description": "सामान्य विवरण",
+      "advice": "सलाह",
+      "emotions": "भावनाएँ",
+      "aspects": "मनोवैज्ञानिक पहलू"
+    }
   },
   "yes": "हाँ",
   "no": "नहीं"

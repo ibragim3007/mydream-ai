@@ -37,6 +37,15 @@
       "Have lucid dreams": "明晰夢を見る",
       "Get to know myself better": "自分をより深く知る",
       "Find the patterns": "パターンを見つける"
+    },
+    "new-screens": {
+      "help-us-grow": "成長にご協力ください！",
+      "grow-description": "最初の評価者の一人になってください！",
+      "what-is-my-dream": "MyDreamとは？",
+      "short-explanation-description-part": "MyDreamは、AI技術を使って夢を記録・分析・解釈するのに役立つアプリです。",
+      "quality-of-sleep": "睡眠の質",
+      "before": "導入前",
+      "with-app": "MYDREAM 使用時"
     }
   },
   "home": {
@@ -100,7 +109,11 @@
     "more": "もっと読む",
     "original-input": "入力内容",
     "characters": "文字数",
-    "continuation-title": "続き"
+    "continuation-title": "続き",
+    "share-my-dream": "私の夢を共有する",
+    "created-by": "作成者",
+    "analysis-showed": "分析の結果",
+    "i-dreamed": "夢を見た..."
   },
   "settings-page": {
     "app-settings": "アプリ設定",
@@ -146,6 +159,21 @@
     "enable-code": "パスコード保護を有効にする",
     "error": "エラー",
     "invalid-code": "無効なコード"
+  },
+  "general-analysis": {
+    "dreams": "夢",
+    "progress-title": "総合分析までの進捗",
+    "card": {
+      "dream-progress": "夢の進捗",
+      "you-need-to-complete": "さらに洞察を得るには、すべての夢分析を完了する必要があります。",
+      "get-more-insights": "さらに洞察を得る",
+      "title": "夢分析",
+      "date": "{{ date }} に {{ amountOfDreams }} 件の夢を分析",
+      "general-description": "概要説明",
+      "advice": "アドバイス",
+      "emotions": "感情",
+      "aspects": "心理的側面"
+    }
   },
   "yes": "はい",
   "no": "いいえ"

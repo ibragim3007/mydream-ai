@@ -37,6 +37,15 @@
       "Have lucid dreams": "Осознанные сновидения",
       "Get to know myself better": "Лучше узнать себя",
       "Find the patterns": "Найти закономерности"
+    },
+    "new-screens": {
+      "help-us-grow": "Помогите нам развиваться!",
+      "grow-description": "Будьте одним из первых, кто оценит нас!",
+      "what-is-my-dream": "Что такое MyDream?",
+      "short-explanation-description-part": "MyDream — это приложение, которое с помощью ИИ помогает записывать, анализировать и интерпретировать ваши сны.",
+      "quality-of-sleep": "Качество сна",
+      "before": "ДО",
+      "with-app": "С MYDREAM"
     }
   },
   "home": {
@@ -100,7 +109,11 @@
     "more": "Подробнее",
     "original-input": "Исходный текст",
     "characters": "Персонажи",
-    "continuation-title": "Продолжение"
+    "continuation-title": "Продолжение",
+    "share-my-dream": "Поделиться моим сном",
+    "created-by": "Создано",
+    "analysis-showed": "Анализ показал",
+    "i-dreamed": "Мне приснилось..."
   },
   "settings-page": {
     "app-settings": "Настройки приложения",
@@ -148,5 +161,20 @@
     "invalid-code": "Неверный код"
   },
   "yes": "Да",
-  "no": "Нет"
+  "no": "Нет",
+  "general-analysis": {
+    "dreams": "Сон",
+    "progress-title": "Прогресс к общему анализу",
+    "card": {
+      "dream-progress": "Прогресс снов",
+      "you-need-to-complete": "Вам нужно завершить все анализы снов, чтобы получить больше инсайтов.",
+      "get-more-insights": "Получить больше инсайтов",
+      "title": "Анализ сна",
+      "date": "{{ date }} проанализировано {{ amountOfDreams }} снов",
+      "general-description": "Общее описание",
+      "advice": "Совет",
+      "emotions": "Эмоции",
+      "aspects": "Психологические аспекты"
+    }
+  }
 }

@@ -56,7 +56,7 @@ export default function EnterNameScreen({ onPressButton, goPrevPage, onChange }:
             <Typography variant="largeTitle" weight="extra-bold">
               {t('onboarding.name-question')}
             </Typography>
-            <Typography color="disabled">{t('onboarding.name-question-explanation')}</Typography>
+            <Typography color="secondary">{t('onboarding.name-question-explanation')}</Typography>
           </Grid>
 
           <AnimatedWrapper>

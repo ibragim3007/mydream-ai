@@ -37,6 +37,15 @@
       "Have lucid dreams": "자각몽 꾸기",
       "Get to know myself better": "자신을 더 잘 알기",
       "Find the patterns": "패턴 찾기"
+    },
+    "new-screens": {
+      "help-us-grow": "성장할 수 있도록 도와주세요!",
+      "grow-description": "가장 먼저 저희를 평가해 주세요!",
+      "what-is-my-dream": "MyDream이란?",
+      "short-explanation-description-part": "MyDream은 AI 기술을 활용해 꿈을 기록하고 분석하며 해석하도록 도와주는 앱입니다.",
+      "quality-of-sleep": "수면의 질",
+      "before": "이전",
+      "with-app": "MYDREAM 사용 시"
     }
   },
   "home": {
@@ -100,7 +109,11 @@
     "more": "더 읽기",
     "original-input": "입력",
     "characters": "문자 수",
-    "continuation-title": "계속"
+    "continuation-title": "계속",
+    "share-my-dream": "내 꿈 공유하기",
+    "created-by": "작성자",
+    "analysis-showed": "분석 결과",
+    "i-dreamed": "나는 꿈을 꾸었어..."
   },
   "settings-page": {
     "app-settings": "앱 환경설정",
@@ -146,6 +159,21 @@
     "enable-code": "암호 보호 활성화",
     "error": "오류",
     "invalid-code": "잘못된 암호"
+  },
+  "general-analysis": {
+    "dreams": "꿈",
+    "progress-title": "종합 분석까지의 진행",
+    "card": {
+      "dream-progress": "꿈 진행",
+      "you-need-to-complete": "더 많은 통찰을 얻으려면 모든 꿈 분석을 완료해야 합니다.",
+      "get-more-insights": "더 많은 통찰 얻기",
+      "title": "꿈 분석",
+      "date": "{{ date }}에 {{ amountOfDreams }}개의 꿈을 분석함",
+      "general-description": "전체 설명",
+      "advice": "조언",
+      "emotions": "감정",
+      "aspects": "심리적 측면"
+    }
   },
   "yes": "예",
   "no": "아니요"

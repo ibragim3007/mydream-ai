@@ -110,3 +110,45 @@ export function groupDreamsByDate(dreams: GetDreamDto[], locale = 'ru'): Grouped
     return [];
   }
 }
+
+/**
+ * Возвращает локализованное название даты.
+ *
+ * @param input   Дата, которую нужно отформатировать (Date | число | строка ISO/UTC).
+ * @param locale  Язык‑локаль (по умолчанию 'ru').
+ *
+ * @example
+ * localizeDate('2025‑05‑13T09:20:00Z', 'en')  // → "Today"
+ */
+export function localizeDate(input: string | number | Date, locale: string = 'en'): string {
+  try {
+    const dt = new Date(input);
+    if (Number.isNaN(dt.getTime())) return '';
+
+    const now = new Date();
+    const todayKey = TODAY_LABELS[locale] ?? TODAY_LABELS.en;
+    const yesterdayKey = YESTERDAY_LABELS[locale] ?? YESTERDAY_LABELS.en;
+
+    const diffDays = Math.floor(
+      (new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime() -
+        new Date(dt.getFullYear(), dt.getMonth(), dt.getDate()).getTime()) /
+        86_400_000, // 1000 * 60 * 60 * 24
+    );
+
+    if (diffDays === 0) return todayKey;
+    if (diffDays === 1) return yesterdayKey;
+
+    const formatted = new Intl.DateTimeFormat(locale, {
+      weekday: 'long',
+      day: 'numeric',
+      month: 'long',
+    }).format(dt);
+
+    // Делает первую букву заглавной (некоторые локали возвращают строчные).
+    return formatted.charAt(0).toUpperCase() + formatted.slice(1);
+  } catch (e) {
+    errorLogger.logError('localizeDate');
+    console.error('Error in localizeDate:', e);
+    return '';
+  }
+}

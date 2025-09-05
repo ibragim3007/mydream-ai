@@ -34,7 +34,7 @@ export default function SettingItem({
     <Pressable onPress={onPress}>
       <Grid
         style={{
-          borderRadius: 16,
+          borderRadius: colors.styles.borderRadius,
           shadowColor: color,
           shadowOpacity: 0.3,
           shadowRadius: 10,

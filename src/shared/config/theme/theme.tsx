@@ -29,6 +29,8 @@ export interface ITheme {
   };
   styles: {
     borderRadius: number;
+    borderRadiusSmall?: number;
+    borderRadiusLarge?: number;
   };
 }
 
@@ -63,7 +65,9 @@ export const themes: ITheme[] = [
       red: '#FF1744',
     },
     styles: {
-      borderRadius: 24,
+      borderRadius: 15,
+      borderRadiusSmall: 12,
+      borderRadiusLarge: 36,
     },
   },
   {
@@ -96,7 +100,9 @@ export const themes: ITheme[] = [
       red: '#FF1744',
     },
     styles: {
-      borderRadius: 30,
+      borderRadius: 17,
+      borderRadiusSmall: 12,
+      borderRadiusLarge: 36,
     },
   },
 ];

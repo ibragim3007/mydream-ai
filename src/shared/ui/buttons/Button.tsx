@@ -107,12 +107,12 @@ const Button: React.FC<ButtonProps> = ({
   const styleButton: PressableProps['style'] = {
     paddingVertical: size === 'large' ? normalizedSize(13) : normalizedSize(8),
     paddingHorizontal: size === 'large' ? normalizedSize(10) : normalizedSize(12),
-    borderRadius: 20,
+    borderRadius: colors.styles.borderRadius,
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
     shadowColor: '#fff',
-    shadowOpacity: props.disabled ? 0 : 0.6,
+    shadowOpacity: props.disabled ? 0 : 0.3,
     shadowRadius: 10,
     gap: 15,
     shadowOffset: {

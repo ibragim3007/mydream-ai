@@ -37,6 +37,15 @@
       "Have lucid dreams": "Tener sueños lúcidos",
       "Get to know myself better": "Conocerme mejor",
       "Find the patterns": "Encontrar patrones"
+    },
+    "new-screens": {
+      "help-us-grow": "¡Ayúdanos a crecer!",
+      "grow-description": "¡Sé uno de los primeros en calificarnos!",
+      "what-is-my-dream": "¿Qué es MyDream?",
+      "short-explanation-description-part": "MyDream es una app que te ayuda a registrar, analizar e interpretar tus sueños con tecnología de IA.",
+      "quality-of-sleep": "Calidad del sueño",
+      "before": "ANTES",
+      "with-app": "CON MYDREAM"
     }
   },
   "home": {
@@ -100,7 +109,11 @@
     "more": "Leer más",
     "original-input": "Entrada",
     "characters": "Personajes",
-    "continuation-title": "Continuación"
+    "continuation-title": "Continuación",
+    "share-my-dream": "Comparte mi sueño",
+    "created-by": "Creado por",
+    "analysis-showed": "El análisis mostró",
+    "i-dreamed": "Soñé..."
   },
   "settings-page": {
     "app-settings": "Preferencias de la aplicación",
@@ -146,6 +159,21 @@
     "enable-code": "Activar protección con código",
     "error": "Error",
     "invalid-code": "Código inválido"
+  },
+  "general-analysis": {
+    "dreams": "Sueño",
+    "progress-title": "Progreso hacia el análisis general",
+    "card": {
+      "dream-progress": "Progreso de sueños",
+      "you-need-to-complete": "Debes completar todos los análisis de sueños para obtener más información.",
+      "get-more-insights": "Obtener más información",
+      "title": "Análisis del sueño",
+      "date": "{{ date }} analizó {{ amountOfDreams }} sueños",
+      "general-description": "Descripción general",
+      "advice": "Consejo",
+      "emotions": "Emociones",
+      "aspects": "Aspectos psicológicos"
+    }
   },
   "yes": "Sí",
   "no": "No"
