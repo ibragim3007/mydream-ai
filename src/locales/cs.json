@@ -37,6 +37,15 @@
       "Have lucid dreams": "Zažívat lucidní sny",
       "Get to know myself better": "Lépe poznat sám sebe",
       "Find the patterns": "Najít vzorce"
+    },
+    "new-screens": {
+      "help-us-grow": "Pomozte nám růst!",
+      "grow-description": "Buďte jedním z prvních, kdo nás ohodnotí!",
+      "what-is-my-dream": "Co je MyDream?",
+      "short-explanation-description-part": "MyDream je aplikace, která s pomocí AI pomáhá zaznamenávat, analyzovat a vykládat vaše sny.",
+      "quality-of-sleep": "Kvalita spánku",
+      "before": "PŘED",
+      "with-app": "S MYDREAM"
     }
   },
   "home": {

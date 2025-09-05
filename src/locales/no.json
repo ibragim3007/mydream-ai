@@ -37,6 +37,15 @@
       "Have lucid dreams": "Oppleve klare drømmer",
       "Get to know myself better": "Bli bedre kjent med meg selv",
       "Find the patterns": "Finne mønstre"
+    },
+    "new-screens": {
+      "help-us-grow": "Hjelp oss å vokse!",
+      "grow-description": "Bli en av de første som vurderer oss!",
+      "what-is-my-dream": "Hva er MyDream?",
+      "short-explanation-description-part": "MyDream er en app som ved hjelp av KI hjelper deg å registrere, analysere og tolke drømmene dine.",
+      "quality-of-sleep": "Søvnkvalitet",
+      "before": "FØR",
+      "with-app": "MED MYDREAM"
     }
   },
   "home": {

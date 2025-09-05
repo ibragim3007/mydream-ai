@@ -37,6 +37,15 @@
       "Have lucid dreams": "Mieć świadome sny",
       "Get to know myself better": "Lepsze poznanie siebie",
       "Find the patterns": "Znalezienie wzorców"
+    },
+    "new-screens": {
+      "help-us-grow": "Pomóż nam się rozwijać!",
+      "grow-description": "Bądź jednym z pierwszych, którzy nas ocenią!",
+      "what-is-my-dream": "Czym jest MyDream?",
+      "short-explanation-description-part": "MyDream to aplikacja, która z wykorzystaniem SI pomaga zapisywać, analizować i interpretować twoje sny.",
+      "quality-of-sleep": "Jakość snu",
+      "before": "PRZED",
+      "with-app": "Z MYDREAM"
     }
   },
   "home": {

@@ -37,6 +37,15 @@
       "Have lucid dreams": "明晰夢を見る",
       "Get to know myself better": "自分をより深く知る",
       "Find the patterns": "パターンを見つける"
+    },
+    "new-screens": {
+      "help-us-grow": "成長にご協力ください！",
+      "grow-description": "最初の評価者の一人になってください！",
+      "what-is-my-dream": "MyDreamとは？",
+      "short-explanation-description-part": "MyDreamは、AI技術を使って夢を記録・分析・解釈するのに役立つアプリです。",
+      "quality-of-sleep": "睡眠の質",
+      "before": "導入前",
+      "with-app": "MYDREAM 使用時"
     }
   },
   "home": {

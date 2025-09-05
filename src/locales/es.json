@@ -37,6 +37,15 @@
       "Have lucid dreams": "Tener sueños lúcidos",
       "Get to know myself better": "Conocerme mejor",
       "Find the patterns": "Encontrar patrones"
+    },
+    "new-screens": {
+      "help-us-grow": "¡Ayúdanos a crecer!",
+      "grow-description": "¡Sé uno de los primeros en calificarnos!",
+      "what-is-my-dream": "¿Qué es MyDream?",
+      "short-explanation-description-part": "MyDream es una app que te ayuda a registrar, analizar e interpretar tus sueños con tecnología de IA.",
+      "quality-of-sleep": "Calidad del sueño",
+      "before": "ANTES",
+      "with-app": "CON MYDREAM"
     }
   },
   "home": {

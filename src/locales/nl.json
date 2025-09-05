@@ -37,6 +37,15 @@
       "Have lucid dreams": "Helder dromen ervaren",
       "Get to know myself better": "Mezelf beter leren kennen",
       "Find the patterns": "Patronen ontdekken"
+    },
+    "new-screens": {
+      "help-us-grow": "Help ons groeien!",
+      "grow-description": "Wees een van de eersten die ons beoordeelt!",
+      "what-is-my-dream": "Wat is MyDream?",
+      "short-explanation-description-part": "MyDream is een app die je met AI helpt je dromen vast te leggen, te analyseren en te interpreteren.",
+      "quality-of-sleep": "Slaapkwaliteit",
+      "before": "VOOR",
+      "with-app": "MET MYDREAM"
     }
   },
   "home": {

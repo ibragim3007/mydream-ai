@@ -37,6 +37,15 @@
       "Have lucid dreams": "Have lucid dreams",
       "Get to know myself better": "Get to know myself better",
       "Find the patterns": "Find the patterns"
+    },
+    "new-screens": {
+      "help-us-grow": "Help us grow!",
+      "grow-description": "Be one of the first to rate us!",
+      "what-is-my-dream": "What is MyDream?",
+      "short-explanation-description-part": "MyDream is an app that helps you record, analyze, and interpret your dreams using AI technology.",
+      "quality-of-sleep": "Quality of Sleep",
+      "before": "BEFORE",
+      "with-app": "WITH MYDREAM"
     }
   },
   "home": {

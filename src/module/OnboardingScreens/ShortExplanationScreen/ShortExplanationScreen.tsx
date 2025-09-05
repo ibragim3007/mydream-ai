@@ -21,16 +21,12 @@ export default function ShortExplanationScreen({ onPressButton }: ShortExplanati
       <Grid justfity="space-between" height="100%">
         <Grid space="md" paddingVertical={20}>
           <Typography variant="largeTitle" weight="extra-bold">
-            What is MyDream?
+            {t('onboarding.new-screens.what-is-my-dream')}
           </Typography>
           <Grid row space="sm">
             <TextLine />
             <Grid>
-              <Typography>
-                MyDream is an app that helps you{'\n'}
-                <Typography weight="bold">record, analyze, and interpret your dreams{'\n'}</Typography>
-                using AI technology.
-              </Typography>
+              <Typography>{t('onboarding.new-screens.short-explanation-description-part')}</Typography>
             </Grid>
           </Grid>
           <Grid marginTop={50}>

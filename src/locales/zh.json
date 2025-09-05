@@ -37,6 +37,15 @@
       "Have lucid dreams": "体验清醒梦",
       "Get to know myself better": "更好地了解自己",
       "Find the patterns": "发现模式"
+    },
+    "new-screens": {
+      "help-us-grow": "帮助我们成长！",
+      "grow-description": "成为首批为我们评分的人！",
+      "what-is-my-dream": "什么是 MyDream？",
+      "short-explanation-description-part": "MyDream 是一款利用人工智能技术帮助你记录、分析并解读梦境的应用。",
+      "quality-of-sleep": "睡眠质量",
+      "before": "之前",
+      "with-app": "使用 MYDREAM"
     }
   },
   "home": {

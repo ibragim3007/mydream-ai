@@ -37,6 +37,15 @@
       "Have lucid dreams": "जाग्रत स्वप्न देखना",
       "Get to know myself better": "खुद को बेहतर जानना",
       "Find the patterns": "नमूनों को खोजें"
+    },
+    "new-screens": {
+      "help-us-grow": "हमें बढ़ने में मदद करें!",
+      "grow-description": "हमें रेट करने वालों में पहले बनें!",
+      "what-is-my-dream": "MyDream क्या है?",
+      "short-explanation-description-part": "MyDream एक ऐप है जो एआई तकनीक की मदद से आपके सपनों को रिकॉर्ड, विश्लेषित और व्याख्या करने में मदद करता है।",
+      "quality-of-sleep": "नींद की गुणवत्ता",
+      "before": "पहले",
+      "with-app": "MYDREAM के साथ"
     }
   },
   "home": {

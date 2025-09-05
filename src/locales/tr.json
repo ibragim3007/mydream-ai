@@ -37,6 +37,15 @@
       "Have lucid dreams": "Berrak rüyalar görme",
       "Get to know myself better": "Kendimi daha iyi tanıma",
       "Find the patterns": "Desenleri bulma"
+    },
+    "new-screens": {
+      "help-us-grow": "Büyümemize yardımcı olun!",
+      "grow-description": "Bizi değerlendirenlerin ilklerinden olun!",
+      "what-is-my-dream": "MyDream nedir?",
+      "short-explanation-description-part": "MyDream, yapay zekâ teknolojisiyle rüyalarını kaydetmene, analiz etmene ve yorumlamana yardımcı olan bir uygulamadır.",
+      "quality-of-sleep": "Uyku kalitesi",
+      "before": "ÖNCE",
+      "with-app": "MYDREAM İLE"
     }
   },
   "home": {

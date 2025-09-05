@@ -13,6 +13,7 @@ import {
   ProgrevScreen,
   WelcomeScreen,
 } from '@/module/OnboardingScreens';
+import HelpUsScreen from '@/module/OnboardingScreens/HelpUsScreen/HelpUsScreen';
 import ShortExplanationScreen from '@/module/OnboardingScreens/ShortExplanationScreen/ShortExplanationScreen';
 import ZodiacSignScreen from '@/module/OnboardingScreens/ZodiacSign/ZodiacSignScreen';
 import { useVibration } from '@/shared/hooks/useVibration';
@@ -111,6 +112,8 @@ export default function OnboardingPage() {
           />
         );
       case 5:
+        return <HelpUsScreen onPressContinue={goNextPage} />;
+      case 6:
         return (
           <ZodiacSignScreen
             zodiacSignComponent={<ZodiacSignPicker onChange={onPressUpdateZodiacSign} value={zodiacSign} />}
@@ -118,7 +121,7 @@ export default function OnboardingPage() {
             goPrevPage={goPrevPage}
           />
         );
-      case 6:
+      case 7:
         return (
           <GoalsScreen
             goalsPickerComponent={<GoalsPicker onChange={updateGoals} value={goals} />}
@@ -126,14 +129,14 @@ export default function OnboardingPage() {
             goPrevPage={goPrevPage}
           />
         );
-      case 7:
+      case 8:
         return <ProgrevScreen onFinishAnimation={redirectToHomeScreen} />;
       default:
     }
   };
 
   // there are pages indexed 0..11 (12 pages total), keep this in sync with renderPage cases
-  const PAGES_COUNT = 8;
+  const PAGES_COUNT = 9;
 
   return (
     <PageWrapper>

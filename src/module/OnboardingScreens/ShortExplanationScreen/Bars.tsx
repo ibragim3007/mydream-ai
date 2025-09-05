@@ -2,6 +2,7 @@ import Grid from '@/shared/ui/grid/Grid';
 import Typography from '@/shared/ui/typography/Typography';
 import { useTheme } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useTranslation } from 'react-i18next';
 import { LayoutChangeEvent, StyleSheet, View } from 'react-native';
 import Animated, { Easing, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 
@@ -9,6 +10,7 @@ const DURATION = 1200;
 const DELAY = 400;
 
 export default function Bars() {
+  const { t } = useTranslation();
   const maxHeight = useSharedValue(0);
   const { colors } = useTheme();
   const progress = useSharedValue(0);
@@ -43,13 +45,13 @@ export default function Bars() {
           }}
           weight="bold"
         >
-          Quality of Sleep
+          {t('onboarding.new-screens.quality-of-sleep')}
         </Typography>
 
         {/* Left static small bar (white) */}
         <Grid style={styles.leftBar} />
         <Typography color="secondary" variant="footnote" weight="bold" style={styles.leftBarText}>
-          BEFORE
+          {t('onboarding.new-screens.before')}
         </Typography>
 
         {/* Right animated gradient bar — grows from bottom */}
@@ -62,7 +64,7 @@ export default function Bars() {
           />
         </Animated.View>
         <Typography variant="footnote" color="primary" weight="bold" style={styles.rightBarText}>
-          WITH MYDREAM
+          {t('onboarding.new-screens.with-app')}
         </Typography>
       </View>
     );

@@ -37,6 +37,15 @@
       "Have lucid dreams": "Faire des rêves lucides",
       "Get to know myself better": "Mieux me connaître",
       "Find the patterns": "Trouver des motifs"
+    },
+    "new-screens": {
+      "help-us-grow": "Aidez-nous à grandir !",
+      "grow-description": "Soyez parmi les premiers à nous noter !",
+      "what-is-my-dream": "Qu’est-ce que MyDream ?",
+      "short-explanation-description-part": "MyDream est une application qui vous aide, grâce à l’IA, à enregistrer, analyser et interpréter vos rêves.",
+      "quality-of-sleep": "Qualité du sommeil",
+      "before": "AVANT",
+      "with-app": "AVEC MYDREAM"
     }
   },
   "home": {
